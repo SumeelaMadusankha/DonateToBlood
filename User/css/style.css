@@ -32,7 +32,14 @@ import Files
      font-style: normal;
 }
 
-
+.h-custom {
+  height: calc(100% - 73px);
+}
+@media (max-width: 450px) {
+  .h-custom {
+    height: 100%;
+  }
+}
 /*--------------------------------------------------------------------- 
 basic 
 ---------------------------------------------------------------------*/
@@ -279,26 +286,29 @@ button {
      flex-wrap: wrap;
 }
 
-.read_more {
+.register_btn {
      font-size: 17px;
-     background-color: #05254d;
-     color: #fff;
-    
-     width: 100%;
-     max-width: 275px;
+     background-color: #f3e1e4;
+     color: rgb(20, 5, 5);
+     align-items: flex-start;
+     border: 2px solid rgb(12, 7, 7);
+    margin-left: 5%;
+    width: 30%;
+   
      text-align: center;
-     display: inline-block;
-     transition: ease-in all 0.5s;
-     font-weight: bold;
-     height: 75px;
+     padding: 10px; ;
+     transition:all .75s;
+     font-weight: 900;
+     border-radius: 50px;
      text-transform: uppercase;
-     line-height: 75px;
+     
 }
 
-.read_more:hover {
-     background: #ed1c24;
+.register_btn:hover {
+     background:  rgb(150, 8, 8);
      color: #fff;
-     transition: ease-in all 0.5s;
+     transition: all .75s;
+     box-shadow: #0d0e0e;
 }
 
 .text_align_left {
@@ -317,36 +327,36 @@ button {
 /*-- header --*/
 
 .header-area  {
+   
+    
      padding: 30px 16px;
      color: #f1f1f1;
      width: 100%;
-     z-index: -1;
      height: 87px;
-     background:#ed242e;
+     background:linear-gradient(#420207,#e20505) !important;
+   
+    
+   
+    
 }
-
-
-.logo_sm {display: none;}
-
-
-
-.logo_midle {color: #fef6fc; font-weight: bold; color: #fff !important;}
-.logo_midle::before {
+body-div{
     position: absolute;
-    content: "";
-    bottom: -93px;
-    width: 158px;
-    height: 96px;
-    background: url(../images/logo.png);
-    z-index: 999;
-    margin: 0 auto;
-    left: 0;
-    right: 26px;
+   z-index: -1
 }
+
+
+
+
+
+
 .site-navbar {
-    display: flex;
+   display: flex;
     justify-content: space-between;
     align-items: center;
+    
+  
+  
+
 }
 
 .site-navbar ul {
@@ -355,7 +365,12 @@ button {
     list-style: none;
     display: flex;
 }
-
+.site-navbar .login-div {
+  margin-right: 0%;
+}
+.login-div{
+  
+}
 .site-navbar ul li a {
     color: #fef6fc;
     font-size: 17px;
@@ -373,7 +388,7 @@ button {
 }
 
 .site-navbar ul li a:hover {
-    color: #00132b;
+    color: #0c0707;
 }
 .site-navbar ul li a.active {
     color: #00132b;
@@ -490,14 +505,14 @@ button {
 
 .full_bg {
      /*background: url(../images/R.gif);*/
-     background:linear-gradient(180deg, rgba(240,11,30,0.08957584498643212) 0%, rgba(152,6,6,1) 91%), url(../images/cover.jpg);
+     background:linear-gradient(180deg, rgba(66,2,7,0.29485297536983546) 5%, rgba(226,5,5,1) 97%), url(../images/cover.jpg);
      background-size: cover;
      background-position: center;
      background-repeat: no-repeat;
      height: 100vh;
     padding-bottom: 150px;
      position: relative;
-     
+  
 }
 
 .full_bg .carousel-indicators {
@@ -547,7 +562,7 @@ button {
      text-align: left;
 }
 
-.photog .read_more:focus {
+.photog .register_btn:focus {
      box-shadow: none;
 }
 
@@ -563,7 +578,7 @@ button {
 }
 
 
-.photog .read_more {
+.photog .register_btn {
     margin-right: 15px;
     font-weight: normal;
     background:#fff;
@@ -574,7 +589,7 @@ button {
 }
 
 
-.photog .read_more:hover {background: #ed1c24; color: #fff;}
+.photog .register_btn:hover {background: #ed1c24; color: #fff;}
 .slider_main .carousel-item {
      height: 100%;
      width: 100%;
@@ -590,6 +605,7 @@ button {
      opacity: 1;
      top: 50%;
      border-radius: 50%;
+  
     
 }
 
@@ -741,7 +757,7 @@ button {
      color: #081419;
      font-weight:normal;
 }
-.protect .read_more {
+.protect .register_btn {
     margin: 0 auto;
     display: block;
     max-width: 174px;
@@ -820,7 +836,7 @@ button {
 
 .latest figure {margin: 0;}
 
-.latest .read_more {
+.latest .register_btn {
     margin: 0 auto;
     display: block;
     position: absolute;
@@ -1216,3 +1232,49 @@ padding-bottom: 40px;}
     padding-top: 145px;
     padding-bottom: 80px;
 }
+
+
+
+/* registration button */
+@import url('https://fonts.googleapis.com/css?family=Lato:100&display=swap');
+.center_btn {
+    width: 180px;
+    height: 60px;
+    position: absolute;
+  }
+  
+  .btn {
+    width: 180px;
+    height: 60px;
+    cursor: pointer;
+    background: transparent;
+    border: 1px solid #91C9FF;
+    outline: none;
+    transition: 1s ease-in-out;
+  }
+  
+  svg {
+    position: absolute;
+    left: 0;
+    top: 0;
+    fill: none;
+    stroke: #fff;
+    stroke-dasharray: 150 480;
+    stroke-dashoffset: 150;
+    transition: 1s ease-in-out;
+  }
+  
+  .btn:hover {
+    transition: 1s ease-in-out;
+    background: #4F95DA;
+  }
+  
+  .btn:hover svg {
+    stroke-dashoffset: -480;
+  }
+  
+  .btn span {
+    color: white;
+    font-size: 18px;
+    font-weight: 100;
+  }
