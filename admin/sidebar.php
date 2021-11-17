@@ -10,16 +10,16 @@
                         <a href="BloodRequests.php"><i class="fa fa-desktop"></i> Blood Requests</a>
                     </li>
 					<li>
-                        <a href="blogs.php"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                        <a href="Donation-Camp-Requests.php"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="wite-a-blog.php"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a href="Shoratage.php"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="index.php"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a class="active-menu" href="Register-Donor.php"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
-                        <a href="blog-category.php"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                        <a href="Update-Donor.php"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
 
 
