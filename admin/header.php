@@ -3,6 +3,13 @@
 <nav class="navbar navbar-inverse">
   <div class="container-fluid" style="background-color: #09192A;">
     <div class="navbar-header">
+<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".sidebar-collapse">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+
+        </button>
       <a class="navbar-brand" style="  background-color: red;
   box-shadow: 0 5px 0 darkred;
   color: white;
