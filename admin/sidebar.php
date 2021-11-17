@@ -13,7 +13,7 @@
                         <a href="blogs.php"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="write-a-blog.php"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a href="wite-a-blog.php"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
                         <a class="active-menu" href="index.php"><i class="fa fa-dashboard"></i> Register Donor</a>
