@@ -1,6 +1,6 @@
 body{
  
-  background:linear-gradient(180deg, rgba(66,2,7,0.29) 5%, rgba(226,5,5,0.5) 97%), url('../images/bg.jpeg');
+  background:linear-gradient(180deg, rgba(66,2,7,0.29) 5%, rgba(226,5,5,0.5) 97%), url('../images/bgImage.jpeg');
   background-repeat: no-repeat;
   background-attachment: fixed; 
   background-size: 100% 100%;
@@ -37,7 +37,7 @@ body{
     opacity: 0.8;
   width: 100%;
   padding: 40px 30px 50px 30px;
-  background: #12192c;
+  background: #686b74;
   border-radius: 5px;
   text-align: center;
   box-shadow: 0 4px 8px 0 rgba(245, 239, 239, 0.2), 0 6px 20px 0 rgba(245, 239, 239, 0.19);
