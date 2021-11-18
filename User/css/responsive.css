@@ -74,6 +74,8 @@ File Name: responsive.css
      .left, .right {display: none;}
      .logo_sm {
     display: inherit;
+    position: fixed;
+    z-index: 1;
 } 
     .full_bg {
         height: 100%;
@@ -83,7 +85,7 @@ File Name: responsive.css
     position: absolute;
     content: "";
     top: 20px;
-    background: url(../images/logo1.png);
+   
     width: 158px;
     height: 122px;
     z-index: 999;
@@ -263,6 +265,7 @@ line-height: 30px;
      /* navbar css for mobile start */
     .navbar-area {
         margin-top: -16px;
+       
     }
     .nav-toggler {
         display: block;

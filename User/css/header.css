@@ -1,0 +1,124 @@
+
+.header-area  {
+   opacity: 0.8;
+    padding: 30px 16px;
+    color: #f1f1f1;
+    width: 100%;
+    height: 87px;
+    background:linear-gradient(#250104,#e20505) !important;
+   position: fixed;
+   z-index: 1;
+   top: 0px;
+}
+
+
+
+
+
+
+
+.site-navbar {
+  display: flex;
+   justify-content: space-between;
+   align-items: center;
+   
+ 
+ 
+
+}
+
+.site-navbar ul {
+   margin: 0;
+   padding: 0;
+   list-style: none;
+   display: flex;
+}
+.site-navbar .login-div {
+ margin-right: 0%;
+}
+
+.site-navbar ul li a {
+   color: #fef6fc;
+   font-size: 17px;
+   display: block;
+   text-decoration: none;
+   text-transform: uppercase;
+}
+
+.site-navbar ul li {
+   padding-right: 70px;
+}
+
+.site-navbar ul li:last-child {
+   padding-right: 0;
+}
+
+.site-navbar ul li a:hover {
+   color: #0c0707;
+}
+.site-navbar ul li a.active {
+   color: #00132b;
+}
+
+/* navbar regular css end */
+
+
+/* nav-toggler css start */
+
+.nav-toggler {
+   border: 3px solid #fff;
+   padding: 5px;
+   background-color: transparent;
+   cursor: pointer;
+   height: 39px;
+   display: none;
+   z-index: 99999;
+}
+
+.nav-toggler span,
+.nav-toggler span:before,
+.nav-toggler span:after {
+   width: 28px;
+   height: 3px;
+   background-color: #fff;
+   display: block;
+   transition: .3s;
+}
+
+.nav-toggler span:before {
+   content: '';
+   transform: translateY(-9px);
+}
+
+.nav-toggler span:after {
+   content: '';
+   transform: translateY(6px);
+}
+
+.nav-toggler.toggler-open span {
+   background-color: transparent;
+}
+
+.nav-toggler.toggler-open span:before {
+   transform: translateY(0px) rotate(45deg);
+}
+
+.nav-toggler.toggler-open span:after {
+   transform: translateY(-3px) rotate(-45deg);
+}
+
+
+/* nav-toggler css start */
+
+
+/* intro-area css start */
+
+.intro-area {
+   height: calc(100vh - 61px);
+   display: flex;
+   align-items: center;
+   text-align: center;
+   color: #fff;
+}
+
+
