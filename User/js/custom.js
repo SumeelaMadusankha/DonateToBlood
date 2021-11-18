@@ -3,9 +3,7 @@
 ---------------------------------------------------------------------*/
 
 $(function () {
-	
 	"use strict";
-	
 	/* Preloader
 	-- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- -- */
 	
@@ -81,7 +79,6 @@ function closeNav() {
   function doAnimations(elems) {
     //Cache the animationend event in a variable
     var animEndEv = "webkitAnimationEnd animationend";
-
     elems.each(function() {
       var $this = $(this),
         $animationType = $this.data("animation");

@@ -16,7 +16,7 @@
                         <a href="Shoratage.php"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="Register-Donor.php"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a href="Register-Donor.php"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
                         <a href="Update-Donor.php"><i class="fa fa-desktop"></i> Update Donate Details</a>
