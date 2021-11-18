@@ -22,9 +22,53 @@
     <?php include "header.php"; include "sidebar.php";?>
         <div id="page-wrapper">
             <div id="page-inner">
-                
+            <div class="table-responsive">
+                                <table class="table table-hover">
+                                  <thead>
+                                    <tr>
+                                      <th></th>
+                                      <th>Request</th>
+                                      <th>Confirm/Decline</th>                                   
+                                      <th>Request Status</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td>To get A positive Blood</td>
+                                  <td>
+                                  <button type="button" class="btn btn-success">Accept</button>
+                                  <button type="button" class="btn btn-danger">Decline</button>
+                                  </td>                     
+                                  <td><span class="label label-danger" style="font-size: 18px;display:block">declined</span></td>
+                               </tr>
+                               <tr>
+                                  <td>1</td>
+                                  <td>To get A positive Blood</td>
+                                  <td>
+                                  <button type="button" class="btn btn-success">Accept</button>
+                                  <button type="button" class="btn btn-danger">Decline</button>
+                                  </td>                     
+                                  <td><span class="label label-success" style="font-size: 18px;display:block">posted successfully</span></td>
+                               </tr>
+                               <tr>
+                                  <td>1</td>
+                                  <td>To get A positive Blood</td>
+                                  <td>
+                                  <button type="button" class="btn btn-success">Accept</button>
+                                  <button type="button" class="btn btn-danger">Decline</button>
+                                  </td>                     
+                                  <td><span class="label label-primary" style="font-size: 18px;display:block">in progress</span></td>
+                               </tr>
+                             
+                          </tbody>
+                      </table>
+                  </div>
+             </div>
 				<?php include "footer.php";?>
             </div>
+
+            
             <!-- /. PAGE INNER  -->
         </div>
         <!-- /. PAGE WRAPPER  -->
