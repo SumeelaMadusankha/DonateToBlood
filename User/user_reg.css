@@ -60,7 +60,7 @@ background: linear-gradient(180deg, rgba(10,9,9,0.11691942401960786) 5%, rgba(16
  }
 
 .form{
-    
+    font-weight: bold;
     width: 81%;
     font-size: 20px;
     border-style: solid;
@@ -158,12 +158,12 @@ input.valid.success-alert {
     border: 3px solid #4CAF50;
     color: green;
     border-radius: 8px;
-    font-weight: bold;
+    font-weight: 30px;
 }
 input.error, textarea.error {
    font-size: 110%;
     border: 1px dashed red;
-    font-weight: bold;
+    font-weight: 30px;
     color: red;
     border-radius: 14px;
 }
