@@ -59,10 +59,11 @@
       <div class="container">
         <div class="wrapper">
           <header>Sign Up Form</header>
-          <form action="#">
+          
+          <form action="../DonateToBlood/signUp" method="post">
             <div class="field email">
               <div class="input-area">
-                <input type="text" placeholder="Enter NIC Here">
+                <input type="text"  placeholder="Enter NIC Here" name="nic">
                 <i class="icon fas fa-envelope"></i>
                 <i class="error error-icon fas fa-exclamation-circle"></i>
               </div>
@@ -70,7 +71,7 @@
             </div>
             <div class="field password">
               <div class="input-area">
-                <input type="password" placeholder="Enter Password Here">
+                <input type="password" name="password" placeholder="Enter Password Here">
                 <i class="icon fas fa-lock"></i>
                 <i class="error error-icon fas fa-exclamation-circle"></i>
               </div>
@@ -78,14 +79,14 @@
             </div>
             <div class="field rpassword">
                 <div class="input-area">
-                  <input type="password" placeholder="Re-enter Password Here">
+                  <input type="password" name="re-password" placeholder="Re-enter Password Here">
                   <i class="icon fas fa-lock"></i>
                   <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>
                 <div class="error error-txt">Password can't be blank</div>
               </div>
            
-            <input type="submit" value="Sign Up">
+            <input type="submit" name="signUp-btn" value="Sign Up">
           </form>
           <div class="sign-txt">Already have an account? <a href="#">Login Here</a></div>
         </div>

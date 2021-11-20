@@ -12,14 +12,14 @@ class Route{
 		if(file_exists($this->_routes[0])){
             //call _loadDefaultController()
 			$this->_loadDefaultController();
-			  
             return exit;
         }
-      
+		
 		if($this->_loadController()){
             $this->_loadcontrollermethod();
         }
 	}
+
     //
     protected function _getURL(){
 		//get url path and assign into $url

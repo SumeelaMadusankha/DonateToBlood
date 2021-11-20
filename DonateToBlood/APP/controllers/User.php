@@ -20,25 +20,48 @@ class User extends Controller{
            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
            if (isset($_POST["register_btn"])) {
               $dataArray=[
-                "fname"=>$this->testInput($_POST["fname"]),
-                "lname"=>$this->testInput($_POST["lname"]),
-                "age"=>$this->testInput($_POST["age"]),
-                "email"=>$this->testInput($_POST["email"]),
-                "mobnum"=>$this->testInput($_POST["nobnum"]),
+                "firstName"=>$this->testInput($_POST["fname"]),
+                "lastname"=>$this->testInput($_POST["lname"]),
                 "nic"=>$this->testInput($_POST["nic"]),
-                "gender"=>$this->testInput($_POST["gender"]),
-                "bday"=>$this->testInput($_POST["bday"]),
-                "cityfname"=>$this->testInput($_POST["city"]),
+                "dob"=>$this->testInput($_POST["bday"]),
+                "address"=>$this->testInput($_POST["address"]),
                 "district"=>$this->testInput($_POST["district"]),
-                "bloodtype"=>$this->testInput($_POST["bloodtype"]),
-
+                "gender"=>$this->testInput($_POST["gender"]),
+                "bloodGroup"=>$this->testInput($_POST["bloodtype"]),
+                "email"=>$this->testInput($_POST["email"]),
+                "mobileNo"=>$this->testInput($_POST["nobnum"]),
+                "jobType"=>$this->testInput("registeredUser"),
+                "city"=>$this->testInput($_POST["city"]),
+               
+               
+               
               ];
               if ((strlen($dataArray["nic"])==10  || strlen($dataArray["nic"])==12) && (filter_var(FILTER_VALIDATE_EMAIL,$dataArray["email"]))) {
-                $registerResult = $this->model->updateData($dataArray);
+                $registerResult = $this->model->userRegister($dataArray);
               }
               
            }
        }
+    }
+
+
+    public function signUp()
+    {
+      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if (isset($_POST["signUp-btn"])) {
+           $dataArray=[
+             "nic"=>$this->testInput($_POST["nic"]),
+             "password"=>$this->testInput($_POST["password"]),
+             "re-password"=>$this->testInput($_POST["re-password"]),
+           ];
+           
+           if ((strlen($dataArray["nic"])==10  || strlen($dataArray["nic"])==12) && (preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*W).*$#", $dataArray["password"] )) && (preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*W).*$#", $dataArray["re-password"])) && ($dataArray["password"]===$dataArray)) {
+            $this->view->render("user_reg");  
+           }
+           
+        }
+    }
     }
 
 }

@@ -17,11 +17,11 @@ class Database extends PDO{
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);   
     }
     //Create runquery function when call model  classes  
-    public function numberofrows($query){
+    public function numberofrows($query,$dataInject){
         //prepare the query
         $stmt = $this->prepare($query); 
         //excute the query 
-        $stmt->execute();
+        $stmt->execute($dataInject);
         //assign the $result variable and  return value 
         $result = $stmt->fetchAll(\PDO::FETCH_ASSOC);   
         return reset($result);
