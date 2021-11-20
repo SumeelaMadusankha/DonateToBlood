@@ -85,21 +85,21 @@
       }
       </style>
     <!-- Responsive-->
-    <link rel="stylesheet" href="css/responsive.css">
+    <link rel="stylesheet" href="../../Public/css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="images/fevicon.png" type="image/gif" />
+    <link rel="icon" href="../../Public/images/fevicon.png" type="image/gif" />
     <!-- fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <!-- Scrollbar Custom CSS -->
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-     <link rel="stylesheet" href="css/owl.carousel.min.css"> 
+     <link rel="stylesheet" href="../../Public/css/owl.carousel.min.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-    <link rel="stylesheet" href="css/header.css">
+    <link rel="stylesheet" href="../../Public/css/header.css">
    
-    <link rel="stylesheet" href="css/whereToDonate.css">
+    <link rel="stylesheet" href="../../Public/css/whereToDonate.css">
     <!-- ---------------------------------------- -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -208,7 +208,7 @@
                       <div class="card-flyer">
                           <div class="text-box">
                               <div class="image-box">
-                                <img src="../User/images/test1.jpg" alt="" />
+                                <img src="../../Public/images/test1.jpg" alt="" />
                               </div>
                               <div class="text-container">
                                   <h6>BLOOD GROUP AB+</h6>
@@ -243,7 +243,7 @@
                       <div class="card-flyer">
                           <div class="text-box">
                               <div class="image-box">
-                                <img src="../User/images/test1.jpg" alt="" />
+                                <img src="../../Public/images/test1.jpg" alt="" />
                               </div>
                               <div class="text-container">                                    
                                   <h6>Title 02</h6>
@@ -258,7 +258,7 @@
                       <div class="card-flyer">
                           <div class="text-box">
                               <div class="image-box">
-                                  <img src="../User/images/test1.jpg" alt="" />
+                                  <img src="../../Public/images/test1.jpg" alt="" />
                               </div>
 
                               <div class="text-container">
@@ -274,7 +274,7 @@
                       <div class="card-flyer">
                           <div class="text-box">
                               <div class="image-box">
-                                <img src="../User/images/test1.jpg" alt="" />
+                                <img src="../../Public/images/test1.jpg" alt="" />
                               </div>
                               <div class="text-container">
                                   <h6>Title 04</h6>
@@ -308,7 +308,7 @@
                     <div class="card-flyer">
                         <div class="text-box">
                             <div class="image-box">
-                              <img src="../User/images/test1.jpg" alt="" />
+                              <img src="../../Public/images/test1.jpg" alt="" />
                             </div>
                             <div class="text-container">                                    
                                 <h6>Title 02</h6>
@@ -323,7 +323,7 @@
                     <div class="card-flyer">
                         <div class="text-box">
                             <div class="image-box">
-                                <img src="../User/images/test1.jpg" alt="" />
+                                <img src="../../Publicr/images/test1.jpg" alt="" />
                             </div>
 
                             <div class="text-container">
@@ -339,7 +339,7 @@
                     <div class="card-flyer">
                         <div class="text-box">
                             <div class="image-box">
-                              <img src="../User/images/test1.jpg" alt="" />
+                              <img src="../../Public/images/test1.jpg" alt="" />
                             </div>
                             <div class="text-container">
                                 <h6>Title 04</h6>
