@@ -7,6 +7,7 @@ $(document).ready(function() {
           required: true
           
         },
+
         lname: {
           required: true
         },
@@ -20,8 +21,20 @@ $(document).ready(function() {
         },
         mobnum: {
             required: true,
-            number: true
+            phoneUS: true
           },
+        bday: {
+            required: true,
+            date: true
+          },
+        nic: {
+            required:function(){
+               
+                return $("#nic").length > 4
+              }
+            
+            
+          }
         
       },
       messages : {
@@ -36,6 +49,11 @@ $(document).ready(function() {
         email: {
           email: "The email should be in the format: abc@gmail.com"
         },
+        bday: {
+          required: "Please enter your birth day",
+          date: "Please enter valid date",
+         
+        }
         
       }
     });
