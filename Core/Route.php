@@ -6,6 +6,7 @@ class Route{
     
     function __construct()
 	{
+		
 		//call the _getURL()  
 		$this->_getURL();
 		// if check router path only have  $_routes[0]
@@ -22,6 +23,7 @@ class Route{
 
     //
     protected function _getURL(){
+		
 		//get url path and assign into $url
 		$url  = isset($_GET['url'])? $_GET['url']: null;
 		//remove '/' in last url path if it is have
@@ -34,14 +36,17 @@ class Route{
 	private function _loadController(){
 		//get the require path file into file variable
 		$file = 'APP/controllers/'.$this->_routes[0].'.php';
+		
 		//if already have
 		if(file_exists($file)){
 			//require the file
 			require $file;
 			//assign into  
+			
 			$this->_params = new $this->_routes[0];
 			//load the model in each controller
 			$this->_params->loadModel($this->_routes[0]);
+			
 			return true;
 		}
 		else{
@@ -54,10 +59,11 @@ class Route{
     //Create the loadDefaultController() function for load default page(home page)
     private function _loadDefaultController(){
 		//require the file 
-		require 'APP/controllers/index.php';
+		require 'APP/controllers/Index.php';
 		// Create the object
 		$this->_params = new Index();
 		// Call thw function
+		
         $this->_params->index();
 	}
     //Create the loadcontrllermethod function loading method one by one 

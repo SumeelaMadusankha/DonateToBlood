@@ -5,23 +5,23 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../../Public/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../Public/css/bootstrap.min.css">
       <!-- style css -->
       
       <!-- Responsive-->
-      <link rel="stylesheet" href="../../Public/css/responsive.css">
+      <link rel="stylesheet" href="../Public/css/responsive.css">
       <!-- fevicon -->
-      <link rel="icon" href="../../Public/images/fevicon.png" type="image/gif" />
+      <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
       <!-- fonts-->
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-       <link rel="stylesheet" href="../../Public/css/owl.carousel.min.css"> 
+       <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-      <link rel="stylesheet" href="../../Public/css/header.css">
-      <link rel="stylesheet" href="../../Public/css/login.css">
+      <link rel="stylesheet" href="../Public/css/header.css">
+      <link rel="stylesheet" href="../Public/css/login.css">
 </head>
 <body>
     <header class="header-area">
@@ -59,16 +59,16 @@
       <div class="container">
         <div class="wrapper">
           <header>Sign Up Form</header>
-          
-          <form action="../DonateToBlood/signUp" method="post">
-            <div class="field email">
+        <form action = "../User/signUp" method = "post">
+              
+          <div class="field email">
               <div class="input-area">
                 <input type="text"  placeholder="Enter NIC Here" name="nic">
                 <i class="icon fas fa-envelope"></i>
                 <i class="error error-icon fas fa-exclamation-circle"></i>
               </div>
               <div class="error error-txt">Email can't be blank</div>
-            </div>
+          </div>
             <div class="field password">
               <div class="input-area">
                 <input type="password" name="password" placeholder="Enter Password Here">
@@ -84,20 +84,22 @@
                   <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>
                 <div class="error error-txt">Password can't be blank</div>
-              </div>
-           
-            <input type="submit" name="signUp-btn" value="Sign Up">
-          </form>
+            </div>
+                
+            <input type = "submit" name = "submit" onclick="return submitForm()"  value = "Sign Up">
+      </form>
+          
           <div class="sign-txt">Already have an account? <a href="#">Login Here</a></div>
         </div>
          
         </div>
-        <script src="../../Public/js/signup.js"></script>
-        <script src="js/jquery.min.js"></script>
-        <script src="js/bootstrap.bundle.min.js"></script>
+        <!-- <script src="../Public/js/signup.js"></script>
+        <script src="../Public/js/jquery.min.js"></script>
+        <script src="../Public/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-        <script src="js/owl.carousel.min.js"></script>
-        <script src="js/custom.js"></script>
+        <script src="../Public/js/owl.carousel.min.js"></script>
+        <script src="../Public/js/custom.js"></script> -->
+        
      </div>
 </body>
 </html>

@@ -53,13 +53,14 @@
                      <div class="navbar-area">
                         <nav class="site-navbar">
                            <ul>
-                              <li><a class="active" href="index.html">Home</a></li>
+                              <li><a class="active" href="index">Home</a></li>
                               <li><a href="about.html">Request Camp</a></li>
                               <li><a href="action.html">Request Blood</a></li>
                              
                               <li><a href="news.html">Where to Donate</a></li> 
                               <li><a href="contact.html">Blood adverticement </a></li>
-                              <div class="login-div"><li><a href="contact.html">LOGIN</a></li></div>
+                              <li><a href="contact.html">Login </a></li>
+                              <li><a href="User/index">Register </a></li>
                            </ul>
                            <button class="nav-toggler">
                            <span></span>

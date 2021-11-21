@@ -2,7 +2,7 @@
 class Controller{
 	protected $view;
 	function __construct(){
-		$this->view= new view();
+		$this->view = new View();
 	}
 	//Create the loadModel function for load the model  
 	public function loadModel($modelName){

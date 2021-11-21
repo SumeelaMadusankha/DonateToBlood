@@ -16,14 +16,15 @@
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       Scrollbar Custom CSS -->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-       <link rel="stylesheet" href="../../Public/css/owl.carousel.min.css"> 
+       <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-      <link rel="stylesheet" href="../../Public/css/header.css">
+      <link rel="stylesheet" href="../Public/css/header.css">
+      <link rel="stylesheet" href="../Public/css/user_reg.css">
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-      <script src="../../Public/js/user_reg.js"></script>
+      <script src="../Public/js/user_reg.js"></script>
 
 
 
@@ -67,7 +68,7 @@
     <div class="form" >
 
         
-            <form action="../DonateToBlood/" id="reg_form">
+            <form action="../User/register" method="POST" id="reg_form">
                <h1 class="topic" >User Registation</h1>
 
             <div class="container" >
@@ -115,7 +116,7 @@
                 <input type="date" placeholder="Birth Day" name="bday" id="bday" ><br>
     
                 <label for="city"><b>City</b></label><br>
-                <input type="text" placeholder="City" name="bday" id="bday" ><br>
+                <input type="text" placeholder="City" name="city" id="city" ><br>
                 </div>
                 
     
@@ -147,8 +148,8 @@
 
             </div>    
             
-            
-            <button type="submit" class="registerbtn">Register</button>
+            <input type="submit" value="Register" class="registerbtn" name="register_btn">
+           
             
             
 

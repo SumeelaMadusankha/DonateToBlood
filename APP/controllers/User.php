@@ -10,9 +10,10 @@ class User extends Controller{
     private $address;
     private $dateOfBirth;
     private $gender;
-    function __construct()
+    
+    public function index()
     {
-        parent::__construct();
+      $this->view->render('signUp');
     }
      public function register()
     {
@@ -21,23 +22,27 @@ class User extends Controller{
            if (isset($_POST["register_btn"])) {
               $dataArray=[
                 "firstName"=>$this->testInput($_POST["fname"]),
-                "lastname"=>$this->testInput($_POST["lname"]),
+                "lastName"=>$this->testInput($_POST["lname"]),
                 "nic"=>$this->testInput($_POST["nic"]),
                 "dob"=>$this->testInput($_POST["bday"]),
                 "address"=>$this->testInput($_POST["address"]),
-                "district"=>$this->testInput($_POST["district"]),
+                "district"=>$this->testInput($_POST["districts"]),
                 "gender"=>$this->testInput($_POST["gender"]),
-                "bloodGroup"=>$this->testInput($_POST["bloodtype"]),
+                "bloodGroup"=>$this->testInput($_POST["blood"]),
                 "email"=>$this->testInput($_POST["email"]),
-                "mobileNo"=>$this->testInput($_POST["nobnum"]),
+                "mobileNo"=>$this->testInput($_POST["mobnum"]),
                 "jobType"=>$this->testInput("registeredUser"),
                 "city"=>$this->testInput($_POST["city"]),
                
                
                
               ];
-              if ((strlen($dataArray["nic"])==10  || strlen($dataArray["nic"])==12) && (filter_var(FILTER_VALIDATE_EMAIL,$dataArray["email"]))) {
+              
+              if ((strlen($dataArray["nic"])==10  || strlen($dataArray["nic"])==12) && (filter_var($dataArray["email"],FILTER_VALIDATE_EMAIL))) {
                 $registerResult = $this->model->userRegister($dataArray);
+                if (empty($registerResult)) {
+                  $this->view->render("login");
+                }
               }
               
            }
@@ -47,17 +52,28 @@ class User extends Controller{
 
     public function signUp()
     {
-      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+    
+   
+      if ($_SERVER["REQUEST_METHOD"] === "POST") {
+        
         $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-        if (isset($_POST["signUp-btn"])) {
+        if (isset($_POST["submit"])) {
+         
            $dataArray=[
              "nic"=>$this->testInput($_POST["nic"]),
              "password"=>$this->testInput($_POST["password"]),
              "re-password"=>$this->testInput($_POST["re-password"]),
            ];
            
-           if ((strlen($dataArray["nic"])==10  || strlen($dataArray["nic"])==12) && (preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*W).*$#", $dataArray["password"] )) && (preg_match("#.*^(?=.{8,20})(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*W).*$#", $dataArray["re-password"])) && ($dataArray["password"]===$dataArray)) {
+           
+           
+           if ( $dataArray["password"]===$dataArray["re-password"]) {
+             session_start();
+             $_SESSION["password"] = $dataArray["password"];
             $this->view->render("user_reg");  
+           }
+           else{
+             print_r("Sumeela");
            }
            
         }

@@ -1,6 +1,6 @@
 
 RewriteEngine on
-RewriteBase /donate_to_heal/
+RewriteBase /DonateToBlood/
 
 RewriteCond %{REQEST_FILENAME} !-d
 RewriteCond %{REQEST_FILENAME} !-f
