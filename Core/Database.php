@@ -9,11 +9,11 @@ class Database extends PDO{
         parent::__construct($DB_TYPE . ':host=' . $DB_HOST . ';dbname=' . $DB_NAME, $DB_USER, $DB_PASSWORD);
     }
     //Create runquery function when call model  classes
-    public function runquery($query){
+    public function runquery($query,$details){
         //prepare the query
         $stmt = $this->prepare($query);
         //excute the query 
-        $stmt->execute();
+        $stmt->execute($details);
         //return  the value 
         return $stmt->fetchAll(\PDO::FETCH_ASSOC);   
     }
