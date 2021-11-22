@@ -20,9 +20,9 @@
 
 <body>
     <div id="wrapper">
-    <?php include "bbc_header.php";?>
-     <!--/. NAV TOP  -->
- <nav class="navbar-default navbar-side" role="navigation">
+        <?php include "bbc_header.php"; ?>
+        <!--/. NAV TOP  -->
+        <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
@@ -32,7 +32,7 @@
                     <li>
                         <a href="viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
                     </li>
-					<li>
+                    <li>
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
@@ -104,7 +104,7 @@
                         </div>
                     </div>
                 </div>
-				<?php include "bbc_footer.php";?>
+                <?php include "bbc_footer.php"; ?>
             </div>
             <!-- /. PAGE INNER  -->
         </div>

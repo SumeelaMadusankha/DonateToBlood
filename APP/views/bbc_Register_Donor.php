@@ -67,31 +67,31 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form role="form" method="" action="BB_Coordinater/addDonor">
+                                        <form role="form" method="POST" action="../BB_Coordinater/addDonor">
                                             <div class="form-group">
                                                 <label>NIC Number</label>
-                                                <input class="form-control">
+                                                <input class="form-control" type="text" placeholder="National Identity Card" name="nic" id="nic">
                                             </div>
                                             <div class="form-group">
                                                 <label>First Name</label>
-                                                <input class="form-control">
+                                                <input class="form-control" type="text" placeholder="First Name" name="fname" id="fname" >
                                             </div>
                                             <div class="form-group">
                                                 <label>Last Name</label>
-                                                <input class="form-control">
+                                                <input class="form-control" type="text" placeholder="Last Name" name="lname" id="lname">
                                             </div>
  
                                             <div class="form-group">
                                                 <label>Date of Birth</label>
-                                                <input class="form-control">
+                                                <input class="form-control" type="date" placeholder="Birth Day" name="bday" id="bday">
                                             </div>
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input class="form-control">
+                                                <input class="form-control" name="address" id="address" placeholder="Address">
                                             </div>
                                             <div class="form-group">
                                                 <label>District</label>
-                                                <select class="form-control">
+                                                <select class="form-control" name="districts" id="districts">
                                                 <option>Matara</option>
                                                 <option>Galle</option>
                                                 <option>Colombo</option>
@@ -102,15 +102,15 @@
                                             <div class="form-group">
                                                 <label>Gender</label><br>
                                                 <label class="checkbox-inline">
-                                                    <input type="checkbox">Male
+                                                    <input type="checkbox" id="male" name="gender" value="male">Male
                                                 </label>
                                             <label class="checkbox-inline">
-                                                <input type="checkbox">Female
+                                                <input type="checkbox"  id="female" name="gender" value="female">Female
                                             </label>
                                             </div>
                                             <div class="form-group">
                                                 <label>Blood Group</label>
-                                                <select class="form-control">
+                                                <select class="form-control" name="blood" id="blood">
                                                 <option>O-</option>
                                                 <option>O+</option>
                                                 <option>B-</option>
@@ -125,21 +125,17 @@
  
                                             <div class="form-group">
                                                 <label>Email Address</label>
-                                                <input class="form-control">
+                                                <input class="form-control" type="text" placeholder="Email" name="email" id="email">
                                             </div>
                                             <div class="form-group">
                                                 <label>Mobile No</label>
-                                                <input class="form-control">
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Job Type</label>
-                                                <input class="form-control">
+                                                <input class="form-control" type="text" placeholder="Mobile Number" name="mobnum" id="mobnum">
                                             </div>
                                             <div class="form-group">
                                                 <label>City</label>
-                                                <input class="form-control">
+                                                <input class="form-control" type="text" placeholder="City" name="city" id="city">
                                             </div>
-                                            <button type="submit" class="btn btn-default">Add Donor</button>
+                                            <input type="submit" value="Add Donor" class="btn btn-default" name="register_btn" >
                                         </form>
                                     </div>
                                 </div>
