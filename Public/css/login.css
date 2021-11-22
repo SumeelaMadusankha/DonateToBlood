@@ -1,6 +1,6 @@
 body{
  
-  background:linear-gradient(180deg, rgba(66,2,7,0.29) 5%, rgba(226,5,5,0.5) 97%), url('../images/bgImage.jpeg');
+  background:linear-gradient(180deg, rgba(66,2,7,0.29) 5%, rgba(226,5,5,0.5) 97%), url('bgImage.jpeg');
   background-repeat: no-repeat;
   background-attachment: fixed; 
   background-size: 100% 100%;

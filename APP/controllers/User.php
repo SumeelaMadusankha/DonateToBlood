@@ -137,9 +137,11 @@ class User extends Controller{
 
             switch ($loginUser['jobtype']) {
               case 'registeredUser':
-                $this->view->render('index');
+                $this->view->render('userViewProfile',$loginUser);
                 break;
-              
+                case 'bloodBankCordinator':
+                  $this->view->render('bbc_index');
+                  break;
               default:
                 # code...
                 break;

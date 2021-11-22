@@ -48,6 +48,14 @@ class User_Model extends Model{
     		"lastName"=>"",
     		"nic"=>"",
     		"jobtype"=>"",
+            "dob"=>"",
+            "address"=>"",
+            "district"=>"",
+            "gender"=>"",
+            "bloodGroup"=>"",
+            "email"=>"",
+            "mobileNo"=>"",
+            "city"=>"",
     		"error"=>""
 
 
@@ -69,6 +77,16 @@ class User_Model extends Model{
                 $loginData["lastName"]=$rowData["lastName"];
                 $loginData["nic"]=$rowData["nic"];
                 $loginData["jobtype"]=$rowData["jobType"];
+                $loginData["dob"]=$rowData["dob"];
+                $loginData["address"]=$rowData["address"];
+                $loginData["district"]=$rowData["district"];
+                $loginData["gender"]=$rowData["jobType"];
+                $loginData["bloodGroup"]=$rowData["bloodGroup"];
+                $loginData["email"]=$rowData["email"];
+                $loginData["mobileNo"]=$rowData["mobileNo"];
+                $loginData["city"]=$rowData["city"];
+                
+
 
                 return $loginData;
                }
