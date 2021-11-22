@@ -70,7 +70,8 @@ class User extends Controller{
            if ( $dataArray["password"]===$dataArray["re-password"]) {
              session_start();
              $_SESSION["password"] = $dataArray["password"];
-            $this->view->render("user_reg");  
+             $this->view->data=$dataArray["nic"];
+            $this->view->render("user_reg",$this->view->data);  
            }
            else{
              print_r("Sumeela");

@@ -91,10 +91,12 @@
                 <input type="text" placeholder="Mobile Number" name="mobnum" id="mobnum" ><br>
     
                 <label for="nic"><b>NIC</b></label><br>
-                <input type="text" placeholder="National Identity Card" name="nic" id="nic" ><br>
+                <input type="text" placeholder="National Identity Card" name="nic" id="nic"  >
+                 <br>
 
                 <label for="address"><b>Address</b></label><br>
-                <textarea name="address" id="address" cols="553" rows="3"></textarea>
+                <textarea name="address" id="address" cols="553" rows="3" 
+                ></textarea>
                 
     
                 <div class="gender">
