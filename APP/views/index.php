@@ -55,7 +55,7 @@
                            <ul>
                               <li><a class="active" href="index">Home</a></li>
                               <li><a href="about.html">Request Camp</a></li>
-                              <li><a href="action.html">Request Blood</a></li>
+                              <li><a href="User/request">Request Blood</a></li>
                              
                               <li><a href="news.html">Where to Donate</a></li> 
                               <li><a href="contact.html">Blood adverticement </a></li>

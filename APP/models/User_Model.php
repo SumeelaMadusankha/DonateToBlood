@@ -65,6 +65,35 @@ class User_Model extends Model{
            }
        }
     }
+    public function requestBlood($dataArray)
+    {
+
+        $nic=$dataArray["nic"];
+        $bloodType=$dataArray["bloodType"];
+        $description=$dataArray["descript"];
+        $attachment=$dataArray["attach"];
+        $status=$dataArray["status"];
+        $fullName=$dataArray["fullName"];
+        $mobNum=$dataArray["contactNo"];
+        $dueDate=$dataArray["dueDate"];
+        $address=$dataArray["address"];
+
+        $quary1="INSERT INTO bloodrequest (nic, bloodType, description, attachment, requestedTime, status, fullName, mobNum, dueDate, address) VALUES (:nic,:bloodType,:descript,:attach,:status,:fullName,:contactNo,:dueDate,:address)";
+        
+        $dataArray1=[
+            ':nic'=>$nic,
+            ':bloodType'=>$bloodType,
+            ':descript'=>$description, 
+            ':attach'=>$attachment, 
+            ':status'=>$status, 
+            ':fullName'=>$fullName, 
+            ':contactNo'=>$mobNum, 
+            ':dueDate'=>$dueDate, 
+            ':address'=>$address, 
+        ];
+        $results3= $this->db->runQuery($quary1,$dataArray1);
+        return $results3;
+    }
 }
 ?>
 

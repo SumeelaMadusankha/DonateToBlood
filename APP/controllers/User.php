@@ -15,6 +15,11 @@ class User extends Controller{
     {
       $this->view->render('signUp');
     }
+
+    public function request()
+    {
+      $this->view->render('blood_request');
+    }
      public function register()
     {
        if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -79,6 +84,40 @@ class User extends Controller{
            
         }
     }
+    }
+
+
+    public function addRequest()
+    {
+       if ($_SERVER["REQUEST_METHOD"]=="POST") {
+           $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+           if (isset($_POST["sbmt_btn"])) {
+              $request_Array=[
+
+                "nic"=>$this->testInput($_POST["nic"]),
+                "fullName"=>$this->testInput($_POST["flname"]),
+                "bloodType"=>$this->testInput($_POST["blood"]),
+                "address"=>$this->testInput($_POST["address"]),
+                "contactNo"=>$this->testInput($_POST["num"]),
+                "descript"=>$this->testInput($_POST["description"]),
+                "attach"=>$this->testInput($_POST["att"]),
+                "dueDate"=>$this->testInput($_POST["duedate"]),
+                "status"=>$this->testInput("pending")
+               
+              ];
+              $bloodRequest = $this->model->requestBlood($request_Array);
+              print_r($bloodRequest);
+              if(empty($bloodRequest)){
+                $this->view->data="Data successfully added";
+                $this->view->render('blood_request',$this->view->data);
+              }
+              else{
+                $this->view->data="Invalid Data";
+                $this->view->render('blood_request',$this->view->data);
+              }
+              
+           }
+       }
     }
 
 }
