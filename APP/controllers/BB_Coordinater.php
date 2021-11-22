@@ -6,7 +6,7 @@ class BB_Coordinater extends Controller{
        $this->view->render("bbc_index");
     }
     public function viewDashboard(){
-        $this->view->render("bbc_index");
+        $this->view->render("bbc_Dashboard");
     }
     public function viewBloodRequests(){
         $this->view->render("bbc_BloodRequests");
@@ -24,7 +24,7 @@ class BB_Coordinater extends Controller{
         $this->view->render("bbc_Update-Donor");
     }
     public function addDonor(){
-        
+
     }
     
     
