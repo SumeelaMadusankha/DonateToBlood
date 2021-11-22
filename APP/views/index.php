@@ -59,7 +59,7 @@
                              
                               <li><a href="news.html">Where to Donate</a></li> 
                               <li><a href="contact.html">Blood adverticement </a></li>
-                              <li><a href="contact.html">Login </a></li>
+                              <li><a href= "User/loginFormLoad">Login </a></li>
                               <li><a href="User/index">Register </a></li>
                            </ul>
                            <button class="nav-toggler">

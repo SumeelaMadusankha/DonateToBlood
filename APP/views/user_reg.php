@@ -1,3 +1,6 @@
+
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,6 +18,9 @@
       <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       Scrollbar Custom CSS -->
+      <?php
+$profpic = "bgImage.jpg";
+?>
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -33,6 +39,7 @@
    
 </head>
 <body>
+background-image: url('<?php echo $profpic;?>');
     <header class="header-area">     
         <div class="container">
            <div class="row d_flex">
@@ -75,6 +82,7 @@
                 
                 
                 <hr>
+               
                 <label for="fname"><b>First Name</b></label><br>
                 <input type="text" placeholder="First Name" name="fname" id="fname" ><br>
     
@@ -91,12 +99,16 @@
                 <input type="text" placeholder="Mobile Number" name="mobnum" id="mobnum" ><br>
     
                 <label for="nic"><b>NIC</b></label><br>
-                <input type="text" placeholder="National Identity Card" name="nic" id="nic"  >
+                <input type="text" placeholder="National Identity Card" 
+                value="
+                <?php 
+                echo $data
+                ?>"
+                name="nic" id="nic"  >
                  <br>
 
                 <label for="address"><b>Address</b></label><br>
-                <textarea name="address" id="address" cols="553" rows="3" 
-                ></textarea>
+                <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea>
                 
     
                 <div class="gender">
@@ -109,7 +121,7 @@
                     <label for="female">Female</label>
         
                     <input type="radio" id="no" name="gender" value="no_gender">
-                    <label for="no">Nannaya</label>
+                    <label for="no">Other</label>
 
                     
                 </div>

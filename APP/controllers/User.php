@@ -15,6 +15,38 @@ class User extends Controller{
     {
       $this->view->render('signUp');
     }
+    public function loginFormLoad()
+{
+    session_start();
+    session_regenerate_id(); 
+   if(!empty($_SESSION["NIC"]))
+   {  $jobType=$_SESSION["jobtype"];
+     switch($jobType)
+     {
+               
+               case "registeredUser":
+                 $this->view->render('index');
+                 break;
+               case "admin":
+                 $this->view->render('admin_page');
+                 break;
+               case "":
+                 $this->view->render('');
+                 break;
+               case "":
+                 $this->view->render('');
+     }
+
+   }
+
+   else
+   {
+     $this->view->render("login");
+
+   }
+}
+
+
      public function register()
     {
        if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -69,17 +101,62 @@ class User extends Controller{
            
            if ( $dataArray["password"]===$dataArray["re-password"]) {
              session_start();
-             $_SESSION["password"] = $dataArray["password"];
-             $this->view->data=$dataArray["nic"];
+             $hashPassword = 
+             $_SESSION["password"] = password_hash( $dataArray["password"], PASSWORD_DEFAULT);;
+             $this->view->data = $dataArray["nic"];
+             
             $this->view->render("user_reg",$this->view->data);  
            }
            else{
-             print_r("Sumeela");
+             print_r("testing one");
            }
            
         }
     }
     }
+    public function login()
+    {
+      if ($_SERVER['REQUEST_METHOD']==="POST") {
+        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+        if (isset($_POST["login"])) {
+          $dataLogin = [
+            "username" => $this->testInput($_POST["username"]),
+            "password" => $this->testInput($_POST["password"])
+          ];
+         
+          if ((!empty($dataLogin['username'])) && !empty($dataLogin['password'])) {
+            $loginUser = $this->model->login($dataLogin["username"], $dataLogin["password"]);
+           
+            if (empty($loginUser['error'])) {
+              session_start();
+              $_SESSION["nic"] = $loginUser["nic"];
+              $_SESSION["firstName"] = $loginUser["firstName"];
+              $_SESSION["lastName"] = $loginUser["lastName"];
+              $_SESSION["jobtype"] = $loginUser["jobtype"];
+             
+
+            switch ($loginUser['jobtype']) {
+              case 'registeredUser':
+                $this->view->render('index');
+                break;
+              
+              default:
+                # code...
+                break;
+            }
+            }else {
+              $this->view->render('login', $loginUser["Error"]);
+            }
+          }
+
+
+
+
+
+        }
+      }
+    }
+
 
 }
 ?>
