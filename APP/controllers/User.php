@@ -15,46 +15,11 @@ class User extends Controller{
     {
       $this->view->render('signUp');
     }
-<<<<<<< HEAD
 
     public function request()
     {
       $this->view->render('blood_request');
     }
-=======
-    public function loginFormLoad()
-{
-    session_start();
-    session_regenerate_id(); 
-   if(!empty($_SESSION["NIC"]))
-   {  $jobType=$_SESSION["jobtype"];
-     switch($jobType)
-     {
-               
-               case "registeredUser":
-                 $this->view->render('index');
-                 break;
-               case "admin":
-                 $this->view->render('admin_page');
-                 break;
-               case "":
-                 $this->view->render('');
-                 break;
-               case "":
-                 $this->view->render('');
-     }
-
-   }
-
-   else
-   {
-     $this->view->render("login");
-
-   }
-}
-
-
->>>>>>> 6c4ecd7be960dd087946085908c3fd1db1ef56a7
      public function register()
     {
        if ($_SERVER["REQUEST_METHOD"]=="POST") {
