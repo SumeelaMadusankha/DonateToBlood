@@ -25,22 +25,22 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a  href="BB_Coordinater/viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a  href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="BB_Coordinater/viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
+                        <a href="viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
                     </li>
 					<li>
-                        <a class="active-menu" href="BB_Coordinater/viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                        <a class="active-menu" href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="BB_Coordinater/viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
-                        <a href="BB_Coordinater/viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
-                        <a href="BB_Coordinater/viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
 
 
@@ -52,17 +52,57 @@
         </nav>
         <div id="page-wrapper">
             <div id="page-inner">
-                
+            <div class="table-responsive">
+                                <table class="table table-hover">
+                                  <thead>
+                                    <tr>
+                                      <th></th>
+                                      <th>Request</th>
+                                      <th>Confirm/Decline</th>                                   
+                                      <th>Request Status</th>
+                                  </tr>
+                              </thead>
+                              <tbody>
+                                <tr>
+                                  <td>1</td>
+                                  <td>To Held  A Camp in Beruwala</td>
+                                  <td>
+                                  <button type="button" class="btn btn-success">Accept</button>
+                                  <button type="button" class="btn btn-danger">Decline</button>
+                                  </td>                     
+                                  <td><span class="label label-danger" style="font-size: 18px;display:block">declined</span></td>
+                               </tr>
+                               <tr>
+                                  <td>1</td>
+                                  <td>To Held  A Camp in Gampaha</td>
+                                  <td>
+                                  <button type="button" class="btn btn-success">Accept</button>
+                                  <button type="button" class="btn btn-danger">Decline</button>
+                                  </td>                     
+                                  <td><span class="label label-success" style="font-size: 18px;display:block">posted successfully</span></td>
+                               </tr>
+                               <tr>
+                                  <td>1</td>
+                                  <td>To Held  A Camp in Maradana</td>
+                                  <td>
+                                  <button type="button" class="btn btn-success">Accept</button>
+                                  <button type="button" class="btn btn-danger">Decline</button>
+                                  </td>                     
+                                  <td><span class="label label-primary" style="font-size: 18px;display:block">in progress</span></td>
+                               </tr>
+                             
+                          </tbody>
+                      </table>
+                  </div>
+             </div>
 				<?php include "bbc_footer.php";?>
             </div>
-            <!-- /. PAGE INNER  -->
-        </div>
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->
     <!-- JS Scripts-->
     <!-- jQuery Js -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
+    <script src="/assets/js/jquery-1.10.2.js"></script>
     <!-- Bootstrap Js -->
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- Metis Menu Js -->
