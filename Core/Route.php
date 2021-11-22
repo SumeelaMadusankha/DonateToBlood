@@ -74,8 +74,8 @@ class Route{
 		if($urllenght>1){
 			//if method not exist then get the error page 
 			if(!method_exists($this->_params, $this->_routes[1])){
-				header("Location: ../user/error");
-				exit;
+				// header("Location: ../user/error");
+				// exit;
 			}
 		   
 		}

@@ -8,13 +8,17 @@
 
   body {
     font-family: Arial, Helvetica, sans-serif;
-   
+    background-image: url(bgImage.jpeg);
     justify-content: center;
     align-items: center;
     
     /* background: url(images/u_reg_heart.png); */
+<<<<<<< HEAD
+    
+=======
     background: url('bgImage.jpeg');
     background-image:url('../images/bgImahe.jpeg') ;
+>>>>>>> f474ee5bf7677a15e030d6ad544112342eaa1a26
     /* background: url(images/bgImage.jpeg); */
      background-attachment: fixed;
      background-repeat: no-repeat;

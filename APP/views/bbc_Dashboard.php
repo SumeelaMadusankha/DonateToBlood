@@ -1,10 +1,10 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DonateToHeal</title>
+    <title></title>
     <!-- Bootstrap Styles-->
     <link href="/DonateToBlood/Public/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
@@ -27,22 +27,22 @@
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a  href="BB_Coordinater/viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        <a class="active-menu" href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="BB_Coordinater/viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
-                    </li>
-					<li>
-                        <a href="BB_Coordinater/viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                        <a href="viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
                     </li>
                     <li>
-                        <a href="BB_Coordinater/viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="BB_Coordinater/viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
-                        <a href="BB_Coordinater/viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                    </li>
+                    <li>
+                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
 
 

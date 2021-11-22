@@ -82,6 +82,7 @@ background-image: url('<?php echo $profpic;?>');
                 
                 
                 <hr>
+               
                 <label for="fname"><b>First Name</b></label><br>
                 <input type="text" placeholder="First Name" name="fname" id="fname" ><br>
     
@@ -98,7 +99,12 @@ background-image: url('<?php echo $profpic;?>');
                 <input type="text" placeholder="Mobile Number" name="mobnum" id="mobnum" ><br>
     
                 <label for="nic"><b>NIC</b></label><br>
-                <input type="text" placeholder="National Identity Card" name="nic" id="nic"  >
+                <input type="text" placeholder="National Identity Card" 
+                value="
+                <?php 
+                echo $data
+                ?>"
+                name="nic" id="nic"  >
                  <br>
 
                 <label for="address"><b>Address</b></label><br>
@@ -115,7 +121,7 @@ background-image: url('<?php echo $profpic;?>');
                     <label for="female">Female</label>
         
                     <input type="radio" id="no" name="gender" value="no_gender">
-                    <label for="no">Nannaya</label>
+                    <label for="no">Other</label>
 
                     
                 </div>

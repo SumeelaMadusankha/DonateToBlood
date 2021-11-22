@@ -8,7 +8,7 @@
       <meta name="viewport" content="width=device-width, initial-scale=1">
       <meta name="viewport" content="initial-scale=1, maximum-scale=1">
       <!-- site metas -->
-      <title>Covido</title>
+      <title>DonateToHeal</title>
       <meta name="keywords" content="">
       <meta name="description" content="">
       <meta name="author" content="">
@@ -33,11 +33,7 @@
    </head>
    <!-- body -->
    <body class="main-layout">
-      <!-- loader  -->
-      <div class="loader_bg">
-         <div class="loader"><img src="././Public/images/loading.gif" alt="#"/></div>
-      </div>
-      <!-- end loader -->
+     
       <!-- top -->
                     <!-- header -->
          <header class="header-area">
@@ -59,7 +55,7 @@
                              
                               <li><a href="news.html">Where to Donate</a></li> 
                               <li><a href="contact.html">Blood adverticement </a></li>
-                              <li><a href="contact.html">Login </a></li>
+                              <li><a href= "User/loginFormLoad">Login </a></li>
                               <li><a href="User/index">Register </a></li>
                            </ul>
                            <button class="nav-toggler">
@@ -155,8 +151,8 @@
                <div class="row d_flex">
                       <div class="col-md-7">
                      <div class="titlepage text_align_left">
-                        <h2>About Corona Virus </h2>
-                        <p>English. Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for
+                        <h2>About Donate to Heal </h2>
+                        <p>Donate to Heal provides you the ability to find safe and high quality Blood of the required category. Through Donate to Heal our goal is to provide a platform that you can recieve several services regarding blood donation at your fingertips through one platform.
                         </p>
                         <a class="register_btn" href="about.html">About More</a>
                      </div>
@@ -171,7 +167,7 @@
             </div>
          </div>
          <!-- end about -->
-        <!-- coronata -->
+       
          <div class="coronata">
             <div class="container">
                <div class="row d_flex grid">
@@ -182,8 +178,8 @@
                   </div>
                   <div class="col-md-5 oder1">
                      <div class="titlepage text_align_left">
-                        <h2>Coronavirus what it is?</h2>
-                        <p>when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using
+                        <h2>Why Donate to Heal?</h2>
+                        <p>Here through 'Donate to Heal' we ensure to provide you with the safest and highest quality blood through registered officials. At the same time we provide adequate services for the donors and the parties in need of blood to connect with each other free of charge.  
                         </p>
                         <a class="register_btn" href="coronata.html">About More</a>
                      </div>
@@ -191,16 +187,14 @@
                </div>
             </div>
          </div>
-         <!-- end coronata -->
-      
-           <!-- protect -->
+        
          <div class="protect">
             <div class="container">
                <div class="row">
                   <div class="col-md-12">
                      <div class="titlepage text_align_center">
-                        <h2>How to Protect Yourself</h2>
-                        <p>when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using  
+                        <h2>Services we provide</h2>
+                        <p>We provide a set of blood related services at one's fingertips.
                         </p>
                      </div>
                   </div>
@@ -216,8 +210,8 @@
                            <div class="protect_box text_align_center">
                              <div class="desktop">
                                 <i><img src="images/pro1.png" alt="#"/></i>
-                              <h3> Wear Mask</h3>
-                              <span> Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for</span>
+                              <h3> Donate Blood</h3>
+                              <span> Volunteers who are willing to donate whole blood can find the requests for the required blood type and connect with the parties in need</span>
                              </div>
                               <a class="register_btn" href="protect.html">Read More</a>
                            </div>
@@ -226,8 +220,8 @@
                              <div class="protect_box text_align_center">
                              <div class="desktop">
                                 <i><img src="././Public/images/pro2.png" alt="#"/></i>
-                              <h3> Wash Your Hands</h3>
-                              <span> Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for</span>
+                              <h3>Request Blood</h3>
+                              <span> If you are in need of blood of a certain type, we provide you the opportunity to advertise the necessary details and connect with blood donors or the blood bank</span>
                              </div>
                               <a class="register_btn" href="protect.html">Read More</a>
                            </div>
@@ -236,8 +230,8 @@
                             <div class="protect_box text_align_center">
                              <div class="desktop">
                                 <i><img src="././Public/images/pro3.png" alt="#"/></i>
-                              <h3> Stay at Home</h3>
-                              <span> Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for</span>
+                              <h3> Get Notifications</h3>
+                              <span> The registered users get the opportunity to get notifications regarding the blood donations camps happening around you, or blood requests of their blood type</span>
                              </div>
                               <a class="register_btn" href="protect.html">Read More</a>
                            </div>
@@ -267,8 +261,8 @@
                         <figure><img src="././Public/images/cases1.png" alt="#"/></figure>
                          <a class="register_btn" href="cases.html">Read More</a>
                         <div class="nostrud">
-                           <h3>Cases 01</h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                           <h3>Why Donate Blood?</h3>
+                           <p>Giving blood saves lives. The blood you give is a lifeline in an emergency and for people who need long-term treatments. With the breakout of the pandemiic, currently the world is facing a scarcity in blood donors. Therefore the younger generation should be encouraged to donate blood</p>
                         </div>
                      </div>
                   </div>
@@ -277,8 +271,11 @@
                         <figure><img src="././Public/images/cases2.png" alt="#"/></figure>
                          <a class="register_btn" href="cases.html">Read More</a>
                         <div class="nostrud">
-                           <h3>Cases 02</h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                           <h3>Who can give Blood?</h3>
+                           <p>Most people can give blood. You can give blood if you:<br>-fit and healthy
+                           <br>-weigh between 7 stone 12 lbs and 25 stone, or 50kg and 158kg
+                           <br>-are aged between 17 and 66 (or 70 if you have given blood before)
+                           <br>-are over 70 and have given a full blood donation in the last two years</p>
                         </div>
                      </div>
                   </div>
@@ -287,8 +284,8 @@
                         <figure><img src="././Public/images/cases3.png" alt="#"/></figure>
                          <a class="register_btn" href="cases.html">Read More</a>
                         <div class="nostrud">
-                           <h3>Cases 03</h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                           <h3>How often can you give Blood?</h3>
+                           <p>Men can give blood every 12 weeks and women can give blood every 16 weeks</p>
                         </div>
                      </div>
                   </div>
@@ -302,7 +299,7 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="titlepage text_align_center ">
-                        <h2>What doctors say..</h2>
+                        <h2>Our Vision & Mision</h2>
                      </div>
                   </div>
                </div>
@@ -310,16 +307,16 @@
                   <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
                            <i><img src="././Public/images/doctor1.png" alt="#"/></i>
-                           <h3>Dr.Golap den</h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                           <h3>Our Vision</h3>
+                           <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
                            <span><img src="././Public/images/do.png" alt="#"/></span>
                         </div>
                      </div>
                              <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
                            <i><img src="././Public/images/doctor2.png" alt="#"/></i>
-                           <h3>Dr.Golap den</h3>
-                           <p>It is a long established fact that a reader will be distracted by the readable content of a page when looking at its layout. The point of using Lorem Ipsum is that it has a more-or-less normal distribution of letters, as opposed to using 'Content here, content here', making it look</p>
+                           <h3>Our Mision</h3>
+                           <p>Our mision is to decrease the blood scarcity prevailing around the country by 50% by the year 2025 through connecting the willing dodnors and the required parties while getting 2000+ registered users by year 2025 </p>
                            <span><img src="././Public/images/do.png" alt="#"/></span>
                         </div>
                      </div>
@@ -347,66 +344,7 @@
          <footer>
             <div class="footer">
                <div class="container">
-                  <div class="row">
-                           <div class="col-lg-2 col-md-6 col-sm-6">
-                              <div class="hedingh3 text_align_left">
-                                 <h3>Resources</h3>
-                                 <ul class="menu_footer">
-                                    <li><a href="index.html">Home</a><li>
-                                    <li><a href="javascript:void(0)">What we do</a><li>
-                                    <li> <a href="javascript:void(0)">Media</a><li>
-                                    <li> <a href="javascript:void(0)">Travel Advice</a><li>
-                                    <li><a href="javascript:void(0)">Protection</a><li>
-                                    <li><a href="javascript:void(0)">Care</a><li>
-                                 </ul>
-                                
-              
-                              </div>
-                           </div>
-                           <div class="col-lg-3 col-md-6 col-sm-6">
-                              <div class="hedingh3 text_align_left">
-                                <h3>About</h3>
-                                 <p>Many desktop publishing packages and web page editors now use Lorem Ipsum as their default model text, and a search for 'lorem ipsum' will uncover many web sites still in their infancy. Various</p>
-                              </div>
-                           </div>
-                        
-                   
-                          
-                           <div class="col-lg-3 col-md-6 col-sm-6">
-                              <div class="hedingh3  text_align_left">
-                                 <h3>Contact  Us</h3>
-                                   <ul class="top_infomation">
-                           <li><i class="fa fa-map-marker" aria-hidden="true"></i>
-                              Making this the first true  
-                           </li>
-                           <li><i class="fa fa-phone" aria-hidden="true"></i>
-                              Call : +01 1234567890
-                           </li>
-                           <li><i class="fa fa-envelope" aria-hidden="true"></i>
-                              <a href="Javascript:void(0)">Email : demo@gmail.com</a>
-                           </li>
-                        </ul>
-                               
-                              
-                        </div>
-                     </div>
-                        <div class="col-lg-4 col-md-6 col-sm-6">
-                              <div class="hedingh3 text_align_left">
-                                 <h3>countrys</h3>
-                                 <div class="map">
-                                   <img src="././Public/images/map.png" alt="#"/>
-                                 </div>
-                              </div>
-                           </div>
-                       
-                  </div>
-               </div>
-               <div class="copyright">
-                  <div class="container">
-                     <div class="row">
-                        
-                     </div>
-                  </div>
+
                </div>
             </div>
          </footer>
