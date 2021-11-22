@@ -4,17 +4,19 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Free Bootstrap Admin Template : Dream</title>
+    <title></title>
     <!-- Bootstrap Styles-->
-    <link href="/DonateToBlood/Public/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="/Public/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="/DonateToBlood/Public/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="/Public/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Morris Chart Styles-->
-    <link href="/DonateToBlood/Public/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
+    <link href="/Public/assets/js/morris/morris-0.4.3.min.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="/DonateToBlood/Public/assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="/Public/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
 </head>
 
 <body>

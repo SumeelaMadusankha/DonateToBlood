@@ -15,7 +15,37 @@
 </head>
 <body>
 <div id="wrapper">
-    <?php include "header.php"; include "sidebar.php" ; ?>
+    <?php include "bbc_header.php";?>
+    <nav class="navbar-default navbar-side" role="navigation">
+            <div class="sidebar-collapse">
+                <ul class="nav" id="main-menu">
+
+                    <li>
+                        <a  href="BB_Coordinater/viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+                    </li>
+                    <li>
+                        <a href="BB_Coordinater/viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
+                    </li>
+					<li>
+                        <a href="BB_Coordinater/viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                    </li>
+                    <li>
+                        <a href="BB_Coordinater/viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="BB_Coordinater/viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                    </li>
+                    <li>
+                        <a href="BB_Coordinater/viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                    </li>
+
+
+
+                </ul>
+
+            </div>
+
+        </nav>
     <div id="page-wrapper" >
         <div id="page-inner">
             <div class="row">
@@ -37,7 +67,11 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form role="form">
+                                        <form role="form" method="" action="BB_Coordinater/addDonor">
+                                            <div class="form-group">
+                                                <label>NIC Number</label>
+                                                <input class="form-control">
+                                            </div>
                                             <div class="form-group">
                                                 <label>First Name</label>
                                                 <input class="form-control">
@@ -46,10 +80,7 @@
                                                 <label>Last Name</label>
                                                 <input class="form-control">
                                             </div>
-                                            <div class="form-group">
-                                                <label>NIC Number</label>
-                                                <input class="form-control">
-                                            </div>
+ 
                                             <div class="form-group">
                                                 <label>Date of Birth</label>
                                                 <input class="form-control">
@@ -59,19 +90,53 @@
                                                 <input class="form-control">
                                             </div>
                                             <div class="form-group">
-                                                <label>Contact Number</label>
-                                                <input class="form-control">
+                                                <label>District</label>
+                                                <select class="form-control">
+                                                <option>Matara</option>
+                                                <option>Galle</option>
+                                                <option>Colombo</option>
+                                                <option>Kandy</option>
+                                                <option>Jaffna</option>
+                                            </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Blood Type</label>
-                                                <input class="form-control">
+                                                <label>Gender</label><br>
+                                                <label class="checkbox-inline">
+                                                    <input type="checkbox">Male
+                                                </label>
+                                            <label class="checkbox-inline">
+                                                <input type="checkbox">Female
+                                            </label>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gender</label>
-                                                <input class="form-control">
+                                                <label>Blood Group</label>
+                                                <select class="form-control">
+                                                <option>O-</option>
+                                                <option>O+</option>
+                                                <option>B-</option>
+                                                <option>B+</option>
+                                                <option>A-</option>
+                                                <option>A+</option>
+                                                <option>AB-</option>
+                                                <option>AB+</option>
+
+                                            </select>
                                             </div>
+ 
                                             <div class="form-group">
                                                 <label>Email Address</label>
+                                                <input class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Mobile No</label>
+                                                <input class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Job Type</label>
+                                                <input class="form-control">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>City</label>
                                                 <input class="form-control">
                                             </div>
                                             <button type="submit" class="btn btn-default">Add Donor</button>
@@ -86,7 +151,7 @@
                 </div>
             </div>
             <!-- /. ROW  -->
-            <?php include "footer.php" ?>
+            <?php include "bbc_footer.php" ?>
         </div>
         <!-- /. PAGE INNER  -->
     </div>

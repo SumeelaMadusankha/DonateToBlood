@@ -20,7 +20,8 @@ class User_Model extends Model{
         $city=$dataArray["city"];
        
        $quary1="INSERT INTO user (nic, firstName, LastName, dob, address, district,gender,bloodGroup,email,mobileNo,jobType,city) VALUES (:nic,:firstName,:lastName,:dob,:address,:district,:gender,:bloodGroup, :email,:mobileNo,:jobType,:city)";
-      
+       $quary2="INSERT INTO login (nic,password) VALUES (:nic,:password)";
+       
        $arrayInject=[
            ':nic'=>$nic,
             ':firstName'=>$firstName,
@@ -34,8 +35,35 @@ class User_Model extends Model{
             ':mobileNo'=>$mobileNo, 
             ':jobType'=>$jobType, 
             ':city'=>$city];
-       $results= $this->db->runQuery($quary1,$arrayInject);
-       return $results;
+            session_start();
+       $results1= $this->db->runQuery($quary1,$arrayInject);
+       $results2 =$this->db->runQuery($quary2,[':nic'=> $nic, ':password'=> $_SESSION['password']]);
+       
+
+       return $results1;
+    }
+    public function login($username,$password)
+    {
+        $loginData=[
+
+    		"Fname"=>"",
+    		"Lname"=>"",
+    		"NIC"=>"",
+    		"jobtype"=>"",
+    		"Error"=>""
+
+
+    	];
+       $query= "SELECT * FROM login WHERE id <= ?";
+       $res=$this->db->runQuery($query,[$username]);
+       if (!empty($res)) {
+           $rowRes= $res[0];
+       }if (!empty($rowRes)) {
+           $hashPassword=$rowRes['password'];
+           if (password_verify($password,$hashPassword)) {
+               # code...
+           }
+       }
     }
 }
 ?>
