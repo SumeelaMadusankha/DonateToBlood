@@ -23,6 +23,9 @@ class BB_Coordinater extends Controller{
     public function viewUpdateDonorDetails(){
         $this->view->render("bbc_Update-Donor");
     }
+    public function viewUserData(){
+        $this->view->render("bbc_viewUserData");
+    }
     
     public function addDonor()
     {
@@ -56,6 +59,23 @@ class BB_Coordinater extends Controller{
               
            }
        }
+    }
+    public function showUserData(){
+        $registerResult2 = $this->model->getData();
+        // print_r($registerResult2);
+        if(!empty($registerResult2)){
+            $this->view->render("bbc_viewUserData",$registerResult2);
+        
+        }
+    }
+    public function showRequestData()
+    {
+        $registerResult3 = $this->model->getR_Data();
+        // print_r($registerResult2);
+        if(!empty($registerResult3)){
+            $this->view->render("bbc_viewRequestData",$registerResult3);
+        
+        }
     }
 }
 ?>

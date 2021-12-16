@@ -56,6 +56,9 @@
 
      <div class="login">
       <div class="container">
+         <?php
+         echo $data;
+         ?>
         <div class="wrapper">
           <header>Login Form</header>
           <form action="../User/login" method="POST">

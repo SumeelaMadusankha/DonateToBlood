@@ -97,34 +97,26 @@ class User_Model extends Model{
         $loginData["error"]="Wrong Username!! Please try again..";
        }
     }
-    public function requestBlood($dataArray)
+    public function addbloodRequest($dataArray)
     {
-
+        $fulName=$dataArray["flname"];
         $nic=$dataArray["nic"];
-        $bloodType=$dataArray["bloodType"];
-        $description=$dataArray["descript"];
-        $attachment=$dataArray["attach"];
-        $status=$dataArray["status"];
-        $fullName=$dataArray["fullName"];
-        $mobNum=$dataArray["contactNo"];
-        $dueDate=$dataArray["dueDate"];
-        $address=$dataArray["address"];
-
-        $quary1="INSERT INTO bloodrequest (nic, bloodType, description, attachment, requestedTime, status, fullName, mobNum, dueDate, address) VALUES (:nic,:bloodType,:descript,:attach,:status,:fullName,:contactNo,:dueDate,:address)";
+        $blood=$dataArray["blood"];
+        $description=$dataArray["description"];
+        $attachment=$dataArray["attachment"];
+        $duedate=$dataArray["duedate"];
+        $status="pending";
         
-        $dataArray1=[
-            ':nic'=>$nic,
-            ':bloodType'=>$bloodType,
-            ':descript'=>$description, 
-            ':attach'=>$attachment, 
-            ':status'=>$status, 
-            ':fullName'=>$fullName, 
-            ':contactNo'=>$mobNum, 
-            ':dueDate'=>$dueDate, 
-            ':address'=>$address, 
-        ];
-        $results3= $this->db->runQuery($quary1,$dataArray1);
-        return $results3;
+        $mobileNo=$dataArray["mobileNo"];
+        
+       
+       $queryAdd="INSERT INTO bloodrequest (nic, bloodType, description, attachment, status, fullName,dueDate,mobileNo) VALUES (:nic, :bloodType, :description, :attachment, :status, :fullName,:dueDate,:mobileNo)";
+
+       $arrayInject=[
+        ":nic"=>$nic, ":bloodType"=>$blood, ":description"=>$description, ":attachment"=>$attachment, ":status"=>$status, ":fullName"=>$fulName,":dueDate"=>$duedate,":mobileNo"=>$mobileNo];
+
+        $results1= $this->db->runQuery($queryAdd,$arrayInject);
+        return $results1;
     }
 }
 ?>

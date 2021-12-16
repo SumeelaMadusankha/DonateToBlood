@@ -36,6 +36,17 @@ class BB_Coordinater_Model extends Model{
        $results1= $this->db->runQuery($quary1,$arrayInject);
        return $results1;
     }
+    public function getData(){
+        $query2="select * from user";
+        $results2= $this->db->selectData($query2);
+        return $results2;
+
+    }
+    public function getR_Data(){
+        $query3="select * from bloodrequest";
+        $results3= $this->db->runQuery($query3,[]);
+        return $results3;
+    }
 
 }
 ?>

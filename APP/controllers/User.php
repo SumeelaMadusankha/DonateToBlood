@@ -15,11 +15,38 @@ class User extends Controller{
     {
       $this->view->render('signUp');
     }
+    public function loginFormLoad()
+{
+    session_start();
+    session_regenerate_id(); 
+   if(!empty($_SESSION["NIC"]))
+   {  $jobType=$_SESSION["jobtype"];
+     switch($jobType)
+     {
+               
+               case "registeredUser":
+                 $this->view->render('index');
+                 break;
+               case "admin":
+                 $this->view->render('admin_page');
+                 break;
+               case "":
+                 $this->view->render('');
+                 break;
+               case "":
+                 $this->view->render('');
+     }
 
-    public function request()
-    {
-      $this->view->render('blood_request');
-    }
+   }
+
+   else
+   {
+     $this->view->render("login");
+
+   }
+}
+
+
      public function register()
     {
        if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -87,6 +114,8 @@ class User extends Controller{
         }
     }
     }
+
+
     public function login()
     {
       if ($_SERVER['REQUEST_METHOD']==="POST") {
@@ -101,24 +130,34 @@ class User extends Controller{
             $loginUser = $this->model->login($dataLogin["username"], $dataLogin["password"]);
            
             if (empty($loginUser['error'])) {
-              session_start();
-              $_SESSION["nic"] = $loginUser["nic"];
-              $_SESSION["firstName"] = $loginUser["firstName"];
-              $_SESSION["lastName"] = $loginUser["lastName"];
-              $_SESSION["jobtype"] = $loginUser["jobtype"];
+               session_start();
+              if (!empty($loginUser)) {
+                
+                $_SESSION["nic"] = $loginUser["nic"];
+                $_SESSION["firstName"] = $loginUser["firstName"];
+                $_SESSION["lastName"] = $loginUser["lastName"];
+                $_SESSION["jobtype"] = $loginUser["jobtype"];
+
+                switch ($loginUser['jobtype']) {
+                  case 'registeredUser':
+                    $this->view->render('userViewProfile',$loginUser);
+                    break;
+                    case 'bloodBankCordinator':
+                      $this->view->render('bbc_index');
+                      break;
+                  default:
+                    # code...
+                    break;
+                }
+
+              }else {
+              $this->view->render('login', "Invalid Username or Password");
+             }
+              
+              
              
 
-            switch ($loginUser['jobtype']) {
-              case 'registeredUser':
-                $this->view->render('userViewProfile',$loginUser);
-                break;
-                case 'bloodBankCordinator':
-                  $this->view->render('bbc_index');
-                  break;
-              default:
-                # code...
-                break;
-            }
+            
             }else {
               $this->view->render('login', $loginUser["Error"]);
             }
@@ -132,40 +171,48 @@ class User extends Controller{
       }
     }
 
-
-
+    public function loadBRForm()
+    {
+      $this->view->render("blood_request");
+    }
     public function addRequest()
     {
-       if ($_SERVER["REQUEST_METHOD"]=="POST") {
-           $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-           if (isset($_POST["sbmt_btn"])) {
-              $request_Array=[
+      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if (isset($_POST["sbmt_btn"])) {
+           $dataArray=[
+             "flname"=>$this->testInput($_POST["flname"]),
+             
+             "nic"=>$this->testInput($_POST["nic"]),
+             "blood"=>$this->testInput($_POST["blood"]),
+             "address"=>$this->testInput($_POST["address"]),
+            
+             
+             "mobileNo"=>$this->testInput($_POST["num"]),
+             "description"=>$this->testInput($_POST["description"]),
+             "attachment"=>$this->testInput($_POST["att"]),
+             "duedate"=>$this->testInput($_POST["duedate"]),
 
-                "nic"=>$this->testInput($_POST["nic"]),
-                "fullName"=>$this->testInput($_POST["flname"]),
-                "bloodType"=>$this->testInput($_POST["blood"]),
-                "address"=>$this->testInput($_POST["address"]),
-                "contactNo"=>$this->testInput($_POST["num"]),
-                "descript"=>$this->testInput($_POST["description"]),
-                "attach"=>$this->testInput($_POST["att"]),
-                "dueDate"=>$this->testInput($_POST["duedate"]),
-                "status"=>$this->testInput("pending")
-               
-              ];
-              $bloodRequest = $this->model->requestBlood($request_Array);
-              print_r($bloodRequest);
-              if(empty($bloodRequest)){
-                $this->view->data="Data successfully added";
-                $this->view->render('blood_request',$this->view->data);
-              }
-              else{
-                $this->view->data="Invalid Data";
-                $this->view->render('blood_request',$this->view->data);
-              }
-              
+            
+            
+            
+           ];
+           
+          
+             $registerResult = $this->model->addbloodRequest($dataArray);
+             if (empty($registerResult)) {
+               $msg="Request sent Successfully!!";
+               $this->view->render("blood_request",$msg);
+             
+           }else {
+            $msg="Error occured, Try again!!";
+            $this->view->render("blood_request",$msg);
            }
-       }
+           
+        }
     }
+    }
+
 
 }
 ?>

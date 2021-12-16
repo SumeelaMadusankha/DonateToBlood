@@ -15,9 +15,7 @@
       <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       Scrollbar Custom CSS -->
-      <?php
-$profpic = "bgImage.jpg";
-?>
+     
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
@@ -36,7 +34,7 @@ $profpic = "bgImage.jpg";
    
 </head>
 <body>
-background-image: url('<?php echo $profpic;?>');
+
     <header class="header-area">     
         <div class="container">
            <div class="row d_flex">
