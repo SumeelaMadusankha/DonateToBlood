@@ -118,6 +118,10 @@ class User_Model extends Model{
         $results1= $this->db->runQuery($queryAdd,$arrayInject);
         return $results1;
     }
+    public function checkNic($dataArray)
+    {
+        
+    }
 }
 ?>
 
