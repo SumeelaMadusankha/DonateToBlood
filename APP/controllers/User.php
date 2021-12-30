@@ -120,7 +120,7 @@ class User extends Controller{
     {
       if ($_SERVER['REQUEST_METHOD']==="POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        if (isset($_POST["login"])) {
+     
           $dataLogin = [
             "username" => $this->testInput($_POST["username"]),
             "password" => $this->testInput($_POST["password"])
@@ -167,7 +167,7 @@ class User extends Controller{
 
 
 
-        }
+        
       }
     }
 

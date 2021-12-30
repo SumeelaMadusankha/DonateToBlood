@@ -8,9 +8,9 @@
   }
   label.logo{
     color: white;
-    font-size: 35px;
+    font-size: 38px;
     line-height: 80px;
-    padding: 0 80px;
+    padding: 0 50px;
     font-weight: bold;
     font-family: 'Kaushan Script', cursive;
   }
@@ -29,14 +29,15 @@
     font-weight: bold;
     padding: 9px 15px;
     border-radius: 16px;
-  
+    
+   
     
     text-transform: uppercase;
   }
   a.active,a:hover{
     background: gray;
     transition: .5s;
-    
+    text-decoration: none;
   }
   .checkbtn{
     font-size: 30px;

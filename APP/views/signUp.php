@@ -13,8 +13,10 @@
       <!-- fevicon -->
       <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
       <!-- fonts-->
+     
       <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      <link href="https://fonts.googleapis.com/css2?family=Kaushan+Script&display=swap" rel="stylesheet">
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
@@ -22,40 +24,33 @@
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
       <link rel="stylesheet" href="../Public/css/header.css">
       <link rel="stylesheet" href="../Public/css/login.css">
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
+      <link rel="stylesheet" href="../Public/css/hd.css">
 </head>
-<body>
-    <header class="header-area">
-            
-        <div class="container">
-           <div class="row d_flex">
-              <div class="col-sm-3 logo_sm">
-                 <div class="logo">
-                    <a href="index.html"> </a>
-                 </div>
-              </div>
-              <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
-                 <div class="navbar-area">
-                    <nav class="site-navbar">
-                       <ul>
-                          <li><a class="active" href="index.html">Home</a></li>
-                          <li><a href="about.html">Request Camp</a></li>
-                          <li><a href="action.html">Request Blood</a></li>
-                         
-                          <li><a href="news.html">Where to Donate</a></li> 
-                          <li><a href="contact.html">Blood adverticement </a></li>
-                          <div class="login-div"><li><a href="contact.html">LOGIN</a></li></div>
-                       </ul>
-                       <button class="nav-toggler">
-                       <span></span>
-                       </button>
-                    </nav>
-                 </div>
-              </div>
-           </div>
-        </div>
-     </header>
+<body >
+<header>
+         
+         <nav>
+            <input type="checkbox" id="check-1">
+            <label for="check-1" class="checkbtn">
+               <i class="fas fa-bars"></i>
+            </label>
+            <label class="logo">DonateToBlood</label>
+            <ul>
+               <li><a  href="index">Home</a></li>
+               <li><a href="#">Request Camp</a></li>
+               <li><a href="User/loadBRForm">Request Blood</a></li>
+               <li><a href="#">Where to Donate</a></li>
+               <li><a href="#">Blood adverticement</a></li>
+               <li><a  class="active" href="User/index">Login</a></li>
+            </ul>
+         </nav>
+         
+      </header>
 
-     <div class="login">
+<div class="body">
+   
+<div class="login">
       <div class="container">
         <div class="wrapper">
           <header>Sign Up Form</header>
@@ -64,7 +59,7 @@
           <div class="field email">
               <div class="input-area">
                 <input type="text"  placeholder="Enter NIC Here" name="nic">
-                <i class="icon fas fa-envelope"></i>
+                <i class='fa fa-user'></i>
                 <i class="error error-icon fas fa-exclamation-circle"></i>
               </div>
               <div class="error error-txt">Email can't be blank</div>
@@ -93,13 +88,14 @@
         </div>
          
         </div>
-        <!-- <script src="../Public/js/signup.js"></script>
+        <script src="../Public/js/signup.js"></script>
         <script src="../Public/js/jquery.min.js"></script>
         <script src="../Public/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
         <script src="../Public/js/owl.carousel.min.js"></script>
-        <script src="../Public/js/custom.js"></script> -->
+        <script src="../Public/js/custom.js"></script>
         
      </div>
+</div>
 </body>
 </html>
