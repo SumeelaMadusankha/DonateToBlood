@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../Public/css/bootstrap.min.css">
+   
       <!-- style css -->
       
       <!-- Responsive-->
@@ -22,7 +22,7 @@
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-      <link rel="stylesheet" href="../Public/css/header.css">
+     
       <link rel="stylesheet" href="../Public/css/login.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
       <link rel="stylesheet" href="../Public/css/hd.css">
@@ -42,7 +42,14 @@
                <li><a href="User/loadBRForm">Request Blood</a></li>
                <li><a href="#">Where to Donate</a></li>
                <li><a href="#">Blood adverticement</a></li>
-               <li><a  class="active" href="User/index">Login</a></li>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='logout'>Logout</a></li>";
+              }else {
+                 echo " <li><a href='index'>Login</a></li>";
+              }
+              ?>
             </ul>
          </nav>
          
@@ -53,16 +60,39 @@
 <div class="login">
       <div class="container">
         <div class="wrapper">
+        <?php
+      
+      if (isset($_SESSION['error'])) {
+        
+      if ($_SESSION['error']=="Invalid Username or Password") {
+        unset($_SESSION['error']); 
+    
+        echo "<div class='flag note note--error'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-times'></i>
+        </div> <div class='flag__body note__text'>
+        Invalid Username or Password! 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+     
+      }else {
+       
+      } }
+        
+         ?>
           <header>Sign Up Form</header>
         <form action = "../User/signUp" method = "post">
               
           <div class="field email">
               <div class="input-area">
                 <input type="text"  placeholder="Enter NIC Here" name="nic">
-                <i class='fa fa-user'></i>
+                <i class='icon fa fa-user'></i>
                 <i class="error error-icon fas fa-exclamation-circle"></i>
               </div>
-              <div class="error error-txt">Email can't be blank</div>
+              <div class="error error-txt">NIC can't be blank</div>
           </div>
             <div class="field password">
               <div class="input-area">

@@ -7,47 +7,33 @@
   
 
   body {
-    font-family: Arial, Helvetica, sans-serif;
-    background-image: url(bgImage.jpeg);
-    justify-content: center;
-    align-items: center;
-    
-    /* background: url(images/u_reg_heart.png); */
-<<<<<<< HEAD
-    
-=======
-    background: url('bgImage.jpeg');
-    background-image:url('../images/bgImahe.jpeg') ;
->>>>>>> f474ee5bf7677a15e030d6ad544112342eaa1a26
-    /* background: url(images/bgImage.jpeg); */
-     background-attachment: fixed;
-     background-repeat: no-repeat;
-     background-size:cover;
-     background-position: center;
-     
-    /* background: url("images/u_reg_background.jpg");
-     background-repeat: no-repeat;
-     background-size: cover; */
+     background:linear-gradient(180deg, rgba(66,2,7,0.29) 5%, rgba(226,5,5,0.5) 97%), url(../images/bgimage.jpg);
+  /* background:linear-gradient(180deg, rgba(66,2,7,0.29) 5%, rgba(226,5,5,0.5) 97%), url('bgImage.jpeg'); */
+  background-repeat: no-repeat;
+  background-attachment: fixed; 
+  background-size: 100% 100%;
+  width: 100%;
+ 
   
-     
-     /* background: rgb(10,9,9);
-background: linear-gradient(180deg, rgba(10,9,9,0.11691942401960786) 5%, rgba(160,168,171,0.44184939600840334) 51%); */
 
  
   }
  .outer_class{
-     margin: 10%;
+    
      width: 60%;
      z-index: -1;
      
-     margin-top: 8%;
+   
      border-radius: 15px;
      margin-left: 20.5%;
      padding-top: 2%;
      margin-bottom: 3px;
      
  }
-
+.body{
+   position: relative;
+   margin-top: 10%;
+}
  .topic{
      
      /* font-size: 50px; */

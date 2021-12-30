@@ -7,7 +7,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="user_reg.css">
+    
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>User_Reg</title>
     <!-- --------------------------------------------------- -->
@@ -18,14 +18,12 @@
       <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
       <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
       Scrollbar Custom CSS -->
-      <?php
-$profpic = "bgImage.jpg";
-?>
+    
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-      <link rel="stylesheet" href="../Public/css/header.css">
+      <link rel="stylesheet" href="../Public/css/hd.css">
       <link rel="stylesheet" href="../Public/css/user_reg.css">
       
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
@@ -39,40 +37,31 @@ $profpic = "bgImage.jpg";
    
 </head>
 <body>
-background-image: url('<?php echo $profpic;?>');
-    <header class="header-area">     
-        <div class="container">
-           <div class="row d_flex">
-              <div class="col-sm-3 logo_sm">
-                 <div class="logo">
-                    <a href="index.html"> </a>
-                 </div>
-              </div>
-              <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
-                 <div class="navbar-area">
-                    <nav class="site-navbar">
-                       <ul>
-                          <li><a class="active" href="index.html">Home</a></li>
-                          <li><a href="about.html">Request Camp</a></li>
-                          <li><a href="action.html">Request Blood</a></li>
-                         
-                          <li><a href="news.html">Where to Donate</a></li> 
-                          <li><a href="contact.html">Blood adverticement </a></li>
-                          <div class="login-div"><li><a href="contact.html">LOGIN</a></li></div>
-                       </ul>
-                       <button class="nav-toggler">
-                       <span></span>
-                       </button>
-                    </nav>
-                 </div>
-              </div>
-           </div>
-        </div>
-     </header>
-   <!-- ----------------------------------------------  -->
-   <div class="outer_class">
 
-    <div class="form" >
+      <header>
+         
+         <nav>
+            <input type="checkbox" id="check-1">
+            <label for="check-1" class="checkbtn">
+               <i class="fas fa-bars"></i>
+            </label>
+            <label class="logo">DonateToBlood</label>
+            <ul>
+               <li><a class="active" href="index">Home</a></li>
+               <li><a href="#">Request Camp</a></li>
+               <li><a href="User/loadBRForm">Request Blood</a></li>
+               <li><a href="#">Where to Donate</a></li>
+               <li><a href="#">Blood adverticement</a></li>
+               <li><a href="User/index">Login</a></li>
+            </ul>
+         </nav>
+         
+      </header>
+   <!-- ----------------------------------------------  -->
+   
+   <div class="outer_class">
+   <div class="body">
+      <div class="form" >
 
         
             <form action="../User/register" method="POST" id="reg_form">
@@ -173,7 +162,7 @@ background-image: url('<?php echo $profpic;?>');
     </div>
 
    </div> 
-   
+   </div>
    
    
 </body>

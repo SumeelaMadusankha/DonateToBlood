@@ -13,42 +13,43 @@ class User extends Controller{
     
     public function index()
     {
-      $this->view->render('signUp');
+      session_start();
+     session_regenerate_id(); 
+      if(empty($_SESSION["nic"]))
+      { 
+        
+       $this->view->render("login");
+   
+      }
+   
+      else
+      {
+        
+        $jobType=$_SESSION["jobtype"];
+        switch($jobType)
+        {
+                  
+                  case "registeredUser":
+                    $this->view->render('reg_user_index');
+                    break;
+                  case "admin":
+                    $this->view->render('admin_page');
+                    break;
+                  case "bloodBankCordinator":
+                    $this->view->render('bbc_index');
+                    break;
+                  case "":
+                    $this->view->render('');
+        }
+   
+      }
     }
-    public function loginFormLoad()
-{
-    session_start();
-    session_regenerate_id(); 
-   if(!empty($_SESSION["NIC"]))
-   {  $jobType=$_SESSION["jobtype"];
-     switch($jobType)
-     {
-               
-               case "registeredUser":
-                 $this->view->render('index');
-                 break;
-               case "admin":
-                 $this->view->render('admin_page');
-                 break;
-               case "":
-                 $this->view->render('');
-                 break;
-               case "":
-                 $this->view->render('');
-     }
-
-   }
-
-   else
-   {
-     $this->view->render("login");
-
-   }
-}
-
+    
 
      public function register()
     {
+
+      $this->view->render('signUp');
        if ($_SERVER["REQUEST_METHOD"]=="POST") {
            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
            if (isset($_POST["register_btn"])) {
@@ -100,9 +101,10 @@ class User extends Controller{
            
            
            if ( $dataArray["password"]===$dataArray["re-password"]) {
+            $result = $this->model->checkNic($dataArray);
              session_start();
-             $hashPassword = 
-             $_SESSION["password"] = password_hash( $dataArray["password"], PASSWORD_DEFAULT);;
+             $hashPassword = $_SESSION["password"] = password_hash( $dataArray["password"], PASSWORD_DEFAULT);
+
              $this->view->data = $dataArray["nic"];
              
             $this->view->render("user_reg",$this->view->data);  
@@ -117,7 +119,12 @@ class User extends Controller{
 
 
     public function login()
+    
     {
+      session_start();
+      if (!isset($_SESSION['nic'])) {
+        # code...
+     
       if ($_SERVER['REQUEST_METHOD']==="POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
      
@@ -130,7 +137,7 @@ class User extends Controller{
             $loginUser = $this->model->login($dataLogin["username"], $dataLogin["password"]);
            
             if (empty($loginUser['error'])) {
-               session_start();
+              
               if (!empty($loginUser)) {
                 
                 $_SESSION["nic"] = $loginUser["nic"];
@@ -140,7 +147,7 @@ class User extends Controller{
 
                 switch ($loginUser['jobtype']) {
                   case 'registeredUser':
-                    $this->view->render('userViewProfile',$loginUser);
+                    $this->view->render('reg_user_index');
                     break;
                     case 'bloodBankCordinator':
                       $this->view->render('bbc_index');
@@ -151,7 +158,8 @@ class User extends Controller{
                 }
 
               }else {
-              $this->view->render('login', "Invalid Username or Password");
+                $_SESSION['error']="Invalid Username or Password";
+              $this->view->render('login');
              }
               
               
@@ -168,6 +176,20 @@ class User extends Controller{
 
 
         
+      }
+    }else {
+        switch ($_SESSION['jobtype']) {
+          case 'registeredUser':
+            $this->view->render('reg_user_index');
+            break;
+            case 'bloodBankCordinator':
+              $this->view->render('bbc_index');
+              break;
+          default:
+            # code...
+            break;
+        }
+
       }
     }
 
@@ -212,7 +234,19 @@ class User extends Controller{
         }
     }
     }
-
+    public function logout()
+    {
+      session_start();
+    unset($_SESSION["nic"]);
+    unset($_SESSION["firstName"]); 
+    unset($_SESSION["lastName"]); 
+    unset($_SESSION["jobtype"]); 
+    unset($_SESSION["error"]); 
+    session_destroy();
+    $this->view->render('reg_user_index');
+    }
 
 }
+
+
 ?>

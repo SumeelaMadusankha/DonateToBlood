@@ -1,5 +1,7 @@
 
-  nav{padding-top: 10px;
+  nav{
+    margin-top: 0%;
+    padding-top: 10px;
     z-index: 999;
     position: fixed;
     background:linear-gradient(#250104,#e20505) !important;
@@ -31,7 +33,7 @@
     border-radius: 16px;
     
    
-    
+    text-decoration: none;
     text-transform: uppercase;
   }
   a.active,a:hover{
@@ -65,7 +67,7 @@
       font-size: 16px;
     }
   }
-  @media (max-width: 898px){
+  @media (max-width: 1400px){
     nav {
         transition: 2s;
     }
@@ -102,7 +104,7 @@
     
   }
   
-  @media (max-width: 898px){
+  @media (max-width: 1400px){
     label.logo{
         font-size: 25px;
         padding-left: 30px;

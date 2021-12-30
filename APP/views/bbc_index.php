@@ -44,6 +44,9 @@
                     <li>
                         <a href="../BB_Coordinater/viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
+                    <li>
+                        <a href="../User/logout"><i class="fa fa-desktop"></i> Logout</a>
+                    </li>
 
 
 

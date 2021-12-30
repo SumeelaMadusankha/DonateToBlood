@@ -14,19 +14,19 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
-      <link rel="stylesheet" href="././Public/css/bootstrap.min.css">
+      <link rel="stylesheet" href="../Public/css/bootstrap.min.css">
       <!-- style css -->
-      <link rel="stylesheet" href="././Public/css/style.css">
+      <link rel="stylesheet" href="../Public/css/style.css">
       <!-- Responsive-->
-      <link rel="stylesheet" href="././Public/css/responsive.css">
-      <link rel="stylesheet" href="././Public/css/hd.css">
+      <link rel="stylesheet" href="../Public/css/responsive.css">
+      <link rel="stylesheet" href="../Public/css/hd.css">
       <!-- fevicon -->
-      <link rel="icon" href="././Public/images/fevicon.png" type="image/gif" />
+      <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
       <!-- fonts-->
      
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-       <link rel="stylesheet" href="././Public/css/owl.carousel.min.css"> 
+       <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
 
@@ -57,7 +57,14 @@
                <li><a href="User/loadBRForm">Request Blood</a></li>
                <li><a href="#">Where to Donate</a></li>
                <li><a href="#">Blood adverticement</a></li>
-               <li><a href="User/index">Login</a></li>
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <li><a href='logout'>Logout</a></li>";
+               }else {
+                  echo " <li><a href='index'>Login</a></li>";
+               }
+               ?>
             </ul>
          </nav>
          
@@ -87,7 +94,15 @@
                                     </div>
                                    
                                  </div>
-                                 <a class="register_btn" href="User/register" >REGISTER HERE</a>
+                                 <?php
+                                    
+                                    if (isset($_SESSION['nic'])) {
+                                       
+                                    }else {
+                                        echo " <a class='register_btn' href='User/register' >REGISTER HERE</a>";
+                                    }
+                                    ?>
+                                 
                               </div>
                            </div>
                         </div>
@@ -104,7 +119,14 @@
                                     </div>
                                    
                                  </div>
-                                 <a class="register_btn" href="javascript:void(0)" >REGISTER HERE</a>
+                                 <?php
+                                    
+                                    if (isset($_SESSION['nic'])) {
+                                       
+                                    }else {
+                                        echo " <a class='register_btn' href='User/register' >REGISTER HERE</a>";
+                                    }
+                                    ?>
                               </div>
                            </div>
                         </div>
@@ -120,7 +142,14 @@
                                     </div>
                                    
                                  </div>
-                                 <a class="register_btn" href="javascript:void(0)" >REGISTER HERE</a>
+                                 <?php
+                                    
+                                    if (isset($_SESSION['nic'])) {
+                                       
+                                    }else {
+                                        echo " <a class='register_btn' href='User/register' >REGISTER HERE</a>";
+                                    }
+                                    ?>
                               </div>
                            </div>
                         </div>
@@ -153,7 +182,7 @@
                   </div>
                   <div class="col-md-5">
                      <div class="about_img text_align_center">
-                        <figure><img src="././Public/images/about.png" alt="#"/></figure>
+                        <figure><img src="../Public/images/about.png" alt="#"/></figure>
                      </div>
                   </div>
                  
@@ -167,7 +196,7 @@
                <div class="row d_flex grid">
                   <div class="col-md-7">
                      <div class="coronata_img text_align_center">
-                        <figure><img src="././Public/images/donation.png" alt="#"/></figure>
+                        <figure><img src="../Public/images/donation.png" alt="#"/></figure>
                      </div>
                   </div>
                   <div class="col-md-5 oder1">
@@ -203,7 +232,7 @@
                         <div class="item">
                            <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="././Public/images/part1.jpg" alt="#"/></i>
+                                <i><img src="../Public/images/part1.jpg" alt="#"/></i>
                               <h3> Donate Blood</h3>
                               <span> Volunteers who are willing to donate whole blood can find the requests for the required blood type and connect with the parties in need</span>
                              </div>
@@ -213,7 +242,7 @@
                         <div class="item">
                              <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="././Public/images/part2.png" alt="#"/></i>
+                                <i><img src="../Public/images/part2.png" alt="#"/></i>
                               <h3>Request Blood</h3>
                               <span> If you are in need of blood of a certain type, we provide you the opportunity to advertise the necessary details and connect with blood donors or the blood bank</span>
                              </div>
@@ -223,7 +252,7 @@
                         <div class="item">
                             <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="././Public/images/notify.jpg" alt="#"/></i>
+                                <i><img src="../Public/images/notify.jpg" alt="#"/></i>
                               <h3> Get Notifications</h3>
                               <span> The registered users get the opportunity to get notifications regarding the blood donations camps happening around you, or blood requests of their blood type</span>
                              </div>
@@ -262,7 +291,7 @@
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-                        <figure><img src="././Public/images/" alt="#"/></figure>
+                        <figure><img src="../Public/images/" alt="#"/></figure>
                         
                         <div class="nostrud">
                            <h3>Who can give Blood?</h3>
@@ -275,7 +304,7 @@
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-                        <figure><img src="././Public/images/" alt="#"/></figure>
+                        <figure><img src="../Public/images/" alt="#"/></figure>
                         
                         <div class="nostrud">
                            <h3>How often can you give Blood?</h3>
@@ -300,10 +329,10 @@
                <div class="row d_flex">
                   <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
-                           <i><img src="././Public/images/" alt="#"/></i>
+                           <i><img src="../Public/images/" alt="#"/></i>
                            <h3>Our Vision</h3>
                            <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
-                           <span><img src="././Public/images/do.png" alt="#"/ style="size: 30px;"></span>
+                           <span><img src="../Public/images/do.png" alt="#"/ style="size: 30px;"></span>
                         </div>
                      </div>
                              <div class=" col-md-6">
@@ -311,7 +340,7 @@
                            <i><img src="Public/images/ " alt="#"/></i>
                            <h3>Our Mision</h3>
                            <p>Our mision is to decrease the blood scarcity prevailing around the country by 50% by the year 2025 through connecting the willing dodnors and the required parties while getting 2000+ registered users by year 2025 </p>
-                           <span><img src="././Public/images/do.png" alt="#"/></span>
+                           <span><img src="../Public/images/do.png" alt="#"/></span>
                         </div>
                      </div>
                   </div>
@@ -344,10 +373,10 @@
     </div>
       <!-- end footer -->
       <!-- Javascript files-->
-      <script src="././Public/js/jquery.min.js"></script>
-      <script src="././Public/js/bootstrap.bundle.min.js"></script>
+      <script src="../Public/js/jquery.min.js"></script>
+      <script src="../Public/js/bootstrap.bundle.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-      <script src="././Public/js/owl.carousel.min.js"></script>
-      <script src="././Public/js/custom.js"></script>
+      <script src="../Public/js/owl.carousel.min.js"></script>
+      <script src="../Public/js/custom.js"></script>
    </body>
 </html>
