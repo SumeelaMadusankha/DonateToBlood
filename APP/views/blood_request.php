@@ -55,8 +55,9 @@
          
       </header>
    <!-- ----------------------------------------------  -->
-  <div class="body">
+ 
   <div class="outer_class">
+  <div class="body">
 <div class="ex">
 <div class="form" >
 

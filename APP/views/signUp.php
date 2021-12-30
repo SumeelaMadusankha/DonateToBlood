@@ -26,6 +26,32 @@
       <link rel="stylesheet" href="../Public/css/login.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
       <link rel="stylesheet" href="../Public/css/hd.css">
+
+
+
+
+      <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <script type="text/javascript">
+        $( document ).ready(function() {
+        $(".note__close").click(function() {
+          $(this).parent()
+          .animate({ opacity: 0 }, 250, function() {
+            $(this)
+            .animate({ marginBottom: 0 }, 250)
+            .children()
+            .animate({ padding: 0 }, 250)
+            .wrapInner("<div />")
+            .children()
+            .slideUp(250, function() {
+              $(this).closest(".note").remove();
+            });
+          });
+        });
+        });
+    </script>
 </head>
 <body >
 <header>
@@ -64,14 +90,14 @@
       
       if (isset($_SESSION['error'])) {
         
-      if ($_SESSION['error']=="Invalid Username or Password") {
+      if ($_SESSION['error']=="The entered NIC is already registered") {
         unset($_SESSION['error']); 
     
         echo "<div class='flag note note--error'>
         <div class='flag__image note__icon'>
           <i class='fa fa-times'></i>
         </div> <div class='flag__body note__text'>
-        Invalid Username or Password! 
+        The entered NIC is already registered
         </div>
         <a href='#' class='note__close'>
           <i class='fa fa-times'></i>

@@ -120,7 +120,9 @@ class User_Model extends Model{
     }
     public function checkNic($dataArray)
     {
-        
+        $query = 'SELECT * FROM user where nic = :nic';
+        $res= $this->db->runQuery($query,[":nic"=>$dataArray['nic']]);
+        return $res;
     }
 }
 ?>

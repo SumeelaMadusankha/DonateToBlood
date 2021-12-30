@@ -86,11 +86,11 @@ class User extends Controller{
     public function signUp()
     {
     
-   
+      
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
         
         $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-        if (isset($_POST["submit"])) {
+        
          
            $dataArray=[
              "nic"=>$this->testInput($_POST["nic"]),
@@ -98,22 +98,29 @@ class User extends Controller{
              "re-password"=>$this->testInput($_POST["re-password"]),
            ];
            
-           
+          
            
            if ( $dataArray["password"]===$dataArray["re-password"]) {
             $result = $this->model->checkNic($dataArray);
-             session_start();
+          
+            if (empty($result)){
+              session_start();
              $hashPassword = $_SESSION["password"] = password_hash( $dataArray["password"], PASSWORD_DEFAULT);
 
              $this->view->data = $dataArray["nic"];
              
-            $this->view->render("user_reg",$this->view->data);  
+            $this->view->render("user_reg",$this->view->data); 
+            }else {
+              $_SESSION['error']="The entered NIC is already registered";
+              $this->view->render("signUp"); 
+            }
+              
            }
            else{
-             print_r("testing one");
+            $_SESSION['error']="Re-entered password is not matched";
+            $this->view->render("signUp"); 
            }
-           
-        }
+      
     }
     }
 
