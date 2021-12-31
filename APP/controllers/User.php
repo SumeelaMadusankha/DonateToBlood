@@ -45,11 +45,13 @@ class User extends Controller{
       }
     }
     
-
+public function submitFormLoad()
+{$this->view->render('signUp');
+}
      public function register()
     {
 
-      $this->view->render('signUp');
+      
        if ($_SERVER["REQUEST_METHOD"]=="POST") {
            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
            if (isset($_POST["register_btn"])) {
@@ -88,7 +90,7 @@ class User extends Controller{
     
       
       if ($_SERVER["REQUEST_METHOD"] === "POST") {
-        
+       
         $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
         
          
@@ -108,7 +110,7 @@ class User extends Controller{
              $hashPassword = $_SESSION["password"] = password_hash( $dataArray["password"], PASSWORD_DEFAULT);
 
              $this->view->data = $dataArray["nic"];
-             
+             $_SESSION['error']="Fill this form to complete the registration";
             $this->view->render("user_reg",$this->view->data); 
             }else {
               $_SESSION['error']="The entered NIC is already registered";
@@ -151,7 +153,7 @@ class User extends Controller{
                 $_SESSION["firstName"] = $loginUser["firstName"];
                 $_SESSION["lastName"] = $loginUser["lastName"];
                 $_SESSION["jobtype"] = $loginUser["jobtype"];
-
+                $_SESSION['msg']="success";
                 switch ($loginUser['jobtype']) {
                   case 'registeredUser':
                     $this->view->render('reg_user_index');

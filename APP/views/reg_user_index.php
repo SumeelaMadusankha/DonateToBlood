@@ -29,7 +29,28 @@
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-
+      <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <script type="text/javascript">
+        $( document ).ready(function() {
+        $(".note__close").click(function() {
+          $(this).parent()
+          .animate({ opacity: 0 }, 250, function() {
+            $(this)
+            .animate({ marginBottom: 0 }, 250)
+            .children()
+            .animate({ padding: 0 }, 250)
+            .wrapInner("<div />")
+            .children()
+            .slideUp(250, function() {
+              $(this).closest(".note").remove();
+            });
+          });
+        });
+        });
+    </script>
 
 
 
@@ -99,10 +120,30 @@
                                     if (isset($_SESSION['nic'])) {
                                        
                                     }else {
-                                        echo " <a class='register_btn' href='User/register' >REGISTER HERE</a>";
+                                        echo " <a class='register_btn' href='User/submitFormLoad' >REGISTER HERE</a>";
                                     }
                                     ?>
-                                 
+      <?php
+      if (isset($_SESSION['msg'])) {
+        unset($_SESSION['msg']); 
+    
+        echo "<div class='flag note note--success'>
+                <div class='flag__image note__icon'>
+                  <i class='fa fa-check-circle'></i>
+                </div>
+                <div class='flag__body note__text'> Dear 
+                  ".$_SESSION['firstName']." ".$_SESSION['lastName'].", You are logged to the systen Successfully! 
+                </div>
+                <a href='#' class='note__close'>
+                  <i class='fa fa-times'></i>
+                </a>
+              </div>";
+     
+      }else {
+       
+      } 
+        
+         ?>
                               </div>
                            </div>
                         </div>

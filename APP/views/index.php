@@ -87,7 +87,7 @@
                                     </div>
                                    
                                  </div>
-                                 <a class="register_btn" href="User/register" >REGISTER HERE</a>
+                                 <a class="register_btn" href="User/submitFormLoad" >REGISTER HERE</a>
                               </div>
                            </div>
                         </div>

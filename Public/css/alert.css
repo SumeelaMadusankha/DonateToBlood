@@ -117,6 +117,8 @@
 
 .note__text {
   padding-right: 48px;
+  font-weight: bolder;
+  font-size: 20px;
 }
 
 .note__close {

@@ -8,7 +8,7 @@ rpField=form.querySelector(".rpassword"),
 rpInput=rpField.querySelector("input");
 
 function submitForm(){
-  
+   
   (eInput.value == "") ? eField.classList.add("shake", "error") : nicCheck();
   (pInput.value == "") ? pField.classList.add("shake", "error") : checkPass();
   (rpInput.value == "")? rpField.classList.add("shake","error") : reCheckPassword();
@@ -63,12 +63,12 @@ function checkPass(){
 
 function reCheckPassword() {
   let pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
-  if(!pInput.value.match(pattern)){ 
-    pField.classList.add("error");
-    pField.classList.remove("valid");
-    let errorTxt = pField.querySelector(".error-txt");
+  if(!rpInput.value.match(pattern)){ 
+    rpField.classList.add("error");
+    rpField.classList.remove("valid");
+    let errorTxt = rpField.querySelector(".error-txt");
     
-    (pInput.value != "") ? errorTxt.innerText = "must contain 8 characters, atleast one number, one uppercase letter and one lowercase letter" : errorTxt.innerText = "Password can't be blank";
+    (rpInput.value != "") ? errorTxt.innerText = "must contain 8 characters, atleast one number, one uppercase letter and one lowercase letter" : errorTxt.innerText = "Password can't be blank";
   }else if(!(pInput.value === rpInput.value)){
     rpField.classList.add("error");
     rpField.classList.remove("valid");
@@ -106,6 +106,10 @@ function post(path, params, method) {
   form.submit();
 }
 if(!eField.classList.contains("error") && !pField.classList.contains("error")){
-  post("../User/signUp",{'nic':eInput.value,'password':pInput.value,'re-password':rpInput.value});
+ 
+  if (!(pInput.value=="")) {
+    post("../User/signUp",{'nic':eInput.value,'password':pInput.value,'re-password':rpInput.value});
+  }
+ 
 }
 
