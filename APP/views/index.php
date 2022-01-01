@@ -53,11 +53,10 @@
             <label class="logo">DonateToBlood</label>
             <ul>
                <li><a class="active" href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               <li><a href="User/index">Login</a></li>
+              
+               <li><a href=" UnregisteredUser/donationPlacesLoad">Where to Donate</a></li>
+               <li><a href=" UnregisteredUser/bloodPostLoad">Blood adverticement</a></li>
+               <li><a href="Login/index">Login</a></li>
             </ul>
          </nav>
          
@@ -83,11 +82,11 @@
                                     <div class="photog">
                                        <h1>DONATE TO<br>BLOOD</h1>
                                       
-                                       
+
                                     </div>
                                    
                                  </div>
-                                 <a class="register_btn" href="User/submitFormLoad" >REGISTER HERE</a>
+                                 <a class="register_btn" href="UnregisteredUser/signUpFormLoad" >REGISTER HERE</a>
                               </div>
                            </div>
                         </div>

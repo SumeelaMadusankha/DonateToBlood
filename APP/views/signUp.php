@@ -110,7 +110,7 @@
         
          ?>
           <header>Sign Up Form</header>
-        <form action = "../User/signUp" method = "post">
+        <form action = "../UnregisteredUser/signUp" method = "post">
               
           <div class="field email">
               <div class="input-area">

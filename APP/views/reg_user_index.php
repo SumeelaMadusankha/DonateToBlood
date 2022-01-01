@@ -74,10 +74,39 @@
             <label class="logo">DonateToBlood</label>
             <ul>
                <li><a class="active" href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a href='#'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='RegisteredUser/loadBRForm'>Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }
+              ?>
+<?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href=' RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href='UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>";
+              }
+              ?>
+              
                <?php
               
                if (isset($_SESSION['nic'])) {
@@ -120,7 +149,7 @@
                                     if (isset($_SESSION['nic'])) {
                                        
                                     }else {
-                                        echo " <a class='register_btn' href='User/submitFormLoad' >REGISTER HERE</a>";
+                                        echo " <a class='register_btn' href='UnregisteredUser/signUpFormLoad' >REGISTER HERE</a>";
                                     }
                                     ?>
       <?php

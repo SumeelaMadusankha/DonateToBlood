@@ -110,7 +110,7 @@
       <div class="form" >
 
         
-            <form action="../User/register" method="POST" id="reg_form">
+            <form action="../UnregisteredUser/register" method="POST" id="reg_form">
                <h1 class="topic" >User Registation</h1>
 
             <div class="container" >

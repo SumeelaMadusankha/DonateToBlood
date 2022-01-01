@@ -1,6 +1,7 @@
 <?php
 class Controller{
 	protected $view;
+	public $model;
 	function __construct(){
 		$this->view = new View();
 	}

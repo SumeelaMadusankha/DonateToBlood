@@ -1,8 +1,12 @@
-<?php 
-class BB_Coordinater_model extends Model{
-    function __construct(){
+<?php
+include_once('User_model.php');
+class UnregisteredUser_Model extends User_Model 
+{
+    function __construct()
+    {
         parent::__construct();
     }
+
 
     public function userRegister($dataArray)
     {
@@ -20,6 +24,7 @@ class BB_Coordinater_model extends Model{
         $city=$dataArray["city"];
        
        $quary1="INSERT INTO user (nic, firstName, LastName, dob, address, district,gender,bloodGroup,email,mobileNo,jobType,city) VALUES (:nic,:firstName,:lastName,:dob,:address,:district,:gender,:bloodGroup, :email,:mobileNo,:jobType,:city)";
+       $quary2="INSERT INTO login (nic,password) VALUES (:nic,:password)";
        $arrayInject=[
            ':nic'=>$nic,
             ':firstName'=>$firstName,
@@ -33,21 +38,22 @@ class BB_Coordinater_model extends Model{
             ':mobileNo'=>$mobileNo, 
             ':jobType'=>$jobType, 
             ':city'=>$city];
+            session_start();
        $results1= $this->db->runQuery($quary1,$arrayInject);
+       $results2 =$this->db->runQuery($quary2,[':nic'=> $nic, ':password'=> $_SESSION['password']]);
        return $results1;
     }
-    public function getData(){
-        $query2="select * from user";
-        $results2= $this->db->selectData($query2);
-        return $results2;
-
-    }
-    public function getR_Data(){
-        $query3="select * from bloodrequest";
-        $results3= $this->db->runQuery($query3,[]);
-        return $results3;
+    public function checkNic($dataArray)
+    {
+        $query = 'SELECT * FROM user where nic = :nic';
+        $res= $this->db->runQuery($query,[":nic"=>$dataArray['nic']]);
+        return $res;
     }
 
-}
+    
+    }
+
+
+
+
 ?>
-

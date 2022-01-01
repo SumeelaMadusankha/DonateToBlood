@@ -96,7 +96,7 @@
       
       if (isset($_SESSION['error'])) {
         
-      if ($_SESSION['error']=="Invalid Username or Password") {
+    
         unset($_SESSION['error']); 
     
         echo "<div class='flag note note--error'>
@@ -109,14 +109,25 @@
           <i class='fa fa-times'></i>
         </a>
       </div>";
-     
-      }else {
-       
-      } }
+      }elseif (isset($_SESSION['msg'])) {
+        unset($_SESSION['msg']); 
+        echo "<div class='flag note note--success'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-check-circle'></i>
+        </div>
+        <div class='flag__body note__text'>
+          You are registered Successfully!. 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }
+      
         
          ?>
           <header>Login Form</header>
-          <form action="../User/login" method="POST">
+          <form action="../Login/login" method="POST">
             <div class="field email">
               <div class="input-area">
                 <input type="text" placeholder="National Identity Card No" name="username">

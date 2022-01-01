@@ -105,10 +105,10 @@ function post(path, params, method) {
   document.body.appendChild(form);
   form.submit();
 }
-if(!eField.classList.contains("error") && !pField.classList.contains("error")){
+if(!eField.classList.contains("error") && !pField.classList.contains("error") && !rpField.classList.contains("error")){
  
   if (!(pInput.value=="")) {
-    post("../User/signUp",{'nic':eInput.value,'password':pInput.value,'re-password':rpInput.value});
+    post("../UnregisteredUser/signUp",{'nic':eInput.value,'password':pInput.value,'re-password':rpInput.value});
   }
  
 }

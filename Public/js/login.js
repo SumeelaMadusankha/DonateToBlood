@@ -71,7 +71,7 @@ form.onsubmit = (e)=>{
     form.submit();
 }
   if(!eField.classList.contains("error") && !pField.classList.contains("error")){
-    post("../User/login",{'username':eInput.value,'password':pInput.value});
+    post("../Login/login",{'username':eInput.value,'password':pInput.value});
   }
 }
 
