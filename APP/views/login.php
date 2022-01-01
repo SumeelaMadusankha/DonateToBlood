@@ -22,7 +22,7 @@
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-      <link rel="stylesheet" href="../Public/css/header.css">
+     
       <link rel="stylesheet" href="../Public/css/login.css">
       <link rel="stylesheet" href="../Public/css/hd.css">
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
@@ -69,8 +69,7 @@
             <label class="logo">DonateToBlood</label>
             <ul>
                <li><a  href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
+              
                <li><a href="#">Where to Donate</a></li>
                <li><a href="#">Blood adverticement</a></li>
                <?php
@@ -78,7 +77,7 @@
                if (isset($_SESSION['nic'])) {
                  echo " <li><a href='logout'>Logout</a></li>";
                }else {
-                  echo " <li><a href='index'>Login</a></li>";
+                  echo " <li><a class='active' href='index'>Login</a></li>";
                }
                ?>
             </ul>

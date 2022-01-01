@@ -2,10 +2,10 @@
 include_once('User.php');
 class RegisteredUser extends User 
 {
-  function __construct($nic)
+  function __construct()
   {
     parent::__construct(); 
-    $this->setDetails($nic);
+    
   } 
  
 

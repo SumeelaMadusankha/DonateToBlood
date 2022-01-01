@@ -64,8 +64,8 @@
             <label class="logo">DonateToBlood</label>
             <ul>
                <li><a  href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
+               
+               
                <li><a href="#">Where to Donate</a></li>
                <li><a href="#">Blood adverticement</a></li>
                <?php
@@ -73,7 +73,7 @@
               if (isset($_SESSION['nic'])) {
                 echo " <li><a href='logout'>Logout</a></li>";
               }else {
-                 echo " <li><a href='index'>Login</a></li>";
+                 echo " <li><a href='../Login/index'>Login</a></li>";
               }
               ?>
             </ul>

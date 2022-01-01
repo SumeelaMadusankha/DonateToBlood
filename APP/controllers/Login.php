@@ -90,7 +90,8 @@ class Login extends Controller
 
             
             }else {
-              $this->view->render('login', $loginUser["Error"]);
+              $_SESSION['error']="Invalid Username or Password";
+              $this->view->render('login');
             }
           }
 

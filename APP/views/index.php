@@ -80,7 +80,7 @@
                               <div class="row">
                                  <div class="col-md-8">
                                     <div class="photog">
-                                       <h1>DONATE TO<br>BLOOD</h1>
+                                       <h1>Donate To<br>Blood</h1>
                                       
 
                                     </div>

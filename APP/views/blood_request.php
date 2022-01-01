@@ -26,6 +26,11 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
       <script src="../Public/js/user_reg.js"></script>
+      <script src="../Public/js/alertmsg.js"></script>
+      <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 
 
 
@@ -44,12 +49,19 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a class="active" href="index">Home</a></li>
+               <li><a  href="index">Home</a></li>
                <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               <li><a href="User/index">Login</a></li>
+               <li><a class="active" href="RegisteredUser/loadBRForm">Request Blood</a></li>
+               <li><a href="RegisteredUser/donationPlacesLoad">Where to Donate</a></li>
+               <li><a href="RegisteredUser/bloodPostLoad">Blood adverticement</a></li>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='logout'>Logout</a></li>";
+              }else {
+                 echo " <li><a  href='index'>Login</a></li>";
+              }
+              ?>
             </ul>
          </nav>
          
@@ -62,15 +74,34 @@
 <div class="form" >
 
     
-        <form action="../User/addRequest" method="POST" id="req_form">
+        <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
            <h1 class="topic" >Blood Request</h1>
-           <?php 
-           echo $data;
-           ?>
+          
 
         <div class="container" >
             
-            
+        ?>
+      <?php
+      if (isset($_SESSION['msg'])) {
+        unset($_SESSION['msg']); 
+    
+        echo "<div class='flag note note--success'>
+                <div class='flag__image note__icon'>
+                  <i class='fa fa-check-circle'></i>
+                </div>
+                <div class='flag__body note__text'>
+                  Request has been sent Successfully! 
+                </div>
+                <a href='#' class='note__close'>
+                  <i class='fa fa-times'></i>
+                </a>
+              </div>";
+     
+      }else {
+       
+      } 
+        
+         ?>
             <hr>
             <label for="nic"><b>NIC Number</b></label><br>
             <input type="text" placeholder="NIC Number" name="nic" id="nic" ><br>

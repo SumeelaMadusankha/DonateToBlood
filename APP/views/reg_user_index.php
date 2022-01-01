@@ -85,7 +85,7 @@
                <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='RegisteredUser/loadBRForm'>Request Blood</a></li>";
+                echo " <li><a href='../RegisteredUser/loadBRForm'>Request Blood</a></li>";
               }else {
                  
               }
