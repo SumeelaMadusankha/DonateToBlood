@@ -28,8 +28,6 @@
       <script src="../Public/js/user_reg.js"></script>
 
 
-     
-
 
       <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
@@ -85,11 +83,9 @@
 <div class="ex">
 <div class="form" >
 
-
     
         <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
-
-           <h1 class="topic" >Blood Request</h1>
+           <h1 class="topic" >Camp Request</h1>
            <?php
            
            
@@ -129,21 +125,13 @@
             
             
             <hr>
-            <div class="field nid">
-            <label for="nic"><b>Nic</b></label><br>
-            <input type="text" placeholder="Identity Card" name="nic" id="nic" >
-            <div class="error error-text"> NIC can't be blank</div><br>
-            </div>
-           
+            <label for="nic"><b>NIC Number</b></label><br>
+            <input type="text" placeholder="NIC Number" name="nic" id="nic" ><br>
 
-            <div class="field fullName">
             <label for="flname"><b>Full Name</b></label><br>
-            <input type="text" placeholder="Full Name" name="flname" id="flname" >
-            <div class="error error-text"> Name can't be blank</div><br>
-            </div>
-            
+            <input type="text" placeholder="Full Name" name="flname" id="flname" ><br>
 
-            <div class="field bloods">
+            <div class="bloods">
                 <label for="blood"><b>Blood Type</b></label><br>
             <select name="blood" id="blood">
                 <option value="A+">A+</option>
@@ -152,51 +140,28 @@
                 <option value="B-">B-</option>
                 <option value="O+">O+</option>
                 <option value="O-">O-</option>
-            </select>
-            <<div class="error error-text"> Blood Type can't be blank</div><br>
-            
+            </select><br>
             </div>
-
-
-            <div class="field address"> 
+            <div> 
             <label for="address"><b>Address</b></label><br>
             <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea>
-            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
-            <div class="error error-text"> Address can't be blank</div><br>
-          
             </div>
 
-            <div class="field mobNum">
             <label for="num"><b>Contact Number</b></label><br>
-            <input type="text" placeholder="Contact Number" name="num" id="num" >
-            <div class="error error-text"> Mobile Number can't be blank</div><br>
-            </div>
-            
-            <div class="field description">
+            <input type="text" placeholder="Contact Number" name="num" id="num" ><br>
+
             <label for="description"><b>Description</b></label><br>
-            <input type="text" placeholder="Description regarding the request" name="description" id="description" >
-            <div class="error error-text"> Description can't be blank</div><br>
-            </div>
-            
-            <div class="field attachment">
+            <input type="text" placeholder="Description regarding the request" name="description" id="description" ><br>
+
             <label for="att"><b>Attachment</b></label><br>
             <input type="file" placeholder="attachment" name="att" id="att" ><br>
-            <div class="error error-text"> Attachment can't be blank</div><br>
-            </div>
 
-            
-            <div class="field dueDate">
             <label for="duedate"><b>Due Date to recieve blood</b></label><br>
-            <input type="date" placeholder="Due Date" name="duedate" id="duedate" >
-            <div class="error error-text"> Due Date can't be blank</div><br>
-            </div>
-            
+            <input type="date" placeholder="Due Date" name="duedate" id="duedate" ><br>
 
         </div>    
         
-       
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return submitRequestForm()">
-        
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn">
        
         
         
@@ -210,11 +175,6 @@
 
   </div>
   </div>
-  <script src="../Public/js/blood_request_val.js"></script>
-        <script src="../Public/js/jquery.min.js"></script>
-        <script src="../Public/js/bootstrap.bundle.min.js"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-        <script src="../Public/js/owl.carousel.min.js"></script>
-        <!-- <script src="../Public/js/custom.js"></script> -->
+   
 </body>
 </html>
