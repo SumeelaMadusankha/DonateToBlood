@@ -28,6 +28,7 @@ class RegisteredUser extends User
 
     public function loadBRForm()
     {
+   
       $this->view->render("blood_request");
     }
     public function addRequest()
@@ -48,20 +49,17 @@ class RegisteredUser extends User
              "attachment"=>$this->testInput($_POST["att"]),
              "duedate"=>$this->testInput($_POST["duedate"]),
 
-            
-            
-            
            ];
-           
-          
              $registerResult = $this->model->addbloodRequest($dataArray);
              if (empty($registerResult)) {
-               $msg="Request sent Successfully!!";
-               $this->view->render("blood_request",$msg);
              
+               $_SESSION['msg']="success";
+               $this->view->render("blood_request");
            }else {
-            $msg="Error occured, Try again!!";
-            $this->view->render("blood_request",$msg);
+            
+            $_SESSION['error']="failed";
+           
+            $this->view->render("blood_request");
            }
            
         }
@@ -75,9 +73,6 @@ class RegisteredUser extends User
     public function donationPlacesLoad()
     {
         $this->view->render('donatePlaces');
-
-
-
 }
 
 }

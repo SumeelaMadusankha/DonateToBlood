@@ -85,7 +85,7 @@
 
     
         <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
-           <h1 class="topic" >Blood Request</h1>
+           <h1 class="topic" >Camp Request</h1>
            <?php
            
            

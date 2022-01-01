@@ -108,7 +108,7 @@ function post(path, params, method) {
 if(!eField.classList.contains("error") && !pField.classList.contains("error") && !rpField.classList.contains("error")){
  
   if (!(pInput.value=="")) {
-    post("../UnregisteredUser/signUp",{'nic':eInput.value,'password':pInput.value,'re-password':rpInput.value});
+    // post("../UnregisteredUser/signUp",{'nic':eInput.value,'password':pInput.value,'re-password':rpInput.value});
   }
  
 }
