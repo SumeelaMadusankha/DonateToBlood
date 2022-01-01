@@ -330,9 +330,70 @@ label.error {
   }
 }
 
+/* **************************************** */
 
+form .field{
+   width: 100%;
+   margin-bottom: 20px;
+ }
+ form .field.shake{
+   animation: shake 0.3s ease-in-out;
+ }
 
+ @keyframes shake {
+   0%, 100%{
+     margin-left: 0px;
+   }
+   20%, 80%{
+     margin-left: -12px;
+   }
+   40%, 60%{
+     margin-left: 12px;
+   }
+ }
 
+ form .field .input-area{
+   height: 50px;
+   width: 100%;
+   position: relative;
+ }
 
+ form .field input:focus,
+form .field.valid input{
+  border-color: #00C9A7;
+}
+form .field.shake input,
+form .field.error input{
+  border-color: #dc3545;
+}
+.field .input-area i{
+  position: absolute;
+  top: 50%;
+  font-size: 18px;
+  pointer-events: none;
+  transform: translateY(-50%);
+}
   
+
+form input:focus ~ .icon,
+form .field.valid .icon{
+  color: #00C9A7;
+}
+form .field.shake input:focus ~ .icon,
+form .field.error input:focus ~ .icon{
+  color: #bfbfbf;
+}
   
+form .field .error-text{
+   color: #dc3545;
+   text-align: left;
+   margin-top: 5px;
+   font-weight: bold;
+ }
+ form .field .error{
+   display: none;
+ }
+ form .field.shake .error,
+ form .field.error .error{
+   display: block;
+ }
