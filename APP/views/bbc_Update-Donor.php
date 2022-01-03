@@ -40,6 +40,9 @@
                     <li>
                         <a class="active-menu" href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
+                    <li>
+                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
+                    </li>
 
 
 

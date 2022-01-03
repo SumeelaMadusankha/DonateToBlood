@@ -26,6 +26,31 @@ class BB_Coordinater extends Controller{
     public function viewUserData(){
         $this->view->render("bbc_viewUserData");
     }
+    public function viewAddBloodDetails(){
+        $this->view->render("bbc_viewAddBloodDetails");
+    }
+    public function add_BloodDetails(){
+        if ($_SERVER["REQUEST_METHOD"]=="POST") {
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if (isset($_POST["add_blood_btn"])) {
+               $blood_dataArray=[
+                 "blood_type"=>$this->testInput($_POST["add_b_type"]),
+                 "maximum_quantity"=>$this->testInput($_POST["m_quantity" ]),
+                 "available_quantity"=>$this->testInput($_POST["a_quantity" ]),
+                 "Distric"=>$this->testInput("Matara"),
+
+                ];
+               
+               
+                 $registerResult1 = $this->model->addBloodDetails($blood_dataArray);
+               
+              /*  if (empty($registerResult1)) {
+                 $this->view->render("bbc_Shoratage");
+               } */
+               
+            }
+        }
+    }
     
     public function addDonor()
     {
@@ -76,6 +101,10 @@ class BB_Coordinater extends Controller{
             $this->view->render("bbc_viewRequestData",$registerResult3);
         
         }
+    }
+    public function showBloodData(){
+        $registerResult4 = $this->model->getBloodData();
+        $this->view->render("bbc_Shoratage",$registerResult4);
     }
 }
 ?>

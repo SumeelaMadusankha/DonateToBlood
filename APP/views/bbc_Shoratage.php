@@ -38,6 +38,9 @@
                     <li>
                         <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
+                    <li>
+                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
+                    </li>
 
 
 
@@ -54,6 +57,8 @@
                         Shortage of Blood
                     </h1>
                 </div>
+
+            <!-- /. ROW  -->
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="panel panel-default">

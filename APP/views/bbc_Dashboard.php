@@ -44,6 +44,9 @@
                     <li>
                         <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
+                    <li>
+                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
+                    </li>
 
 
 
@@ -104,6 +107,15 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="alert alert-primary" role="alert">
+                <a href="showUserData" class="link-info" style="font-size: 30px;">View User Details</a>
+                </div>
+                <div class="alert alert-secondary" role="alert">
+                <a href="showRequestData" class="link-success" style="font-size: 30px;">View All Blood Requests Details</a>
+                </div>
+                
+
                 <?php include "bbc_footer.php"; ?>
             </div>
             <!-- /. PAGE INNER  -->

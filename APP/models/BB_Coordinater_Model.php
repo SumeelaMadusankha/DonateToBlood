@@ -1,7 +1,21 @@
 <?php 
-class BB_Coordinater_model extends Model{
+class BB_Coordinater_Model extends Model{
     function __construct(){
         parent::__construct();
+    }
+    public function addBloodDetails($blood_dataArray){
+        $blood_type=$blood_dataArray["blood_type"];
+        $maximum_quantity=$blood_dataArray["maximum_quantity"];
+        $available_quantity=$blood_dataArray["available_quantity"];
+        $Distric=$blood_dataArray["Distric"];
+        $quary4="INSERT INTO blooddetails (BloodGroup, Distric, MaximumQuantity, AvailableQuantity) VALUES (:BloodGroup,:Distric,:MaximumQuantity,:AvailableQuantity)";
+        $array_Inject=[
+            ':BloodGroup'=>$blood_type,
+             ':Distric'=>$Distric,
+             ':MaximumQuantity'=>$maximum_quantity, 
+             ':AvailableQuantity'=> $available_quantity];
+        $results4= $this->db->runQuery($quary4,$array_Inject);
+        return $results4;
     }
 
     public function userRegister($dataArray)
@@ -42,10 +56,16 @@ class BB_Coordinater_model extends Model{
         return $results2;
 
     }
+    
     public function getR_Data(){
         $query3="select * from bloodrequest";
-        $results3= $this->db->runQuery($query3,[]);
+        $results3= $this->db->selectData($query3);
         return $results3;
+    }
+    public function getBloodData(){
+        $query4="select * from blooddetails";
+        $results4= $this->db->selectData($query4);
+        return $results4;
     }
 
 }
