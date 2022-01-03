@@ -77,7 +77,7 @@
                <?php
               
                if (isset($_SESSION['nic'])) {
-                 echo "<li><a href='#'>Request Camp</a></li>";
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
                }else {
                   
                }
