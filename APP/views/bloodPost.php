@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../Public/css/hd.css">
    
     <link rel="stylesheet" href="../Public/css/whereToDonate.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- ---------------------------------------- -->
     
     
@@ -120,7 +121,7 @@
                   <div class="card-flyer">
                     <div class="text-box">
                         <div class="image-box">
-                          <img src="../Public/images/test1.jpg" alt="" />
+                          <img class ="image-prop" src="../Public/images/bloods/A+.png" alt="" />
                         </div>
                         <div class="text-container">
                             <h6 >BLOOD GROUP A+</h6>
@@ -131,17 +132,39 @@
                      </div>
                   </div>
                 </a>
-                <div class="modal-container body" id="modal-opened">
-                  <div class="modal-demo">
                 
+                <div class="modal-container body" id="modal-opened">
+                  <div class="modal-demo" >
+                    
                     <div class="modal__details">
-                      <h1 class="modal__title">BLOOD GROUP A+</h1>
-                      <p class="modal__description">Sentence that will tell user what this modal is for or something.</p>
+                      
+                      <img src="../Public/images/blood-types/blood-B+.png"  class="post-image-class" alt="">
+                      
+                    
+                      <h1 class="modal__title"><b>Blood Type : B+</b></h1>
+                      <p class="modal__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
+                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
+                        took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
+                         but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s 
+                         with the release of Letraset sheets containing Lorem
+                      </p>
                     </div>
                 
-                    <p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
+                    <div class="modal__text">
+                      
+                     <div class="outer-extra-class" > <b class= "extra-class">Contact Person :</b>  <p class="inner-extra-class"> Nuwan Jayasanka</p></div>
+                      <p class="outer-extra-class"> <b class= "extra-class">Contact Number :</b>  <p class="inner-extra-class"> 0769152313</p></p>
+                      <p class="outer-extra-class"> <b class= "extra-class">Due Date :</b>  <p class="inner-extra-class"> 2022-03-28</p></p>
+                      
+                      <!-- <button class="btn"><i class="fa fa-download" ></i> Download Attachment</button> -->
+                      <a href="../Public/images/blood-types/blood-A+.png" 
+                      <button class="btn"><i class="fa fa-download" ></i> Download Attachment</button>
+                      </a>
+                      
+                    </div>
+
                 
-                    
+                   
                 
                     <a href="#modal-closed" class="link-2"></a>
                 
@@ -153,7 +176,7 @@
                   <div class="card-flyer">
                     <div class="text-box">
                         <div class="image-box">
-                          <img src="../Public/images/test1.jpg" alt="" />
+                          <img src="../Public/images/bloods/A-.png" alt="" />
                         </div>
                         <div class="text-container">
                             <h6 >BLOOD GROUP A+</h6>
@@ -189,7 +212,7 @@
                   <div class="card-flyer">
                     <div class="text-box">
                         <div class="image-box">
-                          <img src="../Public/images/test1.jpg" alt="" />
+                          <img src="../Public/images/bloods/AB.png" alt="" />
                         </div>
                         <div class="text-container">
                             <h6 >BLOOD GROUP A+</h6>
@@ -225,7 +248,7 @@
                   <div class="card-flyer">
                     <div class="text-box">
                         <div class="image-box">
-                          <img src="../Public/images/test1.jpg" alt="" />
+                          <img src="../Public/images/bloods/O+.png" alt="" />
                         </div>
                         <div class="text-container">
                             <h6 >BLOOD GROUP A+</h6>
@@ -263,7 +286,7 @@
               <div class="card-flyer">
                 <div class="text-box">
                     <div class="image-box">
-                      <img src="../Public/images/test1.jpg" alt="" />
+                      <img src="../Public/images/bloods/B-.png" alt="" />
                     </div>
                     <div class="text-container">
                         <h6 >BLOOD GROUP A+</h6>
@@ -278,7 +301,7 @@
               <div class="card-flyer">
                 <div class="text-box">
                     <div class="image-box">
-                      <img src="../User/images/test1.jpg" alt="" />
+                      <img src="../User/images/bloods/B+.png" alt="" />
                     </div>
                     <div class="text-container">
                         <h6 >BLOOD GROUP A+</h6>
@@ -293,7 +316,7 @@
               <div class="card-flyer">
                 <div class="text-box">
                     <div class="image-box">
-                      <img src="../User/images/test1.jpg" alt="" />
+                      <img src="../User/images/bloods/O-.png" alt="" />
                     </div>
                     <div class="text-container">
                         <h6 >BLOOD GROUP A+</h6>
@@ -308,7 +331,7 @@
               <div class="card-flyer">
                 <div class="text-box">
                     <div class="image-box">
-                      <img src="../User/images/test1.jpg" alt="" />
+                      <img src="../User/images/bloods/B+.png" alt="" />
                     </div>
                     <div class="text-container">
                         <h6 >BLOOD GROUP A+</h6>
