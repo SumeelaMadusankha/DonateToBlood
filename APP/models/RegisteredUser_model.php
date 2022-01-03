@@ -37,6 +37,35 @@ include_once('User_Model.php');
      
         return $results1;
     }
+
+    public function addCampRequest($dataArray)
+    {
+   
+        $name=$dataArray["flname"];
+        $email=$dataArray["nic"];
+        $campDate=$dataArray["blood"];
+        $description=$dataArray["description"];
+        $attachment=$dataArray["attachment"];
+        $lat=$dataArray["duedate"];
+        $lon=$dataArray["duedate"];
+        $requestedTime=$dataArray["duedate"];
+        $district=$dataArray["duedate"];
+        $address=$dataArray["duedate"];
+        $conNumber=$dataArray["duedate"];
+        $dateTime=$dataArray["duedate"];
+        $status="pending";
+        
+        
+       
+       $queryAdd="INSERT INTO camprequest (nic, bloodType, description, attachment, status, fullName,dueDate,mobileNo) VALUES (:nic, :bloodType, :description, :attachment, :status, :fullName,:dueDate,:mobileNo)";
+
+       $arrayInject=[
+        ":nic"=>$nic, ":bloodType"=>$blood, ":description"=>$description, ":attachment"=>$attachment, ":status"=>$status, ":fullName"=>$fulName,":dueDate"=>$duedate,":mobileNo"=>$mobileNo];
+
+        $results1= $this->db->runQuery($queryAdd,$arrayInject);
+     
+        return $results1;
+    }
     }
     
 ?>
