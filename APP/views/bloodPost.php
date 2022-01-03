@@ -138,7 +138,11 @@
                     
                     <div class="modal__details">
                       
+
                       <img src="../Public/images/blood-types/blood-B+.png"  class="post-image-class" alt="">
+
+                      
+
                       
                     
                       <h1 class="modal__title"><b>Blood Type : B+</b></h1>
@@ -157,7 +161,11 @@
                       <p class="outer-extra-class"> <b class= "extra-class">Due Date :</b>  <p class="inner-extra-class"> 2022-03-28</p></p>
                       
                       <!-- <button class="btn"><i class="fa fa-download" ></i> Download Attachment</button> -->
+
                       <a href="../Public/images/blood-types/blood-A+.png" 
+
+                      
+
                       <button class="btn"><i class="fa fa-download" ></i> Download Attachment</button>
                       </a>
                       
