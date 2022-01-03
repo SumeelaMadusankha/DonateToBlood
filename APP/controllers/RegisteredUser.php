@@ -25,7 +25,10 @@ class RegisteredUser extends User
      $this->gender=$details['gender'];
      
     }
-
+public function loadCampRequestForm()
+{
+  $this->view->render("campRequest");
+}
     public function loadBRForm()
     {
    
