@@ -58,7 +58,7 @@
                     <button type="button" class="btn btn-warning" class="btn btn-elegant btn-rounded btn-lg my-0" type="submit">Search</button>
                     
             </form>
-            <div class="row">
+            <div class="row" style="visibility: hidden;>
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -67,7 +67,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form role="form" action="" method="post" >
+                                        <form "role="form" action="" method="post" >
                                             <div class="form-group">
                                                 <label for="date">Donating Date<span class="description-date">:Please use the YYYY-MM-DD format.</span></label>
                                                 <input class="form-control" type="date" id="date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" required>
