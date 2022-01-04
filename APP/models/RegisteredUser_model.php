@@ -61,7 +61,9 @@ include_once('User_Model.php');
        (:name,:email,:campDate,:description,:attachment,:lat,:lng,:district,:address,:conNumber,:dateTime,:status)";
 
        $arrayInject=[
-        ":name"=>$name, ":email"=>$email, ":campDate"=>$campDate, ":attachment"=>$attachment, ":status"=>$status, ":description"=>$description,":lat"=>$lat,":lng"=>$lng,":district"=>$district,":address"=>$address,":conNumber"=>$conNumber,":dateTime"=>$dateTime];
+        ":name"=>$name, ":email"=>$email, ":campDate"=>$campDate, ":attachment"=>$attachment, ":status"=>$status, 
+        ":description"=>$description,":lat"=>$lat,":lng"=>$lng,":district"=>$district,":address"=>$address,
+        ":conNumber"=>$conNumber,":dateTime"=>$dateTime];
 
         $results1= $this->db->runQuery($queryAdd,$arrayInject);
      
