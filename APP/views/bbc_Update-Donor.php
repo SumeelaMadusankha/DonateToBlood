@@ -51,14 +51,15 @@
             </div>
 
         </nav>
+        <div class="">
         <div id="page-wrapper">
             <div id="page-inner">
-            <form class="form-inline md-form mr-auto mb-4" style="margin-bottom: 10px;">
+            <form class="form-inline md-form mr-auto mb-4 ex1" style="margin-bottom: 10px;">
                     <input class="form-control mr-lg-2" type="text" placeholder="Enter ID" aria-label="Search">
                     <button type="button" class="btn btn-warning" class="btn btn-elegant btn-rounded btn-lg my-0" type="submit">Search</button>
                     
             </form>
-            <div class="row" style="visibility: hidden;>
+            <div class="row" ">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -90,6 +91,7 @@
 				<?php include "bbc_footer.php";?>
             </div>
             <!-- /. PAGE INNER  -->
+        </div>
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>

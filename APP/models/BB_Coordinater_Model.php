@@ -19,7 +19,13 @@ class BB_Coordinater_Model extends Model
         $results4 = $this->db->runQuery($quary5, $array_Inject);
         return $results4;
     }
+public function getBloodReqest()
+{
+    $query2 = "select * from bloodrequest";
+    $results2 = $this->db->selectData($query2);
+    return $results2;
 
+}
     public function userRegister($dataArray)
     {
         $firstName = $dataArray["firstName"];
