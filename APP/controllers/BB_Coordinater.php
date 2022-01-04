@@ -32,9 +32,7 @@ class BB_Coordinater extends Admin{
         $result_id=$this->model->getBoodId_type($_GET["id"]);
         $this->view->render("bbc_viewAddBloodDetails",$result_id);
     }
-    public function updateUserHistory(){
 
-    }
     public function updateBloodDetails(){
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
