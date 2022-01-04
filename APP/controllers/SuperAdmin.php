@@ -64,12 +64,9 @@ public function addAdmin(){
 
 }
 
-        public function showAdmins(){
-            
-        }
+        
+
 
 
 }
 
-
-?>
