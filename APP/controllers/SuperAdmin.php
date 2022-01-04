@@ -56,16 +56,20 @@ public function addAdmin(){
                 $this->view->render("super_Register_Admin");
               }
            }
-
-           
-           
+          
         }
     }
-
-
-
-
 }
+
+public function viewAdminData()
+    {
+        $registerResult1 = $this->model->get_AdminData();
+        // print_r($registerResult2);
+        if(!empty($registerResult1)){
+            $this->view->render("super_viewAdmin",$registerResult1);
+        
+        }
+    }
 
 
 }

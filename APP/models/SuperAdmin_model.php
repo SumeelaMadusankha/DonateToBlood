@@ -35,8 +35,12 @@ class SuperAdmin_model extends Model{
        
        return $adminresults1;
     }
-   
-    
-    
+
+    public function get_AdminData()
+    {
+        $query2 = "select * from admin";
+        $results2 = $this->db->selectData($query2);
+        return $results2;
+    }
 }
 ?>
