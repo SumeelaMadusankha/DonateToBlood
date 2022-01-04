@@ -79,12 +79,19 @@
         <form action="#">
             <div class="user-details">
                 <div class="input-box">
-                    <span class="details">Full Name</span>
+                    <span class="details"><b> Full Name </b></span>
                     <input type="text" placeholder="Enter your full name" required>
 
                 </div>
+
                 <div class="input-box">
-                    <span class="details">District</span>
+                    <span class="details"><b> NIC </b></span>
+                    <input type="text" placeholder="Enter your NIC number" required>
+                    
+                </div>
+                <div class="input-box">
+                    
+                    <span class="details"> <b> District</b></span>
                     <select name="district" id="district">
                         <option value="Matara">Matara</option>
                         <option value="Matara">Galle</option>
@@ -92,28 +99,29 @@
                         <option value="Matara">Kandy</option>
                     </select>     
                 </div>
+                
                 <div class="input-box">
-                    <span class="details">Username</span>
+                    <span class="details"><b> Username</b></span>
                     <input type="text" placeholder="Enter your username" required>
                     
                 </div>
                 <div class="input-box">
-                    <span class="details">Email Address</span>
+                    <span class="details"> <b>Email Address</b> </span>
                     <input type="text" placeholder="Enter your email" required>
                     
                 </div>
                 <div class="input-box">
-                    <span class="details">Phone Number</span>
+                    <span class="details"> <b>Phone Number</b></span>
                     <input type="text" placeholder="Enter your number" required>
                     
                 </div>
                 <div class="input-box">
-                    <span class="details">Password</span>
+                    <span class="details"> <b>Password</b> </span>
                     <input type="text" placeholder="Enter your password" required>
                     
                 </div>
                 <div class="input-box">
-                    <span class="details">Confirm Password</span>
+                    <span class="details"> <b>Confirm Password</b> </span>
                     <input type="text" placeholder="Re-Enter the password" required>
                     
                 </div>
@@ -122,7 +130,7 @@
                 <input type="radio" name="gender" id="dot-1">
                 <input type="radio" name="gender" id="dot-2">
                 <input type="radio" name="gender" id="dot-3" checked>
-                <span class="gender-title">Gender</span>
+                <span class="gender-title"> <b>Gender</b></span>
                 <div class="category">
                     <label for="dot-1">
                         <span class="dot one"></span>
