@@ -14,9 +14,7 @@ class BB_Coordinater extends Controller{
     public function viewCampRequests(){
         $this->view->render("bbc_Donation-Camp-Requests");
     }
-    public function viewShortageBloodTypes(){
-        $this->view->render("bbc_Shoratage");
-    }
+   
     public function viewRegisterDonor(){
         $this->view->render("bbc_Register_Donor");
     }
@@ -27,14 +25,14 @@ class BB_Coordinater extends Controller{
         $this->view->render("bbc_viewUserData");
     }
     public function viewAddBloodDetails(){
-        $this->view->render("bbc_viewAddBloodDetails");
+        $result_id=$this->model->getBoodId_type($_GET["id"]);
+        $this->view->render("bbc_viewAddBloodDetails",$result_id);
     }
-    public function add_BloodDetails(){
+    public function updateBloodDetails(){
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             if (isset($_POST["add_blood_btn"])) {
                $blood_dataArray=[
-                 "blood_type"=>$this->testInput($_POST["add_b_type"]),
                  "maximum_quantity"=>$this->testInput($_POST["m_quantity" ]),
                  "available_quantity"=>$this->testInput($_POST["a_quantity" ]),
                  "Distric"=>$this->testInput("Matara"),
@@ -42,11 +40,11 @@ class BB_Coordinater extends Controller{
                 ];
                
                
-                 $registerResult1 = $this->model->addBloodDetails($blood_dataArray);
+                $registerResult1=$this->model->update_BloodDetails($blood_dataArray,$_GET["id"]);
                
-              /*  if (empty($registerResult1)) {
-                 $this->view->render("bbc_Shoratage");
-               } */
+               if (empty($registerResult1)) {
+                   $this->showBloodData();
+               } 
                
             }
         }
@@ -104,7 +102,10 @@ class BB_Coordinater extends Controller{
     }
     public function showBloodData(){
         $registerResult4 = $this->model->getBloodData();
-        $this->view->render("bbc_Shoratage",$registerResult4);
+        if(!empty($registerResult4)){
+            $this->view->render("bbc_Shoratage",$registerResult4);
+        }
+        
     }
 }
 ?>

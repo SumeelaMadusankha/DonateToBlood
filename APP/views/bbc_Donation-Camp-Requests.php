@@ -34,7 +34,7 @@
                         <a class="active-menu" href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a  href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
                         <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
