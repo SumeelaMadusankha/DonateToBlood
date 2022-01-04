@@ -48,6 +48,7 @@ public function addAdmin(){
    
              $registerResult = $this->model->adminRegister($dataArray);
             
+             
              if (empty($registerResult)) {
                 $this->view->render("super_Register_Admin");
               }
