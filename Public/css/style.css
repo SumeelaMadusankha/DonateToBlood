@@ -828,7 +828,20 @@ body-div{
 }
 
 
-.latest figure {margin: 0;}
+.latest figure {
+    align-content: center;
+    height: auto;
+    
+}
+
+.center {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    width: 70%;
+}
+
+
 
 .latest .register_btn {
     margin: 0 auto;
@@ -908,10 +921,10 @@ body-div{
 }
 
 .reader i img {
-   border-radius: 50%;  
+    max-width: 150px;
+    border-radius: 50%;  
        box-shadow: 3px 0 62px rgba(13, 3, 3, 0.18);  margin-top: -50px;  
 }
-
 
 
 .reader h3 {
