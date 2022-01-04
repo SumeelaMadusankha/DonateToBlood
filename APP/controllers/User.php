@@ -1,12 +1,12 @@
 <?php
-class User extends Controller{
-    private $firstName;
-    private $lastName;
+include_once("Person.php");
+class User extends Person{
+    
     private $bloodGroup;
     private $District;
     private $MobileNo;
     private $email;
-    private $nic;
+   
     private $address;
     private $dateOfBirth;
     private $gender;

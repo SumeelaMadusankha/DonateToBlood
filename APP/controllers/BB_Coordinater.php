@@ -1,6 +1,10 @@
 <?php
-class BB_Coordinater extends Controller{
-
+include_once('Admin.php');
+class BB_Coordinater extends Admin{
+    function __construct()
+    {
+        parent:: __construct();
+    }
     public function index()
     {
        $this->view->render("bbc_index");

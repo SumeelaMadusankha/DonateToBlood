@@ -33,8 +33,8 @@ class Login extends Controller
                   case "bloodBankCordinator":
                     $this->view->render('bbc_index');
                     break;
-                  case "":
-                    $this->view->render('');
+                  case "superAdmin":
+                    $this->view->render('super_index');
         }
    
       }
@@ -74,6 +74,9 @@ class Login extends Controller
                     break;
                     case 'bloodBankCordinator':
                       $this->view->render('bbc_index');
+                      break;
+                    case 'superAdmin':
+                        $this->view->render('super_index');
                       break;
                   default:
                     # code...
