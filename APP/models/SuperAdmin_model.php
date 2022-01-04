@@ -36,5 +36,21 @@ class SuperAdmin_model extends Model{
        return $adminresults1;
     }
 
+    public function get_AdminData()
+    {
+        $query2 = "select * from admin";
+        $results2 = $this->db->selectData($query2);
+        return $results2;
+    }
+
+    public function remove_admin($id){
+        $dataArray=[
+            ':nic'=>$id,
+        ];
+        $sql = "DELETE FROM admin WHERE nic=:nic";
+        $adminresults1= $this->db->runQuery($sql,$dataArray);
+        return $adminresults1;
+    }
+
 }
 ?>

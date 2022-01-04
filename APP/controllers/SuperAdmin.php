@@ -59,16 +59,15 @@ public function addAdmin(){
           
         }
     }
-<<<<<<< HEAD
+
 
 
 }
 
         
 
-=======
-}
->>>>>>> bca945583593f4636dad488db938567ef3b44d90
+
+
 
 public function viewAdminData()
     {
@@ -78,6 +77,17 @@ public function viewAdminData()
             $this->view->render("super_viewAdmin",$registerResult1);
         
         }
+    }
+
+    public function removeAdmin(){
+        
+       $id =$this->testInput( $_GET["nic"]);
+       
+       $registerResult1 = $this->model->remove_admin($id);
+       if(empty($registerResult1)){
+           print_r("No More Admins to Remove");
+        $this->viewAdminData();
+    }
     }
 
 
