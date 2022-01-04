@@ -88,11 +88,7 @@
 
                 </div>
 
-                <div class="input-box">
-                    <span class="details"><b> NIC </b></span>
-                    <input type="text" placeholder="Enter your NIC number" required>
-                    
-                </div>
+                
                 <div class="input-box">
 
                     <span class="details">NIC</span>
@@ -131,12 +127,12 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Password</span>
-                    <input type="text" placeholder="Enter your password" name="pword" id="pword" required>
+                    <input type="password" placeholder="Enter your password" name="pword" id="pword" required>
                     
                 </div>
                 <div class="input-box">
                     <span class="details">Confirm Password</span>
-                    <input type="text" placeholder="Re-Enter the password" name="confirm" id="confirm" required>
+                    <input type="password" placeholder="Re-Enter the password" name="confirm" id="confirm" required>
 
                     
                 </div>
