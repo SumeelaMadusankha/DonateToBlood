@@ -9,8 +9,10 @@ class BloodPost extends Post
     {
         parent:: __construct();
     }
-
-
+{
+    public function someMethod1(){
+        
+    }
 
 
 
