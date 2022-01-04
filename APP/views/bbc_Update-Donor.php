@@ -32,13 +32,16 @@
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
                         <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
                         <a class="active-menu" href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                    </li>
+                    <li>
+                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
                     </li>
 
 
@@ -48,14 +51,15 @@
             </div>
 
         </nav>
+        <div class="">
         <div id="page-wrapper">
             <div id="page-inner">
-            <form class="form-inline md-form mr-auto mb-4" style="margin-bottom: 10px;">
+            <form class="form-inline md-form mr-auto mb-4 ex1" style="margin-bottom: 10px;">
                     <input class="form-control mr-lg-2" type="text" placeholder="Enter ID" aria-label="Search">
                     <button type="button" class="btn btn-warning" class="btn btn-elegant btn-rounded btn-lg my-0" type="submit">Search</button>
                     
             </form>
-            <div class="row">
+            <div class="row" ">
                     <div class="col-lg-12">
                         <div class="panel panel-default">
                             <div class="panel-heading">
@@ -64,7 +68,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form role="form" action="" method="post" >
+                                        <form "role="form" action="" method="post" >
                                             <div class="form-group">
                                                 <label for="date">Donating Date<span class="description-date">:Please use the YYYY-MM-DD format.</span></label>
                                                 <input class="form-control" type="date" id="date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" required>
@@ -87,6 +91,7 @@
 				<?php include "bbc_footer.php";?>
             </div>
             <!-- /. PAGE INNER  -->
+        </div>
         </div>
         <!-- /. PAGE WRAPPER  -->
     </div>

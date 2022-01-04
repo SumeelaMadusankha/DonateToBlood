@@ -28,5 +28,14 @@ class Database extends PDO{
         return reset($result);
          
     }
+    public function selectData($query)
+    {
+         //prepare the query
+         $stmt = $this->prepare($query);
+         $stmt->execute();
+         //excute the query 
+         //return  the value 
+         return $stmt->fetchAll(\PDO::FETCH_ASSOC); 
+    }
 
 }
