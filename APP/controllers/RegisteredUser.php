@@ -1,5 +1,6 @@
 <?php
 include_once('User.php');
+include_once('BloodPost.php');
 class RegisteredUser extends User 
 {
   function __construct()
@@ -71,7 +72,9 @@ public function loadCampRequestForm()
 
     public function bloodPostLoad()
     {
-        $this->view->render('bloodPost');
+       $post=new BloodPost();
+       $post->Loadpostpage();
+
     }
     public function donationPlacesLoad()
     {
