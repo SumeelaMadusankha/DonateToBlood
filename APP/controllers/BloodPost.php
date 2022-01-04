@@ -9,14 +9,25 @@ class BloodPost extends Post
     {
         parent:: __construct();
     }
-{
-    public function someMethod1(){
-        
-    }
+
+    public function Loadpostpage()
+    {
+
+   if (isset($_SESSION['nic'])) {
+    $this->view->render("bloodPost");
+    
+
+
+
+
+
+
+
+   }
+    
+}
 
 
 
 }
-
-
 ?>
