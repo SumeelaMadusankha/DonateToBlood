@@ -1,5 +1,6 @@
 <?php
 include_once('User.php');
+include_once('BloodPost.php');
 class RegisteredUser extends User 
 {
   function __construct()
@@ -36,6 +37,7 @@ public function loadCampRequestForm()
     }
     public function addRequest()
     {
+      
       if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
         if (isset($_POST["sbmt_btn"])) {
@@ -71,7 +73,9 @@ public function loadCampRequestForm()
 
     public function bloodPostLoad()
     {
-        $this->view->render('bloodPost');
+       $post=new BloodPost();
+       $post->Loadpostpage();
+
     }
     public function donationPlacesLoad()
     {

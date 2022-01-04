@@ -34,13 +34,16 @@
                         <a class="active-menu" href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a  href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
                         <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
                         <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                    </li>
+                    <li>
+                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
                     </li>
 
 
@@ -50,10 +53,10 @@
             </div>
 
         </nav>
-        <div id="page-wrapper">
-            <div id="page-inner">
+        <div id="page-wrapper" >
+            <div id="page-inner" >
             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table table-hover ">
                                   <thead>
                                     <tr>
                                       <th></th>
