@@ -84,4 +84,22 @@ public function getBloodReqest()
         $res = $this->db->runQuery($query5, [":id" => $id]);
         return $res;
     }
+    public function cancelBloodRequestModel($id)
+    {
+        $query = "UPDATE bloodrequest SET status = :status WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" => "pending"]);
+        return $res;
+    }
+    public function declienBloodRequestModel($id)
+    {
+        $query = "DELETE FROM bloodrequest    WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id]);
+        return $res;
+    }
+    public function acceptBloodRequestModel($id)
+    {
+        $query = "UPDATE bloodrequest SET status = :status WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted"]);
+        return $res;
+    }
 }
