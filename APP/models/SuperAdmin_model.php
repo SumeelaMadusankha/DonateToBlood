@@ -35,10 +35,6 @@ class SuperAdmin_model extends Model{
        
        return $adminresults1;
     }
-   
 
-    
-    
-    
 }
 ?>

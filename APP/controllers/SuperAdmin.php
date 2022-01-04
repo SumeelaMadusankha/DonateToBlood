@@ -51,21 +51,34 @@ public function addAdmin(){
             
              $registerResult = $this->model->adminRegister($dataArray);
             
+             
              if (empty($registerResult)) {
                 $this->view->render("super_Register_Admin");
               }
            }
-
-           
-           
+          
         }
     }
+<<<<<<< HEAD
 
 
 }
 
         
 
+=======
+}
+>>>>>>> bca945583593f4636dad488db938567ef3b44d90
+
+public function viewAdminData()
+    {
+        $registerResult1 = $this->model->get_AdminData();
+        // print_r($registerResult2);
+        if(!empty($registerResult1)){
+            $this->view->render("super_viewAdmin",$registerResult1);
+        
+        }
+    }
 
 
 }
