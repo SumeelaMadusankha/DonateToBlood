@@ -18,7 +18,7 @@
       <link rel="stylesheet" href="../Public/css/hd.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-      <script src="../Public/js/user_reg.js"></script>
+      <!-- <script src="../Public/js/user_reg.js"></script> -->
     
 
      
@@ -80,7 +80,7 @@
 
 
     
-        <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
+        <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form">
 
            <h1 class="topic" >Blood Request</h1>
            <?php
@@ -143,7 +143,7 @@
             </div>
             <div class="field district"> 
             <label for="district"><b>District</b></label><br>
-                <select name="districts" id="districts">
+                <select name="district" id="district">
                     <option value="matara">Matara</option>
                     <option value="galle">Galle</option>
                     <option value="jaffna">Jaffna</option>
@@ -263,8 +263,8 @@
 
 
        
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return submitRequestForm()">
-        
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="true">
+        <!-- <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return submitRequestForm()"> -->
        
         
         
