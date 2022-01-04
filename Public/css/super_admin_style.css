@@ -53,7 +53,7 @@
 }
 
 .sidebar-menu a.active {
-    background: rgb(209, 208, 208);
+    background: #fff;
     padding-top: 1rem;
     padding-bottom: 1rem;
     color: var(--main-color);
@@ -73,7 +73,7 @@ header {
     display: flex;
     justify-content: space-between;
     padding: 1rem 1.5rem;
-    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.2);
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.8);
     position: fixed;
     left: 345px;
     width: calc(100% - 345px);
@@ -91,7 +91,7 @@ header label span {
 }
 
 .search-wrapper {
-    border: 1px solid rgb(165, 162, 162);
+    border: 1px solid rgb(161, 156, 156);
     border-radius: 30px;
     height: 50px;
     display: flex;
@@ -134,7 +134,7 @@ header label span {
 main {
     margin-top: 85px;
     padding: 2rem 1.5rem;
-    background: #d6d7da;
+    background: #e3e4e6;
     min-height: calc(100vh - 90px);
 }
 
@@ -176,8 +176,8 @@ main {
     border-collapse: collapse;
     margin: 25px 0;
     font-size: 0.9em;
-    min-width: 600px;
     border-radius: 5px 5px 0 0;
+    width: 65%;
     overflow: hidden;
     box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
 }

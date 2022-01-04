@@ -13,13 +13,13 @@ body {
     justify-content: center;
     align-items: center;
     padding: 10px;
-    background: rgb(253, 251, 251);
+    background: #fff;
 }
 
 .container {
     max-width: 700px;
     width: 100%;
-    background: linear-gradient(135deg, rgb(107, 104, 104), rgb(163, 149, 149));
+    background: linear-gradient(135deg, rgb(88, 88, 88), rgb(163, 149, 149));
     padding: 25px 30px;
     border-radius: 5px;
 }

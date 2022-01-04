@@ -153,7 +153,7 @@
                                     }
                                     ?>
       <?php
-      if (isset($_SESSION['msg'])) {
+      if (isset($_SESSION['msg']) && isset($_SESSION['nic'])) {
         unset($_SESSION['msg']); 
     
         echo "<div class='flag note note--success'>

@@ -19,20 +19,36 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="../views/super_index.html" class="active"><span class="las la-igloo"></span>
+                    <a href="../SuperAdmin/index" ><span class="las la-igloo"></span>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../views/super_Register_Admin.html" class="active2"><span class="las la-users"></span>
+                    <a href="../SuperAdmin/RegisterFormLoad" class="active"><span class="las la-users"></span>
                         <span>Register Admin</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../views/super_viewAdmin.html" class="active3"><span class="las la-clipboard-list"></span>
+                    <a href="../SuperAdmin/viewDistrictAdminList"><span class="las la-clipboard-list"></span>
                         <span>View Blood Bank Coordinators</span>
                     </a>
                 </li>
+                <?php
+                
+                if (isset($_SESSION['nic'])) {
+                    echo "<li>
+                    <a href='../Login/logout' class='active3'><span class='las la-lock'></span>
+                        <span>Logout</span>
+                    </a>
+                </li>";
+                }else {
+                    echo "<li>
+                    <a href='../Login/login' class='active3'><span class='las la-lock'></span>
+                        <span>Login</span>
+                    </a>
+                </li>";
+                }
+                ?>
             </ul>
         </div>
     </div>

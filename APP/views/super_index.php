@@ -24,20 +24,23 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="../views/super_index.html" class="active"><span class="las la-igloo"></span>
+                    <a href="../SuperAdmin/index" class="active"><span class="las la-igloo"></span>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../views/super_Register_Admin.html" class="active2"><span class="las la-users"></span>
+                    <a href="../SuperAdmin/RegisterFormLoad" "><span class="las la-users"></span>
                         <span>Register Admin</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../views/super_viewAdmin.html" class="active3"><span class="las la-clipboard-list"></span>
+                    <a href="../SuperAdmin/viewDistrictAdminList" "><span class="las la-clipboard-list"></span>
                         <span>View Blood Bank Coordinators</span>
                     </a>
                 </li>
+                <a href='../Login/logout' class='active3'><span class='las la-lock'></span>
+                        <span>Logout</span>
+                    </a>
             </ul>
         </div>
     </div>
@@ -54,7 +57,7 @@
                 <input type="search" placeholder="Search here">
             </div>
             <div class="user-wrapper">
-            <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                <img src="../Public/images/img2.jpg" width="40px" height="40px" alt="">
                 <div>
                     <h4>Nisanya Pathirana</h4>
                     <small>Super admin</small>

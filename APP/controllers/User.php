@@ -1,4 +1,5 @@
 <?php
+include_once("Person.php");
 class User extends Person{
     
     private $bloodGroup;

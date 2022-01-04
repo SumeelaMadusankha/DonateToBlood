@@ -3,7 +3,7 @@
     <meta charset="UTF-8">
     <title>Landing Page</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
-    <link rel="stylesheet" href="../Public/css/super_style_register.css">
+    <link rel="stylesheet" href="../Public/css/super_admin_style_register.css">
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous">
     </script>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -18,31 +18,36 @@
         <div class="sidebar-menu">
             <ul>
                 <li>
-                    <a href="../RegisteredUser/loadCampRequestForm" class="active"><span class="las la-igloo"></span>
+                    <a href="../SuperAdmin/index" ><span class="las la-igloo"></span>
                         <span>Home</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../RegisteredUser/loadCampRequestForm" class="active2"><span class="las la-users"></span>
+                    <a href="../SuperAdmin/RegisterFormLoad" ><span class="las la-users"></span>
                         <span>Register Admin</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../RegisteredUser/loadCampRequestForm" class="active3"><span class="las la-clipboard-list"></span>
+                    <a href="../SuperAdmin/viewDistrictAdminList" class="active"><span class="las la-clipboard-list"></span>
                         <span>View Blood Bank Coordinators</span>
                     </a>
                 </li>
+
+                <a href='../Login/logout' class='active3'><span class='las la-lock'></span>
+                        <span>Logout</span>
+                    </a>
+                
             </ul>
         </div>
     </div>
     <div class="header-content">
         <header>
-            <h2>
+            <h1>
                 <label for="">
                     <span class="las la-bars"></span>
                 </label>
                 Dashboard
-            </h2>
+            </h1>
             <div class="search-wrapper">
                 <span class="las la-search"></span>
                 <input type="search" placeholder="Search here">
@@ -58,6 +63,7 @@
     </div>
     </div>
     <table class="content-table">
+      
         <thead>
           <tr>
             <th>Name</th>
