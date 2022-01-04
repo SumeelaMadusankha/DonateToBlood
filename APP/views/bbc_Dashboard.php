@@ -36,13 +36,16 @@
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a  href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
                         <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
                         <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                    </li>
+                    <li>
+                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
                     </li>
 
 
@@ -104,6 +107,15 @@
                         </div>
                     </div>
                 </div>
+
+                <div class="alert alert-primary" role="alert">
+                <a href="showUserData" class="link-info" style="font-size: 30px;">View User Details</a>
+                </div>
+                <div class="alert alert-secondary" role="alert">
+                <a href="showRequestData" class="link-success" style="font-size: 30px;">View All Blood Requests Details</a>
+                </div>
+                
+
                 <?php include "bbc_footer.php"; ?>
             </div>
             <!-- /. PAGE INNER  -->

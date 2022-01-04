@@ -12,6 +12,9 @@
     <link href="/DonateToBlood/Public/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="/Public/assets/js/regj-form.js"></script>
 </head>
 <body>
 <div id="wrapper">
@@ -30,13 +33,16 @@
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
                     </li>
                     <li>
                         <a class="active-menu" href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
                         <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                    </li>
+                    <li>
+                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
                     </li>
 
 
@@ -67,7 +73,7 @@
                             <div class="panel-body">
                                 <div class="row">
                                     <div class="col-lg-12">
-                                        <form role="form" method="POST" action="../BB_Coordinater/addDonor">
+                                        <form role="form" method="POST" action="../BB_Coordinater/addDonor"  id="reg_form">
                                             <div class="form-group">
                                                 <label>NIC Number</label>
                                                 <input class="form-control" type="text" placeholder="National Identity Card" name="nic" id="nic">
@@ -101,12 +107,12 @@
                                             </div>
                                             <div class="form-group">
                                                 <label>Gender</label><br>
-                                                <label class="checkbox-inline">
-                                                    <input type="checkbox" id="male" name="gender" value="male">Male
-                                                </label>
-                                            <label class="checkbox-inline">
-                                                <input type="checkbox"  id="female" name="gender" value="female">Female
+                                                <label class="radio-inline">
+                                                <input type="radio" id="male" name="gender" value="male"checked="">Male
                                             </label>
+                                            <label class="radio-inline">
+                                                <input type="radio"id="female" name="gender" value="female"checked="">Female
+                                            </label>  
                                             </div>
                                             <div class="form-group">
                                                 <label>Blood Group</label>
@@ -156,13 +162,14 @@
 <!-- /. WRAPPER  -->
 <!-- JS Scripts-->
 <!-- jQuery Js -->
-<script src="assets/js/jquery-1.10.2.js"></script>
+
+<script src="/Public/assets/js/jquery-1.10.2.js"></script>
 <!-- Bootstrap Js -->
-<script src="assets/js/bootstrap.min.js"></script>
+<script src="/Public/assets/js/bootstrap.min.js"></script>
 <!-- Metis Menu Js -->
-<script src="assets/js/jquery.metisMenu.js"></script>
+<script src="/Public/assets/js/jquery.metisMenu.js"></script>
 <!-- Custom Js -->
-<script src="assets/js/custom-scripts.js"></script>
+<script src="/Public/assets/js/custom-scripts.js"></script>
 
 
 </body>
