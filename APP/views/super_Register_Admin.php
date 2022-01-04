@@ -76,12 +76,17 @@
     </div>
     <div class="container">
         <div class="title">Register Admin</div>
-        <form action="#">
+        <form role="form" method="POST" action="../superAdmin/addAdmin">
             <div class="user-details">
                 <div class="input-box">
                     <span class="details">Full Name</span>
-                    <input type="text" placeholder="Enter your full name" required>
+                    <input type="text" placeholder="Enter your full name" name="flname" id="flname" required>
 
+                </div>
+                <div class="input-box">
+                    <span class="details">NIC</span>
+                    <input type="text" placeholder="Enter your NIC number" name="nic" id="nic" required>
+                    
                 </div>
                 <div class="input-box">
                     <span class="details">District</span>
@@ -94,34 +99,34 @@
                 </div>
                 <div class="input-box">
                     <span class="details">Username</span>
-                    <input type="text" placeholder="Enter your username" required>
+                    <input type="text" placeholder="Enter your username" name="username" id="username" required>
                     
                 </div>
                 <div class="input-box">
                     <span class="details">Email Address</span>
-                    <input type="text" placeholder="Enter your email" required>
+                    <input type="text" placeholder="Enter your email" name="email" id="email" required>
                     
                 </div>
                 <div class="input-box">
-                    <span class="details">Phone Number</span>
-                    <input type="text" placeholder="Enter your number" required>
+                    <span class="details">Contact Number</span>
+                    <input type="text" placeholder="Enter your number" name="phone" id="phone" required>
                     
                 </div>
                 <div class="input-box">
                     <span class="details">Password</span>
-                    <input type="text" placeholder="Enter your password" required>
+                    <input type="text" placeholder="Enter your password" name="pword" id="pword" required>
                     
                 </div>
                 <div class="input-box">
                     <span class="details">Confirm Password</span>
-                    <input type="text" placeholder="Re-Enter the password" required>
+                    <input type="text" placeholder="Re-Enter the password" name="confirm" id="confirm" required>
                     
                 </div>
             </div>
             <div class="gender-details">
-                <input type="radio" name="gender" id="dot-1">
-                <input type="radio" name="gender" id="dot-2">
-                <input type="radio" name="gender" id="dot-3" checked>
+                <input type="radio" name="gender" id="dot-1" value="Male">
+                <input type="radio" name="gender" id="dot-2" value="Female">
+                <input type="radio" name="gender" id="dot-3" value="Other" checked>
                 <span class="gender-title">Gender</span>
                 <div class="category">
                     <label for="dot-1">
@@ -138,7 +143,7 @@
                     </label>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Register">
+                    <input type="submit" value="Register" onclick="true" name="register_btn">
                 </div>
             </div>
         </form>

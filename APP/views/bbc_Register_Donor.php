@@ -135,7 +135,7 @@
                                                 <label>City</label>
                                                 <input class="form-control" type="text" placeholder="City" name="city" id="city">
                                             </div>
-                                            <input type="submit" value="Add Donor" class="btn btn-default" name="register_btn" >
+                                            <input type="submit" value="Add Donor" class="btn btn-default" name="register_btn">
                                         </form>
                                     </div>
                                 </div>
