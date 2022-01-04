@@ -1,6 +1,7 @@
 <?php
 include_once('Admin.php');
 class SuperAdmin extends Admin
+
 {
 
     
@@ -61,7 +62,10 @@ public function addAdmin(){
 
 
 }
+<<<<<<< HEAD
 
+=======
+>>>>>>> ec720f9be64adc1e93207280e00f297023a1bad1
 
 
 }
