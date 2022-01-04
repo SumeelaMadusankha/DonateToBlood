@@ -68,8 +68,6 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
-
-                                            <?php print_r($data); ?>
                                             <?php echo "<form role='form' method='POST' action='../BB_Coordinater/updateBloodDetails?id=" . $_GET['id'] . "'" . "  id='shortage_form'>" ?>
                                             <div class="form-group">
                                                 <label><?php echo $data[0]['BloodGroup'] ?></label>
