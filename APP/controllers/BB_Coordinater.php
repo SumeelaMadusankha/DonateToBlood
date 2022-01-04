@@ -18,9 +18,7 @@ class BB_Coordinater extends Admin{
     public function viewCampRequests(){
         $this->view->render("bbc_Donation-Camp-Requests");
     }
-    public function viewShortageBloodTypes(){
-        $this->view->render("bbc_Shoratage");
-    }
+   
     public function viewRegisterDonor(){
         $this->view->render("bbc_Register_Donor");
     }
@@ -29,6 +27,34 @@ class BB_Coordinater extends Admin{
     }
     public function viewUserData(){
         $this->view->render("bbc_viewUserData");
+    }
+    public function viewAddBloodDetails(){
+        $result_id=$this->model->getBoodId_type($_GET["id"]);
+        $this->view->render("bbc_viewAddBloodDetails",$result_id);
+    }
+    public function updateUserHistory(){
+
+    }
+    public function updateBloodDetails(){
+        if ($_SERVER["REQUEST_METHOD"]=="POST") {
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if (isset($_POST["add_blood_btn"])) {
+               $blood_dataArray=[
+                 "maximum_quantity"=>$this->testInput($_POST["m_quantity" ]),
+                 "available_quantity"=>$this->testInput($_POST["a_quantity" ]),
+                 "Distric"=>$this->testInput("Matara"),
+
+                ];
+               
+               
+                $registerResult1=$this->model->update_BloodDetails($blood_dataArray,$_GET["id"]);
+               
+               if (empty($registerResult1)) {
+                   $this->showBloodData();
+               } 
+               
+            }
+        }
     }
     
     public function addDonor()
@@ -80,6 +106,13 @@ class BB_Coordinater extends Admin{
             $this->view->render("bbc_viewRequestData",$registerResult3);
         
         }
+    }
+    public function showBloodData(){
+        $registerResult4 = $this->model->getBloodData();
+        if(!empty($registerResult4)){
+            $this->view->render("bbc_Shoratage",$registerResult4);
+        }
+        
     }
 }
 ?>

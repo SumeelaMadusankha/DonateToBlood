@@ -34,10 +34,10 @@
                                     <table class="table table-striped table-bordered table-hover">
                                         <thead>
                                         <tr>
-                                            <th>NIC</th>
-                                            <th>BloodType</th>
-                                            <th>Description</th>
-                                            <th>attachment</th>
+                                            <th>First Name</th>
+                                            <th>Last Name</th>
+                                            <th>BloodGroup</th>
+                                            <th>Mobile NO</th>
                                         </tr>
                                         </thead>
                                         <tbody>
@@ -45,10 +45,10 @@
                                             foreach ($data as $raw) {
                                                 echo "                                        
                                                 <tr>
-                                                <td>".$raw['nic']."</td>
-                                                <td>".$raw['bloodType']."</td>
-                                                <td>".$raw['description']."</td>
-                                                <td>".$raw['attachment']."</td>
+                                                <td>".$raw['firstName']."</td>
+                                                <td>".$raw['lastName']."</td>
+                                                <td>".$raw['bloodGroup']."</td>
+                                                <td>".$raw['mobileNo']."</td>
                                                 </tr>";
                                             }
 
