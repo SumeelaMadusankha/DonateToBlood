@@ -55,7 +55,7 @@
                 <label for="">
                     <span class="las la-bars"></span>
                 </label>
-                Dashboard
+                Admin Dashboard
             </h1>
             <div class="search-wrapper">
                 <span class="las la-search"></span>

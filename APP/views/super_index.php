@@ -50,7 +50,7 @@
                 <label for="">
                     <span class="las la-bars"></span>
                 </label>
-                Dashboard
+                Homepage
             </h2>
             <div class="search-wrapper">
                 <span class="las la-search"></span>
