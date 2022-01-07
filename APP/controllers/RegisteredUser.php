@@ -1,7 +1,9 @@
 <?php
 include_once('User.php');
 include_once('BloodPost.php');
-session_start();
+
+include_once('CampPost.php');
+
 class RegisteredUser extends User 
 {
   function __construct()
@@ -74,13 +76,31 @@ public function loadCampRequestForm()
 
     public function bloodPostLoad()
     {
-       $post=new BloodPost();
-       $post->Loadpostpage();
+      $post=new BloodPost();
+      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if (isset($_POST["sbmt_btn"])) {
+          $post->filterPost($_POST);
+        }}else {
+          $post->Loadpostpage();
+        }
+       
+      
 
     }
     public function donationPlacesLoad()
     {
-        $this->view->render('donatePlaces');
+      $post=new CampPost();
+      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if (isset($_POST["sbmt_btn"])) {
+          $post->filterPost($_POST);
+        }}else {
+          $post->Loadpostpage();
+        }
+       
+      
+      
 }
 
 public function addCampRequest(){
@@ -120,6 +140,7 @@ public function addCampRequest(){
     }
 }
 }
+
 
     public function viewUserProfile(){
       
@@ -178,6 +199,7 @@ public function addCampRequest(){
     }
       }
     }
+
 
 
 

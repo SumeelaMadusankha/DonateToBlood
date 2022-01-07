@@ -12,7 +12,10 @@ abstract class  Person extends Controller
         parent:: __construct();
     }
 
-
+public function FunctionName(Type $var = null)
+{
+    # code...
+}
 
 
 

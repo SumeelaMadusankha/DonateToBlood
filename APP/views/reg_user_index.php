@@ -102,12 +102,18 @@
                  echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
               }
               ?>
+
             <?php
+
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>";
-              }else {
-                 echo " <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>";
+                ?>
+                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+
+
+              <?php }else {?>
+                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+                 <?php
               }
               ?>
               
