@@ -1,40 +1,34 @@
 <?php
 include_once('Admin.php');
-class BB_Coordinater extends Admin{
+class B_officer extends Admin{
     function __construct()
     {
         parent:: __construct();
     }
     public function index()
     {
-       $this->view->render("bbc_index");
+       $this->view->render("bo_index");
     }
     public function viewDashboard(){
-        $reg_res = $this->model->getStaticticalbloodprogress();
-        if(!empty($reg_res)){
-            $this->view->render("bbc_Dashboard",$reg_res);
+        $this->view->render("bo_Dashboard");
         
-        }
-    }
-    public function viewBloodRequests(){
-        $this->view->render("bbc_BloodRequests");
-    }
-    public function viewCampRequests(){
-        $this->view->render("bbc_Donation-Camp-Requests");
+        
     }
    
+   
+   
     public function viewRegisterDonor(){
-        $this->view->render("bbc_Register_Donor");
+        $this->view->render("bo_Register_Donor");
     }
     public function viewUpdateDonorDetails(){
-        $this->view->render("bbc_Update-Donor",array("status"=>false, "nic"=>""));
+        $this->view->render("bo_Update-Donor",array("status"=>false, "nic"=>""));
     }
     public function viewUserData(){
-        $this->view->render("bbc_viewUserData");
+        $this->view->render("bo_viewUserData");
     }
     public function viewAddBloodDetails(){
         $result_id=$this->model->getBoodId_type($_GET["id"]);
-        $this->view->render("bbc_viewAddBloodDetails",$result_id);
+        $this->view->render("bo_viewAddBloodDetails",$result_id);
     }
     public function updateUserBloodRecord(){
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -43,7 +37,7 @@ class BB_Coordinater extends Admin{
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
                 $result_check=$this->model->checkNICavailability($nic_check);
                 if ($result_check) {
-                    $this->view->render("bbc_Update-Donor",array("status"=>$result_check, "nic"=>$nic_check));
+                    $this->view->render("bo_Update-Donor",array("status"=>$result_check, "nic"=>$nic_check));
 
                 }
                 else {
@@ -67,27 +61,7 @@ class BB_Coordinater extends Admin{
 
     }}
 
-    public function updateBloodDetails(){
-        if ($_SERVER["REQUEST_METHOD"]=="POST") {
-            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-            if (isset($_POST["add_blood_btn"])) {
-               $blood_dataArray=[
-                 "maximum_quantity"=>$this->testInput($_POST["m_quantity" ]),
-                 "available_quantity"=>$this->testInput($_POST["a_quantity" ]),
-                 "Distric"=>$this->testInput("Matara"),
-
-                ];
-               
-               
-                $registerResult1=$this->model->update_BloodDetails($blood_dataArray,$_GET["id"]);
-               
-               if (empty($registerResult1)) {
-                   $this->showBloodData();
-               } 
-               
-            }
-        }
-    }
+ 
     
     public function addDonor()
     {
@@ -116,7 +90,7 @@ class BB_Coordinater extends Admin{
                 $registerResult = $this->model->userRegister($dataArray);
               }
               if (empty($registerResult)) {
-                $this->view->render("bbc_index");
+                $this->view->render("bo_index");
               }
               
            }
@@ -126,24 +100,8 @@ class BB_Coordinater extends Admin{
         $registerResult2 = $this->model->getData();
         // print_r($registerResult2);
         if(!empty($registerResult2)){
-            $this->view->render("bbc_viewUserData",$registerResult2);
+            $this->view->render("bo_viewUserData",$registerResult2);
         
         }
-    }
-    public function showRequestData()
-    {
-        $registerResult3 = $this->model->getR_Data();
-        // print_r($registerResult2);
-        if(!empty($registerResult3)){
-            $this->view->render("bbc_viewRequestData",$registerResult3);
-        
-        }
-    }
-    public function showBloodData(){
-        $registerResult4 = $this->model->getBloodData();
-        if(!empty($registerResult4)){
-            $this->view->render("bbc_Shoratage",$registerResult4);
-        }
-        
     }
 }

@@ -1,23 +1,9 @@
 <?php
-class BB_Coordinater_Model extends Model
+class B_officer_Model extends Model
 {
     function __construct()
     {
         parent::__construct();
-    }
-    public function update_BloodDetails($blood_dataArray, $id)
-    {
-        $maximum_quantity = $blood_dataArray["maximum_quantity"];
-        $available_quantity = $blood_dataArray["available_quantity"];
-        // $quary4 = "UPDATE blooddetails( MaximumQuantity=':MaximumQuantity', AvailableQuantity=':AvailableQuantity') WHERE BloodGroupID=:id";
-        $quary5 = "UPDATE blooddetails SET MaximumQuantity=:MaximumQuantity, AvailableQuantity=:AvailableQuantity WHERE BloodGroupID = :id";
-        $array_Inject = [
-            ':MaximumQuantity' => $maximum_quantity,
-            ':AvailableQuantity' => $available_quantity,
-            ':id' => $id
-        ];
-        $results4 = $this->db->runQuery($quary5, $array_Inject);
-        return $results4;
     }
 
     public function userRegister($dataArray)
@@ -60,24 +46,6 @@ class BB_Coordinater_Model extends Model
         return $results2;
     }
 
-    public function getR_Data()
-    {
-        $query3 = "select * from bloodrequest";
-        $results3 = $this->db->selectData($query3);
-        return $results3;
-    }
-    public function getBloodData()
-    {
-        $query4 = "select * from blooddetails";
-        $results4 = $this->db->selectData($query4);
-        return $results4;
-    }
-    public function getBoodId_type($id)
-    {
-        $query5 = 'SELECT * FROM blooddetails where  BloodGroupID= :id';
-        $res = $this->db->runQuery($query5, [":id" => $id]);
-        return $res;
-    }
     public function checkNICavailability($nic)
     {
         $query7 = 'SELECT * FROM user where nic=:nic';
@@ -102,9 +70,5 @@ class BB_Coordinater_Model extends Model
         $results9 = $this->db->runQuery($quary9, $arrayRecord);
         return $results9;
     }
-    public function getStaticticalbloodprogress(){
-        $query10 = "select * from blooddetails";
-        $results2 = $this->db->selectData($query10);
-        return $results2;
-    }
+   
 }

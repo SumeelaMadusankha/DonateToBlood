@@ -2,7 +2,6 @@ const form=document.getElementById('reg_form');
 const nic=document.getElementById('nic');
 const firstname=document.getElementById('fname');
 const lastname=document.getElementById('lname');
-const dob=document.getElementById('bday');
 const address=document.getElementById('address');
 const email=document.getElementById('email');
 const mobile=document.getElementById('mobnum');
@@ -13,7 +12,6 @@ form.addEventListener('submit',e =>{
     checkInputs();
 })
 function checkInputs() {
-    console.log("dinuka");
     const nicValue=nic.value.trim();
     const firstnameValue=firstname.value.trim();
     const lastnameValue=lastname.value.trim();
@@ -30,6 +28,8 @@ function checkInputs() {
         setSuccessFor(nic);
     }
     if(firstnameValue===''){
+        console.log("thath");
+
         setErrorFor(firstname,"firstName cannot be Empty");
     }
     else{
@@ -41,12 +41,23 @@ function checkInputs() {
     else{
         setSuccessFor(lastname);
     }
-    if(dobValue===''){
-        setErrorFor(dob,"firstName cannot be Empty");
+    if(addressValue===''){
+        console.log("dinuka");
+        setErrorFor(address,"address cannot be Empty");
     }
     else{
-        setSuccessFor(dob);
+        setSuccessFor(address);
     }
+    if(emailValue===''){
+        setErrorFor(email,"email cannot be Empty");
+    }
+    // else if (isEmail(email)){
+    //     setSuccessFor(email);
+    // }
+    else{
+        setErrorFor(email,"Not a Valid Email Type");
+    }
+
 
 
 
@@ -63,8 +74,7 @@ function setSuccessFor(input){
 function isEmail(email) {
 	return /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/.test(email);
 }
-
-
-
-
 }
+
+
+
