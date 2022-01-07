@@ -53,10 +53,10 @@
             </div>
 
         </nav>
-        <div id="page-wrapper">
-            <div id="page-inner">
+        <div id="page-wrapper" >
+            <div id="page-inner" >
             <div class="table-responsive">
-                                <table class="table table-hover">
+                                <table class="table table-hover ">
                                   <thead>
                                     <tr>
                                       <th></th>

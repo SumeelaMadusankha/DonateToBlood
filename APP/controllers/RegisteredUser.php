@@ -1,6 +1,7 @@
 <?php
 include_once('User.php');
 include_once('BloodPost.php');
+session_start();
 class RegisteredUser extends User 
 {
   function __construct()
@@ -37,6 +38,7 @@ public function loadCampRequestForm()
     }
     public function addRequest()
     {
+      
       if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
         if (isset($_POST["sbmt_btn"])) {
@@ -118,6 +120,66 @@ public function addCampRequest(){
     }
 }
 }
+
+    public function viewUserProfile(){
+      
+      if ($_SESSION['nic']){
+        
+       
+       $NIC = [
+         "nic" => $_SESSION['nic'],
+       ];
+       
+        $profileData = $this->model->getProfileData($NIC);
+        
+        $this->view->render("userViewProfile",$profileData);
+      }
+      
+    }
+
+    public function viewEditUserProfile(){
+      
+      if ($_SESSION['nic']){
+        
+       
+       $NIC = [
+         "nic" => $_SESSION['nic'],
+       ];
+       
+        $profileData = $this->model->getProfileData($NIC);
+        
+        $this->view->render("userEditProfile",$profileData);
+      }
+      
+    }
+
+    public function userProfileUpdate(){
+      if ($_SERVER["REQUEST_METHOD"]=="POST"){
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+    if (isset($_POST["save"]) && isset($_SESSION['nic'])){
+      
+      $dataArray=[
+        "firstName"=>$this->testInput($_POST["fname"]),
+        "lastName"=>$this->testInput($_POST["lname"]),
+        
+        "email"=>$this->testInput($_POST["email"]),
+        "dob"=>$this->testInput($_POST["dob"]),
+        "address"=>$this->testInput($_POST["address"]),
+        "mobileNo"=>$this->testInput($_POST["mobileNo"]),
+        "nic" =>  $_SESSION['nic'],
+        
+
+      ];
+      $registerResult = $this->model->editProfile($dataArray);
+      if (empty($registerResult)) {
+        print_r("Hello world");
+        $this->viewUserProfile();
+      }
+    }
+      }
+    }
+
+
 
 }
 

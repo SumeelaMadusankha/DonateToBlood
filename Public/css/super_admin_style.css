@@ -210,3 +210,9 @@ main {
     font-weight: bold;
     color: var(--main-color);
 }
+.button-list{
+   background-color: #8B0000;
+   color: #fff;
+   border-radius: 5px;
+   
+}

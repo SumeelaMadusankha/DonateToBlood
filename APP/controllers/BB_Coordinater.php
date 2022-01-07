@@ -13,7 +13,10 @@ class BB_Coordinater extends Admin{
         $this->view->render("bbc_Dashboard");
     }
     public function viewBloodRequests(){
-        $this->view->render("bbc_BloodRequests");
+        $request=$this->model->getBloodReqest();
+
+
+        $this->view->render("bbc_BloodRequests",$request);
     }
     public function viewCampRequests(){
         $this->view->render("bbc_Donation-Camp-Requests");
