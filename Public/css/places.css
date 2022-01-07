@@ -16,7 +16,7 @@
     padding-left: 10px;
     padding-right: 10px;
     background-color: rgba(255, 255, 255, 0.8);
-    margin-left: 60%;
+    margin-left: 50%;
     box-shadow: 0px 3px 4px rgba(0, 0, 0, 0.40);
     margin-right: 10px;
     border: #000000;
@@ -32,10 +32,6 @@
     .filter-mod {
         margin-left: auto;
     }
-}
-
-.sea {
-    margin-top: 20px;
 }
 
 #sell {
@@ -232,6 +228,10 @@ a:link {
     .modal__map {}
 }
 
+.cls {
+    margin-top: 30px;
+}
+
 .modal__map {
     margin-top: 30px;
     height: 200px;
@@ -240,6 +240,7 @@ a:link {
 }
 
 .modal__title {
+    margin-top: 20px;
     font-size: 3.2rem;
     font-weight: bold;
 }
@@ -370,43 +371,4 @@ a:link {
     left: 20px;
     color: hsla(0, 0%, 0%, .6);
     font-size: 1.6rem;
-}
-
-#sell {
-    margin-top: 30px;
-    border-radius: 7px;
-    font-size: 10px;
-    font-weight: bold;
-    box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
-    height: 35px;
-    background: rgba(230, 9, 9, 0.2);
-    width: 100%;
-}
-
-#sell5 {
-    border-radius: 7px;
-    font-size: 10px;
-    font-weight: bold;
-    box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
-    height: 35px;
-    background: rgba(230, 9, 9, 0.2);
-    width: 100%;
-}
-
-#sell1 {
-    border-radius: 7px;
-    font-size: 10px;
-    font-weight: bold;
-    box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
-    height: 35px;
-    background: rgba(230, 9, 9, 0.2);
-}
-
-#sell2 {
-    border-radius: 7px;
-    font-size: 10px;
-    font-weight: bold;
-    box-shadow: 0px 15px 26px rgba(0, 0, 0, 0.50);
-    height: 35px;
-    background: rgba(230, 9, 9, 0.2);
 }

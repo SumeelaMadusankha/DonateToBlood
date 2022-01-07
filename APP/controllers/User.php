@@ -22,6 +22,7 @@ class User extends Person{
 {
   if ($_SERVER["REQUEST_METHOD"]=="POST") {
     $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+    
     if (isset($_POST["search"])) {
 
       $arr=['bloodType'=>$_POST['bloodType'],'district'=>$_POST['district']];
@@ -36,7 +37,22 @@ class User extends Person{
    
     
 
+public function filterCampPost()
+{
+  if ($_SERVER["REQUEST_METHOD"]=="POST") {
+    $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+    
+    if (isset($_POST["search"])) {
 
+      $arr=['district'=>$_POST['district']];
+    
+      $post =new CampPost();
+      $post->filterPost($arr);
+
+
+
+}}
+}
    
 
    

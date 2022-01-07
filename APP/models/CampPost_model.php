@@ -28,28 +28,15 @@ public function getCampRequestDetails($district)
 
 public function filterCampPost($dataArr)
 {
-    if ($dataArr['bloodType']=="all" && $dataArr['district']=="all") {
+    if ($dataArr['district']=="all") {
      
         $res=$this->getCampRequestDetails('all');
         return $res;
        
-    }elseif ($dataArr['bloodType']=="all") {
-        $_SESSION['select']=$dataArr['district'];
-     
+   
+    }else{
         $res=$this->getCampRequestDetails($dataArr['district']);
         return $res;
-    }elseif ($dataArr['district']=="all") {
-        
-        $_SESSION['selectb']=$dataArr['bloodType'];
-        $query = 'SELECT * FROM camprequest where bloodType=:bloodType';
-        $res = $this->db->runQuery($query, [ "bloodType"=>$dataArr['bloodType']]);
-        return $res;
-    }
-    else{
-        $_SESSION['select']=$dataArr['district'];
-        $_SESSION['selectb']=$dataArr['bloodType'];
-        $query = 'SELECT * FROM camprequest where  district= :district  AND bloodType=:bloodType';
-        $res = $this->db->runQuery($query, [":district" => $dataArr['district'], "bloodType"=>$dataArr['bloodType']]);
         return $res;
     }
     

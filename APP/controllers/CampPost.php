@@ -49,10 +49,11 @@ class CampPost extends Post
     public function filterPost($dataArray)
     {
         $this->loadModel("CampPost");
+        
        
         $resultarr=$this->model->filterCampPost($dataArray);
       
-        $this->view->render("campPost",$resultarr);
+        $this->view->render("donatePlaces",$resultarr);
     }
 }
 

@@ -25,59 +25,7 @@
 
 
 
-    <script>
-        // The following example creates a marker in Stockholm, Sweden using a DROP
-// animation. Clicking on the marker will toggle the animation between a BOUNCE
-// animation and no animation.
 
-
-function initMap() {
-    let marker;
-  const map = new google.maps.Map(document.getElementById("map"), {
-    zoom: 10,
-    center: { lat: 59.325, lng: 18.07 },
-  });
-
-  marker = new google.maps.Marker({
-    map,
-    draggable: true,
-    animation: google.maps.Animation.DROP,
-    position: { lat: 59.327, lng: 18.067 },
-  });
-  marker.addListener("click", function(){
-    if (marker.getAnimation() !== null) {
-    marker.setAnimation(null);
-  } else {
-    marker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-  });
-
-
-
-
- 
-  const innermap = new google.maps.Map(document.getElementById("innermap"), {
-    zoom: 13,
-    center: { lat: 5.95492, lng: 80.554956 },
-  });
- 
-  let innermarker = new google.maps.Marker({
-    innermap,
-    draggable: true,
-    animation: google.maps.Animation.DROP,
-    position: { lat: 5.95492, lng: 80.554956 },
-  });
-  innermarker.addListener("click", function(){
-    if (innermarker.getAnimation() !== null) {
-    innermarker.setAnimation(null);
-  } else {
-    innermarker.setAnimation(google.maps.Animation.BOUNCE);
-  }
-  });
-}
-
-
-      </script>
 </head>
 <body>
 <header>
@@ -89,12 +37,52 @@ function initMap() {
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a  href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a class="active" href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               
+               <li><a  href="../Login/index">Home</a></li>
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBRForm'>Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/donationPlacesLoad' class='active'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad' class='active'>Where to Donate</a></li>";
+              }
+              ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                ?>
+                <li><a href='../RegisteredUser/bloodPostLoad' >Blood adverticement</a></li>
+
+
+              <?php }else {?>
+                 <li><a href='../UnregisteredUser/bloodPostLoad'  >Blood adverticement</a></li>
+                 <?php
+              }
+              ?>
+              
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <li><a href='../Login/logout'>Logout</a></li>";
+               }else {
+                  echo " <li><a href='../Login/index'>Login</a></li>";
+               }
+               ?>
             </ul>
          </nav>
          
@@ -103,7 +91,7 @@ function initMap() {
       <div class="container outer-request" >
     <div class="filter-mod">
       
-      <form action="filterBloodPost" method="POST">
+      <form action="filterCampPost" method="POST">
       <div class="row ">
         <div class="col-md-8 col-xs-14 ">
          
@@ -300,7 +288,7 @@ function initMap() {
         </div>
      
 
-        <div class="col-md-4 col-xs-8 ">
+        <div class="col-md-4 col-xs-8 cls">
          
            <input type="submit" value="Search" id="sell" name="search">
 
@@ -313,7 +301,7 @@ function initMap() {
     </div>
       
     
- 
+
             <!-- Topic Cards -->
     <div id="cards_landscape_wrap-2">
       <div class="container-fluid" outer-request  >
@@ -325,13 +313,43 @@ function initMap() {
       $count=1;
       $d=1;
       
+
+      $scrpt="<script>
+      function initMap() {";
+      
       foreach ($data as $row) {
+        $scrpt=$scrpt." 
+        let marker{$count};
+        
+      const map{$count} = new google.maps.Map(document.getElementById('map{$count}'), {
+        zoom: 10,
+        center: { lat: {$row['lat']}, lng: {$row['lng']} },
+      });
+    
+      marker{$count} = new google.maps.Marker({
+        map{$count},
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: { lat: {$row['lat']}, lng: {$row['lng']} },
+      });
+      marker{$count}.addListener('click', function(){
+        if (marker{$count}.getAnimation() !== null) {
+        marker{$count}.setAnimation(null);
+      } else {
+        marker{$count}.setAnimation(google.maps.Animation.BOUNCE);
+      }
+      });
+    
+    ";
+
+
+
         $post="<div class='col-xs-12 col-sm-6 col-md-3 col-lg-3 '>
         <a href='#modal-opened{$count}' id='modal-closed{$count}'>
           <div class='card-flyer'>
             <div class='text-box' >
-                <div class='image-box' id='innermap'>
-                  
+                <div class='image-box' >
+                <div  id='map{$count}' style='height:200px'></div>
                 </div>
                 <div class='text-container'>
                 <div class='row'>
@@ -399,7 +417,7 @@ function initMap() {
             <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['dateTime']}</p></p>
             <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date and time :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
             <div class='cls'>Location of the place:</div>
-            <div id='map{$count}' class='map-class'></div>
+            <div id='mapin{$count}' class='map-class'></div>
 
 
 
@@ -431,7 +449,11 @@ function initMap() {
       }
      $count+=1;
       }
-      echo $fCode;
+
+      $scrpt=$scrpt."}
+      </script>";
+      echo $fCode.$scrpt;
+     $scrpt;
       ?>
 
 

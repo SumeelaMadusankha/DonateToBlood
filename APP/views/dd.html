@@ -6,93 +6,49 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script>
-        function initMap() {
-            var latlng = new google.maps.LatLng(-34.031342, 18.577419); // default location
-            var myOptions = {
-                zoom: 16,
-                center: latlng,
-                mapTypeId: google.maps.MapTypeId.SATELLITE,
-                mapTypeControl: true
-            };
+    <script type="text/javascript">
+        // Create a directions object and register a map and DIV to hold the 
+        // resulting computed directions
 
-            var map = new google.maps.Map(document.getElementById('mapall'), myOptions);
-            var infowindow = new google.maps.InfoWindow(),
-                marker, lat, lng;
+        var map;
+        var directionsPanel;
+        var directions;
 
-            for (i = 0; i < markers.length; i++) {
-                lat = (markers[i].GPS1);
-                lng = (markers[i].GPS2);
-                name = (markers[i].client_address);
+        function initialize() {
+            map = new GMap(document.getElementById("map_canvas"));
+            map.setCenter(new GLatLng(41.1255275, -73.6964801), 15);
+            directionsPanel = document.getElementById("route");
+            directions = new GDirections(map, directionsPanel);
+            directions.load("from: Armonk Fire Department, Armonk NY to: <?php echo $LastCallGoogleAddress;?> ");
 
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(lat, lng),
-                    name: name,
-                    map: map
-                });
-                google.maps.event.addListener(marker, 'click', function(e) {
-                    infowindow.setContent(this.name);
-                    infowindow.open(map, this);
-                }.bind(marker));
-            }
-        }
-        var markers2 = [{
-            GPS1: -33.92465,
-            GPS2: 18.84382,
-            client_address: "somewhere2"
-        }];
-
-        function initMap2() {
-            var latlng = new google.maps.LatLng(-33.92465, 18.84382); // default location
-            var myOptions = {
-                zoom: 16,
-                center: latlng,
-                mapTypeId: google.maps.MapTypeId.SATELLITE,
-                mapTypeControl: true
-            };
-
-            var map = new google.maps.Map(document.getElementById('mapall2'), myOptions);
-            var infowindow = new google.maps.InfoWindow(),
-                marker, lat, lng;
-
-            for (i = 0; i < markers2.length; i++) {
-                lat = (markers2[i].GPS1);
-                lng = (markers2[i].GPS2);
-                name = (markers2[i].client_address);
-
-                marker = new google.maps.Marker({
-                    position: new google.maps.LatLng(lat, lng),
-                    name: name,
-                    map: map
-                });
-                google.maps.event.addListener(marker, 'click', function(e) {
-                    infowindow.setContent(this.name);
-                    infowindow.open(map, this);
-                }.bind(marker));
-            }
+            map.addControl(new GSmallMapControl());
+            map.addControl(new GMapTypeControl());
         }
     </script>
+
     <style>
+        /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+        
+        #map {
+            height: 100%;
+        }
+        /* Optional: Makes the sample page fill the window. */
+        
         html,
         body {
             height: 100%;
-            width: 100%;
-            margin: 0px;
-            padding: 0px
-        }
-        
-        #mapall,
-        #mapall2 {
-            height: 50%;
-            width: 100%;
-            border: red solid 1px;
+            margin: 0;
+            padding: 0;
         }
     </style>
 </head>
 
 <body>
-    <div id="mapall"></div>
-    <div id="mapall2"></div>
+    <div id="map1" style="height: 200px;"></div>
+    <div id="map2" style="height: 200px;"></div>
+    <!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+
 
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9QFyUSZ75iGCi9yhjubJM8H0yw2koqE&callback=initMap&v=weekly" async></script>
 </body>
