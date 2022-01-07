@@ -73,7 +73,8 @@
                               </thead>
                               <tbody>
                             <?php
-                           
+                           $scrpt="<script>
+                           function initMap() {";
                             $count=1;
                             $stat="";
                             $btn="";
@@ -95,7 +96,28 @@
                                     ";
                                     $rs=" <td><span class='label label-success' style='font-size: 18px;display:block'>Success</span></td>";
                                 }
-
+                                $scrpt=$scrpt." 
+                                let marker{$count};
+                              const map{$count} = new google.maps.Map(document.getElementById('map{$count}'), {
+                                zoom: 10,
+                                center: { lat: {$row['lat']}, lng: {$row['lng']} },
+                              });
+                            
+                              marker{$count} = new google.maps.Marker({
+                                map{$count},
+                                draggable: true,
+                                animation: google.maps.Animation.DROP,
+                                position: { lat: {$row['lat']}, lng: {$row['lng']} },
+                              });
+                              marker{$count}.addListener('click', function(){
+                                if (marker{$count}.getAnimation() !== null) {
+                                marker{$count}.setAnimation(null);
+                              } else {
+                                marker{$count}.setAnimation(google.maps.Animation.BOUNCE);
+                              }
+                              });
+                            
+                            ";
                                 echo "<tr>
                                 <td>{$count}</td>
                                 <td>{$row['name']}</td>
@@ -119,7 +141,7 @@
 
                     
                   
-                    <h1 class='modal__title'><b>Blood Type : B+</b></h1>
+                    <h1 class='modal__title'><b>Request Details</b></h1>
                     <p class='modal__description'>{$row['description']}
                     </p>
                   </div>
@@ -131,7 +153,12 @@
                     <p class='outer-extra-class'> <b class= 'extra-class'>Email :</b>  <p class='inner-extra-class'> {$row['email']}</p></p>
                     <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['dateTime']}</p></p>
                     <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date and time :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
-                     
+                    <div class='cls'>Location of the place:</div>
+                    <div id='map{$count}' class='map-class'></div>
+
+
+
+                    
                     <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
 
                     <a href='{$row['attachment']}' download target='_blank'
@@ -150,6 +177,10 @@
             </div>";
             $count += 1;
                             }
+                            $scrpt=$scrpt."}
+                            </script>";
+
+                            echo $scrpt;
                             ?>
      
                                
@@ -160,23 +191,12 @@
                              
                           </tbody>
                       </table>
-                      <div id='map'>
-              sumeela
-                  </div>               
-  
-                  <script>function initMap() {
-                     const myLatLng = { lat: -25.363, lng: 131.044 };
-                     const map = new google.maps.Map(document.getElementById('map'), {
-                       zoom: 4,
-                       center: myLatLng,
-                     });
-                   
-                     new google.maps.Marker({
-                       position: myLatLng,
-                       map,
-                       
-                     });
-                   }</script>
+                  
+
+
+
+                  
+                     
                   </div>
              </div>
 				<?php include "bbc_footer.php";?>
@@ -200,10 +220,17 @@
     <script src="assets/js/morris/morris.js"></script>
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9QFyUSZ75iGCi9yhjubJM8H0yw2koqE&callback=initMap&v=weekly"
+      async
+    ></script> 
+                   
     
-                    <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCSrUrvFB7-sGbuP_VZG5ADl9tZswY7XN8&callback=initMap"
-                            type="text/javascript"></script>
-
+          
+        
+        
+         
+        
 </body>
 
 </html>

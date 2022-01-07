@@ -1,6 +1,6 @@
 <?php
 include_once('post.php');
-class Admin extends Post
+class CampPost extends Post
 {
 
     
@@ -57,7 +57,6 @@ class Admin extends Post
 }
 
 
-}
 
 
 ?>

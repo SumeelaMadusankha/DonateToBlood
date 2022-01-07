@@ -388,6 +388,13 @@ a:link {
     box-shadow: 0 0 4.4rem .2rem hsla(236, 50%, 50%, 0.4);
 }
 
+.map-class {
+    height: 400px;
+    margin-bottom: 20px;
+    box-shadow: #000000;
+    border-radius: 8px;
+}
+
 .link-2 {
     width: 4rem;
     height: 4rem;
@@ -413,6 +420,11 @@ a:link {
 .link-2:focus {
     border-color: hsla(0, 0%, 100%, .6);
     transform: translateY(-.2rem);
+}
+
+.cls {
+    font-weight: bolder;
+    margin-bottom: 18px;
 }
 
 

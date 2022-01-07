@@ -19,6 +19,7 @@
     <link rel="stylesheet" href="../Public/css/hd.css">
    
     <link rel="stylesheet" href="../Public/css/places.css">
+    <link rel="stylesheet" href="../Public/css/whereToDonate.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>Document</title>
 
@@ -306,7 +307,7 @@ function initMap() {
           
         </div> 
             
-        
+   
       </div>
       </form>
     </div>
@@ -326,61 +327,99 @@ function initMap() {
       
       foreach ($data as $row) {
         $post="<div class='col-xs-12 col-sm-6 col-md-3 col-lg-3 '>
-        <a href='#modal-opened' id='modal-closed'>
+        <a href='#modal-opened{$count}' id='modal-closed{$count}'>
           <div class='card-flyer'>
             <div class='text-box'>
                 <div class='image-box'>
-                  <img class ='image-prop' src='../Public/images/bloods/.png' alt='' />
+                  
                 </div>
                 <div class='text-container'>
-                    <h6 >BLOOD GROUP </h6>
-                    <h5 style='text-align: left; padding-left: 15px;'>District  :   </h5>
-                    <h5 style='text-align: left; padding-left: 15px;'>Contact No:</h5>
+                <div class='row'>
+                <div class='col-md-4 col-xs-8 '>
+                <h6 >Date:</h6>
+              </div> 
+              <div class='col-md-8 col-xs-16 '>
+              <h6 >{$row['campDate']}</h6>
+                </div> 
+                </div>
+                <div class='row'>
+                <div class='col-md-4 col-xs-8 '>
+                <h6 > <h5 style='text-align: left; padding-left: 15px;'>District </h5></h6>
+              </div> 
+              <div class='col-md-8 col-xs-16 '>
+              <h6 > <h5 style='text-align: left; padding-left: 15px;'>{$row['district']}   </h5></h6>
+                </div> 
+                </div>
+                <div class='row'>
+                <div class='col-md-4 col-xs-8 '>
+                <h6 ><h5 style='text-align: left; padding-left: 15px;'>Contact No:</h5></h6>
+              </div> 
+              <div class='col-md-8 col-xs-16 '>
+              <h6 ><h5 style='text-align: left; padding-left: 15px;'>{$row['conNumber']}</h5></h6>
+                </div> 
+                </div>
+                <div class='row'>
+                <div class='col-md-4 col-xs-8 '>
+                <h6 ><h5 style='text-align: left; padding-left: 15px;'>City:</h5></h6>
+              </div> 
+              <div class='col-md-8 col-xs-16 '>
+              <h6 ><h5 style='text-align: left; padding-left: 15px;'>{$row['city']}</h5></h6>
+                </div> 
+                </div> 
+                    
                 </div>
                 
              </div>
           </div>
         </a>
         
-        <div class='modal-container body' id='modal-opened'>
-          <div class='modal-demo' >
-            
-            <div class='modal__details'>
-              
-
-              <img src='../Public/images/blood-types/blood-.png'  class='post-image-class' alt=''>
-
-              
-
-              
-            
-              <h1 class='modal__title'><b>Blood Type : B+</b></h1>
-              <p class='modal__description'>
-              </p>
-            </div>
         
-            <div class='modal__text'>
-              
-             <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> {$row['fullName']}</p></div>
-              <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['mobileNo']}</p></p>
-              <p class='outer-extra-class'> <b class= 'extra-class'>Due Date :</b>  <p class='inner-extra-class'> {$row['duedate']}</p></p>
-              
-              <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
-
-              <a href='../Public/images/blood-types/blood-A+.png' 
-
-              
-
-              <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button>
-              </a>
-              
-            </div>
-
-            <a href='#modal-closed' class='link-2'></a>
+        <div class='modal-container body' id='modal-opened{$count}'>
+        <div class='modal-demo' >
         
+          <div class='modal__details'>
+          
+
+           
+
+            
+
+            
+          
+            <h1 class='modal__title'><b>Request Details</b></h1>
+            <p class='modal__description'>{$row['description']}
+            </p>
           </div>
-        </div>     
-      </div>";
+      
+          <div class='modal__text'>
+            
+           <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> {$row['name']}</p></div>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['conNumber']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Email :</b>  <p class='inner-extra-class'> {$row['email']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['dateTime']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date and time :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
+            <div class='cls'>Location of the place:</div>
+            <div id='map{$count}' class='map-class'></div>
+
+
+
+            
+            <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
+
+            <a href='{$row['attachment']}' download target='_blank'
+
+            
+
+            <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button>
+            </a>
+            <div class='cls-btn'> {$btn}</div>
+           
+          </div>
+          <a href='#modal-closed' class='link-2'></a>
+      
+        </div>
+      </div>     
+    </div>";
       if ($d==1) {
         $fCode=$fCode.$startRow;
       }

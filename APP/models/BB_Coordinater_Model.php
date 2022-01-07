@@ -93,8 +93,8 @@ public function getCampReqest()
     }
     public function cancelBloodRequestModel($id)
     {
-        $query = "UPDATE bloodrequest SET status = :status WHERE requestId = :id";
-        $res = $this->db->runQuery($query, [":id" => $id,":status" => "pending"]);
+        $query = "UPDATE bloodrequest SET status = :status,acceptednic= :nic WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" => "pending",":nic" => '']);
         return $res;
     }
     public function declienBloodRequestModel($id)
@@ -115,8 +115,8 @@ public function getCampReqest()
 
     public function cancelCampRequestModel($id)
     {
-        $query = "UPDATE camprequest SET status = :status WHERE requestId = :id";
-        $res = $this->db->runQuery($query, [":id" => $id,":status" => "pending"]);
+        $query = "UPDATE camprequest SET status = :status , acceptednic= :nic WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" => "pending",":nic" => '']);
         return $res;
     }
     public function declienCampRequestModel($id)
