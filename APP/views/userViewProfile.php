@@ -168,12 +168,7 @@
 <div class="last">
 
 </div>
-<!-- <div>
-<?php
-print_r($data);
-?>
-</div>
--->
+
 </form>
 
 </div>
