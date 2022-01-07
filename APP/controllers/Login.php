@@ -1,6 +1,9 @@
 <?php
+ 
 class Login extends Controller
 {
+
+  
     function __construct()
     {
         parent:: __construct();
@@ -25,6 +28,7 @@ class Login extends Controller
         {
                   
                   case "registeredUser":
+                   
                     $this->view->render('reg_user_index');
                     break;
                   case "admin":
@@ -46,7 +50,7 @@ class Login extends Controller
     public function login()
     {
 
-      session_start();
+     
       if (!isset($_SESSION['nic'])) {
       if ($_SERVER['REQUEST_METHOD']==="POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -62,11 +66,12 @@ class Login extends Controller
             if (empty($loginUser['error'])) {
               
               if (!empty($loginUser)) {
-              
+                session_start();
                 $_SESSION["nic"] = $loginUser["nic"];
                 $_SESSION["firstName"] = $loginUser["firstName"];
                 $_SESSION["lastName"] = $loginUser["lastName"];
                 $_SESSION["jobtype"] = $loginUser["jobtype"];
+                $_SESSION["district"] = $loginUser["district"];
                 $_SESSION['msg']="success";
                 switch ($loginUser['jobtype']) {
                   case 'registeredUser':
@@ -123,7 +128,7 @@ class Login extends Controller
 
     public function logout()
     {
-      session_start();
+     session_start();
     unset($_SESSION["nic"]);
     unset($_SESSION["firstName"]); 
     unset($_SESSION["lastName"]); 

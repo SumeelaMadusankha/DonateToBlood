@@ -1,5 +1,5 @@
 <?php
-class BloodPost_model extends Model 
+class CampPost_model extends Model 
 {
     function __construct()
     {
@@ -7,11 +7,11 @@ class BloodPost_model extends Model
     }
 
 
-public function getBloodRequestDetails($district)
+public function getCampRequestDetails($district)
 {
     if ($district=="all") {
 
-        $query = 'SELECT * FROM bloodrequest';
+        $query = 'SELECT * FROM camprequest';
         $res = $this->db->selectData($query);
         return $res;
 
@@ -19,36 +19,36 @@ public function getBloodRequestDetails($district)
     }
     else {
         
-        $query = 'SELECT * FROM bloodrequest where  district= :district';
+        $query = 'SELECT * FROM camprequest where  district= :district';
         $res = $this->db->runQuery($query, [":district" => $district]);
         return $res;
     }
     
 }
 
-public function filterBloodPost($dataArr)
+public function filterCampPost($dataArr)
 {
     if ($dataArr['bloodType']=="all" && $dataArr['district']=="all") {
      
-        $res=$this->getBloodRequestDetails('all');
+        $res=$this->getCampRequestDetails('all');
         return $res;
        
     }elseif ($dataArr['bloodType']=="all") {
         $_SESSION['select']=$dataArr['district'];
      
-        $res=$this->getBloodRequestDetails($dataArr['district']);
+        $res=$this->getCampRequestDetails($dataArr['district']);
         return $res;
     }elseif ($dataArr['district']=="all") {
         
         $_SESSION['selectb']=$dataArr['bloodType'];
-        $query = 'SELECT * FROM bloodrequest where bloodType=:bloodType';
+        $query = 'SELECT * FROM camprequest where bloodType=:bloodType';
         $res = $this->db->runQuery($query, [ "bloodType"=>$dataArr['bloodType']]);
         return $res;
     }
     else{
         $_SESSION['select']=$dataArr['district'];
         $_SESSION['selectb']=$dataArr['bloodType'];
-        $query = 'SELECT * FROM bloodrequest where  district= :district  AND bloodType=:bloodType';
+        $query = 'SELECT * FROM camprequest where  district= :district  AND bloodType=:bloodType';
         $res = $this->db->runQuery($query, [":district" => $dataArr['district'], "bloodType"=>$dataArr['bloodType']]);
         return $res;
     }

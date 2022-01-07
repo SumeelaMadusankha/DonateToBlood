@@ -1,5 +1,6 @@
 <?php
 include_once('User_Model.php');
+// include_once('BloodPost.php');
     class RegisteredUser_model extends User_Model 
     {
         function __construct()
@@ -14,6 +15,13 @@ include_once('User_Model.php');
             $res= $this->db->runQuery($query,[":nic"=>$nic]);
             return $res;
         }
+
+
+public function filterBloodPost()
+{
+   $post=new BloodPost();
+}
+
         public function addbloodRequest($dataArray)
     {
    

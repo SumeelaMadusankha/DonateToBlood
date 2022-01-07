@@ -73,8 +73,16 @@ public function loadCampRequestForm()
 
     public function bloodPostLoad()
     {
-       $post=new BloodPost();
-       $post->Loadpostpage();
+      $post=new BloodPost();
+      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if (isset($_POST["sbmt_btn"])) {
+          $post->filterPost($_POST);
+        }}else {
+          $post->Loadpostpage();
+        }
+       
+      
 
     }
     public function donationPlacesLoad()
@@ -119,6 +127,7 @@ public function addCampRequest(){
     }
 }
 }
+
 
 }
 

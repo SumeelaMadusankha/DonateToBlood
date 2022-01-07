@@ -1,5 +1,6 @@
 <?php
 include_once('User.php');
+include_once("BloodPost.php");
 class UnregisteredUser extends User 
 {
     function __construct()
@@ -90,7 +91,9 @@ class UnregisteredUser extends User
 
 public function bloodPostLoad()
     {
-        $this->view->render('bloodPost');
+        
+       $post=new BloodPost();
+       $post->Loadpostpage();
     }
     public function donationPlacesLoad()
     {
@@ -98,6 +101,9 @@ public function bloodPostLoad()
 
 
 
-}}
+}
+
+}
+
 
 ?>

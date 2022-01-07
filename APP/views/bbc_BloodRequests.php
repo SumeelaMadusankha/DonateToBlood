@@ -151,53 +151,7 @@
                             }
                             ?>
      
-                               <div class="modal-container body" id="modal-opened">
-                  <div class="modal-demo" >
-                    
-                    <div class="modal__details">
-                      
-
-                      <img src="../Public/images/blood-types/blood-B+.png"  class="post-image-class" alt="">
-
-                      
-
-                      
-                    
-                      <h1 class="modal__title"><b>Blood Type : B+</b></h1>
-                      <p class="modal__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-                        took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                         but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s 
-                         with the release of Letraset sheets containing Lorem
-                      </p>
-                    </div>
-                
-                    <div class="modal__text">
-                      
-                     <div class="outer-extra-class" > <b class= "extra-class">Contact Person :</b>  <p class="inner-extra-class"> Nuwan Jayasanka</p></div>
-                      <p class="outer-extra-class"> <b class= "extra-class">Contact Number :</b>  <p class="inner-extra-class"> 0769152313</p></p>
-                      <p class="outer-extra-class"> <b class= "extra-class">Due Date :</b>  <p class="inner-extra-class"> 2022-03-28</p></p>
-                      
-                      <!-- <button class="btn"><i class="fa fa-download" ></i> Download Attachment</button> -->
-
-                      <a href="../Public/images/blood-types/blood-A+.png" 
-
-                      
-
-                      <button class="btn"><i class="fa fa-download" ></i> Download Attachment</button>
-                      </a>
-                      
-                    </div>
-
-                
-                   
-                
-                    <a href="#modal-closed" class="link-2"></a>
-                
-                  </div>
-                </div>     
-              </div>
-
+                               
 
 
 

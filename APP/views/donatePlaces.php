@@ -98,223 +98,311 @@ function initMap() {
          </nav>
          
       </header>
-<div class="body">
-  <div class="container outer-request">
+      <div class="body">
+      <div class="container outer-request" >
     <div class="filter-mod">
+      
+      <form action="filterBloodPost" method="POST">
       <div class="row ">
-       
-        <div class="col-md-6 col-xs-12 ">
-          <form>
+        <div class="col-md-8 col-xs-14 ">
+         
             <b><h4 style="font-weight: bold;">Filter acording to district</h4>  </b>
-            <select id = "sell" onchange = "favTutorial()" class="form-control ">
-            <option> ---Choose District--- </option>
-            <option>Ampara </option>
-            <option> Anuradhapura </option>
-            <option> Badulla </option>
-            <option>Batticalo </option>
-            <option> Colombo </option>
-            <option> Galle </option>
-            <option> Gampaha</option>
-            <option> Hambantota</option>
-            <option> Jafna </option>
-            <option> Kalutara </option>
-            <option> Kandy</option>
-            <option> Kagalla </option>
-            <option> Kilinochchi </option>
-            <option> Kurunagala</option>
-            <option> Mannar </option>
-            <option> Matale </option>
-            <option>Matara </option>
-            <option> Moneragala </option>
-            <option> Mulativu </option>
-            <option> Nuwara Elliya </option>
-            <option> Polonnaruwa </option>
-            <option> Puttalam </option>
-            <option> Ratnapura </option>
-            <option> Trincomalee </option>
-            <option> Vavuniya </option>
+            <select id = "sell1"  class="form-control dis" name="district">
+            <option value="all"
+            <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="all") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>
+            > All District </option>
+            <option value="Ampara" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Ampara") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>>Ampara </option>
+            <option  value="" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Anuradhapura") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Anuradhapura </option>
+            <option value="Badulla " <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Badulla") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Badulla </option>
+            <option value="Batticalo" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Batticalo") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>>Batticalo </option>
+            <option value="Colombo " <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Colombo") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Colombo </option>
+            <option value="Galle" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Galle") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Galle </option>
+            <option value=" Gampaha" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Gampaha") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Gampaha</option>
+            <option value="Hambantota" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Hambantota") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Hambantota</option>
+            <option value="Jafna" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Jafna") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Jafna </option>
+            <option value="Kalutara" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Kalutara") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Kalutara </option>
+            <option value="Kandy" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Kandy") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Kandy</option>
+            <option value="Kagalla" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Kagalla") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Kagalla </option>
+            <option value="Kilinochchi" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Kilinochchi") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Kilinochchi </option>
+            <option value="Kurunagala" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Kurunagala") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Kurunagala</option>
+            <option value="Mannar" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Mannar") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Mannar </option>
+            <option value="Matale " <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Matale") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Matale </option>
+            <option value="Matara " <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Matara") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>>Matara </option>
+            <option value="Moneragala" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Moneragala") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Moneragala </option>
+            <option value=" Mulativu" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Mulativu") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Mulativu </option>
+            <option value="Nuwara Elliya " <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Nuwara Elliya") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Nuwara Elliya </option>
+            <option value=" Polonnaruwa" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Polonnaruwa") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Polonnaruwa </option>
+            <option value=" Puttalam" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Puttalam") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Puttalam </option>
+            <option value="Ratnapura" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Ratnapura") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Ratnapura </option>
+            <option value="Trincomalee" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Trincomalee") {
+                unset($_SESSION['select']);
+                echo "selected";
+              }
+             
+            }?>> Trincomalee </option >
+            <option value="Vavuniya" <?php if (isset($_SESSION['select'])) {
+              if ($_SESSION['select']=="Vavuniya") {
+                unset($_SESSION['select']);
+                echo "selected";
+                
+              }
+             
+            }?>> Vavuniya </option>
             </select>
            
-            </form>
+           
         </div>
-        <div class="col-md-6 col-xs-12 ">
-          <form>
-            <b><h4 style="font-weight: bold;"> Filter acording to blood type</h4> </b>
-            <select id = "sell" onchange = "favTutorial()"  class="form-control">
-            <option> ---Choose Blood Type--- </option>
-            <option> A+ </option>
-            <option> A- </option>
-            <option> AB+ </option>
-            <option> AB- </option>
-            <option> B+ </option>
-            <option> B- </option>
-            <option> O+ </option>
-            <option> O- </option>
-            </select>
-            </form>
-        </div>
+     
+
+        <div class="col-md-4 col-xs-8 ">
+         
+           <input type="submit" value="Search" id="sell" name="search">
+
+          
+        </div> 
+            
+        
       </div>
-      
+      </form>
     </div>
       
-     
+    
  
             <!-- Topic Cards -->
     <div id="cards_landscape_wrap-2">
       <div class="container-fluid" outer-request  >
-          <div class="row" >
-              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
-                <a href="#modal-opened" id="modal-closed">
-                  <div class="card-flyer">
-                    <div class="text-box">
-                        <div class="image-box" >
-                          <div id="map">
-
-                          </div>
-                        </div>
-                        <div class="text-container">
-                            <h6 >BLOOD GROUP A+</h6>
-                            <h5 style="text-align: left; padding-left: 15px;">District  :Matara    </h5>
-                            <h5 style="text-align: left; padding-left: 15px;">Contact No:0766929289</h5>
-                            
-                        </div>
-                        
-                     </div>
-                  </div>
-                </a>
-                <div class="modal-container body" id="modal-opened">
-                  <div class="modal-demo">
-                   
-                    <div class="modal__map" id="innermap">
-                     
-                    </div>
-                    
-                    
-                    
-                
-                    <a href="#modal-closed" class="link-2"></a>
-                
-                  </div>
-                </div>     
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
-                <a href="#modal-opened" id="modal-closed">
-                  <div class="card-flyer">
-                    <div class="text-box">
-                        <div class="image-box" >
-                            <div id="map2">
-  
-                            </div>
-                          </div>
-                        <div class="text-container">
-                            <h6 >BLOOD GROUP A+</h6>
-                            <h5 style="text-align: left; padding-left: 15px;">District  :Matara    </h5>
-                            <h5 style="text-align: left; padding-left: 15px;">Contact No:0766929289</h5>
-                        </div>
-                        
-                     </div>
-                  </div>
-                </a>
-                <div class="modal-container body" id="modal-opened">
-                  <div class="modal-demo">
-                
-                    <div class="modal__details">
-                      <h1 class="modal__title">Modal Title</h1>
-                      <p class="modal__description">Sentence that will tell user what this modal is for or something.</p>
-                    </div>
-                
-                    <p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
-                
-                    <button class="modal__btn">Button &rarr;</button>
-                
-                    <a href="#modal-closed" class="link-2"></a>
-                
-                  </div>
-                </div>      
-                 
-                  
-                  
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
-                <a href="#modal-opened" id="modal-closed">
-                  <div class="card-flyer">
-                    <div class="text-box">
-                        <div class="image-box" >
-                            <div id="map">
-  
-                            </div>
-                          </div>
-                        <div class="text-container">
-                            <h6 >BLOOD GROUP A+</h6>
-                            <h5 style="text-align: left; padding-left: 15px;">District  :Matara    </h5>
-                            <h5 style="text-align: left; padding-left: 15px;">Contact No:0766929289</h5>
-                        </div>
-                        
-                     </div>
-                  </div>
-                </a>
-                <div class="modal-container body" id="modal-opened">
-                  <div class="modal-demo">
-                
-                    <div class="modal__details">
-                      <h1 class="modal__title">Modal Title</h1>
-                      <p class="modal__description">Sentence that will tell user what this modal is for or something.</p>
-                    </div>
-                
-                    <p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
-                
-                    <button class="modal__btn">Button &rarr;</button>
-                
-                    <a href="#modal-closed" class="link-2"></a>
-                
-                  </div>
-                </div>      
-                 
-                  
-                  
-              </div>
-              <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3 ">
-                <a href="#modal-opened" id="modal-closed">
-                  <div class="card-flyer">
-                    <div class="text-box">
-                        <div class="image-box" >
-                            <div id="map">
-  
-                            </div>
-                          </div>
-                        <div class="text-container">
-                            <h6 >BLOOD GROUP A+</h6>
-                            <h5 style="text-align: left; padding-left: 15px;">District  :Matara    </h5>
-                            <h5 style="text-align: left; padding-left: 15px;">Contact No:0766929289</h5>
-                        </div>
-                        
-                     </div>
-                  </div>
-                </a>
-                <div class="modal-container body" id="modal-opened">
-                  <div class="modal-demo">
-                
-                    <div class="modal__details">
-                      <h1 class="modal__title">Modal Title</h1>
-                      <p class="modal__description">Sentence that will tell user what this modal is for or something.</p>
-                    </div>
-                
-                    <p class="modal__text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Facilis ex dicta maiores libero minus obcaecati iste optio, eius labore repellendus.</p>
-                
-                    <button class="modal__btn">Button &rarr;</button>
-                
-                    <a href="#modal-closed" class="link-2"></a>
-                
-                  </div>
-                </div>      
-                 
-                  
-                  
-             
-      </div>
+      <?php
+      $startRow=" <div class='row' >";
+      $pRow="";
+      $fCode="";
+      $post="";
+      $count=1;
+      $d=1;
       
-        </div>
-    </div>
+      foreach ($data as $row) {
+        $post="<div class='col-xs-12 col-sm-6 col-md-3 col-lg-3 '>
+        <a href='#modal-opened' id='modal-closed'>
+          <div class='card-flyer'>
+            <div class='text-box'>
+                <div class='image-box'>
+                  <img class ='image-prop' src='../Public/images/bloods/.png' alt='' />
+                </div>
+                <div class='text-container'>
+                    <h6 >BLOOD GROUP </h6>
+                    <h5 style='text-align: left; padding-left: 15px;'>District  :   </h5>
+                    <h5 style='text-align: left; padding-left: 15px;'>Contact No:</h5>
+                </div>
+                
+             </div>
+          </div>
+        </a>
+        
+        <div class='modal-container body' id='modal-opened'>
+          <div class='modal-demo' >
+            
+            <div class='modal__details'>
+              
+
+              <img src='../Public/images/blood-types/blood-.png'  class='post-image-class' alt=''>
+
+              
+
+              
+            
+              <h1 class='modal__title'><b>Blood Type : B+</b></h1>
+              <p class='modal__description'>
+              </p>
+            </div>
+        
+            <div class='modal__text'>
+              
+             <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> {$row['fullName']}</p></div>
+              <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['mobileNo']}</p></p>
+              <p class='outer-extra-class'> <b class= 'extra-class'>Due Date :</b>  <p class='inner-extra-class'> {$row['duedate']}</p></p>
+              
+              <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
+
+              <a href='../Public/images/blood-types/blood-A+.png' 
+
+              
+
+              <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button>
+              </a>
+              
+            </div>
+
+            <a href='#modal-closed' class='link-2'></a>
+        
+          </div>
+        </div>     
+      </div>";
+      if ($d==1) {
+        $fCode=$fCode.$startRow;
+      }
+      $fCode=$fCode.$post;
+      $d+=1;
+      if ($d==5) {
+        $fCode=$fCode." </div>";
+        $d=1;
+      }
+     $count+=1;
+      }
+      echo $fCode;
+      ?>
+
+
+
+
+
+          
+  </div>
+
+  </div>
   </div>
   </div>
   <script
