@@ -24,7 +24,7 @@
       <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
       <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <!-- fonts-->
      
      
@@ -122,8 +122,9 @@
 
                <div class="dropdown">
               
-               <i class='fa fa-user-circle' ></i>
                
+               
+               <i class='fa fa-user-circle' style='font-size:50px'></i>
                <div class="dropdown-content">
                   <a href="../RegisteredUser/viewUserProfile"> <b> PROFILE</b></a>
                   <a href="#"><b> HISTORY</b> </a>

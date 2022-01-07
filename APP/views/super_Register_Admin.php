@@ -80,12 +80,14 @@
             <div class="user-details">
                 <div class="input-box">
 
-                    <span class="details">Full Name</span>
-                    <input type="text" placeholder="Enter your full name" name="flname" id="flname" required>
+                    <span class="details">First Name</span>
+                    <input type="text" placeholder="Enter your first name" name="fname" id="fname" required>
+                </div>
 
-                    
+                <div class="input-box">
 
-
+                    <span class="details">Last Name</span>
+                    <input type="text" placeholder="Enter your last name" name="lname" id="lname" required>
                 </div>
 
                 
@@ -108,13 +110,21 @@
                         <option value="Matara">Kandy</option>
                     </select>     
                 </div>
-                
-                <div class="input-box">
 
-                    <span class="details">Username</span>
-                    <input type="text" placeholder="Enter your username" name="username" id="username" required>
+                <div class="input-box">
+                    <span class="details">City</span>
+                    <input type="text" placeholder="Enter your city" name="city" id="city" required>
                     
                 </div>
+
+
+                <div class="input-box">
+                    <span class="details">Address</span>
+                    <input type="text" placeholder="Enter your address" name="address" id="address" required>
+                    
+                </div>
+                
+                
                 <div class="input-box">
                     <span class="details">Email Address</span>
                     <input type="text" placeholder="Enter your email" name="email" id="email" required>
