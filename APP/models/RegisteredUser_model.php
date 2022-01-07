@@ -69,6 +69,31 @@ include_once('User_Model.php');
      
         return $results1;
     }
+    
+
+    public function getProfileData($NIC){
+        
+        $query = "SELECT * FROM user WHERE nic=:nic";
+        $userData = $this->db->runQuery($query,$NIC);
+        return $userData;
+    }
+
+    public function editProfile($dataArray){
+        $query = "UPDATE user SET firstName=:firstName, lastName=:lastName, email=:email,dob=:dob, address=:address, mobileNo=:mobileNo WHERE nic=:nic";
+        $firstName=$dataArray["firstName"];
+        $lasttName=$dataArray["lastName"];
+        $email=$dataArray["email"];
+        $dob=$dataArray["dob"];
+        $address=$dataArray["address"];
+        $mobileNo=$dataArray["mobileNo"];
+        $nic =$dataArray["nic"];
+        
+        $arrayInject=[":firstName"=>$firstName, "lastName"=>$lasttName,"email"=>$email,"dob"=> $dob,
+        "address"=>$address,"mobileNo"=>$mobileNo,"nic" =>$nic ];
+        $results1= $this->db->runQuery($query,$arrayInject);
+        return $results1;
+    }
+    
     }
     
 ?>

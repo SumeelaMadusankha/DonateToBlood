@@ -21,7 +21,7 @@
     <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="../Public/css/hd.css">
-    <link rel="stylesheet" href="../Public/css/userViewProfile.css">
+    <link rel="stylesheet" href="../Public/css/userEditProfile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>User Profile</title>
 </head>
@@ -91,94 +91,113 @@
       <div class="body">
       <div class="contanier_2">
 
-<div class="row1">
-  <?php if (isset($data[0]['message'])) {
-    echo $data[0]['message'];
-    unset($data[0]['message']);
-  }
 
-
-  ?>
-</div>
-
-<div class="contanier_2-1">
-  <div class="view_profile">
-    <h3><a href="#">Profile</a></h3>
-  </div>
-  <div class="edit_profile">
-    <h3><a href="viewEditUserProfile">Edit Profile</a></h3>
-  </div>
-</div>
 <div>
 
-  <img src="../Public/images/user.png" class="image">
-  <div class="row1"><?php echo $data[0]["firstName"] . " " . $data[0]["lastName"] ?></div>
+ 
 </div>
 
-<div class="outer_field_class">
-<div class="row">
-  <div class="col_1">First Name</div>
-  <div class="col_2"><?php echo $data[0]["firstName"] ?></div>
+<div class="outer_aling_class">
+<div class="contanier_2-1">
+  <div class="view_profile">
+    <h3><a href="viewUserProfile">Profile</a></h3>
+  </div>
+  <div class="edit_profile">
+    <h3><a href="#">Edit Profile</a></h3>
+  </div>
 </div>
-<div class="row">
-  <div class="col_1">Last Name</div>
-  <div class="col_2"><?php echo $data[0]["lastName"] ?></div>
-</div>
-<div class="row">
+<form method="POST" action="userProfileUpdate">
+
+  
+  <div class="row">
+    <div class="col_1">First Name</div>
+    <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["firstName"] ?>" /><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></div>
+  </div>
+  <div class="row">
+    <div class="col_1">Last Name</div>
+    <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["firstName"] ?>" /><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></div>
+  </div>
+  <!-- <div class="row">
   <div class="col_1">NIC</div>
-  <div class="col_2"><?php echo $data[0]["nic"] ?></div>
-</div>
-<div class="row">
+  <div class="col_2">99v</div>
+</div> -->
+  <!-- <div class="row">
   <div class="col_1">Gender</div>
-  <div class="col_2"><?php
-                      if ($data[0]['gender'] == 'F') {
-                        echo "Female";
-                      } else {
-                        echo "Male";
-                      }
-                      ?></div>
-</div>
-<div class="row">
-  <div class="col_1">Date of Birth</div>
-  <div class="col_2"><?php echo $data[0]["dob"] ?></div>
-</div>
-<div class="row">
-  <div class="col_1">Home Address</div>
-  <div class="col_2"><?php echo $data[0]["address"]  ?></div>
-</div>
-<div class="row">
-  <div class="col_1">Email</div>
-  <div class="col_2"><?php echo $data[0]["email"] ?></div>
-</div>
-<div class="row">
-  <div class="col_1">Office Address</div>
-  <div class="col_2"><?php echo $data[0]["address"] ?></div>
-</div>
-<div class="row">
-  <div class="col_1">Telephone Number</div>
-  <div class="col_2"><?php echo $data[0]["mobileNo"] ?></div>
-</div>
-</div>
+  <div class="col_2">
+      <input type="radio" id="male" name="gender" value="Male" required <?php
+                                                                        if ($data[0]['gender'] == 'M') { ?>
+       checked
+     <?php } ?> 
+      />
+      <label for="male">Male</label>
+      <input type="radio" id="female" name="gender" value="Female"  
+      <?php
+      if ($data[0]['gender'] == 'F') { ?>
+       checked
+     <?php } ?> 
+       />
+      <label for="female">Female</label></div>
+</div> -->
+  <div class="row">
+    <div class="col_1">Date of Birth</div>
+    <div class="col_2">
+      <input class="text" type="date" id="dob" name="dob" required value="<?php echo $data[0]['dob'] ?>" />
+      <i class="fa fa-calendar" aria-hidden="true"></i>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col_1">Home Address</div>
+    <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required><?php echo $data[0]["address"]  ?>
+  </textarea><i class="fa fa-address-card" aria-hidden="true" style="font-size: 17px;"></i></div>
+  </div>
+  <div class="row">
+    <div class="col_1">Telephone Number</div>
+    <div class="col_2">
+      <input class="text" type="text" id="mobileNo" name="mobileNo" value="<?php echo $data[0]["mobileNo"] ?>" required />
+      <i class="fa fa-phone" aria-hidden="true" style="font-size: 20px;"></i>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col_1">Email</div>
+    <div class="col_2">
+      <input class="text" type="email" id="email" name="email" value="<?php echo $data[0]['email'] ?>" />
+      <i class="fa fa-envelope" aria-hidden="true" style="font-size: 18px;"></i>
+    </div>
+  </div>
+  
+  <div class="row">
+    <div class="cancel_button">
 
+      <input name="cancel" type="submit" onclick="" value="CANCEL" />
+    </div>
 
+    <div class="save_button">
 
+      <input name="save" type="submit" onclick="true" value="save" />
+    </div>
 
+  </div>
 
+  
 
-<div class="last">
+  </div>
 
-</div>
-<!-- <div>
-<?php
-print_r($data);
-?>
-</div>
--->
+  <div class="last">
+
+  </div>
+
 </form>
 
 </div>
 </div>
-      </div>
-    </div>
+</div>
+</div>
+
+
+
+
+
+
+
   </body>
 </html>

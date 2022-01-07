@@ -22,7 +22,11 @@
       <link rel="stylesheet" href="../Public/css/hd.css">
       <!-- fevicon -->
       <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
+      <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
       <!-- fonts-->
+     
      
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
@@ -98,7 +102,7 @@
                  echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
               }
               ?>
-<?php
+            <?php
               
               if (isset($_SESSION['nic'])) {
                 echo " <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>";
@@ -107,14 +111,27 @@
               }
               ?>
               
-               <?php
+               <!-- <?php
               
                if (isset($_SESSION['nic'])) {
                  echo " <li><a href='logout'>Logout</a></li>";
                }else {
                   echo " <li><a href='index'>Login</a></li>";
                }
-               ?>
+               ?> -->
+
+               <div class="dropdown">
+              
+               <i class='fa fa-user-circle' ></i>
+               
+               <div class="dropdown-content">
+                  <a href="../RegisteredUser/viewUserProfile"> <b> PROFILE</b></a>
+                  <a href="#"><b> HISTORY</b> </a>
+                  <a href="logout"><b>LOGOUT</b> </a>
+               </div>
+               </div>
+
+               
             </ul>
          </nav>
          
@@ -134,6 +151,8 @@
                      <!-- first slide -->
                      <div class="carousel-item active">
                         <div class="carousel-caption cuplle">
+                           
+                        
                            <div class="container">
                               <div class="row">
                                  <div class="col-md-8">
