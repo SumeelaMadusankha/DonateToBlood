@@ -135,7 +135,7 @@ class Login extends Controller
     unset($_SESSION["jobtype"]); 
     unset($_SESSION["error"]); 
     session_destroy();
-    $this->view->render('reg_user_index');
+    $this->view->render('login');
     }
 }
 
