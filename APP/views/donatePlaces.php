@@ -329,8 +329,8 @@ function initMap() {
         $post="<div class='col-xs-12 col-sm-6 col-md-3 col-lg-3 '>
         <a href='#modal-opened{$count}' id='modal-closed{$count}'>
           <div class='card-flyer'>
-            <div class='text-box'>
-                <div class='image-box'>
+            <div class='text-box' >
+                <div class='image-box' id='innermap'>
                   
                 </div>
                 <div class='text-container'>
@@ -412,7 +412,7 @@ function initMap() {
 
             <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button>
             </a>
-            <div class='cls-btn'> {$btn}</div>
+         
            
           </div>
           <a href='#modal-closed' class='link-2'></a>
