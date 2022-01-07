@@ -30,25 +30,12 @@
                         <a class="active-menu" href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="../viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
+                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
-                        <a href="../viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
-                    <li>
 
-                        <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
-
-                    </li>
-                    <li>
-                        <a href="../viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
-                    </li>
-                    <li>
-                        <a href="../viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
-                    </li>
-                    <li>
-                        <a href="../viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
-                    </li>
 
 
 
@@ -109,39 +96,6 @@
                         </div>
                     </div>
                 </div>
-                <?php
-
-
-                    foreach ($data as $raw) {
-
-                        $percentage=round(($raw['AvailableQuantity']/ $raw['MaximumQuantity'])*100);
-                        echo 
-                        "<div class='panel-body'><!-- /. PAnel body  -->
-                        <div>
-                            <h3><strong>{$raw['BloodGroup']}</strong></h3>
-                            <h3><strong>{$percentage}%</strong></h3>
-                        </div>";
-                            
-                        if ( $percentage>10) {
-                            echo " 
-                            <div class='progress progress-striped active'>
-                            <div class='progress-bar progress-bar-primary' role='progressbar' aria-valuenow='{$percentage}' aria-valuemin='0' aria-valuemax='100' style='width: {$percentage}%'>
-                            </div>
-                            </div>";
-                        }
-                        else {
-                            echo " 
-                            <div class='progress progress-striped active'>
-                            <div class='progress-bar progress-bar-danger' role='progressbar' aria-valuenow='{$percentage}' aria-valuemin='0' aria-valuemax='100' style='width: {$percentage}%'>
-                            </div>
-                            </div>";
-                        }
-                           echo "       
-                </div>
-                ";}
-
-                ?>
-                
 
            
                 

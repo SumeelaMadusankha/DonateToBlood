@@ -25,23 +25,12 @@
                     <li>
                         <a href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
-                    <li>
-                        <a href="viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
-                    </li>
-                    <li>
-                        <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
-                    </li>
-                    <li>
-                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
-                    </li>
+                    
                     <li>
                         <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
                         <a class="active-menu" href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
-                    </li>
-                    <li>
-                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
                     </li>
 
 
@@ -51,11 +40,9 @@
             </div>
 
         </nav>
-        <div class="">
         <div id="page-wrapper">
             <div id="page-inner">
-
-                <form action='../BB_Coordinater/updateUserBloodRecord' method='POST' class="form-inline md-form mr-auto mb-4" style="margin-bottom: 10px;">
+                <form action='../B_officer/updateUserBloodRecord' method='POST' class="form-inline md-form mr-auto mb-4" style="margin-bottom: 10px;">
                     <input class="form-control mr-lg-2" type="text" placeholder="Enter ID" aria-label="Search" id="inp_nic" name="inp_nic">
                     <input type="submit" class="btn btn-default" value="Search" name="search_b">
 
@@ -82,8 +69,7 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <?php echo "<form role='form' method='POST' action='../BB_Coordinater/updateDonorRecord?nic=" . $data["nic"] . "'" ?>
-
+                                            <?php echo "<form role='form' method='POST' action='../B_officer/updateDonorRecord?nic=" . $data["nic"] . "'" ?>
                                             <div class="form-group">
                                                 <label for="date">Donating Date<span class="description-date">:Please use the YYYY-MM-DD format.</span></label>
                                                 <input name="d_date" class="form-control" type="date" id="date" pattern="(?:19|20)[0-9]{2}-(?:(?:0[1-9]|1[0-2])-(?:0[1-9]|1[0-9]|2[0-9])|(?:(?!02)(?:0[1-9]|1[0-2])-(?:30))|(?:(?:0[13578]|1[02])-31))" required>
@@ -109,7 +95,6 @@
             </div>
             <!-- /. PAGE WRAPPER  -->
         </div>
-
         <!-- /. WRAPPER  -->
         <!-- JS Scripts-->
         <!-- jQuery Js -->
@@ -123,7 +108,6 @@
         <script src="assets/js/morris/morris.js"></script>
         <!-- Custom Js -->
         <script src="assets/js/custom-scripts.js"></script>
-
 
 
 </body>

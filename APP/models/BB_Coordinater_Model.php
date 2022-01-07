@@ -91,6 +91,37 @@ public function getCampReqest()
         $res = $this->db->runQuery($query5, [":id" => $id]);
         return $res;
     }
+
+    public function checkNICavailability($nic)
+    {
+        $query7 = 'SELECT * FROM user where nic=:nic';
+        $reslt = $this->db->runQuery($query7, [":nic" => $nic]);
+        if ($reslt) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function addDonatingRecord($dataArray, $nic)
+    {
+        $date = $dataArray["donate_date"];
+        $centre = $dataArray["donate_centre"];
+        $quary9 = "INSERT INTO bloodrecord(nic,date,venue) VALUES (:nic,:date,:venue)";
+        $arrayRecord = [
+            ':nic' => $nic,
+            ':date' => $date,
+            ':venue' => $centre,
+        ];
+
+        $results9 = $this->db->runQuery($quary9, $arrayRecord);
+        return $results9;
+    }
+    public function getStaticticalbloodprogress(){
+        $query10 = "select * from blooddetails";
+        $results2 = $this->db->selectData($query10);
+        return $results2;
+    }
+
     public function cancelBloodRequestModel($id)
     {
         $query = "UPDATE bloodrequest SET status = :status,acceptednic= :nic WHERE requestId = :id";
@@ -135,6 +166,7 @@ public function getCampReqest()
         return $res;
     }
     
+
 
 
 }

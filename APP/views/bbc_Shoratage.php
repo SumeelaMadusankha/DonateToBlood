@@ -87,7 +87,7 @@
                                                 <td>" . $raw['MaximumQuantity'] . "</td>
                                                 <td>" . $raw['AvailableQuantity'] . "</td>
                                                 <td>
-                                                <a href='viewAddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
+                                                <a class='anc_button' href='viewAddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
                                                 </td>
                                                 </tr>";
                                                 }

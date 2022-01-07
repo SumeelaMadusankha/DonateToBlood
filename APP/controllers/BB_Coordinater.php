@@ -10,7 +10,11 @@ class BB_Coordinater extends Admin{
        $this->view->render("bbc_index");
     }
     public function viewDashboard(){
-        $this->view->render("bbc_Dashboard");
+        $reg_res = $this->model->getStaticticalbloodprogress();
+        if(!empty($reg_res)){
+            $this->view->render("bbc_Dashboard",$reg_res);
+        
+        }
     }
     public function viewBloodRequests(){
         $request=$this->model->getBloodReqest();
@@ -27,7 +31,7 @@ class BB_Coordinater extends Admin{
         $this->view->render("bbc_Register_Donor");
     }
     public function viewUpdateDonorDetails(){
-        $this->view->render("bbc_Update-Donor");
+        $this->view->render("bbc_Update-Donor",array("status"=>false, "nic"=>""));
     }
     public function viewUserData(){
         $this->view->render("bbc_viewUserData");
@@ -36,6 +40,36 @@ class BB_Coordinater extends Admin{
         $result_id=$this->model->getBoodId_type($_GET["id"]);
         $this->view->render("bbc_viewAddBloodDetails",$result_id);
     }
+    public function updateUserBloodRecord(){
+        if ($_SERVER["REQUEST_METHOD"]=="POST") {
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if (isset($_POST["search_b"])) {
+                $nic_check=$this->testInput($_POST["inp_nic" ]);
+                $result_check=$this->model->checkNICavailability($nic_check);
+                if ($result_check) {
+                    $this->view->render("bbc_Update-Donor",array("status"=>$result_check, "nic"=>$nic_check));
+
+                }
+                else {
+                    $this->viewRegisterDonor();
+
+                }
+            }
+
+        }
+    }
+    public function updateDonorRecord(){
+        if ($_SERVER["REQUEST_METHOD"]=="POST") {
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if (isset($_POST["update_b"])) {
+                $dataArray=[
+                    "donate_date"=>$this->testInput($_POST["d_date" ]),
+                    "donate_centre"=>$this->testInput($_POST["d_centre" ]),
+                ];
+                $record = $this->model->addDonatingRecord($dataArray,$_GET["nic"]);
+        }
+
+    }}
 
     public function updateBloodDetails(){
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -178,4 +212,3 @@ class BB_Coordinater extends Admin{
         }
     }
 }
-?>
