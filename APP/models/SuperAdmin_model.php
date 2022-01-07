@@ -61,7 +61,7 @@ class SuperAdmin_model extends Model{
 
     public function get_AdminData()
     {
-        $query2 = "select * from admin";
+        $query2 = "select * from user ";
         $results2 = $this->db->selectData($query2);
         return $results2;
     }
@@ -70,9 +70,13 @@ class SuperAdmin_model extends Model{
         $dataArray=[
             ':nic'=>$id,
         ];
-        $sql = "DELETE FROM admin WHERE nic=:nic";
-        $adminresults1= $this->db->runQuery($sql,$dataArray);
-        return $adminresults1;
+        $sql1 = "DELETE FROM admin WHERE nic=:nic";
+        $sql2 = "DELETE FROM user WHERE nic=:nic";
+        $sql3 = "DELETE FROM login WHERE nic=:nic";
+        $adminresults1= $this->db->runQuery($sql1,$dataArray);
+        $adminresults2= $this->db->runQuery($sql2,$dataArray);
+        $adminresults3= $this->db->runQuery($sql3,$dataArray);
+        return $adminresults1&&$adminresults2&&$adminresults3;
     }
 
 }

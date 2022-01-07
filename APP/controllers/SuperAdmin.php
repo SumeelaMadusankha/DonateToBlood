@@ -86,8 +86,9 @@ public function viewAdminData()
        $id =$this->testInput( $_GET["nic"]);
        
        $registerResult1 = $this->model->remove_admin($id);
+       
        if(empty($registerResult1)){
-           print_r("No More Admins to Remove");
+           
         $this->viewAdminData();
     }
     }
