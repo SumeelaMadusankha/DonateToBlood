@@ -93,6 +93,7 @@
                                                     <small>Error Message</small>
                                                 </div>
 
+
                                                 <div class="form-group">
                                                     <label>Date of Birth</label>
                                                     <input class="form-control" type="date" placeholder="Birth Day" name="bday" id="bday">
@@ -162,6 +163,7 @@
                                                 <input type="submit" value="Add Donor" class="btn btn-default" name="register_btn">
                                             </form>
                                         </div>
+
                                     </div>
                                     <!-- /.row (nested) -->
                                 </div>

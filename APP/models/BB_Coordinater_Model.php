@@ -19,7 +19,20 @@ class BB_Coordinater_Model extends Model
         $results4 = $this->db->runQuery($quary5, $array_Inject);
         return $results4;
     }
+public function getBloodReqest()
+{
+    $query2 = "select * from bloodrequest";
+    $results2 = $this->db->selectData($query2);
+    return $results2;
 
+}
+public function getCampReqest()
+{
+    $query2 = "select * from camprequest";
+    $results2 = $this->db->selectData($query2);
+    return $results2;
+
+}
     public function userRegister($dataArray)
     {
         $firstName = $dataArray["firstName"];
@@ -78,6 +91,7 @@ class BB_Coordinater_Model extends Model
         $res = $this->db->runQuery($query5, [":id" => $id]);
         return $res;
     }
+
     public function checkNICavailability($nic)
     {
         $query7 = 'SELECT * FROM user where nic=:nic';
@@ -107,4 +121,52 @@ class BB_Coordinater_Model extends Model
         $results2 = $this->db->selectData($query10);
         return $results2;
     }
+
+    public function cancelBloodRequestModel($id)
+    {
+        $query = "UPDATE bloodrequest SET status = :status,acceptednic= :nic WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" => "pending",":nic" => '']);
+        return $res;
+    }
+    public function declienBloodRequestModel($id)
+    {
+        $query = "DELETE FROM bloodrequest    WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id]);
+        return $res;
+    }
+    public function acceptBloodRequestModel($id)
+    {
+        $dt = new DateTime();
+        session_start();
+        $query = "UPDATE bloodrequest SET status = :status, acceptednic = :nic,acceptedtime = :time  WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic'],":time"=>$dt->getTimestamp()]);
+        return $res;
+    }
+    
+
+    public function cancelCampRequestModel($id)
+    {
+        $query = "UPDATE camprequest SET status = :status , acceptednic= :nic WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" => "pending",":nic" => '']);
+        return $res;
+    }
+    public function declienCampRequestModel($id)
+    {
+        $query = "DELETE FROM camprequest    WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id]);
+        return $res;
+    }
+    public function acceptCampRequestModel($id)
+    
+    {
+        $dt = new DateTime();
+        session_start();
+        $query = "UPDATE camprequest SET status = :status, acceptednic = :nic,acceptedtime = :time  WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic'],":time"=>$dt->getTimestamp()]);
+        return $res;
+    }
+    
+
+
+
 }

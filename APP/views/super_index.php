@@ -29,12 +29,12 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../SuperAdmin/RegisterFormLoad" "><span class="las la-users"></span>
+                    <a href="../SuperAdmin/RegisterFormLoad" ><span class="las la-users"></span>
                         <span>Register Admin</span>
                     </a>
                 </li>
                 <li>
-                    <a href="../SuperAdmin/viewDistrictAdminList" "><span class="las la-clipboard-list"></span>
+                    <a href="../SuperAdmin/viewAdminData" ><span class="las la-clipboard-list"></span>
                         <span>View Blood Bank Coordinators</span>
                     </a>
                 </li>

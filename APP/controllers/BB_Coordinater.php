@@ -17,11 +17,15 @@ class BB_Coordinater extends Admin{
         }
     }
     public function viewBloodRequests(){
-        $this->view->render("bbc_BloodRequests");
+        $request=$this->model->getBloodReqest();
+
+        $this->view->render("bbc_BloodRequests",$request);
     }
     public function viewCampRequests(){
-        $this->view->render("bbc_Donation-Camp-Requests");
+        $request=$this->model->getCampReqest();
+        $this->view->render("bbc_Donation-Camp-Requests",$request);
     }
+    
    
     public function viewRegisterDonor(){
         $this->view->render("bbc_Register_Donor");
@@ -88,7 +92,36 @@ class BB_Coordinater extends Admin{
             }
         }
     }
-    
+    public function acceptBloodRequest()
+    {
+        
+        $id=$this->testInput($_GET['id']);
+        
+        $res=$this->model->acceptBloodRequestModel($id);
+        if (empty($res)) {
+            $this->viewBloodRequests();
+        }
+
+    }
+    public function declienBloodRequest()
+    {
+
+        $id=$this->testInput($_GET['id']);
+        $res=$this->model->declienBloodRequestModel($id);
+        if (empty($res)) {
+            $_SESSION["decline"]="decline";
+           $this->viewBloodRequests();
+        }
+    }
+    public function cancelBloodRequest()
+    {
+        $id=$this->testInput($_GET['id']);
+        $res=$this->model->cancelBloodRequestModel($id);
+        if (empty($res)) {
+            
+           $this->viewBloodRequests();
+        }
+    }
     public function addDonor()
     {
        if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -145,5 +178,37 @@ class BB_Coordinater extends Admin{
             $this->view->render("bbc_Shoratage",$registerResult4);
         }
         
+    }
+
+
+    public function acceptCampRequest()
+    {
+        
+        $id=$this->testInput($_GET['id']);
+        
+        $res=$this->model->acceptCampRequestModel($id);
+        if (empty($res)) {
+            $this->viewCampRequests();
+        }
+
+    }
+    public function declienCampRequest()
+    {
+
+        $id=$this->testInput($_GET['id']);
+        $res=$this->model->declienCampRequestModel($id);
+        if (empty($res)) {
+            $_SESSION["decline"]="decline";
+           $this->viewCampRequests();
+        }
+    }
+    public function cancelCampRequest()
+    {
+        $id=$this->testInput($_GET['id']);
+        $res=$this->model->cancelCampRequestModel($id);
+        if (empty($res)) {
+            
+           $this->viewCampRequests();
+        }
     }
 }

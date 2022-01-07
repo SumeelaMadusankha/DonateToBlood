@@ -1,5 +1,6 @@
 <html lang="en">
 <head>
+    
     <meta charset="UTF-8">
     <title>Landing Page</title>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
@@ -28,7 +29,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="../SuperAdmin/viewDistrictAdminList" class="active"><span class="las la-clipboard-list"></span>
+                    <a href="../SuperAdmin/viewAdminData" class="active"><span class="las la-clipboard-list"></span>
                         <span>View Blood Bank Coordinators</span>
                     </a>
                 </li>
@@ -64,7 +65,12 @@
     </div>
     <table class="content-table">
       
-        <thead>
+        
+        
+          <?php
+          if(is_array($data)){
+              echo"
+              <thead>
           <tr>
             <th>Name</th>
             <th>District</th>
@@ -73,39 +79,32 @@
           </tr>
         </thead>
         <tbody>
-          <tr>
-            <td>Sumeela</td>
-            <td>Matara</td>
-            <td>1000</td>
-            <td>
-                <button type="button">
-                    <span class="button-text">Remove</span>
-                </button>
-            </td>
-          </tr>
-          <tr class="active-row">
-            <td>Nuwan</td>
-            <td>Matara</td>
-            <td>1001</td>
-            <td>
-                <button type="button">
-                    <span class="button-text">Remove</span>
-                </button>
-            </td>
-          </tr>
-          <tr>
-            <td>Dinuka</td>
-            <td>Matara</td>
-            <td>1002</td>
-            <td>
-                <button type="button">
-                    <span class="button-text">Remove</span>
-                </button>
-            </td>
-          </tr>
+        
+                ";
+            foreach ($data as $row){
+                echo "
+                  <tr>
+                      <td> <b> {$row['firstName']} </b></td>
+                      <td> <b>{$row['district']} </b></td>
+                      <td> <b>{$row['nic']} </b></td>
+                      <td>
+                      
+                      <a href='../SuperAdmin/removeAdmin?nic={$row['nic']}'>
+                      <button type='button' class='button-list'>Remove</button>
+                      </a>
+                       
+                    </td>
+                  </tr>";
+  
+  
+            }
+
+          }
+          
+          ?>
         </tbody>
       </table>
     
-
+      
 </body>
 </html>

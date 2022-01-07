@@ -30,22 +30,24 @@
                         <a class="active-menu" href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
+                        <a href="../viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
                     </li>
                     <li>
-                        <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                        <a href="../viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
+
                         <a href="viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+
                     </li>
                     <li>
-                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a href="../viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
                     </li>
                     <li>
-                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                        <a href="../viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
                     <li>
-                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
+                        <a href="../viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
                     </li>
 
 
