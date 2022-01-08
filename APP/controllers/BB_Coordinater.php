@@ -281,4 +281,5 @@ class BB_Coordinater extends Admin{
            $this->viewCampRequests();
         }
     }
+
 }

@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="user_reg.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>User_Reg</title>
-    <!-- --------------------------------------------------- -->
+    
     <!-- <link rel="stylesheet" href="css/responsive.css">
       fevicon
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
@@ -65,7 +65,7 @@
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToBlood</label>
+            <label class="logo">DonateToHeal</label>
             <ul>
                <li><a class="active" href="../Login/index">Home</a></li>
                <?php
@@ -129,7 +129,7 @@
         <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
 
 
-           <h1 class="topic" >Blood Request</h1>
+           <h1 class="topic" >Blood Request Form</h1>
            <?php
            
            
@@ -140,7 +140,7 @@
                 <div class='flag__image note__icon'>
                   <i class='fa fa-check-circle'></i>
                 </div>
-                <div class='flag__body note__text'> Dear 
+                <div class='flag__body note__text'>  
                   Your request has been sent  Successfully! 
                 </div>
                 <a href='#' class='note__close'>
@@ -168,12 +168,7 @@
         <div class="container" >
             
             
-            <hr>
-            <div class="field nid">
-            <label for="nic"><b>Nic</b></label><br>
-            <input type="text" placeholder="Identity Card" name="nic" id="nic" >
-            <div class="error error-text"> NIC can't be blank</div><br>
-            </div>
+            
            
 
             <div class="field fullName">
@@ -211,8 +206,8 @@
 
             <div class="field address"> 
             <label for="address"><b>Address</b></label><br>
-            <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea>
-            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <!-- <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea> -->
+            <input type="text" placeholder="Address" name="address" id="address" >
             <div class="error error-text"> Address can't be blank</div><br>
           
             </div>
@@ -246,11 +241,11 @@
         </div>    
         
        
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return submitRequestForm()">
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal()  )">
         
        
         
-        
+        <!-- dateVal() && -->
 
         </form>
           

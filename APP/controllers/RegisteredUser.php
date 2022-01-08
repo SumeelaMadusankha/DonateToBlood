@@ -47,7 +47,7 @@ public function loadCampRequestForm()
            $dataArray=[
              "flname"=>$this->testInput($_POST["flname"]),
              
-             "nic"=>$this->testInput($_POST["nic"]),
+             "nic"=>$_SESSION['nic'],
              "blood"=>$this->testInput($_POST["blood"]),
              "address"=>$this->testInput($_POST["address"]),
             
@@ -62,9 +62,9 @@ public function loadCampRequestForm()
              if (empty($registerResult)) {
              
                $_SESSION['msg']="success";
-               
-               header("location: http://localhost/DonateToBlood/RegisteredUser/loadBRForm");
-               
+
+               header("Location: http://localhost/DonateToBlood/RegisteredUser/loadBRForm");
+
            }else {
             
             $_SESSION['error']="failed";
@@ -111,7 +111,7 @@ public function addCampRequest(){
        $dataArray=[
          "name"=>$this->testInput($_POST["flname"]),
          
-         "email"=>$this->testInput($_POST["email"]),
+         "email"=>$_SESSION['email'],
          "campDate"=>$this->testInput($_POST["duedate"]),
          "description"=>$this->testInput($_POST["description"]),
         
@@ -130,7 +130,7 @@ public function addCampRequest(){
          if (empty($registerResult)) {
          
            $_SESSION['msg']="success";
-           $this->view->render("campRequest");
+            header("Location: http://localhost/DonateToBlood/RegisteredUser/loadCampRequestForm");
        }else {
         
         $_SESSION['error']="failed";
@@ -194,7 +194,7 @@ public function addCampRequest(){
       ];
       $registerResult = $this->model->editProfile($dataArray);
       if (empty($registerResult)) {
-        print_r("Hello world");
+        
         $this->viewUserProfile();
       }
     }
