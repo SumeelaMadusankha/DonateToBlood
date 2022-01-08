@@ -32,16 +32,13 @@
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a class="active-menu" href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     <li>
-                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a href="viewAddOfficerLayer"><i class="fa fa-desktop"></i> Add Officers</a>
                     </li>
                     <li>
-                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
-                    </li>
-                    <li>
-                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
+                        <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
 
 
@@ -87,7 +84,7 @@
                                                 <td>" . $raw['MaximumQuantity'] . "</td>
                                                 <td>" . $raw['AvailableQuantity'] . "</td>
                                                 <td>
-                                                <a href='viewAddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
+                                                <a class='anc_button' href='viewAddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
                                                 </td>
                                                 </tr>";
                                                 }
