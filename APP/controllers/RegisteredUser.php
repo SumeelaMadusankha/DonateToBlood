@@ -62,12 +62,13 @@ public function loadCampRequestForm()
              if (empty($registerResult)) {
              
                $_SESSION['msg']="success";
-               $this->view->render("blood_request");
+               
+               header("location: http://localhost/DonateToBlood/RegisteredUser/loadBRForm");
+               
            }else {
             
             $_SESSION['error']="failed";
-           
-            $this->view->render("blood_request");
+           $this->view->render("blood_request");
            }
            
         }

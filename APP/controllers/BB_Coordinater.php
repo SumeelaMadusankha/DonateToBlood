@@ -1,5 +1,7 @@
 <?php
 include_once('Admin.php');
+include_once('EmailClient.php');
+
 class BB_Coordinater extends Admin{
     function __construct()
     {
@@ -13,7 +15,6 @@ class BB_Coordinater extends Admin{
         $reg_res = $this->model->getStaticticalbloodprogress();
         if(!empty($reg_res)){
             $this->view->render("bbc_Dashboard",$reg_res);
-        
         }
     }
     public function viewBloodRequests(){
@@ -96,7 +97,13 @@ class BB_Coordinater extends Admin{
     {
         
         $id=$this->testInput($_GET['id']);
-        
+        $nic=$this->testInput($_GET['nic']);
+        $name=$this->model->getUserName($nic)[0];
+        $res=$this->model->acceptCampRequestModel($id);
+        $subject="Your Blood request has been accepted";
+        $body= "<p>Dear {$name['firstName']} {$name['lastName']},<br> Your request has been accepted and Posted on our site.You also can see it</p>";
+        $mail = new EmailClient($name['email'],$subject,$body);
+        $mail->sendMail();
         $res=$this->model->acceptBloodRequestModel($id);
         if (empty($res)) {
             $this->viewBloodRequests();
@@ -107,6 +114,14 @@ class BB_Coordinater extends Admin{
     {
 
         $id=$this->testInput($_GET['id']);
+
+        $nic=$this->testInput($_GET['nic']);
+        $name=$this->model->getUserName($nic)[0];
+        
+        $subject="Your Blood request has been declined";
+        $body= "<p>Dear {$name['firstName']} {$name['lastName']},<br> Your Blood request has been declined Because of details you have submited not sufficient.Pleace fill and submit form again with the correct details</p>";
+        $mail = new EmailClient($name['email'],$subject,$body);
+        $mail->sendMail();
         $res=$this->model->declienBloodRequestModel($id);
         if (empty($res)) {
             $_SESSION["decline"]="decline";
@@ -183,11 +198,20 @@ class BB_Coordinater extends Admin{
 
     public function acceptCampRequest()
     {
-        
+     
         $id=$this->testInput($_GET['id']);
+        $nic=$this->testInput($_GET['nic']);
+        $name=$this->model->getUserName($nic)[0];
         
         $res=$this->model->acceptCampRequestModel($id);
+       
+        $body= "<p>Dear {$name['firstName']} {$name['lastName']},<br> Your request has been accepted and Posted on our site.You also can see it</p>";
+        
+       
         if (empty($res)) {
+            $mail = new EmailClient($name['email'],"Your camp request has been accepted",$body);
+            
+            $mail->sendMail();
             $this->viewCampRequests();
         }
 
@@ -196,8 +220,14 @@ class BB_Coordinater extends Admin{
     {
 
         $id=$this->testInput($_GET['id']);
+        $nic=$this->testInput($_GET['nic']);
+        $name=$this->model->getUserName($nic)[0];
+        $body= "<p>Dear {$name['firstName']} {$name['lastName']},<br> Your camp request has been declined Because of details you have submited not sufficient.Pleace fill and submit form again with the correct details</p>";
         $res=$this->model->declienCampRequestModel($id);
         if (empty($res)) {
+            $mail = new EmailClient($name['email'],"Your camp request has been declined",$body);
+            
+            $mail->sendMail();
             $_SESSION["decline"]="decline";
            $this->viewCampRequests();
         }

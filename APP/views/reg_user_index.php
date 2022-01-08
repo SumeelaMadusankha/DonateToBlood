@@ -117,16 +117,26 @@
               }
               ?>
               
-               <!-- <?php
+                <?php
               
                if (isset($_SESSION['nic'])) {
-                 echo " <li><a href='logout'>Logout</a></li>";
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:50px'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
                }else {
-                  echo " <li><a href='index'>Login</a></li>";
+                  echo "<li><a href='index'>Login</a></li>";
                }
-               ?> -->
+               ?>
 
-               <div class="dropdown">
+               <!-- <div class="dropdown">
               
                
                
@@ -138,7 +148,7 @@
                </div>
                </div>
 
-               
+                -->
             </ul>
          </nav>
          
