@@ -115,5 +115,11 @@ class BB_Coordinater extends Admin{
         }
         
     }
+
+    public function sendEmail(){
+        $this->view->render("send_mail");
+    }
+
+    
 }
 ?>

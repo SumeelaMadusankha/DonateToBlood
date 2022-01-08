@@ -127,7 +127,7 @@
                <i class='fa fa-user-circle' style='font-size:50px'></i>
                <div class="dropdown-content">
                   <a href="../RegisteredUser/viewUserProfile"> <b> PROFILE</b></a>
-                  <a href="#"><b> HISTORY</b> </a>
+                  <a href="../BB_Coordinater/sendEmail"><b> HISTORY</b> </a>
                   <a href="logout"><b>LOGOUT</b> </a>
                </div>
                </div>

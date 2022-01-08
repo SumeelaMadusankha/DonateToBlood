@@ -101,7 +101,7 @@
                 <div class='flag__image note__icon'>
                   <i class='fa fa-check-circle'></i>
                 </div>
-                <div class='flag__body note__text'> Dear 
+                <div class='flag__body note__text'>  
                   Your request has been sent  Successfully! 
                 </div>
                 <a href='#' class='note__close'>
@@ -129,12 +129,7 @@
         <div class="container" >
             
             
-            <hr>
-            <div class="field nid">
-            <label for="nic"><b>Nic</b></label><br>
-            <input type="text" placeholder="Identity Card" name="nic" id="nic" >
-            <div class="error error-text"> NIC can't be blank</div><br>
-            </div>
+            
            
 
             <div class="field fullName">
@@ -154,15 +149,15 @@
                 <option value="O+">O+</option>
                 <option value="O-">O-</option>
             </select>
-            <<div class="error error-text"> Blood Type can't be blank</div><br>
+            <div class="error error-text"> Blood Type can't be blank</div><br>
             
             </div>
 
 
             <div class="field address"> 
             <label for="address"><b>Address</b></label><br>
-            <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea>
-            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <!-- <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea> -->
+            <input type="text" placeholder="Address" name="address" id="address" >
             <div class="error error-text"> Address can't be blank</div><br>
           
             </div>
@@ -196,11 +191,11 @@
         </div>    
         
        
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return submitRequestForm()">
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return (  dateVal() &&submitRequestForm() )">
         
        
         
-        
+        <!-- dateVal() && -->
 
         </form>
           
