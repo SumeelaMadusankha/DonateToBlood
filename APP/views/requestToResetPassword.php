@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -11,7 +13,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="../Public/css/responsive.css">
       <!-- fevicon -->
-
+      <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
       <!-- fonts-->
      
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +30,7 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
 
 
-     
+      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
@@ -92,42 +94,28 @@
               
         <div class="wrapper">
         <?php
-      
-      if (isset($_SESSION['error'])) {
-        
     
-        unset($_SESSION['error']); 
+      if (isset($_GET['err'])) {
+       
     
         echo "<div class='flag note note--error'>
         <div class='flag__image note__icon'>
           <i class='fa fa-times'></i>
         </div> <div class='flag__body note__text'>
-        Invalid Username or Password! 
+        Invalid Username! 
         </div>
         <a href='#' class='note__close'>
           <i class='fa fa-times'></i>
         </a>
       </div>";
-      }elseif (isset($_SESSION['msg'] ) ) {
-        unset($_SESSION['msg']); 
+      }elseif (isset($_GET['msgsend'])) {
+       
         echo "<div class='flag note note--success'>
         <div class='flag__image note__icon'>
           <i class='fa fa-check-circle'></i>
         </div>
         <div class='flag__body note__text'>
-          You are registered Successfully!. 
-        </div>
-        <a href='#' class='note__close'>
-          <i class='fa fa-times'></i>
-        </a>
-      </div>";
-      }elseif ( isset($_GET['reset'])) {
-        echo "<div class='flag note note--success'>
-        <div class='flag__image note__icon'>
-          <i class='fa fa-check-circle'></i>
-        </div>
-        <div class='flag__body note__text'>
-          Your password is reset Successfully!. 
+         Check your Email
         </div>
         <a href='#' class='note__close'>
           <i class='fa fa-times'></i>
@@ -137,34 +125,29 @@
       
         
          ?>
-          <header>Login Form</header>
-          <form action="../Login/login" method="POST">
-            <div class="field email">
+          <header>Reset Password</header>
+          <form action="../Login/resetPassword" method="POST">
+          <div class="field email">
               <div class="input-area">
-                <input type="text" placeholder="National Identity Card No" name="username">
-                <i class='icon fas fa-user'></i>
+                <input type="text"  placeholder="Enter NIC Here" name="username">
+                <i class='icon fa fa-user'></i>
                 <i class="error error-icon fas fa-exclamation-circle"></i>
               </div>
               <div class="error error-txt">NIC can't be blank</div>
-            </div>
-            <div class="field password">
-              <div class="input-area">
-                <input type="password" placeholder="Password" name="password">
-                <i class="icon fas fa-lock"></i>
-                <i class="error error-icon fas fa-exclamation-circle"></i>
-              </div>
-              <div class="error error-txt">Password can't be blank</div>
-            </div>
-            <div class="pass-txt"><a href="../Login/test">Forgot password?</a></div>
-            <input type="submit" value="Login" name="login" data-toggle="modal" data-target="#Mysmallmodal">
+          </div>
+            
+            
+           
+            <input type="submit" value="Send Email" name="sendEmail" data-toggle="modal" data-target="#Mysmallmodal" onclick="return submitForm()">
           </form>
-          <div class="sign-txt">Not a member? <a href="#">Register Here</a></div>
+         
         </div>
         <div class="modal fade" id="Mysmallmodal">
-	                              -->
+	                  
 </div>
         </div>
-        <script src="../Public/js/login.js"></script>
+        
+        <script src="../Public/js/requestEmail.js"></script>
      </div>
      </div>
 </body>

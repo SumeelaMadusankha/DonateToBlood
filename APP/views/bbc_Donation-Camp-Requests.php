@@ -80,16 +80,16 @@
                                
                                 if ($row['status']=="pending") {
                                     $rs=" <td><span class='label label-primary' style='font-size: 18px;display:block'>Pending</span></td>";
-                                   $stat=" <a href='acceptCampRequest?id={$row['requestId']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienCampRequest?id={$row['requestId']}' id='modal-closed{$count}'>Decline</a>";
+                                   $stat=" <a href='acceptCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Accept</a>
+                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Decline</a>";
 
-                                   $btn="<a href='acceptCampRequest?id={$row['requestId']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienCampRequest?id={$row['requestId']}' id='modal-closed{$count}'>Decline</a>";
+                                   $btn="<a href='acceptCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Accept</a>
+                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Decline</a>";
                                    
                                    
                                 }elseif($row['status']=="accepted"){
-                                    $stat="<a href='cancelCampRequest?id={$row['requestId']}' id='modal-closed{$count}'>Cancel</a>";
-                                    $btn="<a href='cancelCampRequest?id={$row['requestId']}' id='modal-closed{$count}'>Cancel</a>
+                                    $stat="<a href='cancelCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Cancel</a>";
+                                    $btn="<a href='cancelCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Cancel</a>
                                     ";
                                     $rs=" <td><span class='label label-success' style='font-size: 18px;display:block'>Success</span></td>";
                                 }

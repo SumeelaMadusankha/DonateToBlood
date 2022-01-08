@@ -128,7 +128,12 @@ public function getCampReqest()
         $res = $this->db->runQuery($query5, [":id" => $id]);
         return $res;
     }
-
+    public function getUserName($id)
+    {
+        $query5 = 'SELECT * FROM user where  nic= :id';
+        $res = $this->db->runQuery($query5, [":id" => $id]);
+        return $res;
+    }
     public function checkNICavailability($nic)
     {
         $query7 = 'SELECT * FROM user where nic=:nic';
@@ -174,7 +179,7 @@ public function getCampReqest()
     public function acceptBloodRequestModel($id)
     {
         $dt = new DateTime();
-        session_start();
+     
         $query = "UPDATE bloodrequest SET status = :status, acceptednic = :nic,acceptedtime = :time  WHERE requestId = :id";
         $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic'],":time"=>$dt->getTimestamp()]);
         return $res;
