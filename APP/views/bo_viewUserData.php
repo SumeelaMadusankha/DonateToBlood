@@ -15,7 +15,7 @@
 </head>
 <body>
 <div id="wrapper">
-    <?php include "bbc_header.php"; ?>
+    <?php include "bo_header.php"; ?>
     <div id="page-wrapper" >
         <div id="page-inner">
             <div class="row">

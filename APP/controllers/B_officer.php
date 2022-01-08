@@ -14,12 +14,6 @@ class B_officer extends Admin{
         
         
     }
-   
-   
-   
-    public function viewRegisterDonor(){
-        $this->view->render("bo_Register_Donor");
-    }
     public function viewUpdateDonorDetails(){
         $this->view->render("bo_Update-Donor",array("status"=>false, "nic"=>""));
     }
@@ -41,7 +35,7 @@ class B_officer extends Admin{
 
                 }
                 else {
-                    $this->viewRegisterDonor();
+                    $this->view->render("bo_Register_Donor",$nic_check);
 
                 }
             }
@@ -72,6 +66,7 @@ class B_officer extends Admin{
                 "firstName"=>$this->testInput($_POST["fname"]),
                 "lastName"=>$this->testInput($_POST["lname"]),
                 "nic"=>$this->testInput($_POST["nic"]),
+                "password"=>$this->testInput($_POST["password"]),
                 "dob"=>$this->testInput($_POST["bday"]),
                 "address"=>$this->testInput($_POST["address"]),
                 "district"=>$this->testInput($_POST["districts"]),
@@ -87,7 +82,12 @@ class B_officer extends Admin{
               ];
               
               if ((strlen($dataArray["nic"])==10  || strlen($dataArray["nic"])==12) && (filter_var($dataArray["email"],FILTER_VALIDATE_EMAIL))) {
+
+                $hashed_password = password_hash($dataArray["password"], PASSWORD_DEFAULT);
+                $dataArray["password"] = $hashed_password;
+                  
                 $registerResult = $this->model->userRegister($dataArray);
+
               }
               if (empty($registerResult)) {
                 $this->view->render("bo_index");

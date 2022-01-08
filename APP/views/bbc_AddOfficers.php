@@ -19,7 +19,7 @@
 
 <body>
     <div id="wrapper">
-        <?php include "bo_header.php"; ?>
+        <?php include "bbc_header.php"; ?>
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
@@ -28,7 +28,17 @@
                         <a href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                        <a href="viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
+                    </li>
+                    <li>
+                        <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                    </li>
+                    <li>
+                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                    </li>
+                    </li>
+                    <li>
+                        <a class="active-menu" href="viewAddOfficerLayer"><i class="fa fa-desktop"></i> Add Officers</a>
                     </li>
                     <li>
                         <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
@@ -46,22 +56,22 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Register Donor
+                            Add Officer
                         </h1>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Add a Donor
+                                    Add Distric Blood Bank Officer
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <form  method="POST" action="../B_officer/addDonor" id="reg_form">
+                                            <form method="POST" action="addOfficer" id="reg_form">
                                                 <div class="form-group">
                                                     <label>NIC Number</label>
-                                                    <input class="form-control" type="text" placeholder="National Identity Card" name="nic" id="nic" <?php echo "value=" . $data?>>
+                                                    <input class="form-control" type="text" placeholder="National Identity Card" name="nic" id="nic">
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
                                                     <small>Error Message</small>
@@ -80,21 +90,6 @@
                                                     <i class='fa fa-exclamation-circle'></i>
                                                     <small>Error Message</small>
                                                 </div>
-                                                <div class="form-group">
-                                                    <label> Enter Password</label>
-                                                    <input class="form-control" type="password" name="password" placeholder="Enter Password Here">
-                                                    <i class='fa fa-check-circle'></i>
-                                                    <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
-                                                </div>
-                                                <div class="form-group">
-                                                    <label>Re-Enter Password</label>
-                                                    <input class="form-control"  type="password" name="re-password" placeholder="Re-enter Password Here">
-
-                                                    <i class='fa fa-check-circle'></i>
-                                                    <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
-                                                </div>
 
 
                                                 <div class="form-group">
@@ -103,7 +98,7 @@
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Address</label>
-                                                    <input class="form-control" type="text"  name="address" id="address" placeholder="Address" >
+                                                    <input class="form-control" type="text" name="address" id="address" placeholder="Address">
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
                                                     <small>Error Message</small>
@@ -163,9 +158,10 @@
                                                     <i class='fa fa-exclamation-circle'></i>
                                                     <small>Error Message</small>
                                                 </div>
-                                                <input type="submit" value="Add Donor" class="btn btn-default" name="register_btn">
+                                                <input type="submit" value="Add Officer" class="btn btn-primary" name="register_btn">
                                             </form>
                                         </div>
+
                                     </div>
                                     <!-- /.row (nested) -->
                                 </div>
@@ -193,7 +189,7 @@
         <!-- Custom Js -->
         <script src="../Public/assets/js/custom-scripts.js"></script>
         <script src="../Public/assets/js/bbc_user_reg.js"></script>
- 
+
 
 </body>
 
