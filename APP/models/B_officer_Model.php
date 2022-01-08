@@ -11,6 +11,7 @@ class B_officer_Model extends Model
         $firstName = $dataArray["firstName"];
         $lastName = $dataArray["lastName"];
         $nic = $dataArray["nic"];
+        $password=$dataArray["password"];
         $dob = $dataArray["dob"];
         $address = $dataArray["address"];
         $district = $dataArray["district"];
@@ -22,6 +23,9 @@ class B_officer_Model extends Model
         $city = $dataArray["city"];
 
         $quary1 = "INSERT INTO user (nic, firstName, LastName, dob, address, district,gender,bloodGroup,email,mobileNo,jobType,city) VALUES (:nic,:firstName,:lastName,:dob,:address,:district,:gender,:bloodGroup, :email,:mobileNo,:jobType,:city)";
+
+        $quary2 = "INSERT INTO login (nic, password) VALUES (:nic,:password)";
+
         $arrayInject = [
             ':nic' => $nic,
             ':firstName' => $firstName,
@@ -36,8 +40,11 @@ class B_officer_Model extends Model
             ':jobType' => $jobType,
             ':city' => $city
         ];
+        $arrayInject2=[':nic' => $nic,
+        ':password' => $password];
         $results1 = $this->db->runQuery($quary1, $arrayInject);
-        return $results1;
+        $results2=$this->db->runQuery($quary2,$arrayInject2);
+        return $results1 && $results2;
     }
     public function getData()
     {

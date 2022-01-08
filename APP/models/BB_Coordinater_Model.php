@@ -66,6 +66,43 @@ public function getCampReqest()
         $results1 = $this->db->runQuery($quary1, $arrayInject);
         return $results1;
     }
+    public function OfficerRegister($dataArray)
+    {
+        $firstName = $dataArray["firstName"];
+        $lastName = $dataArray["lastName"];
+        $nic = $dataArray["nic"];
+        $dob = $dataArray["dob"];
+        $address = $dataArray["address"];
+        $district = $dataArray["district"];
+        $gender = $dataArray["gender"];
+        $bloodGroup = $dataArray["bloodGroup"];
+        $email = $dataArray["email"];
+        $mobileNo = $dataArray["mobileNo"];
+        $jobType = $dataArray["jobType"];
+        $city = $dataArray["city"];
+
+        $quary11 = "INSERT INTO user (nic, firstName, LastName, dob, address, district,gender,bloodGroup,email,mobileNo,jobType,city) VALUES (:nic,:firstName,:lastName,:dob,:address,:district,:gender,:bloodGroup, :email,:mobileNo,:jobType,:city)";
+        $quary12="INSERT INTO bloodbankofficer (nic) VALUES (:nic)";
+        $arrayInject = [
+            ':nic' => $nic,
+            ':firstName' => $firstName,
+            ':lastName' => $lastName,
+            ':dob' => $dob,
+            ':address' => $address,
+            ':district' => $district,
+            ':gender' => $gender,
+            ':bloodGroup' => $bloodGroup,
+            ':email' => $email,
+            ':mobileNo' => $mobileNo,
+            ':jobType' => $jobType,
+            ':city' => $city
+        ];
+        $results11 = $this->db->runQuery($quary11, $arrayInject);
+        $resu = $this->db->runQuery($quary12, [":nic" => $nic]);
+        return ($results11 && $resu);
+    }
+
+
     public function getData()
     {
         $query2 = "select * from user";

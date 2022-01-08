@@ -43,7 +43,10 @@
                         <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
                     <li>
-                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
+                        <a href="viewAddOfficerLayer"><i class="fa fa-desktop"></i> Add Officers</a>
+                    </li>
+                    <li>
+                        <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
 
 
@@ -70,7 +73,7 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <form role="form" method="POST" action="../BB_Coordinater/addDonor" id="reg_form">
+                                            <form  method="POST" action="addDonor" id="reg_form">
                                                 <div class="form-group">
                                                     <label>NIC Number</label>
                                                     <input class="form-control" type="text" placeholder="National Identity Card" name="nic" id="nic">
@@ -160,7 +163,7 @@
                                                     <i class='fa fa-exclamation-circle'></i>
                                                     <small>Error Message</small>
                                                 </div>
-                                                <input type="submit" value="Add Donor" class="btn btn-default" name="register_btn">
+                                                <input type="submit" value="Add Donor" class="btn btn-primary" name="register_btn">
                                             </form>
                                         </div>
 
