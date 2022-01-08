@@ -45,10 +45,10 @@
                                             foreach ($data as $raw) {
                                                 echo "                                        
                                                 <tr>
-                                                <td>".$raw['firstName']."</td>
-                                                <td>".$raw['lastName']."</td>
-                                                <td>".$raw['bloodGroup']."</td>
-                                                <td>".$raw['mobileNo']."</td>
+                                                <td>{$raw['firstName']}</td>
+                                                <td>{$raw['lastName']}</td>
+                                                <td>{$raw['bloodGroup']}</td>
+                                                <td>{$raw['mobileNo']}</td>
                                                 </tr>";
                                             }
 

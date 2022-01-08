@@ -36,13 +36,7 @@
                         <a href="../BB_Coordinater/viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="../BB_Coordinater/viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
-                    </li>
-                    <li>
-                        <a href="../BB_Coordinater/viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
-                    </li>
-                    <li>
-                        <a href="../BB_Coordinater/viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                        <a href="../BB_Coordinater/viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     <li>
                         <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>

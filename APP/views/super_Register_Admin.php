@@ -80,6 +80,7 @@
             <div class="user-details">
                 <div class="input-box">
 
+
                     <span class="details">First Name</span>
                     <input type="text" placeholder="Enter your first name" name="fname" id="fname" required>
                 </div>
@@ -97,11 +98,19 @@
                     <input type="text" placeholder="Enter your NIC number" name="nic" id="nic" required>
                     
                 </div>
+
                 <div class="input-box">
+                    <span class="details"><b> NIC </b></span>
+                    <input type="text" placeholder="Enter your NIC number" required>
+                    
+                </div>
+                <div class="input-box">
+
                     <span class="details">District</span>
 
                     
                     
+
 
                     <select name="district" id="district">
                         <option value="Matara">Matara</option>
@@ -110,6 +119,7 @@
                         <option value="Matara">Kandy</option>
                     </select>     
                 </div>
+
 
                 <div class="input-box">
                     <span class="details">City</span>
@@ -121,11 +131,13 @@
                 <div class="input-box">
                     <span class="details">Address</span>
                     <input type="text" placeholder="Enter your address" name="address" id="address" required>
+
                     
                 </div>
                 
                 
                 <div class="input-box">
+
                     <span class="details">Email Address</span>
                     <input type="text" placeholder="Enter your email" name="email" id="email" required>
                     
@@ -144,16 +156,19 @@
                     <span class="details">Confirm Password</span>
                     <input type="password" placeholder="Re-Enter the password" name="confirm" id="confirm" required>
 
+
                     
                 </div>
             </div>
             <div class="gender-details">
+
 
               
                 <input type="radio" name="gender" id="dot-1" value="Male">
                 <input type="radio" name="gender" id="dot-2" value="Female">
                 <input type="radio" name="gender" id="dot-3" value="Other" checked>
                 <span class="gender-title">Gender</span>
+
 
                 <div class="category">
                     <label for="dot-1">

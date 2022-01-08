@@ -67,13 +67,52 @@
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a class="active" href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               <li><a href='../Login/logout'>Logout</a></li>
+               <li><a class="active" href="../Login/index">Home</a></li>
+               <?php
               
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBRForm' class='active'>Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }
+              ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                ?>
+                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+
+
+              <?php }else {?>
+                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+                 <?php
+              }
+              ?>
+              
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <li><a href='../Login/logout'>Logout</a></li>";
+               }else {
+                  echo " <li><a href='../Login/index'>Login</a></li>";
+               }
+               ?>
             </ul>
          </nav>
          
@@ -152,7 +191,18 @@
             <div class="error error-text"> Blood Type can't be blank</div><br>
             
             </div>
-
+            <div class="field district"> 
+            <label for="district"><b>District</b></label><br>
+                <select name="district" id="district">
+                    <option value="matara">Matara</option>
+                    <option value="galle">Galle</option>
+                    <option value="jaffna">Jaffna</option>
+                    <option value="colombo">Colombo</option>
+                </select><br>
+            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <div class="error error-text"> Address can't be blank</div><br>
+          
+            </div>
 
             <div class="field address"> 
             <label for="address"><b>Address</b></label><br>

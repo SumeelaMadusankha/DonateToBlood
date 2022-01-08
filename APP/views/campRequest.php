@@ -60,13 +60,52 @@
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a class="active" href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               <li><a href='../Login/logout'>Logout</a></li>
+               <li><a  href="../Login/index">Home</a></li>
+               <?php
               
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm' class='active'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }
+              ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                ?>
+                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+
+
+              <?php }else {?>
+                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+                 <?php
+              }
+              ?>
+              
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <li><a href='../Login/logout'>Logout</a></li>";
+               }else {
+                  echo " <li><a href='../Login/index'>Login</a></li>";
+               }
+               ?>
             </ul>
          </nav>
          
@@ -82,7 +121,9 @@
     
         <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form">
 
+
            <h1 class="topic" >Camp Request Form</h1>
+
            <?php
            
            
