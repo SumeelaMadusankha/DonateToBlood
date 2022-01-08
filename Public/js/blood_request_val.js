@@ -15,7 +15,7 @@ inpDueDate=fieldDueDate.querySelector("input");
 
 function submitFormVirtual(){
     if((!fieldName.classList.contains("error"))&&(!fieldAddress.classList.contains("error"))&& (!fieldNumber.classList.contains("error"))&& (!fieldDescription.classList.contains("error")) ){
-      // if((!fieldName.classList.contains("error"))&&(!fieldAddress.classList.contains("error"))){
+     
         
         if (inpName.value!="" && inpAddress.value!="" && inpDescription.value!="" && inpNumber!="") {
             
@@ -31,6 +31,7 @@ function submitFormVirtual(){
 
 
 function submitRequestForm(){
+  
     
     (inpName.value == "") ? fieldName.classList.add("shake", "error") : nameVal();
   (inpAddress.value == "") ? fieldAddress.classList.add("shake", "error") : addressVal();
@@ -54,7 +55,7 @@ function submitRequestForm(){
     return true;
     }
     else{
-        alert("Wrong Inputs.. Please Check Again");
+        alert("--Please Check Your Details again--");
      return false;
     }
 }

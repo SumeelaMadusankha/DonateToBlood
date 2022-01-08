@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="user_reg.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>User_Reg</title>
-    <!-- --------------------------------------------------- -->
+    
     <!-- <link rel="stylesheet" href="css/responsive.css">
       fevicon
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
@@ -191,7 +191,7 @@
         </div>    
         
        
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return (  dateVal() &&submitRequestForm() )">
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal()  )">
         
        
         
