@@ -65,7 +65,7 @@
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToBlood</label>
+            <label class="logo">DonateToHeal</label>
             <ul>
                <li><a class="active" href="index">Home</a></li>
                <li><a href="#">Request Camp</a></li>
@@ -90,7 +90,7 @@
         <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
 
 
-           <h1 class="topic" >Blood Request</h1>
+           <h1 class="topic" >Blood Request Form</h1>
            <?php
            
            

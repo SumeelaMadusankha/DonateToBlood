@@ -49,7 +49,7 @@ function submitRequestForm(){
   inpNumber.onkeyup = ()=>{mobileVal();}
   inpDescription.onkeyup = ()=>{descriptionVal();}
   inpDueDate.onsubmit = ()=>{descriptionVal();}
-
+    
     if((!fieldName.classList.contains("error")) && (!fieldAddress.classList.contains("error")) && (!fieldNumber.classList.contains("error"))&&(!fieldDescription.classList.contains("error"))){
  
     return true;
@@ -145,7 +145,7 @@ function mobileVal(){
   fieldNumber.classList.add("error");
   fieldNumber.classList.remove("valid");
   let errorTxt = fieldNumber.querySelector(".error-text");
-  var regName = new RegExp("^[0-9]{10}$");
+  var regName = new RegExp("^[0]{1}[0-9]{9}$");
   if(inpNumber.value.match(regName)){
     
       fieldNumber.classList.remove("error");
@@ -157,12 +157,11 @@ function mobileVal(){
       
 
       if(inpNumber.value != ""){ 
-          
-        if (inpNumber.value.length == 10){
-          
-            
-              
-              errorTxt.innerText = "Contact Number can only conatains numbers";
+        
+        if(((inpNumber.value).substr(0,1) != "0")){
+          errorTxt.innerText = " first Number format should be 0";
+        }else if (inpNumber.value.length == 10){
+          errorTxt.innerText = "Contact Number can only conatains numbers";
             
         }else{
             errorTxt.innerText = "Contact Number must have 10 digits";

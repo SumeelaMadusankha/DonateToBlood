@@ -67,6 +67,7 @@ class Login extends Controller
                 $_SESSION["firstName"] = $loginUser["firstName"];
                 $_SESSION["lastName"] = $loginUser["lastName"];
                 $_SESSION["jobtype"] = $loginUser["jobtype"];
+                $_SESSION["email"] = $loginUser["email"];
                 $_SESSION['msg']="success";
                 switch ($loginUser['jobtype']) {
                   case 'registeredUser':

@@ -90,7 +90,7 @@ public function addCampRequest(){
        $dataArray=[
          "name"=>$this->testInput($_POST["flname"]),
          
-         "email"=>$this->testInput($_POST["email"]),
+         "email"=>$_SESSION['email'],
          "campDate"=>$this->testInput($_POST["duedate"]),
          "description"=>$this->testInput($_POST["description"]),
         
@@ -109,7 +109,7 @@ public function addCampRequest(){
          if (empty($registerResult)) {
          
            $_SESSION['msg']="success";
-           $this->view->render("campRequest");
+            header("Location: http://localhost/DonateToBlood/RegisteredUser/loadCampRequestForm");
        }else {
         
         $_SESSION['error']="failed";
