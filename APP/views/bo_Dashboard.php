@@ -20,7 +20,7 @@
 
 <body>
     <div id="wrapper">
-        <?php include "bbc_header.php"; ?>
+        <?php include "bo_header.php"; ?>
         <!--/. NAV TOP  -->
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
@@ -30,10 +30,10 @@
                         <a class="active-menu" href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
                     <li>
-                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                        <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
 
 
