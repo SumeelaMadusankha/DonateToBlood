@@ -13,7 +13,7 @@ private $acceptedNic;
     }
 
 abstract public function Loadpostpage();
-
+abstract public function filterPost($dataArray);
 
 
 }

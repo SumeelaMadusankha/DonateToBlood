@@ -1,6 +1,9 @@
 <?php
 include_once('User.php');
 include_once('BloodPost.php');
+
+include_once('CampPost.php');
+
 class RegisteredUser extends User 
 {
   function __construct()
@@ -44,7 +47,7 @@ public function loadCampRequestForm()
            $dataArray=[
              "flname"=>$this->testInput($_POST["flname"]),
              
-             "nic"=>$this->testInput($_POST["nic"]),
+             "nic"=>$_SESSION['nic'],
              "blood"=>$this->testInput($_POST["blood"]),
              "address"=>$this->testInput($_POST["address"]),
             
@@ -59,12 +62,13 @@ public function loadCampRequestForm()
              if (empty($registerResult)) {
              
                $_SESSION['msg']="success";
-               $this->view->render("blood_request");
+
+               header("Location: http://localhost/DonateToBlood/RegisteredUser/loadBRForm");
+
            }else {
             
             $_SESSION['error']="failed";
-           
-            $this->view->render("blood_request");
+           $this->view->render("blood_request");
            }
            
         }
@@ -73,13 +77,31 @@ public function loadCampRequestForm()
 
     public function bloodPostLoad()
     {
-       $post=new BloodPost();
-       $post->Loadpostpage();
+      $post=new BloodPost();
+      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if (isset($_POST["sbmt_btn"])) {
+          $post->filterPost($_POST);
+        }}else {
+          $post->Loadpostpage();
+        }
+       
+      
 
     }
     public function donationPlacesLoad()
     {
-        $this->view->render('donatePlaces');
+      $post=new CampPost();
+      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if (isset($_POST["sbmt_btn"])) {
+          $post->filterPost($_POST);
+        }}else {
+          $post->Loadpostpage();
+        }
+       
+      
+      
 }
 
 public function addCampRequest(){
@@ -89,7 +111,7 @@ public function addCampRequest(){
        $dataArray=[
          "name"=>$this->testInput($_POST["flname"]),
          
-         "email"=>$this->testInput($_POST["email"]),
+         "email"=>$_SESSION['email'],
          "campDate"=>$this->testInput($_POST["duedate"]),
          "description"=>$this->testInput($_POST["description"]),
         
@@ -108,7 +130,7 @@ public function addCampRequest(){
          if (empty($registerResult)) {
          
            $_SESSION['msg']="success";
-           $this->view->render("campRequest");
+            header("Location: http://localhost/DonateToBlood/RegisteredUser/loadCampRequestForm");
        }else {
         
         $_SESSION['error']="failed";
@@ -120,12 +142,76 @@ public function addCampRequest(){
 }
 }
 
+
 public function donationHistoryLoad(){
   $nic=$_SESSION['nic'];
   $user_details = $this->model->viewDonorHistory($nic);
   $this->view->render("reg_user_viewHistory");
 
 }
+
+
+    public function viewUserProfile(){
+      
+      if ($_SESSION['nic']){
+        
+       
+       $NIC = [
+         "nic" => $_SESSION['nic'],
+       ];
+       
+        $profileData = $this->model->getProfileData($NIC);
+        
+        $this->view->render("userViewProfile",$profileData);
+      }
+      
+    }
+
+    public function viewEditUserProfile(){
+      
+      if ($_SESSION['nic']){
+        
+       
+       $NIC = [
+         "nic" => $_SESSION['nic'],
+       ];
+       
+        $profileData = $this->model->getProfileData($NIC);
+        
+        $this->view->render("userEditProfile",$profileData);
+      }
+      
+    }
+
+    public function userProfileUpdate(){
+      if ($_SERVER["REQUEST_METHOD"]=="POST"){
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+    if (isset($_POST["save"]) && isset($_SESSION['nic'])){
+      
+      $dataArray=[
+        "firstName"=>$this->testInput($_POST["fname"]),
+        "lastName"=>$this->testInput($_POST["lname"]),
+        
+        "email"=>$this->testInput($_POST["email"]),
+        "dob"=>$this->testInput($_POST["dob"]),
+        "address"=>$this->testInput($_POST["address"]),
+        "mobileNo"=>$this->testInput($_POST["mobileNo"]),
+        "nic" =>  $_SESSION['nic'],
+        
+
+      ];
+      $registerResult = $this->model->editProfile($dataArray);
+      if (empty($registerResult)) {
+        
+        $this->viewUserProfile();
+      }
+    }
+      }
+    }
+
+
+
+
 
 }
 

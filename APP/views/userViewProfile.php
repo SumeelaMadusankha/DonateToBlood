@@ -19,140 +19,161 @@
      <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-    <link rel="stylesheet" href="../Public/css/header.css">
+    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    <link rel="stylesheet" href="../Public/css/hd.css">
     <link rel="stylesheet" href="../Public/css/userViewProfile.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <title>User Profile</title>
 </head>
-<body>
-    <header class="header-area">
-        <div class="container">
-           <div class="row d_flex">
-              <div class="col-sm-3 logo_sm">
-                 <div class="logo">
-                    <a href="index.html"> </a>
-                 </div>
-              </div>
-              <div class="col-lg-10 offset-lg-1 col-md-12 col-sm-9">
-                 <div class="navbar-area">
-                    <nav class="site-navbar">
-                       <ul>
-                          <li><a class="active" href="index.html">Home</a></li>
-                          <li><a href="about.html">Request Camp</a></li>
-                          <li><a href="action.html">Request Blood</a></li>
-                         
-                          <li><a href="news.html">Where to Donate</a></li> 
-                          <li><a href="contact.html">Blood adverticement </a></li>
-                          <div class="login-div"><li><a href="contact.html">LOGIN</a></li></div>
-                       </ul>
-                       <button class="nav-toggler">
-                       <span></span>
-                       </button>
-                    </nav>
-                 </div>
-              </div>
-           </div>
-        </div>
-     </header>
 
-     <body>
-        
-        <!-- <nav class="links_to_pages">
-            <ul>
-              <li>BACK</li>
-              <li>SPECIAL NOTICES</li>
-              <li>DASHBOARD</li>
-            </ul>
-          </nav> -->
-      
-        </div>
-      
-        <body>
-          <div class="contanier_2">
-      
-            
-      
-            <div class="contanier_2-1">
-              <div class="view_profile">
-                <h3><a href="#">Profile</a></h3>
-              </div>
-              <div class="edit_profile">
-                <h3><a href="">Edit Profile</a></h3>
-              </div>
-            </div>
-            <div>
-      
-              <img src="../Public/images/user_icon4-01.png" class="image">
-              <div class="row1"><?php echo $data["firstName"] . " " . $data["lastName"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">First Name</div>
-              <div class="col_2"><?php echo $data["firstName"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">Last Name</div>
-              <div class="col_2"><?php echo $data["lastName"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">NIC</div>
-              <div class="col_2"><?php echo $data["nic"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">Gender</div>
-              <div class="col_2"><?php
-                                  if ($data['gender'] == 'F') {
-                                    echo "Female";
-                                  } else {
-                                    echo "Male";
-                                  }
-                                  ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">Date of Birth</div>
-              <div class="col_2"><?php echo $data["dob"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">Home Address</div>
-              <div class="col_2"><?php echo $data["address"]  ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">Email</div>
-              <div class="col_2"><?php echo $data["email"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">City</div>
-              <div class="col_2"><?php echo $data["city"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">District</div>
-              <div class="col_2"><?php echo $data["district"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">Blood Group</div>
-              <div class="col_2"><?php echo $data["bloodGroup"] ?></div>
-            </div>
-            <div class="row">
-              <div class="col_1">Telephone Number</div>
-              <div class="col_2"><?php echo $data["mobileNo"] ?></div>
-            </div>
-            <div class="row1">
-      
-              <a href="">BACK</a>
-      
-            </div>
-      
-      
-      
-            <div class="last">
-      
-            </div>
-            <!-- <div>
+
+      <body>
+
+      <header>
          
-       </div>
-           -->
-            </form>
-      
-          </div>
-          </div>
-        </body>
-</body>
+         <nav>
+            <input type="checkbox" id="check-1">
+            <label for="check-1" class="checkbtn">
+               <i class="fas fa-bars"></i>
+            </label>
+            <label class="logo">DonateToBlood</label>
+            <ul>
+               <li><a class="active" href="index">Home</a></li>
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBRForm'>Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <div class='dropdown'>
+                <i class='fa fa-user-circle' style='font-size:50px; padding-top:20px'></i>
+                <div class='dropdown-content'>
+                   <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                   <a href='#'><b> HISTORY</b> </a>
+                   <a href='../Login/logout'><b>LOGOUT</b> </a>
+                   
+                   
+                </div>
+                </div>'";
+                
+              }else {
+                 echo " <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>";
+              }
+              ?>
+ 
+            </ul>
+         </nav>
+         
+    </header>
+   
+    <div class="outer_class">
+      <div class="body">
+      <div class="contanier_2">
+
+<div class="row1">
+  <?php if (isset($data[0]['message'])) {
+    echo $data[0]['message'];
+    unset($data[0]['message']);
+  }
+
+
+  ?>
+</div>
+
+<div class="contanier_2-1">
+  <div class="view_profile">
+    <h3><a href="#">Profile</a></h3>
+  </div>
+  <div class="edit_profile">
+    <h3><a href="viewEditUserProfile">Edit Profile</a></h3>
+  </div>
+</div>
+<div>
+
+  <img src="../Public/images/user.png" class="image">
+  <div class="row1"><?php echo $data[0]["firstName"] . " " . $data[0]["lastName"] ?></div>
+</div>
+
+<div class="outer_field_class">
+<div class="row">
+  <div class="col_1">First Name</div>
+  <div class="col_2"><?php echo $data[0]["firstName"] ?></div>
+</div>
+<div class="row">
+  <div class="col_1">Last Name</div>
+  <div class="col_2"><?php echo $data[0]["lastName"] ?></div>
+</div>
+<div class="row">
+  <div class="col_1">NIC</div>
+  <div class="col_2"><?php echo $data[0]["nic"] ?></div>
+</div>
+<div class="row">
+  <div class="col_1">Gender</div>
+  <div class="col_2"><?php
+                      if ($data[0]['gender'] == 'F') {
+                        echo "Female";
+                      } else {
+                        echo "Male";
+                      }
+                      ?></div>
+</div>
+<div class="row">
+  <div class="col_1">Date of Birth</div>
+  <div class="col_2"><?php echo $data[0]["dob"] ?></div>
+</div>
+<div class="row">
+  <div class="col_1">Home Address</div>
+  <div class="col_2"><?php echo $data[0]["address"]  ?></div>
+</div>
+<div class="row">
+  <div class="col_1">Email</div>
+  <div class="col_2"><?php echo $data[0]["email"] ?></div>
+</div>
+<div class="row">
+  <div class="col_1">Office Address</div>
+  <div class="col_2"><?php echo $data[0]["address"] ?></div>
+</div>
+<div class="row">
+  <div class="col_1">Telephone Number</div>
+  <div class="col_2"><?php echo $data[0]["mobileNo"] ?></div>
+</div>
+</div>
+
+
+
+
+
+
+<div class="last">
+
+</div>
+
+</form>
+
+</div>
+</div>
+      </div>
+    </div>
+  </body>
 </html>

@@ -51,6 +51,7 @@
                <i class="fas fa-bars"></i>
             </label>
             <label class="logo">DonateToHeal</label>
+            
             <ul>
                <li><a class="active" href="index">Home</a></li>
               
@@ -81,7 +82,7 @@
                                  <div class="col-md-8">
                                     <div class="photog">
                                        <h1>Donate To<br>Heal</h1>
-                                      
+                                       
 
                                     </div>
                                    
@@ -115,7 +116,7 @@
                               <div class="row">
                                  <div class="col-md-8">
                                    <div class="photog">
-                                       <h1>Care early<br>Coronavirus</h1>
+                                       <h1>Stay Safe</h1>
                                     </div>
                                    
                                  </div>

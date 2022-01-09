@@ -29,7 +29,7 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="navbar-brand" href="http://localhost/DonateToBlood/BB_Coordinater" style="background-color: crimson;">Blood Bank</a>
+                <a class="navbar-brand" href="../BB_Coordinater/index" style="background-color: crimson;">Blood Bank</a>
             </div>
 
             <ul class="nav navbar-top-links navbar-right">
@@ -75,7 +75,7 @@
                         </li>
                         <li class="divider"></li>
                         <li>
-                            <a class="text-center" href="#">
+                            <a class="text-center" href="https://www.youtube.com/">
                                 <strong>Read All Messages</strong>
                                 <i class="fa fa-angle-right"></i>
                             </a>
@@ -241,4 +241,19 @@
                 <!-- /.dropdown -->
             </ul>
         </nav>
-        <!--/. NAV TOP  -->
+        </div>
+     <!-- /. WRAPPER  
+    <!-- JS Scripts-->
+    <!-- jQuery Js -->
+ 
+    
+        <script src="../Public/assets/js/jquery-1.10.2.js"></script>
+        <!-- Bootstrap Js -->
+        <script src="../Public/assets/js/bootstrap.min.js"></script>
+        <!-- Metis Menu Js -->
+        <script src="../Public/assets/js/jquery.metisMenu.js"></script>
+        <!-- Custom Js -->
+        <script src="../Public/assets/js/custom-scripts.js"></script>
+ 
+</body>
+</html>

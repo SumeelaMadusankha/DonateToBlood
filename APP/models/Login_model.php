@@ -67,6 +67,55 @@ class Login_model extends Model
        }
        return $loginData;
     }
+
+    public function resetPasswordStore($userName,$selector,$token,$url,$expire){
+      
+        $hashedToken=password_hash($token, PASSWORD_DEFAULT);
+        $email=$this->db->runQuery("SELECT *FROM user WHERE nic=:nic",[":nic"=>$userName])[0];
+       if(!empty($email)){
+        $stmt1="DELETE FROM reset_password WHERE resetUserName=:username";
+       $this->db->runQuery($stmt1,[':username'=>$userName]);
+
+       $stmt2="INSERT INTO reset_password (resetEmail,resetUserName,resetSelector,resetToken,resetExpire) VALUES(:email,:username,:selector,:hashedtoken,:expire)";
+        $this->db->runQuery($stmt2,[':email'=>$email['email'],':username'=>$userName,':selector'=>$selector,':hashedtoken'=>$token,':expire'=>$expire]);
+
+        return $email['email'];
+    }
+    
+
+    }
+
+    public function resetPassword($nic,$password,$selector,$validator){
+        $hashPassword=password_hash($password, PASSWORD_DEFAULT);
+
+        $row=$this->db->runQuery("SELECT * FROM reset_password WHERE resetUserName=:nic",[":nic"=>$nic])[0];
+
+        if(!empty($row)){
+           
+            $validatorBin=hex2bin($validator);
+           
+            if("password_verify( $validator,$validatorBin)"){
+               
+                $this->db->runQuery("UPDATE login SET password = :hashpasword WHERE nic = :nic",[":hashpasword"=>$hashPassword, ":nic"=>$nic]);
+                return true;
+
+            }
+            else{
+               
+                return false;
+            }
+
+        }
+        else{
+            return false;
+        }
+
+
+
+
+    }
+
+
 }
 
 

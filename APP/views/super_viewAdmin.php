@@ -84,7 +84,7 @@
             foreach ($data as $row){
                 echo "
                   <tr>
-                      <td> <b> {$row['name']} </b></td>
+                      <td> <b> {$row['firstName']} </b></td>
                       <td> <b>{$row['district']} </b></td>
                       <td> <b>{$row['nic']} </b></td>
                       <td>

@@ -29,12 +29,14 @@ public function addAdmin(){
         if (isset($_POST["register_btn"])) {
             
            $dataArray=[
-             "fullname"=>$this->testInput($_POST["flname"]),
+             "firstname"=>$this->testInput($_POST["fname"]),
+             "lastname"=>$this->testInput($_POST["lname"]),
              "nic"=>$this->testInput($_POST["nic"]),
              "district"=>$this->testInput($_POST["district"]),
-             "username"=>$this->testInput($_POST["username"]),
+             "city"=>$this->testInput($_POST["city"]),
+             "address"=>$this->testInput($_POST["address"]),
              "email"=>$this->testInput($_POST["email"]),
-             "phoneNo"=>$this->testInput($_POST["phone"]),
+             "phonenumber"=>$this->testInput($_POST["phone"]),
              "password"=>$this->testInput($_POST["pword"]),
              "confirm"=>$this->testInput($_POST["confirm"]),
              "gender"=>$this->testInput($_POST["gender"]),
@@ -79,6 +81,7 @@ public function viewAdminData()
        $id =$this->testInput( $_GET["nic"]);
        
        $registerResult1 = $this->model->remove_admin($id);
+       
        if(empty($registerResult1)){
            
         $this->viewAdminData();

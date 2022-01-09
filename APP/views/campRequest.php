@@ -6,7 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="user_reg.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>User_Reg</title>
+    <title>Camp_Reg</title>
     
      
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
@@ -18,7 +18,7 @@
       <link rel="stylesheet" href="../Public/css/hd.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-      <!-- <script src="../Public/js/user_reg.js"></script> -->
+      <script src="../Public/js/user_reg.js"></script>
     
 
      
@@ -58,15 +58,54 @@
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToBlood</label>
+            <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a class="active" href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               <li><a href='../Login/logout'>Logout</a></li>
+               <li><a  href="../Login/index">Home</a></li>
+               <?php
               
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm' class='active'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }
+              ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                ?>
+                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+
+
+              <?php }else {?>
+                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+                 <?php
+              }
+              ?>
+              
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <li><a href='../Login/logout'>Logout</a></li>";
+               }else {
+                  echo " <li><a href='../Login/index'>Login</a></li>";
+               }
+               ?>
             </ul>
          </nav>
          
@@ -82,7 +121,9 @@
     
         <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form">
 
-           <h1 class="topic" >Blood Request</h1>
+
+           <h1 class="topic" >Camp Request Form</h1>
+
            <?php
            
            
@@ -136,8 +177,8 @@
 
             <div class="field address"> 
             <label for="address"><b>Location Address</b></label><br>
-            <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea>
-            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <!-- <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea> -->
+            <input type="text" placeholder="Address" name="address" id="address" >
             <div class="error error-text"> Address can't be blank</div><br>
           
             </div>
@@ -150,7 +191,7 @@
                     <option value="colombo">Colombo</option>
                 </select><br>
             <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
-            <div class="error error-text"> Address can't be blank</div><br>
+            
           
             </div>
             <div class="field mobNum">
@@ -159,16 +200,12 @@
             <div class="error error-text"> Mobile Number can't be blank</div><br>
             </div>
 
-            <div class="field email">
-            <label for="num"><b>Email</b></label><br>
-            <input type="email" placeholder="Email" name="email" id="email" >
-            <div class="error error-text"> Email can't be blank</div><br>
-            </div>
+            
 
             <div class="field description"> 
             <label for="description"><b>Description</b></label><br>
-            <textarea name="description" id="description" cols="50" rows="3" placeholder="Description regarding the request"></textarea>
-            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <!-- <textarea name="description" id="description" cols="50" rows="3" placeholder="Description regarding the request"></textarea> -->
+            <input type="text" placeholder="Description" name="description" id="description" >
             <div class="error error-text"> Description can't be blank</div><br>
           
             </div>
@@ -244,27 +281,11 @@
 
 
 </div>
+    
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return    submitRequestForm() && dateVal() ">
+        <!-- &&  dateVal()  -->
+        <!-- ( submitRequestForm()) -->
 
-
-
-
-
-          
-         
-     
-
-
-         
-        
-
-
-
-
-
-
-       
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="true">
-        <!-- <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return submitRequestForm()"> -->
        
         
         
@@ -278,7 +299,7 @@
 
   </div>
   </div>
-  <script src="../Public/js/blood_request_val.js"></script>
+  <script src="../Public/js/camp_request_val.js"></script>
         <script src="../Public/js/jquery.min.js"></script>
         <script src="../Public/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>

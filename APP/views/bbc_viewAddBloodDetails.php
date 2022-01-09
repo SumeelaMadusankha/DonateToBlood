@@ -6,13 +6,19 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title></title>
     <!-- Bootstrap Styles-->
-    <link href="/DonateToBlood/Public/assets/css/bootstrap.css" rel="stylesheet" />
+    <link href="../Public/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
-    <link href="/DonateToBlood/Public/assets/css/font-awesome.css" rel="stylesheet" />
+    <link href="../Public/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Custom Styles-->
-    <link href="/DonateToBlood/Public/assets/css/custom-styles.css" rel="stylesheet" />
+    <link href="../Public/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
+    <script src="../Public/assets/js/quantitydetails.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+    
+
 </head>
 
 <body>
@@ -63,22 +69,20 @@
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Add/Update Blood Details
+                                    Update Blood Details
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
-
-                                            <?php print_r($data); ?>
                                             <?php echo "<form role='form' method='POST' action='../BB_Coordinater/updateBloodDetails?id=" . $_GET['id'] . "'" . "  id='shortage_form'>" ?>
                                             <div class="form-group">
                                                 <label><?php echo $data[0]['BloodGroup'] ?></label>
                                             </div>
                                             <div class="form-group">
-                                                <label>Maximum Quantity</label>
+                                                <label for="m_quantity">Maximum Quantity<span>(Enter in Blood Pints) </span></label>
                                                 <input class="form-control" type="text" placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data[0]['MaximumQuantity'] ?> </div>
                                                 <div class="form-group">
-                                                    <label>Available Quantity</label>
+                                                    <label for="a_quantity">Available Quantity <span>(Enter in Blood Pints) </span> </label>
                                                     <input class="form-control" type="text" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data[0]['AvailableQuantity'] ?>>
                                                 </div>
 
