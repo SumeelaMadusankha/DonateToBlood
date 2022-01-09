@@ -59,15 +59,7 @@ public function addAdmin(){
           
         }
     }
-
-
-
 }
-
-        
-
-
-
 
 public function viewAdminData()
     {
@@ -76,6 +68,9 @@ public function viewAdminData()
         if(!empty($registerResult1)){
             $this->view->render("super_viewAdmin",$registerResult1);
         
+        }else{
+            $this->view->render("super_viewAdmin");
+
         }
     }
 
@@ -85,9 +80,20 @@ public function viewAdminData()
        
        $registerResult1 = $this->model->remove_admin($id);
        if(empty($registerResult1)){
-           print_r("No More Admins to Remove");
+           
         $this->viewAdminData();
     }
+    }
+
+    public function displayBlood(){
+
+        if (isset($_POST["sbmt_btn"])){
+            
+            $district=$this->testInput($_POST["district"]);
+            $bloodquantity = $this->model->get_Blooddetails($district);
+            $this->view->render("super_index",$bloodquantity);
+        }
+
     }
 
 

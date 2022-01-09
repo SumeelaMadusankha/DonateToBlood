@@ -34,7 +34,9 @@ class Login extends Controller
                     $this->view->render('bbc_index');
                     break;
                   case "superAdmin":
-                    $this->view->render('super_index');
+                    $this->loadModel('SuperAdmin');
+                    $data=$this->model->get_Blooddetails("Matara");
+                    $this->view->render('super_index',$data);
         }
    
       }
@@ -76,7 +78,9 @@ class Login extends Controller
                       $this->view->render('bbc_index');
                       break;
                     case 'superAdmin':
-                        $this->view->render('super_index');
+                      $this->loadModel(SuperAdmin);
+                      $data=$this->model->get_Blooddetails("Matara");
+                      $this->view->render('super_index',$data);
                       break;
                   default:
                     # code...

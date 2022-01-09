@@ -302,7 +302,7 @@
                            <i><img src="././Public/images/Vision.png" alt="#"></i>
                            <h3>Our Vision</h3>
                            <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
-                           <span><img src="././Public/images/do.png" alt="#"/ style="size: 30px;"></span>
+                           <span><img src="././Public/images/do.png" alt="#" style="size: 30px;"></span>
                         </div>
                      </div>
                              <div class=" col-md-6">

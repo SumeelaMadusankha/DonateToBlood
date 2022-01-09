@@ -33,10 +33,12 @@
                         <span>View Blood Bank Coordinators</span>
                     </a>
                 </li>
-
-                <a href='../Login/logout' class='active3'><span class='las la-lock'></span>
+                <li>
+                    <a href='../Login/logout' class='active3'><span class='las la-lock'></span>
                         <span>Logout</span>
                     </a>
+                </li>
+                
                 
             </ul>
         </div>
@@ -54,7 +56,7 @@
                 <input type="search" placeholder="Search here">
             </div>
             <div class="user-wrapper">
-                <img src="../Public/images/img2.jpg" width="40px" height="40px" alt="">
+                <!-- <img src="../Public/images/img2.jpg" width="40px" height="40px" alt=""> -->
                 <div>
                     <h4>Nisanya Pathirana</h4>
                     <small>Super admin</small>
@@ -64,23 +66,21 @@
     </div>
     </div>
     <table class="content-table">
-      
-        
-        
-          <?php
+            <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>District</th>
+                    <th>ID Number</th>
+                    <th></th>
+                </tr>
+            </thead>
+           
+
+            <tbody>
+       
+         <?php
           if(is_array($data)){
-              echo"
-              <thead>
-          <tr>
-            <th>Name</th>
-            <th>District</th>
-            <th>ID Number</th>
-            <th></th>
-          </tr>
-        </thead>
-        <tbody>
-        
-                ";
+             
             foreach ($data as $row){
                 echo "
                   <tr>
@@ -100,7 +100,7 @@
             }
 
           }
-          
+
           ?>
         </tbody>
       </table>

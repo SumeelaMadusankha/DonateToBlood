@@ -65,7 +65,7 @@
                 <input type="search" placeholder="Search here">
             </div>
             <div class="user-wrapper">
-                <img src="../Public/images/img2.jpg" width="40px" height="40px" alt="">
+                <!-- <img src="../Public/images/img2.jpg" width="40px" height="40px" alt=""> -->
                 <div>
                     <h4>Nisanya Pathirana</h4>
                     <small>Super admin</small>
@@ -83,7 +83,6 @@
                     <span class="details">Full Name</span>
                     <input type="text" placeholder="Enter your full name" name="flname" id="flname" required>
 
-                    
 
 
                 </div>
@@ -185,7 +184,7 @@
                     <input type="submit" value="Register" onclick="true" name="register_btn">
                 </div>
             </div>
-        </form>
+        </form> 
 
     </div>
 

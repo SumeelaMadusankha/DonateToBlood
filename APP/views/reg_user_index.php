@@ -97,8 +97,10 @@
               }else {
                  echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
               }
+
+      
               ?>
-<?php
+               <?php
               
               if (isset($_SESSION['nic'])) {
                 echo " <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>";
@@ -106,6 +108,17 @@
                  echo " <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>";
               }
               ?>
+
+               <!-- <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/donationHistoryLoad'>Donation History</a></li>";
+              }else {
+                 
+              }
+
+      
+              ?> -->
               
                <?php
               
@@ -115,6 +128,7 @@
                   echo " <li><a href='index'>Login</a></li>";
                }
                ?>
+
             </ul>
          </nav>
          
@@ -138,7 +152,7 @@
                               <div class="row">
                                  <div class="col-md-8">
                                     <div class="photog">
-                                       <h1>DONATE TO<br>BLOOD</h1>
+                                       <h1>DONATE TO<br>HEAL</h1>
                                       
                                        
                                     </div>
@@ -351,7 +365,7 @@
                <div class="row d_flex">
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-                        <figure><img src="../Public/images/" alt="#"/></figure>
+                        <figure><img src="././Public/images/whyDonate.png" alt="#"/></figure>
                         
                         <div class="nostrud">
                            <h3>Why Donate Blood?</h3>
@@ -361,7 +375,7 @@
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-                        <figure><img src="../Public/images/" alt="#"/></figure>
+                        <figure><img src="././Public/images/whoCan.png" alt="#"/></figure>
                         
                         <div class="nostrud">
                            <h3>Who can give Blood?</h3>
@@ -374,7 +388,7 @@
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-                        <figure><img src="../Public/images/" alt="#"/></figure>
+                        <figure><img src="././Public/images/howOften.png" alt="#"/></figure>
                         
                         <div class="nostrud">
                            <h3>How often can you give Blood?</h3>
@@ -399,15 +413,15 @@
                <div class="row d_flex">
                   <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
-                           <i><img src="../Public/images/" alt="#"/></i>
+                           <i><img src="././Public/images/Vision.png" alt="#"/></i>
                            <h3>Our Vision</h3>
                            <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
-                           <span><img src="../Public/images/do.png" alt="#"/ style="size: 30px;"></span>
+                           <span><img src="../Public/images/do.png" alt="#" style="size: 30px;"></span>
                         </div>
                      </div>
                              <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
-                           <i><img src="Public/images/ " alt="#"/></i>
+                           <i><img src="Public/images/Mission3.png " alt="#"/></i>
                            <h3>Our Mision</h3>
                            <p>Our mision is to decrease the blood scarcity prevailing around the country by 50% by the year 2025 through connecting the willing dodnors and the required parties while getting 2000+ registered users by year 2025 </p>
                            <span><img src="../Public/images/do.png" alt="#"/></span>

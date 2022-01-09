@@ -52,5 +52,13 @@ class SuperAdmin_model extends Model{
         return $adminresults1;
     }
 
+    public function get_Blooddetails($district){
+
+        $query3 = "SELECT * FROM blooddetails WHERE Distric =:district ";
+        $results3 = $this->db->runQuery($query3,[":district"=>$district]);
+       
+        return $results3;
+    }
+
 }
 ?>
