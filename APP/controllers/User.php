@@ -2,17 +2,9 @@
 include_once("Person.php");
 include_once("BloodPost.php");
 session_start();
-class User extends Person{
-    
-    private $bloodGroup;
-    private $District;
-    private $MobileNo;
-    private $email;
-   
-    private $address;
-    private $dateOfBirth;
-    private $gender;
-   
+abstract class User extends Person{
+
+
     function __construct()
     {
        parent::__construct();
@@ -53,7 +45,28 @@ public function filterCampPost()
 
 }}
 }
-   
+public function downloadFile()
+{
+ if (!empty($_GET['file'])) {
+  $fileName= basename($_GET['file']);
+  $filePath= "Files/". $fileName;
+  if (!empty(($fileName) && file_exists($filePath))) {
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename="'.$fileName.'"');
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+    header('Content-Length: ' . filesize($fileName));
+    readfile($fileName);
+    exit;
+  }else {
+    echo "file not found";
+  }
+ }
+}
+abstract public function loadBloodPost();
+abstract public function loadCampPost();
 
    
 

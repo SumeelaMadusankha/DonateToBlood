@@ -11,16 +11,16 @@ public function getCampRequestDetails($district)
 {
     if ($district=="all") {
 
-        $query = 'SELECT * FROM camprequest';
-        $res = $this->db->selectData($query);
+        $query = 'SELECT * FROM camprequest WHERE status= :status';
+        $res = $this->db->runQuery($query,[':status'=>"accepted"]);
         return $res;
 
         
     }
     else {
         
-        $query = 'SELECT * FROM camprequest where  district= :district';
-        $res = $this->db->runQuery($query, [":district" => $district]);
+        $query = 'SELECT * FROM camprequest where  district= :district AND status= :status';
+        $res = $this->db->runQuery($query, [":district" => $district,":status"=>"accepted"]);
         return $res;
     }
     

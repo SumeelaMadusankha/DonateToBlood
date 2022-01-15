@@ -22,7 +22,7 @@
     <link rel="stylesheet" href="../Public/css/whereToDonate.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
     <title>Document</title>
-
+    
 
 
 
@@ -37,7 +37,7 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a  href="../Login/index">Home</a></li>
+               <li><a  href="../">Home</a></li>
                <?php
               
                if (isset($_SESSION['nic'])) {
@@ -57,20 +57,20 @@
               <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationPlacesLoad' class='active'>Where to Donate</a></li>";
+                echo " <li><a href='../RegisteredUser/loadCampPost' class='active'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad' class='active'>Where to Donate</a></li>";
+                 echo " <li><a href=' ../UnregisteredUser/loadCampPost' class='active'>Where to Donate</a></li>";
               }
               ?>
                <?php
               
               if (isset($_SESSION['nic'])) {
                 ?>
-                <li><a href='../RegisteredUser/bloodPostLoad' >Blood adverticement</a></li>
+                <li><a href='../RegisteredUser/loadBloodPost' >Blood adverticement</a></li>
 
 
               <?php }else {?>
-                 <li><a href='../UnregisteredUser/bloodPostLoad'  >Blood adverticement</a></li>
+                 <li><a href='../UnregisteredUser/loadBloodPost'  >Blood adverticement</a></li>
                  <?php
               }
               ?>
@@ -314,36 +314,64 @@
       $d=1;
       
 
-      $scrpt="<script>
-      function initMap() {";
+      $scrpt="";
       
       foreach ($data as $row) {
-        $scrpt=$scrpt." 
-        let marker{$count};
+       echo "
+        <script>
+      function initMap{$count}() { 
+        let marker;
         
-      const map{$count} = new google.maps.Map(document.getElementById('map{$count}'), {
+      const map = new google.maps.Map(document.getElementById('map{$count}'), {
         zoom: 10,
         center: { lat: {$row['lat']}, lng: {$row['lng']} },
       });
     
-      marker{$count} = new google.maps.Marker({
-        map{$count},
+      marker = new google.maps.Marker({
+        map,
         draggable: true,
         animation: google.maps.Animation.DROP,
         position: { lat: {$row['lat']}, lng: {$row['lng']} },
       });
-      marker{$count}.addListener('click', function(){
-        if (marker{$count}.getAnimation() !== null) {
-        marker{$count}.setAnimation(null);
+      marker.addListener('click', function(){
+        if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
       } else {
-        marker{$count}.setAnimation(google.maps.Animation.BOUNCE);
+        marker.setAnimation(google.maps.Animation.BOUNCE);
       }
       });
+    }
+      </script>";
+
+
+      echo "
+      <script>
+      function initMapInner{$count}() { 
+        let marker;
+        
+      const map = new google.maps.Map(document.getElementById('mapin{$count}'), {
+        zoom: 10,
+        center: { lat: {$row['lat']}, lng: {$row['lng']} },
+      });
     
-    ";
+      marker = new google.maps.Marker({
+        map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: { lat: {$row['lat']}, lng: {$row['lng']} },
+      });
+      marker.addListener('click', function(){
+        if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+      });
+    } 
+    </script> ";
 
 
-
+   
         $post="<div class='col-xs-12 col-sm-6 col-md-3 col-lg-3 '>
         <a href='#modal-opened{$count}' id='modal-closed{$count}'>
           <div class='card-flyer'>
@@ -396,21 +424,11 @@
         <div class='modal-demo' >
         
           <div class='modal__details'>
-          
-
-           
-
-            
-
-            
-          
             <h1 class='modal__title'><b>Request Details</b></h1>
             <p class='modal__description'>{$row['description']}
             </p>
           </div>
-      
           <div class='modal__text'>
-            
            <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> {$row['name']}</p></div>
             <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['conNumber']}</p></p>
             <p class='outer-extra-class'> <b class= 'extra-class'>Email :</b>  <p class='inner-extra-class'> {$row['email']}</p></p>
@@ -418,13 +436,9 @@
             <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date and time :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
             <div class='cls'>Location of the place:</div>
             <div id='mapin{$count}' class='map-class'></div>
+           
 
-
-
-            
-            <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
-
-            <a href='{$row['attachment']}' download target='_blank'
+            <a href='downloadFile?file={$row['attachment']}' 
 
             
 
@@ -449,11 +463,22 @@
       }
      $count+=1;
       }
-
-      $scrpt=$scrpt."}
+$func="";
+      for ($i=1; $i < $count+1; $i++) { 
+        $func=$func.
+         "initMap{$i}();
+          initMapInner{$i}();";
+      }
+      $dataScr="
+      <script>
+      function init(){
+        {$func}
+      }
       </script>";
-      echo $fCode.$scrpt;
-     $scrpt;
+     
+      echo $fCode;
+      echo $dataScr;
+     
       ?>
 
 
@@ -466,11 +491,11 @@
   </div>
   </div>
   </div>
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9QFyUSZ75iGCi9yhjubJM8H0yw2koqE&callback=initMap&v=weekly"
+ 
+  
+    <script
+      src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9QFyUSZ75iGCi9yhjubJM8H0yw2koqE&callback=init&v=weekly'
       async
-    ></script> 
-    
-    
+    ></script>
 </body>
 </html>

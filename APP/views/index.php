@@ -1,3 +1,6 @@
+<?php
+
+?>
 <!DOCTYPE html>
 <html lang="en">
    <head>
@@ -14,22 +17,90 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
-      <link rel="stylesheet" href="././Public/css/bootstrap.min.css">
-      <!-- style css -->
-      <link rel="stylesheet" href="././Public/css/style.css">
-      <!-- Responsive-->
-      <link rel="stylesheet" href="././Public/css/responsive.css">
-      <link rel="stylesheet" href="././Public/css/hd.css">
-      <!-- fevicon -->
-      <link rel="icon" href="././Public/images/fevicon.png" type="image/gif" />
+      <?php
+      if (isset($_SESSION['nic'])) {
+         echo " <link rel='stylesheet' href='../Public/css/bootstrap.min.css'>";
+      }
+      else {
+         echo " <link rel='stylesheet' href='Public/css/bootstrap.min.css'>";
+      }
+      ?>
+      <?php
+      if (isset($_SESSION['nic'])) {
+         echo " <link rel='stylesheet' href='../Public/css/style.css'>";
+      }
+      else {
+         echo " <link rel='stylesheet' href='Public/css/style.css'>";
+      }
+      ?>
+   <?php
+      if (isset($_SESSION['nic'])) {
+         echo " <link rel='stylesheet' href='../Public/css/responsive.css'>";
+      }
+      else {
+         echo " <link rel='stylesheet' href='Public/css/responsive.css'>";
+      }
+      ?>
+ <?php
+      if (isset($_SESSION['nic'])) {
+         echo " <link rel='stylesheet' href='../Public/css/hd.css'>";
+      }
+      else {
+         echo " <link rel='stylesheet' href='Public/css/hd.css'>";
+      }
+      ?>
+ 
+     
+      
+      
+      <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
       <!-- fonts-->
+     
      
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-       <link rel="stylesheet" href="././Public/css/owl.carousel.min.css"> 
+       <link rel="stylesheet" href="Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-
+      <?php
+      if (isset($_SESSION['nic'])) {
+         echo "<link rel='stylesheet' type='text/css' href='../Public/css/demo.css' />";
+      }
+      else {
+         echo "<link rel='stylesheet' type='text/css' href='Public/css/demo.css' />";
+      }
+      ?>
+       <?php
+      if (isset($_SESSION['nic'])) {
+         echo "<link rel='stylesheet' type='text/css' href='../Public/css/alert.css' />";
+      }
+      else {
+         echo "<link rel='stylesheet' type='text/css' href='Public/css/alert.css' />";
+      }
+      ?>
+	
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <script type="text/javascript">
+        $( document ).ready(function() {
+        $(".note__close").click(function() {
+          $(this).parent()
+          .animate({ opacity: 0 }, 250, function() {
+            $(this)
+            .animate({ marginBottom: 0 }, 250)
+            .children()
+            .animate({ padding: 0 }, 250)
+            .wrapInner("<div />")
+            .children()
+            .slideUp(250, function() {
+              $(this).closest(".note").remove();
+            });
+          });
+        });
+        });
+    </script>
 
 
 
@@ -50,14 +121,75 @@
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToHeal</label>
-            
+            <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a class="active" href="index">Home</a></li>
+               <li><a class="active" href="../">Home</a></li>
+               <?php
+             
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
               
-               <li><a href=" UnregisteredUser/donationPlacesLoad">Where to Donate</a></li>
-               <li><a href=" UnregisteredUser/bloodPostLoad">Blood adverticement</a></li>
-               <li><a href="Login/index">Login</a></li>
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBRForm'>Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }
+              ?>
+
+<?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }
+              ?>
+              
+                <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:50px'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
+               }else {
+                  echo "<li><a href='Login/index'>Login</a></li>";
+               }
+               ?>
+
+               <!-- <div class="dropdown">
+              
+               
+               
+               <i class='fa fa-user-circle' style='font-size:50px'></i>
+               <div class="dropdown-content">
+                  <a href="../RegisteredUser/viewUserProfile"> <b> PROFILE</b></a>
+                  <a href="../BB_Coordinater/sendEmail"><b> HISTORY</b> </a>
+                  <a href="logout"><b>LOGOUT</b> </a>
+               </div>
+               </div>
+
+                -->
             </ul>
          </nav>
          
@@ -77,17 +209,47 @@
                      <!-- first slide -->
                      <div class="carousel-item active">
                         <div class="carousel-caption cuplle">
+                           
+                        
                            <div class="container">
                               <div class="row">
                                  <div class="col-md-8">
                                     <div class="photog">
-                                       <h1>Donate To<br>Heal</h1>
+                                       <h1>DONATE TO<br>BLOOD</h1>
+                                      
                                        
-
                                     </div>
                                    
                                  </div>
-                                 <a class="register_btn" href="UnregisteredUser/signUpFormLoad" >REGISTER HERE</a>
+                                 <?php
+                                    
+                                    if (isset($_SESSION['nic'])) {
+                                       
+                                    }else {
+                                        echo " <a class='register_btn' href='UnregisteredUser/signUpFormLoad' >REGISTER HERE</a>";
+                                    }
+                                    ?>
+      <?php
+      if (isset($_SESSION['msg']) && isset($_SESSION['nic'])) {
+        unset($_SESSION['msg']); 
+    
+        echo "<div class='flag note note--success'>
+                <div class='flag__image note__icon'>
+                  <i class='fa fa-check-circle'></i>
+                </div>
+                <div class='flag__body note__text'> Dear 
+                  ".$_SESSION['firstName']." ".$_SESSION['lastName'].", You are logged to the systen Successfully! 
+                </div>
+                <a href='#' class='note__close'>
+                  <i class='fa fa-times'></i>
+                </a>
+              </div>";
+     
+      }else {
+       
+      } 
+        
+         ?>
                               </div>
                            </div>
                         </div>
@@ -104,7 +266,14 @@
                                     </div>
                                    
                                  </div>
-                                 <a class="register_btn" href="javascript:void(0)" >REGISTER HERE</a>
+                                 <?php
+                                    
+                                    if (isset($_SESSION['nic'])) {
+                                       
+                                    }else {
+                                        echo " <a class='register_btn' href='User/register' >REGISTER HERE</a>";
+                                    }
+                                    ?>
                               </div>
                            </div>
                         </div>
@@ -116,11 +285,18 @@
                               <div class="row">
                                  <div class="col-md-8">
                                    <div class="photog">
-                                       <h1>Stay Safe</h1>
+                                       <h1>Care early<br>Coronavirus</h1>
                                     </div>
                                    
                                  </div>
-                                 <a class="register_btn" href="javascript:void(0)" >REGISTER HERE</a>
+                                 <?php
+                                    
+                                    if (isset($_SESSION['nic'])) {
+                                       
+                                    }else {
+                                        echo " <a class='register_btn' href='User/register' >REGISTER HERE</a>";
+                                    }
+                                    ?>
                               </div>
                            </div>
                         </div>
@@ -344,10 +520,40 @@
     </div>
       <!-- end footer -->
       <!-- Javascript files-->
-      <script src="././Public/js/jquery.min.js"></script>
-      <script src="././Public/js/bootstrap.bundle.min.js"></script>
-      <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-      <script src="././Public/js/owl.carousel.min.js"></script>
-      <script src="././Public/js/custom.js"></script>
+      <?php
+      if (isset($_SESSION['nic'])) {
+         echo "  <script src='../Public/js/jquery.min.js'></script>";
+      }
+      else {
+         echo "  <script src='Public/js/jquery.min.js'></script>";
+      }
+      ?>
+      <?php
+      if (isset($_SESSION['nic'])) {
+         echo " <script src='../Public/js/bootstrap.bundle.min.js'></script>";
+      }
+      else {
+         echo " <script src='Public/js/bootstrap.bundle.min.js'></script>";
+      }
+      ?>
+      <?php
+      if (isset($_SESSION['nic'])) {
+         echo " <script src='../Public/js/owl.carousel.min.js'></script>";
+      }
+      else {
+         echo " <script src='Public/js/owl.carousel.min.js'></script>'>";
+      }
+      ?>
+       <?php
+      if (isset($_SESSION['nic'])) {
+         echo "<script src='../Public/js/custom.js'></script>'>";
+      }
+      else {
+         echo "<script src='Public/js/custom.js'></script>";
+      }
+      ?>
+      <script src='https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js'></script>
+     
+      
    </body>
 </html>

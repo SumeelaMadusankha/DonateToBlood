@@ -67,7 +67,7 @@
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a class="active" href="../Login/index">Home</a></li>
+               <li><a  href="../Login/index">Home</a></li>
                <?php
               
                if (isset($_SESSION['nic'])) {
@@ -126,7 +126,7 @@
 
 
     
-        <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
+        <form action="../RegisteredUser/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
 
            <h1 class="topic" >Blood Request Form</h1>

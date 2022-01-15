@@ -70,51 +70,55 @@
                               </thead>
                               <tbody>
                             <?php
-                           $scrpt="<script>
-                           function initMap() {";
+                           $scrpt="";
                             $count=1;
                             $stat="";
                             $btn="";
                             $rs="";
                             foreach ($data as $row) {
-                               
+                             
                                 if ($row['status']=="pending") {
                                     $rs=" <td><span class='label label-primary' style='font-size: 18px;display:block'>Pending</span></td>";
-                                   $stat=" <a href='acceptCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Decline</a>";
+                                   $stat=" <a href='acceptCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Accept</a>
+                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Decline</a>";
 
                                    $btn="<a href='acceptCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Decline</a>";
+                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Decline</a>";
                                    
                                    
                                 }elseif($row['status']=="accepted"){
-                                    $stat="<a href='cancelCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Cancel</a>";
-                                    $btn="<a href='cancelCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Cancel</a>
+                                    $stat="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Cancel</a>";
+                                    $btn="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Cancel</a>
                                     ";
                                     $rs=" <td><span class='label label-success' style='font-size: 18px;display:block'>Success</span></td>";
                                 }
-                                $scrpt=$scrpt." 
-                                let marker{$count};
-                              const map{$count} = new google.maps.Map(document.getElementById('map{$count}'), {
+                                echo "
+                                <script>
+                           function initMap{$count}() { 
+                                let marker;
+                              const map= new google.maps.Map(document.getElementById('map{$count}'), {
                                 zoom: 10,
                                 center: { lat: {$row['lat']}, lng: {$row['lng']} },
                               });
                             
-                              marker{$count} = new google.maps.Marker({
-                                map{$count},
+                              marker = new google.maps.Marker({
+                                map,
                                 draggable: true,
                                 animation: google.maps.Animation.DROP,
                                 position: { lat: {$row['lat']}, lng: {$row['lng']} },
                               });
-                              marker{$count}.addListener('click', function(){
-                                if (marker{$count}.getAnimation() !== null) {
-                                marker{$count}.setAnimation(null);
+                              marker.addListener('click', function(){
+                                if (marker.getAnimation() !== null) {
+                                marker.setAnimation(null);
                               } else {
-                                marker{$count}.setAnimation(google.maps.Animation.BOUNCE);
+                                marker.setAnimation(google.maps.Animation.BOUNCE);
                               }
                               });
-                            
+                            }
+                            </script>
                             ";
+
+
                                 echo "<tr>
                                 <td>{$count}</td>
                                 <td>{$row['name']}</td>
@@ -155,10 +159,9 @@
 
 
 
-                    
-                    <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
+                   
 
-                    <a href='{$row['attachment']}' download target='_blank'
+                    <a href='downloadFile?file={$row['attachment']}' 
 
                     
 
@@ -174,10 +177,18 @@
             </div>";
             $count += 1;
                             }
-                            $scrpt=$scrpt."}
+                            $func="";
+                            for ($i=1; $i < $count+1; $i++) { 
+                              $func=$func.
+                               "initMap{$i}();";
+                            }
+                            echo "
+                            <script>
+                            function init(){
+                              {$func}
+                            }
                             </script>";
-
-                            echo $scrpt;
+                            
                             ?>
      
                                
@@ -218,7 +229,7 @@
     <!-- Custom Js -->
     <script src="assets/js/custom-scripts.js"></script>
     <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9QFyUSZ75iGCi9yhjubJM8H0yw2koqE&callback=initMap&v=weekly"
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9QFyUSZ75iGCi9yhjubJM8H0yw2koqE&callback=init&v=weekly"
       async
     ></script> 
                    

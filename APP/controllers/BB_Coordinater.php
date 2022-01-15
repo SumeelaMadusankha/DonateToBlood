@@ -1,12 +1,30 @@
 <?php
 include_once('Admin.php');
 include_once('EmailClient.php');
-
+session_start();
 class BB_Coordinater extends Admin{
+    private  $cordinatorId;
+
+
     function __construct()
     {
         parent:: __construct();
     }
+
+    public function getCordinatorId()
+    {
+        return $this->cordinatorId;
+    }
+    public function setCordinatorId($cordinatorId)
+    {
+        $this->cordinatorId = $cordinatorId;
+    }
+
+
+
+
+
+
     public function index()
     {
        $this->view->render("bbc_index");
@@ -236,7 +254,6 @@ class BB_Coordinater extends Admin{
     }
 
 
-
     public function acceptCampRequest()
     {
      
@@ -282,5 +299,29 @@ class BB_Coordinater extends Admin{
            $this->viewCampRequests();
         }
     }
+
+    public function downloadFile()
+{
+ if (!empty($_GET['file'])) {
+  $fileName= basename($_GET['file']);
+  $filePath= "Files/". $fileName;
+  if (!empty(($fileName) && file_exists($filePath))) {
+    
+    header('Content-Description: File Transfer');
+    header('Content-Type: application/octet-stream');
+    header('Content-Disposition: attachment; filename=' .$fileName);
+    header("Content-Transfer-Encoding: binary");
+    header('Expires: 0');
+    header('Cache-Control: must-revalidate');
+    header('Pragma: public');
+   
+    readfile($filePath);
+    exit();
+  }else {
+    echo "file not found";
+  }
+ }
+}
+
 
 }

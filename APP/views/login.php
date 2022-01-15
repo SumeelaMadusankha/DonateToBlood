@@ -68,7 +68,7 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a  href="index">Home</a></li>
+               <li><a  href="../">Home</a></li>
               
                <li><a href="#">Where to Donate</a></li>
                <li><a href="#">Blood adverticement</a></li>
@@ -87,9 +87,7 @@
 <div class="body">
      <div class="login">
       <div class="container">
-      
-      
-              
+        
         <div class="wrapper">
         <?php
       
