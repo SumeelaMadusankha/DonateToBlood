@@ -202,7 +202,7 @@ public function getCampReqest()
     
     {
         $dt = new DateTime();
-        session_start();
+       
         $query = "UPDATE camprequest SET status = :status, acceptednic = :nic,acceptedtime = :time  WHERE requestId = :id";
         $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic'],":time"=>$dt->getTimestamp()]);
         return $res;

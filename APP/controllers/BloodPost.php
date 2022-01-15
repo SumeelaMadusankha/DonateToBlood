@@ -24,12 +24,16 @@ class BloodPost extends Post
     $res=$this->model->getBloodRequestDetails($district);
     if (!empty($res)) {
         $this->view->render("bloodPost",$res);
+    }else {
+        $this->view->render("bloodPost",$res);
     }
     
     }else {
      
         $res=$this->model->getBloodRequestDetails("all");
     if (!empty($res)) {
+        $this->view->render("bloodPost",$res);
+    }else {
         $this->view->render("bloodPost",$res);
     }
     

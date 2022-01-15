@@ -1,9 +1,10 @@
 <?php
+
 class Route{
 
 	protected $_routes=null;  //associative array
 	protected $_params=null;
-    
+    private $rout;
     function __construct()
 	{
 		
@@ -63,8 +64,13 @@ class Route{
 		// Create the object
 		$this->_params = new Index();
 		// Call thw function
-		
-        $this->_params->index();
+		if (!isset($_SESSION['nic'])) {
+			$this->_params->index();
+		}else {
+			header("Location:../../DonateToBlood/Login/mustLogout");
+			
+		}
+        
 	}
     //Create the loadcontrllermethod function loading method one by one 
 	private function _loadcontrollermethod(){
@@ -96,7 +102,13 @@ class Route{
 			   break;
 			  default:
 			   //call index function in controller
-			   $this->_params->index();
+			   if (isset($_SESSION['nic'])) {
+				header("Location:../../DonateToBlood/Login/mustLogout");
+				
+			}else {
+				$this->_params->index();
+				
+			}
 			   break;
 		}
 	 }

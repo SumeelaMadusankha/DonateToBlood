@@ -11,16 +11,16 @@ public function getBloodRequestDetails($district)
 {
     if ($district=="all") {
 
-        $query = 'SELECT * FROM bloodrequest';
-        $res = $this->db->selectData($query);
+        $query = 'SELECT * FROM bloodrequest WHERE status= :status';
+        $res = $this->db->runQuery($query,[":status"=> "accepted"]);
         return $res;
 
         
     }
     else {
         
-        $query = 'SELECT * FROM bloodrequest where  district= :district';
-        $res = $this->db->runQuery($query, [":district" => $district]);
+        $query = 'SELECT * FROM bloodrequest where  district= :district AND status= :status';
+        $res = $this->db->runQuery($query, [":district" => $district,":status"=>"accepted"]);
         return $res;
     }
     
@@ -41,15 +41,15 @@ public function filterBloodPost($dataArr)
     }elseif ($dataArr['district']=="all") {
         
         $_SESSION['selectb']=$dataArr['bloodType'];
-        $query = 'SELECT * FROM bloodrequest where bloodType=:bloodType';
-        $res = $this->db->runQuery($query, [ "bloodType"=>$dataArr['bloodType']]);
+        $query = 'SELECT * FROM bloodrequest where bloodType=:bloodType AND status= :status' ;
+        $res = $this->db->runQuery($query, [ "bloodType"=>$dataArr['bloodType'],":status"=>"accepted"]);
         return $res;
     }
     else{
         $_SESSION['select']=$dataArr['district'];
         $_SESSION['selectb']=$dataArr['bloodType'];
-        $query = 'SELECT * FROM bloodrequest where  district= :district  AND bloodType=:bloodType';
-        $res = $this->db->runQuery($query, [":district" => $dataArr['district'], "bloodType"=>$dataArr['bloodType']]);
+        $query = 'SELECT * FROM bloodrequest where  district= :district  AND bloodType=:bloodType AND status= :status';
+        $res = $this->db->runQuery($query, [":district" => $dataArr['district'], "bloodType"=>$dataArr['bloodType'],":status"=>"accepted"]);
         return $res;
     }
     
