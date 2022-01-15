@@ -81,7 +81,7 @@ public function loadCampRequestForm()
              if (empty($registerResult)) {
              move_uploaded_file($fileTempName,$path);
                $_SESSION['msg']="success";
-               print_r($dataArray);
+
                header("Location: http://localhost/DonateToBlood/RegisteredUser/loadBRForm");
 
            }else {

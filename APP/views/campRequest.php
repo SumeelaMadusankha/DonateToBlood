@@ -122,8 +122,16 @@
         <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
 
+<<<<<<< HEAD
+
            <h1 class="topic" >Camp Request Form</h1>
 
+           <h1 class="topic" style="font-weight: bolder;">Camp Request</h1>
+
+=======
+           <h1 class="topic" >Camp Request Form</h1>
+
+>>>>>>> sumeela
            <?php
            
            
