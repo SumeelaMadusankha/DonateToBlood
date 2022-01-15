@@ -15,8 +15,6 @@ class UnregisteredUser extends User
     }
          public function register()
         {
-    
-          
            if ($_SERVER["REQUEST_METHOD"]=="POST") {
                $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
                if (isset($_POST["register_btn"])) {
@@ -90,16 +88,15 @@ class UnregisteredUser extends User
         }
 }
 
-public function bloodPostLoad()
+public function loadBloodPost()
     {
-        
        $post=new BloodPost();
        $post->Loadpostpage();
     }
-    public function donationPlacesLoad()
-    {
-      $post=new CampPost();
-      $post->Loadpostpage();
+public function loadCampPost()
+{
+  $post=new CampPost();
+  $post->Loadpostpage();
 
 
 

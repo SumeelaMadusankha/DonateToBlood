@@ -41,7 +41,7 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a  href="../Login/index">Home</a></li>
+               <li><a  href="../Index/secondIndex">Home</a></li>
                <?php
               
                if (isset($_SESSION['nic'])) {
@@ -61,20 +61,20 @@
               <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                 echo " <li><a href=' ../ UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
               }
               ?>
                <?php
               
               if (isset($_SESSION['nic'])) {
                 ?>
-                <li><a href='../RegisteredUser/bloodPostLoad' class="active">Blood adverticement</a></li>
+                <li><a href='../RegisteredUser/loadBloodPost' class="active">Blood adverticement</a></li>
 
 
               <?php }else {?>
-                 <li><a href='../UnregisteredUser/bloodPostLoad' class="active" >Blood adverticement</a></li>
+                 <li><a href='../UnregisteredUser/loadBloodPost' class="active" >Blood adverticement</a></li>
                  <?php
               }
               ?>
@@ -428,9 +428,9 @@
               <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['mobileNo']}</p></p>
               <p class='outer-extra-class'> <b class= 'extra-class'>Due Date :</b>  <p class='inner-extra-class'> {$row['duedate']}</p></p>
               
-              <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
+              
 
-              <a href='../Public/images/blood-types/blood-A+.png' 
+              <a href='downloadFile?file={$row['attachment']}' 
 
               
 
