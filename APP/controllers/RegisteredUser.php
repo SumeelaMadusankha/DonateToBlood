@@ -6,28 +6,42 @@ include_once('CampPost.php');
 
 class RegisteredUser extends User 
 {
+private $city;
+private $bloodGroup;
+private $dateOfBirth;
   function __construct()
   {
     parent::__construct(); 
     
-  } 
- 
+  }
 
-  public function setDetails($nic)
+    public function setBloodGroup($bloodGroup)
     {
-      $this->loadModel('RegisteredUser');
-      $details=$this->model->getRegisteredUserData($nic)[0];
-     $this->firstName=$details['firstName'];
-     $this->lastName=$details['lastName'];
-     $this->bloodGroup=$details['bloodGroup;'];
-     $this->District=$details['district'];
-     $this->MobileNo=$details['MobileNo'];
-     $this->email=$details['email'];
-     $this->nic=$details['nic'];
-     $this->address=$details['address'];
-     $this->dateOfBirth=$details['dob'];
-     $this->gender=$details['gender'];
-     
+        $this->bloodGroup = $bloodGroup;
+    }
+
+    public function setDateOfBirth($dateOfBirth)
+    {
+        $this->dateOfBirth = $dateOfBirth;
+    }
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    public function getBloodGroup()
+    {
+        return $this->bloodGroup;
+    }
+
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
     }
 public function loadCampRequestForm()
 {
@@ -44,6 +58,7 @@ public function loadCampRequestForm()
       if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
         if (isset($_POST["sbmt_btn"])) {
+         
            $dataArray=[
              "flname"=>$this->testInput($_POST["flname"]),
              
@@ -54,15 +69,19 @@ public function loadCampRequestForm()
              
              "mobileNo"=>$this->testInput($_POST["num"]),
              "description"=>$this->testInput($_POST["description"]),
-             "attachment"=>$this->testInput($_POST["att"]),
+             "attachment"=>$this->testInput($_FILES["att"]["name"]),
              "duedate"=>$this->testInput($_POST["duedate"]),
+           
 
            ];
+          
+           $fileTempName=$_FILES["att"]["tmp_name"];
+           $path="Files/".$dataArray['attachment'];
              $registerResult = $this->model->addbloodRequest($dataArray);
              if (empty($registerResult)) {
-             
+             move_uploaded_file($fileTempName,$path);
                $_SESSION['msg']="success";
-
+               print_r($dataArray);
                header("Location: http://localhost/DonateToBlood/RegisteredUser/loadBRForm");
 
            }else {
@@ -75,7 +94,7 @@ public function loadCampRequestForm()
     }
     }
 
-    public function bloodPostLoad()
+    public function loadBloodPost()
     {
       $post=new BloodPost();
       if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -89,7 +108,7 @@ public function loadCampRequestForm()
       
 
     }
-    public function donationPlacesLoad()
+    public function loadCampPost()
     {
       $post=new CampPost();
       if ($_SERVER["REQUEST_METHOD"]=="POST") {
@@ -116,7 +135,7 @@ public function addCampRequest(){
          "description"=>$this->testInput($_POST["description"]),
         
          
-         "attachment"=>$this->testInput($_POST["att"]),
+         "attachment"=>$this->testInput($_FILES["att"]["name"]),
          "lat"=>$this->testInput($_POST["lat"]),
          "lng"=>$this->testInput($_POST["lng"]),
          
@@ -126,9 +145,11 @@ public function addCampRequest(){
          "dateTime"=>$this->testInput($_POST["duedate"]),
 
        ];
+       $fileTempName=$_FILES["att"]["tmp_name"];
+       $path="Files/".$dataArray['attachment'];
          $registerResult = $this->model->addCampRequest($dataArray);
          if (empty($registerResult)) {
-         
+         move_uploaded_file($fileTempName,$path);
            $_SESSION['msg']="success";
             header("Location: http://localhost/DonateToBlood/RegisteredUser/loadCampRequestForm");
        }else {

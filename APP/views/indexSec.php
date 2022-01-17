@@ -14,47 +14,22 @@
       <meta name="description" content="">
       <meta name="author" content="">
       <!-- bootstrap css -->
-      <link rel="stylesheet" href="../Public/css/bootstrap.min.css">
+      <link rel="stylesheet" href="././Public/css/bootstrap.min.css">
       <!-- style css -->
-      <link rel="stylesheet" href="../Public/css/style.css">
+      <link rel="stylesheet" href="././Public/css/style.css">
       <!-- Responsive-->
-      <link rel="stylesheet" href="../Public/css/responsive.css">
-      <link rel="stylesheet" href="../Public/css/hd.css">
+      <link rel="stylesheet" href="././Public/css/responsive.css">
+      <link rel="stylesheet" href="././Public/css/hd.css">
       <!-- fevicon -->
-      <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
-      <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      <link rel="icon" href="././Public/images/fevicon.png" type="image/gif" />
       <!-- fonts-->
-     
      
       <!-- Scrollbar Custom CSS -->
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
-       <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
+       <link rel="stylesheet" href="././Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-      <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
-	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-	 <script type="text/javascript">
-        $( document ).ready(function() {
-        $(".note__close").click(function() {
-          $(this).parent()
-          .animate({ opacity: 0 }, 250, function() {
-            $(this)
-            .animate({ marginBottom: 0 }, 250)
-            .children()
-            .animate({ padding: 0 }, 250)
-            .wrapInner("<div />")
-            .children()
-            .slideUp(250, function() {
-              $(this).closest(".note").remove();
-            });
-          });
-        });
-        });
-    </script>
+
 
 
 
@@ -76,6 +51,7 @@
                <i class="fas fa-bars"></i>
             </label>
             <label class="logo">DonateToHeal</label>
+<<<<<<< HEAD:APP/views/reg_user_index.php
             <ul>
                <li><a class="active" href="index">Home</a></li>
                <?php
@@ -152,6 +128,15 @@
 
 
 
+=======
+            
+            <ul>
+               <li><a class="active" href="index">Home</a></li>
+              
+               <li><a href=" UnregisteredUser/loadCampPost">Where to Donate</a></li>
+               <li><a href=" UnregisteredUser/loadBloodPost">Blood adverticement</a></li>
+               <li><a href="Login/index">Login</a></li>
+>>>>>>> master:APP/views/indexSec.php
             </ul>
          </nav>
          
@@ -171,47 +156,22 @@
                      <!-- first slide -->
                      <div class="carousel-item active">
                         <div class="carousel-caption cuplle">
-                           
-                        
                            <div class="container">
                               <div class="row">
                                  <div class="col-md-8">
                                     <div class="photog">
+<<<<<<< HEAD:APP/views/reg_user_index.php
                                        <h1>DONATE TO<br>HEAL</h1>
                                       
+=======
+                                       <h1>Donate To<br>Heal</h1>
+>>>>>>> master:APP/views/indexSec.php
                                        
+
                                     </div>
                                    
                                  </div>
-                                 <?php
-                                    
-                                    if (isset($_SESSION['nic'])) {
-                                       
-                                    }else {
-                                        echo " <a class='register_btn' href='UnregisteredUser/signUpFormLoad' >REGISTER HERE</a>";
-                                    }
-                                    ?>
-      <?php
-      if (isset($_SESSION['msg']) && isset($_SESSION['nic'])) {
-        unset($_SESSION['msg']); 
-    
-        echo "<div class='flag note note--success'>
-                <div class='flag__image note__icon'>
-                  <i class='fa fa-check-circle'></i>
-                </div>
-                <div class='flag__body note__text'> Dear 
-                  ".$_SESSION['firstName']." ".$_SESSION['lastName'].", You are logged to the systen Successfully! 
-                </div>
-                <a href='#' class='note__close'>
-                  <i class='fa fa-times'></i>
-                </a>
-              </div>";
-     
-      }else {
-       
-      } 
-        
-         ?>
+                                 <a class="register_btn" href="UnregisteredUser/signUpFormLoad" >REGISTER HERE</a>
                               </div>
                            </div>
                         </div>
@@ -228,14 +188,7 @@
                                     </div>
                                    
                                  </div>
-                                 <?php
-                                    
-                                    if (isset($_SESSION['nic'])) {
-                                       
-                                    }else {
-                                        echo " <a class='register_btn' href='User/register' >REGISTER HERE</a>";
-                                    }
-                                    ?>
+                                 <a class="register_btn" href="javascript:void(0)" >REGISTER HERE</a>
                               </div>
                            </div>
                         </div>
@@ -247,18 +200,15 @@
                               <div class="row">
                                  <div class="col-md-8">
                                    <div class="photog">
+<<<<<<< HEAD:APP/views/reg_user_index.php
                                        <h1>Find everything about<br>donating blood</h1>
+=======
+                                       <h1>Stay Safe</h1>
+>>>>>>> master:APP/views/indexSec.php
                                     </div>
                                    
                                  </div>
-                                 <?php
-                                    
-                                    if (isset($_SESSION['nic'])) {
-                                       
-                                    }else {
-                                        echo " <a class='register_btn' href='User/register' >REGISTER HERE</a>";
-                                    }
-                                    ?>
+                                 <a class="register_btn" href="javascript:void(0)" >REGISTER HERE</a>
                               </div>
                            </div>
                         </div>
@@ -291,7 +241,7 @@
                   </div>
                   <div class="col-md-5">
                      <div class="about_img text_align_center">
-                        <figure><img src="../Public/images/about.png" alt="#"/></figure>
+                        <figure><img src="././Public/images/about.png" alt="#"/></figure>
                      </div>
                   </div>
                  
@@ -305,7 +255,7 @@
                <div class="row d_flex grid">
                   <div class="col-md-7">
                      <div class="coronata_img text_align_center">
-                        <figure><img src="../Public/images/donation.png" alt="#"/></figure>
+                        <figure><img src="././Public/images/donation.png" alt="#"/></figure>
                      </div>
                   </div>
                   <div class="col-md-5 oder1">
@@ -341,7 +291,7 @@
                         <div class="item">
                            <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="../Public/images/part1.jpg" alt="#"/></i>
+                                <i><img src="././Public/images/part1.jpg" alt="#"/></i>
                               <h3> Donate Blood</h3>
                               <span> Volunteers who are willing to donate whole blood can find the requests for the required blood type and connect with the parties in need</span>
                              </div>
@@ -351,7 +301,7 @@
                         <div class="item">
                              <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="../Public/images/part2.png" alt="#"/></i>
+                                <i><img src="././Public/images/part2.png" alt="#"/></i>
                               <h3>Request Blood</h3>
                               <span> If you are in need of blood of a certain type, we provide you the opportunity to advertise the necessary details and connect with blood donors or the blood bank</span>
                              </div>
@@ -361,7 +311,7 @@
                         <div class="item">
                             <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="../Public/images/notify.jpg" alt="#"/></i>
+                                <i><img src="././Public/images/notify.jpg" alt="#"/></i>
                               <h3> Get Notifications</h3>
                               <span> The registered users get the opportunity to get notifications regarding the blood donations camps happening around you, or blood requests of their blood type</span>
                              </div>
@@ -382,15 +332,24 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="titlepage text_align_center ">
+<<<<<<< HEAD:APP/views/reg_user_index.php
                         <h2>Having doubts about donating blood?</h2>
                         <p>We are there to clear your each and every doubt regarding blood donating</p>
+=======
+                        <h2>About Us</h2>
+                        <p>making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful</p>
+>>>>>>> master:APP/views/indexSec.php
                      </div>
                   </div>
                </div>
                <div class="row d_flex">
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
+<<<<<<< HEAD:APP/views/reg_user_index.php
                         <figure><img src="../Public/images/whyDonate.png" alt="#"/></figure>
+=======
+                        <figure><img src="././Public/images/whyDonate.png" alt="#" class="center"></figure>
+>>>>>>> master:APP/views/indexSec.php
                         
                         <div class="nostrud">
                            <h3>Why Donate Blood?</h3>
@@ -400,7 +359,11 @@
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
+<<<<<<< HEAD:APP/views/reg_user_index.php
                         <figure><img src="../Public/images/whoCan.png" alt="#"/></figure>
+=======
+                        <figure><img src="././Public/images/whoCan.png" alt="#" class="center"></figure>
+>>>>>>> master:APP/views/indexSec.php
                         
                         <div class="nostrud">
                         <h3>Who can give Blood?</h3>
@@ -414,7 +377,11 @@
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
+<<<<<<< HEAD:APP/views/reg_user_index.php
                         <figure><img src="../Public/images/howOften.png" alt="#"/></figure>
+=======
+                        <figure><img src="././Public/images/howOften.png" alt="#" class="center"></figure>
+>>>>>>> master:APP/views/indexSec.php
                         
                         <div class="nostrud">
                            <h3>How often can you give Blood?</h3>
@@ -439,18 +406,32 @@
                <div class="row d_flex">
                   <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
+<<<<<<< HEAD:APP/views/reg_user_index.php
                            <i><img src="../Public/images/Vision.png" alt="#"/></i>
                            <h3>Our Vision</h3>
                            <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
                            <span><img src="../Public/images/do.png" alt="#" style="size: 30px;"></span>
+=======
+                           <i><img src="././Public/images/Vision.png" alt="#"></i>
+                           <h3>Our Vision</h3>
+                           <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
+                           <span><img src="././Public/images/do.png" alt="#"/ style="size: 30px;"></span>
+>>>>>>> master:APP/views/indexSec.php
                         </div>
                      </div>
                              <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
+<<<<<<< HEAD:APP/views/reg_user_index.php
                            <i><img src="../Public/images/Mission3.png " alt="#"/></i>
                            <h3>Our Mission</h3>
                            <p>Our mision is to decrease the blood scarcity prevailing around the country by 50% by the year 2025 through connecting the willing dodnors and the required parties while getting 2000+ registered users by year 2025 </p>
                            <span><img src="../Public/images/do.png" alt="#"/></span>
+=======
+                           <i><img src="Public/images/Mission3.png " alt="#"/></i>
+                           <h3>Our Mission</h3>
+                           <p>Our mission is to decrease the blood scarcity prevailing around the country by 50% by the year 2025 through connecting the willing dodnors and the required parties while getting 2000+ registered users by year 2025 </p>
+                           <span><img src="././Public/images/do.png" alt="#"/></span>
+>>>>>>> master:APP/views/indexSec.php
                         </div>
                      </div>
                   </div>
@@ -483,10 +464,10 @@
     </div>
       <!-- end footer -->
       <!-- Javascript files-->
-      <script src="../Public/js/jquery.min.js"></script>
-      <script src="../Public/js/bootstrap.bundle.min.js"></script>
+      <script src="././Public/js/jquery.min.js"></script>
+      <script src="././Public/js/bootstrap.bundle.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
-      <script src="../Public/js/owl.carousel.min.js"></script>
-      <script src="../Public/js/custom.js"></script>
+      <script src="././Public/js/owl.carousel.min.js"></script>
+      <script src="././Public/js/custom.js"></script>
    </body>
 </html>

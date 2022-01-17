@@ -1,5 +1,5 @@
 <?php
-
+session_start();
 class Index extends Controller{
     function __construct()
     {
@@ -9,6 +9,9 @@ class Index extends Controller{
 
     function index(){
         $this->view->render('index');
+    }
+    function secondIndex(){
+        $this->view->render('reg_user_index');
     }
 }
 
