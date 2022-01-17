@@ -6,8 +6,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="user_reg.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Camp_Reg</title>
+    <title>User_Reg</title>
     
+    <!-- <link rel="stylesheet" href="css/responsive.css">
+      fevicon
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      fonts-->
+      <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      Scrollbar Custom CSS -->
      
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
@@ -19,7 +26,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
       <script src="../Public/js/user_reg.js"></script>
-    
+
 
      
 
@@ -131,16 +138,10 @@
         <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
 
-<<<<<<< HEAD
 
-           <h1 class="topic" >Camp Request Form</h1>
-
+           
            <h1 class="topic" style="font-weight: bolder;">Camp Request</h1>
 
-=======
-           <h1 class="topic" >Camp Request Form</h1>
-
->>>>>>> sumeela
            <?php
            
            

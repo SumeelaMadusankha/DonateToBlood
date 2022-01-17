@@ -103,61 +103,16 @@ public function resetPassword()
 
 
 
-<<<<<<< HEAD
-  }
 
 
-      session_start();
-      if (!isset($_SESSION['nic'])) {
-      if ($_SERVER['REQUEST_METHOD']==="POST") {
-        $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
-        
-          $dataLogin = [
-            "username" => $this->testInput($_POST["username"]),
-            "password" => $this->testInput($_POST["password"])
-          ];
-         
-          if ((!empty($dataLogin['username'])) && !empty($dataLogin['password'])) {
-            $loginUser = $this->model->login($dataLogin["username"], $dataLogin["password"]);
-           
-            if (empty($loginUser['error'])) {
-              
-              if (!empty($loginUser)) {
-              
-                $_SESSION["nic"] = $loginUser["nic"];
-                $_SESSION["firstName"] = $loginUser["firstName"];
-                $_SESSION["lastName"] = $loginUser["lastName"];
-                $_SESSION["jobtype"] = $loginUser["jobtype"];
-                $_SESSION["email"] = $loginUser["email"];
-                $_SESSION['msg']="success";
-                switch ($loginUser['jobtype']) {
-                  case 'registeredUser':
-                    $this->view->render('reg_user_index');
-                    break;
-                    case 'bloodBankCordinator':
-                      $this->view->render('bbc_index');
-                      break;
-                    case 'superAdmin':
-                        $this->view->render('super_index');
-                      break;
-                  default:
-                    # code...
-                    break;
-                }
 
-              }else {
-                $_SESSION['error']="Invalid Username or Password";
-              $this->view->render('login');
-             }
-              
+    
               
              
 
 
 
 
-=======
->>>>>>> sumeela
 
 public function resetPasswordmethod()
 {
