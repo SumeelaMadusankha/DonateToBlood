@@ -108,6 +108,7 @@
               }
               ?>
               
+
                 <?php
               
                if (isset($_SESSION['nic'])) {
@@ -126,6 +127,7 @@
                   echo "<li><a href='Login/index'>Login</a></li>";
                }
                ?>
+
             </ul>
          </nav>
          

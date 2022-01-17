@@ -299,6 +299,7 @@ class BB_Coordinater extends Admin{
            $this->viewCampRequests();
         }
     }
+
     public function downloadFile()
 {
  if (!empty($_GET['file'])) {
@@ -321,5 +322,6 @@ class BB_Coordinater extends Admin{
   }
  }
 }
+
 
 }

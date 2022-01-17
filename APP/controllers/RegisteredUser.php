@@ -81,7 +81,7 @@ public function loadCampRequestForm()
              if (empty($registerResult)) {
              move_uploaded_file($fileTempName,$path);
                $_SESSION['msg']="success";
-               print_r($dataArray);
+
                header("Location: http://localhost/DonateToBlood/RegisteredUser/loadBRForm");
 
            }else {
@@ -164,6 +164,14 @@ public function addCampRequest(){
 }
 
 
+public function donationHistoryLoad(){
+  $nic=$_SESSION['nic'];
+  $user_details = $this->model->viewDonorHistory($nic);
+  $this->view->render("reg_user_viewHistory");
+
+}
+
+
     public function viewUserProfile(){
       
       if ($_SESSION['nic']){
@@ -221,6 +229,7 @@ public function addCampRequest(){
     }
       }
     }
+
 
 
 

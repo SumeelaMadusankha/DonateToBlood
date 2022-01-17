@@ -40,6 +40,11 @@ nav ul li a {
 }
 
 a.active,
+a:hover {}
+
+nav ul li :last-child {}
+
+a.active,
 a:hover {
     background: gray;
     transition: .5s;
@@ -141,8 +146,6 @@ a:hover {
     height: 80px;
     width: 80px;
 }
-
-.dropdown img {}
 
 
 /* Dropdown Content (Hidden by Default) */

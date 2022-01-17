@@ -84,14 +84,15 @@
               }
               ?>
               
-                <?php
+
+
+              <?php
               
                if (isset($_SESSION['nic'])) {
+                 
                  echo " <div class='dropdown'>
               
-               
-               
-                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <i class='fas fa-user' style='color:white'></i>
                  <div class='dropdown-content'>
                     <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
                     <a href='#'><b> HISTORY</b> </a>
@@ -99,7 +100,8 @@
                  </div>
                  </div>";
                }else {
-                  echo "<li><a href='../Login/index'>Login</a></li>";
+                echo "<li><a href='../Login/index'>Login</a></li>";
+
                }
                ?>
             </ul>
