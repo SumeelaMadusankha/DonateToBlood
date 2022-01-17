@@ -19,7 +19,7 @@
 
 
 
-    <link rel="stylesheet" href="../Public/css/whereToDonate.css">
+    <link rel="stylesheet" href="../Public/css/whereto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -80,16 +80,17 @@
                                
                                 if ($row['status']=="pending") {
                                     $rs=" <td><span class='label label-primary' style='font-size: 18px;display:block'>Pending</span></td>";
-                                   $stat=" <a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Decline</a>";
+                                    
+                                   $stat=" <a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   <a href='declienBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
 
-                                   $btn="<a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}&nic={$row['nic']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Decline</a>";
+                                   $btn="<a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   <a href='declienBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
                                    
                                    
                                 }elseif($row['status']=="accepted"){
-                                    $stat="<a href='cancelBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Cancel</a>";
-                                    $btn="<a href='cancelBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Cancel</a>
+                                    $stat="<a href='cancelBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>CANCEL</button></a>";
+                                    $btn="<a href='cancelBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>CANCEL</button></a>
                                     ";
                                     $rs=" <td><span class='label label-success' style='font-size: 18px;display:block'>Success</span></td>";
                                 }
@@ -100,7 +101,7 @@
                                 <td>{$row['duedate']}</td>
                                 <td>
                                 {$stat}
-                                <a href='#modal-opened{$count}' id='modal-closed{$count}'>view</a>
+                                <a href='#modal-opened{$count}' id='modal-closed{$count}'><button type='button' class='btn btn-primary'>VIEW</button></a>
                                 </td>                     
                                {$rs}
                              </tr>

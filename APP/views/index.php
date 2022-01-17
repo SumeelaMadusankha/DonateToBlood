@@ -1,5 +1,11 @@
 <?php
 
+  
+
+if (isset($_SESSION) && empty($_SESSION)) {
+ unset($_SESSION);
+ session_destroy();
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,6 +25,7 @@
       <!-- bootstrap css -->
       <?php
       if (isset($_SESSION['nic'])) {
+        
          echo " <link rel='stylesheet' href='../Public/css/bootstrap.min.css'>";
       }
       else {
@@ -81,7 +88,7 @@
       }
       ?>
 	
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
 	 <script type="text/javascript">
         $( document ).ready(function() {
@@ -123,7 +130,7 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a class="active" href="../">Home</a></li>
+               <li><a class="active" href="index">Home</a></li>
                <?php
              
                if (isset($_SESSION['nic'])) {
@@ -165,7 +172,7 @@
               
                
                
-                 <i class='fa fa-user-circle' style='font-size:50px'></i>
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
                  <div class='dropdown-content'>
                     <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
                     <a href='#'><b> HISTORY</b> </a>

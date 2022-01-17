@@ -34,7 +34,7 @@ class Login extends Controller
       switch ($jobType) {
 
         case "registeredUser":
-          header("Location:../../DonateToBlood/Index/index");
+          header("Location:../Index/index");
           exit();
           break;
         case "admin":
@@ -173,21 +173,23 @@ public function resetPasswordmethod()
              
               switch ($loginUser['jobtype']) {
                 case 'registeredUser':
-                  header("Location:../../DonateToBlood/Index/index");
+                  header("Location:../Index/index");
                   exit();
                   break;
                 case 'bloodBankCordinator':
-                  $this->view->render('bbc_index');
+                  header("Location:../BB_Coordinater/index");
+                  exit();
                   break;
                 case 'superAdmin':
-                  $this->view->render('super_index');
+                  header("Location:../../DonateToBlood/SuperAdmin/index");
+                  exit();
                   break;
 
                 case "BloodBankOfficer":
-                  $this->view->render('bo_index');
+                  header("Location:../../DonateToBlood/B_officer/index");
+                  exit();
                   break;
                 default:
-                  # code...
                   break;
               }
             } else {
@@ -203,13 +205,23 @@ public function resetPasswordmethod()
     } else {
       switch ($_SESSION['jobtype']) {
         case 'registeredUser':
-          $this->view->render('reg_user_index');
+          header("Location:../../DonateToBlood/Index/index");
+          exit();
           break;
         case 'bloodBankCordinator':
-          $this->view->render('bbc_index');
+          header("Location:../../DonateToBlood/BB_Cordinater/index");
+          exit();
+          break;
+        case 'superAdmin':
+          header("Location:../../DonateToBlood/SuperAdmin/index");
+          exit();
+          break;
+
+        case "BloodBankOfficer":
+          header("Location:../../DonateToBlood/B_officer/index");
+          exit();
           break;
         default:
-          # code...
           break;
       }
     }
@@ -234,6 +246,30 @@ public function resetPasswordmethod()
   {
     session_start();
     $this->view->render('logout');
+  }
+  public function cancelLogout()
+  {session_start();
+    switch ($_SESSION['jobtype']) {
+      case 'registeredUser':
+        header("Location:../../DonateToBlood/Index/index");
+        exit();
+        break;
+      case 'bloodBankCordinator':
+        header("Location:../../DonateToBlood/BB_Cordinater/index");
+        exit();
+        break;
+      case 'superAdmin':
+        header("Location:../../DonateToBlood/SuperAdmin/index");
+        exit();
+        break;
+
+      case "BloodBankOfficer":
+        header("Location:../../DonateToBlood/B_officer/index");
+        exit();
+        break;
+      default:
+        break;
+    }
   }
 }
 

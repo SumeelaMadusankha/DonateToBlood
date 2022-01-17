@@ -60,7 +60,7 @@ if (!isset($_SESSION['nic'])) {
         <div class="row">
   <div class="col-sm"><a href="logout"><button type="button" class="btn btn-primary">Log out</button></a></div>
   
-  <div class="col-sm"><a href="../Index/index"><button type="button" class="btn btn-light">Cancel</button></a></div>
+  <div class="col-sm"><a href="../Login/cancelLogout"><button type="button" class="btn btn-light">Cancel</button></a></div>
 </div>
             
             

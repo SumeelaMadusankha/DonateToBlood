@@ -65,6 +65,7 @@ class Route{
 		$this->_params = new Index();
 		// Call thw function
 		if (!isset($_SESSION['nic'])) {
+			// unset($_SESSION);
 			$this->_params->index();
 		}else {
 			header("Location:../../DonateToBlood/Login/mustLogout");

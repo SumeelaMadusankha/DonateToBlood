@@ -55,6 +55,7 @@ class CampPost extends Post
         $resultarr=$this->model->filterCampPost($dataArray);
       
         $this->view->render("donatePlaces",$resultarr);
+        exit();
     }
 }
 

@@ -17,7 +17,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 
-    <link rel="stylesheet" href="../Public/css/whereToDonate.css">
+    <link rel="stylesheet" href="../Public/css/whereto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
@@ -79,16 +79,16 @@
                              
                                 if ($row['status']=="pending") {
                                     $rs=" <td><span class='label label-primary' style='font-size: 18px;display:block'>Pending</span></td>";
-                                   $stat=" <a href='acceptCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Decline</a>";
+                                   $stat=" <a href='acceptCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
 
-                                   $btn="<a href='acceptCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Decline</a>";
+                                   $btn="<a href='acceptCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
                                    
                                    
                                 }elseif($row['status']=="accepted"){
-                                    $stat="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Cancel</a>";
-                                    $btn="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Cancel</a>
+                                    $stat="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>CANCEL</button></a>";
+                                    $btn="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>CANCEL</button></a>
                                     ";
                                     $rs=" <td><span class='label label-success' style='font-size: 18px;display:block'>Success</span></td>";
                                 }
@@ -125,7 +125,7 @@
                                 <td>{$row['campDate']}</td>
                                 <td>
                                 {$stat}
-                                <a href='#modal-opened{$count}' id='modal-closed{$count}'>view</a>
+                                <a href='#modal-opened{$count}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>VIEW</button></a>
                                 </td>                     
                                {$rs}
                              </tr>
