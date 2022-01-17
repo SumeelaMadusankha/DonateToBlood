@@ -81,7 +81,7 @@ public function filterBloodPost()
 
     public function viewDonorHistory($nic){
         $query = "SELECT * FROM user WHERE jobType ='registeredUser' AND nic = :nic";
-        $results2 = $this->db->runQuery($query,[":nic"=>$nic],);
+        $results2 = $this->db->runQuery($query,[":nic"=>$nic]);
         return $results2;
     }
 

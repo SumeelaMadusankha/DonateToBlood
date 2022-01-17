@@ -710,28 +710,57 @@ body-div{
 
 /** protect **/
 
-.protect {
+/* .protect {
     padding: 0 30px;
      padding-top: 80px;
     padding-bottom: 25px;
-}
+     padding: 80px 50px;
+    background:url(../images/bg2.jpg);
+    position: relative;
+    margin-top: -130px;
+    margin: 0 70px;
+    box-shadow: 3px 0 62px rgba(2, 0, 0, 0.5);
+    border-radius: 60px;
+    margin-top: 60px; 
+} */
 
 
 .protect_bg  {
-       background:url(../images/back.jpg);
-     background-repeat: no-repeat;
-     background-position: center;
-     background-size: 100% 100%;
-       padding-top: 80px;
-      padding-bottom: 48px;
+
+    background:url(../images/bg2.jpg);
+    /* position: relative;
+     margin-top: -130px; 
+    margin: 0 70px;
+    box-shadow: 3px 0 62px rgba(2, 0, 0, 0.5);
+    border-radius: 60px;
+    margin-top: 0px;  */
+    
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100% 100%;
+    padding-top: 30px;
+    padding-bottom: 48px;
+    box-shadow: 3px 0 62px rgba(2, 0, 0, 0.5);
+    border-radius: 60px;
+    margin: 0 70px;
+}
+
+.protect .titlepage{
+    padding-top: 50px;
+   
 }
 
 .protect .titlepage p {
-     padding-top: 5px;
+     padding-top: 20px;
+  
    
 }
+
+.owl-carousel owl-theme {
+    margin-top: 40px;
+}
 .desktop {
-    padding: 45px 20px 30px 20px;
+    padding: 20px 20px 30px 20px;
     background: #fff;
     border-radius: 20px;
     
@@ -762,6 +791,7 @@ body-div{
     margin-top: 40px;
 
 }
+
 .owl-carousel .owl-item img {
     width: inherit !important;
     text-align: center;
@@ -816,6 +846,10 @@ body-div{
    padding-top: 70px;
 
 
+}
+
+.cases .row_flex .col-md-4{
+    height: 200px;
 }
 .cases .titlepage {padding-bottom: 30px;}
 .cases .titlepage p {padding-top: 5px;}

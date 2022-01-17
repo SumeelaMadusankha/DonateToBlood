@@ -14,8 +14,8 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
 
-      <link rel="stylesheet" href="../../Public/css/reg_user_history.css">
-      <link rel="stylesheet" href="../../Public/css/hd.css">
+      <link rel="stylesheet" href="../Public/css/reg_user_history.css">
+      <link rel="stylesheet" href="../Public/css/hd.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
       <script src="https://kit.fontawesome.com/b99e675b6e.js"></script>
@@ -61,12 +61,80 @@
             <label class="logo">DonateToBlood</label>
             <ul>
                <li><a class="active" href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               <li><a href='../Login/logout'>Logout</a></li>
+               <?php
               
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBRForm'>Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+              }
+
+      
+              ?>
+
+               <?php
+
+              
+              if (isset($_SESSION['nic'])) {
+                ?>
+                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+
+
+              <?php }else {?>
+                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
+                 <?php
+              }
+              ?>
+
+               <!-- <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/donationHistoryLoad'>Donation History</a></li>";
+              }else {
+                 
+              }
+
+      
+              ?> -->
+
+               <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 
+                 echo " <div class='dropdown'>
+              
+                 <i class='fas fa-user' style='color:white;font-size:20px'></i>
+               
+                 <i class='fa fa-user-circle' style='font-size:50px'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
+                    <a href='logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
+               }else {
+                  echo "<li><a href='index'>Login</a></li>";
+               }
+               ?>
+
+
+
             </ul>
          </nav>
          
@@ -97,10 +165,13 @@
          <div class="body">
             <div class="wrapper">
                <div class="left">
-                  <img src="../../Public/images/img2.JPG" alt="user" width="100">
                   
-                  <h4>Nisanya Pathirana</h4>
-                  <p>Registered User</p>
+                  <?php
+                     echo "
+                     <i class='fa fa-user' style='font-size:100px'></i>
+                     <h4>$data[firstName],$data[lastName]</h4>
+                     <p>Registered User</p>";
+                  ?>
             </div>
             <div class="right">
               <div class="info">

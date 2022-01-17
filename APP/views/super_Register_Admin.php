@@ -102,11 +102,6 @@
                 </div>
 
                 <div class="input-box">
-                    <span class="details"><b> NIC </b></span>
-                    <input type="text" placeholder="Enter your NIC number" required>
-                    
-                </div>
-                <div class="input-box">
 
                     <span class="details">District</span>
 

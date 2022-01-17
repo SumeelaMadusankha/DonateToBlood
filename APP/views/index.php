@@ -99,7 +99,7 @@
                               <div class="row">
                                  <div class="col-md-8">
                                    <div class="photog">
-                                       <h1>Care About<br>Others</h1>
+                                       <h1>A place to fulfill<br>all your blood requirements</h1>
                                      
                                     </div>
                                    
@@ -116,7 +116,7 @@
                               <div class="row">
                                  <div class="col-md-8">
                                    <div class="photog">
-                                       <h1>Stay Safe</h1>
+                                       <h1>Find everything about<br>donating blood</h1>
                                     </div>
                                    
                                  </div>
@@ -244,8 +244,8 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="titlepage text_align_center ">
-                        <h2>About Us</h2>
-                        <p>making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful</p>
+                        <h2>Having doubts about donating blood?</h2>
+                        <p>We are there to clear your each and every doubt regarding blood donating</p>
                      </div>
                   </div>
                </div>
@@ -265,11 +265,13 @@
                         <figure><img src="././Public/images/whoCan.png" alt="#" class="center"></figure>
                         
                         <div class="nostrud">
-                           <h3>Who can give Blood?</h3>
-                           <p>Most people can give blood. You can give blood if you are in fit and healthy
+                        <h3>Who can give Blood?</h3>
+                           <p>Most people can give blood if they are in good health. There are some basic requirements one  need to fulfill in order to become a blood donor. You can give blood if you are in fit and healthy
                            ,weigh between 7 stone 12 lbs and 25 stone, or 50kg and 158kg
                            ,are aged between 17 and 66 (or 70 if you have given blood before)
-                           ,are over 70 and have given a full blood donation in the last two years</p>
+                           ,are over 70 and have given a full blood donation in the last two years.
+                           f previously donated, at least 4 months should be elapsed since the date of previous donation. Should be free from any serious disease condition or pregnancy and have a valid identity card or any other document to prove the identity.
+                           </p>
                         </div>
                      </div>
                   </div>
@@ -278,9 +280,10 @@
                         <figure><img src="././Public/images/howOften.png" alt="#" class="center"></figure>
                         
                         <div class="nostrud">
-                           <h3>How often can you give Blood?</h3>
-                           <p>Men can give blood every 12 weeks and women can give blood every 16 weeks</p>
-                        </div>
+                        <h3>How often can you give Blood?</h3>
+                        <p>You must wait at least eight weeks (56 days) between donations of whole blood and 16 weeks ,
+                           (112 days) between Power Red donations. Whole blood donors can donate up to 6 times a year. ,
+                           Platelet apheresis donors may give every 7 days up to 24 times per year.</p>
                      </div>
                   </div>
                </div>

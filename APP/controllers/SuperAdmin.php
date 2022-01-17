@@ -55,8 +55,10 @@ public function addAdmin(){
             
              
              if (empty($registerResult)) {
+
                 $this->view->render("super_Register_Admin");
               }
+
            }
           
         }
