@@ -44,7 +44,9 @@ class Login extends Controller
           $this->view->render('bbc_index');
           break;
         case "superAdmin":
-          $this->view->render('super_index');
+          $this->loadModel('SuperAdmin');
+          $blooddetails = $this->model-> get_Blooddetails('Matara');
+          $this->view->render('super_index',$blooddetails);
         case "BloodBankOfficer":
           $this->view->render('bo_index');
       }
@@ -79,6 +81,7 @@ public function resetPassword()
         $message .= "<a href=\"" . $url . "\">" . $url . "</a></p>";
         $mail=new EmailClient($email,$subject,$message);
    
+
           header("Location:http://localhost/DonateToBlood/Login/test?msgsend=send");
 
         if ( $mail->sendMail()) {
@@ -155,7 +158,6 @@ public function resetPassword()
 
 =======
 >>>>>>> sumeela
-
 
 public function resetPasswordmethod()
 {
@@ -235,7 +237,9 @@ public function resetPasswordmethod()
                   $this->view->render('bbc_index');
                   break;
                 case 'superAdmin':
-                  $this->view->render('super_index');
+                  $this->loadModel('SuperAdmin');
+                  $blooddetails = $this->model-> get_Blooddetails('Matara');
+                  $this->view->render('super_index',$blooddetails);
                   break;
 
                 case "BloodBankOfficer":

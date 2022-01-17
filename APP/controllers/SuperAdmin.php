@@ -55,21 +55,15 @@ public function addAdmin(){
             
              
              if (empty($registerResult)) {
+
                 $this->view->render("super_Register_Admin");
               }
+
            }
           
         }
     }
-
-
-
 }
-
-        
-
-
-
 
 public function viewAdminData()
     {
@@ -78,6 +72,9 @@ public function viewAdminData()
         if(!empty($registerResult1)){
             $this->view->render("super_viewAdmin",$registerResult1);
         
+        }else{
+            $this->view->render("super_viewAdmin");
+
         }
     }
 
@@ -91,6 +88,17 @@ public function viewAdminData()
            
         $this->viewAdminData();
     }
+    }
+
+    public function displayBlood(){
+
+        if (isset($_POST["sbmt_btn"])){
+            
+            $district=$this->testInput($_POST["district"]);
+            $bloodquantity = $this->model->get_Blooddetails($district);
+            $this->view->render("super_index",$bloodquantity);
+        }
+
     }
 
 

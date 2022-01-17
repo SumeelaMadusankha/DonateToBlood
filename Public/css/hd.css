@@ -16,6 +16,9 @@
     font-weight: bold;
     font-family: 'Kaushan Script', cursive;
   }
+  nav .reg-user-drop{
+
+  }
   nav ul{
     float: right;
     margin-right: 10px;
@@ -35,6 +38,10 @@
     border-radius: 16px;
     text-decoration: none;
     text-transform: uppercase;
+  }
+
+  nav ul li :last-child{
+    
   }
   a.active, a:hover{
     background: gray;
@@ -118,6 +125,7 @@
 
 
 
+
        /* ++++++++++++++++++++++++++++++++++++++++++++++++++drop down menu++++++++++++++ */
 
 /* .dropbtn img{
@@ -136,9 +144,7 @@
     width: 80px;
   }
 
-  .dropdown img{
-    
-  }
+
   
   /* Dropdown Content (Hidden by Default) */
   .dropdown-content {
@@ -171,3 +177,4 @@
 
 
   
+

@@ -75,12 +75,21 @@
               }
               ?>
               
-               <?php
+              <?php
               
                if (isset($_SESSION['nic'])) {
-                 echo " <li><a href='../Login/logout'>Logout</a></li>";
+                 
+                 echo " <div class='dropdown'>
+              
+                 <i class='fas fa-user' style='color:white'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
                }else {
-                  echo " <li><a href='../Login/index'>Login</a></li>";
+                  echo "<li><a href='index'>Login</a></li>";
                }
                ?>
             </ul>
