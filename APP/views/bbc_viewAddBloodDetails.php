@@ -38,13 +38,7 @@
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
-                    </li>
-                    <li>
-                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
-                    </li>
-                    <li>
-                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
+                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     <li>
                         <a class="active-menu" href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
@@ -74,19 +68,19 @@
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
-                                            <?php echo "<form role='form' method='POST' action='../BB_Coordinater/updateBloodDetails?id=" . $_GET['id'] . "'" . "  id='shortage_form'>" ?>
+                                            <?php echo "<form role='form' method='POST' action='../BloodDetails /updateBloodDetails?id=" . $_GET['id'] . "'" . "  id='shortage_form'>" ?>
                                             <div class="form-group">
-                                                <label><?php echo $data[0]['BloodGroup'] ?></label>
+                                                <h2><label><p class="text-danger"><?php echo $data['BloodGroup'] ?></p></label></h2>
                                             </div>
                                             <div class="form-group">
                                                 <label for="m_quantity">Maximum Quantity<span>(Enter in Blood Pints) </span></label>
-                                                <input class="form-control" type="text" placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data[0]['MaximumQuantity'] ?> </div>
+                                                <input class="form-control" type="number" placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data['Maximum'] ?> </div>
                                                 <div class="form-group">
                                                     <label for="a_quantity">Available Quantity <span>(Enter in Blood Pints) </span> </label>
-                                                    <input class="form-control" type="text" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data[0]['AvailableQuantity'] ?>>
+                                                    <input class="form-control" type="number" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data['Available'] ?>>
                                                 </div>
 
-                                                <input type="submit" value="Update Blood Data" class="btn btn-default" name="add_blood_btn">
+                                                <input type="submit" value="Update Blood Data" class="btn btn-primary" name="add_blood_btn">
                                                 </form>
                                             </div>
                                         </div>

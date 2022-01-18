@@ -24,19 +24,26 @@ class B_officer extends Admin{
         $result_id=$this->model->getBoodId_type($_GET["id"]);
         $this->view->render("bo_viewAddBloodDetails",$result_id);
     }
+    
     public function updateUserBloodRecord(){
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             if (isset($_POST["search_b"])) {
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
-                $result_check=$this->model->checkNICavailability($nic_check);
-                if ($result_check) {
-                    $this->view->render("bo_Update-Donor",array("status"=>$result_check, "nic"=>$nic_check));
-
+                if(strlen($nic_check)!=10){
+                    $_SESSION['ERROR'] = "Invalid NIC";
+                    print_r("Invalid NIC");
+                    
                 }
-                else {
-                    $this->view->render("bo_Register_Donor",$nic_check);
-
+                else{
+                    $result_check=$this->model->checkNICavailability($nic_check);
+                    if($result_check){
+                    $_SESSION['MSG'] = "Previously Registered User";   
+                    $this->view->render("bo_Update-Donor",array("status"=>$result_check, "nic"=>$nic_check));
+                    }
+                    else{
+                        $this->view->render("bo_Register_Donor",$nic_check);
+                    }
                 }
             }
 
@@ -51,9 +58,13 @@ class B_officer extends Admin{
                     "donate_centre"=>$this->testInput($_POST["d_centre" ]),
                 ];
                 $record = $this->model->addDonatingRecord($dataArray,$_GET["nic"]);
-        }
+            }
 
-    }}
+
+    }
+
+
+}
 
  
     

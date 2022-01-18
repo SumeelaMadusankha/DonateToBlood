@@ -13,6 +13,24 @@
     <link href="../Public/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <script type="text/javascript">
+        $( document ).ready(function() {
+        $(".note__close").click(function() {
+          $(this).parent()
+          .animate({ opacity: 0 }, 250, function() {
+            $(this)
+            .animate({ marginBottom: 0 }, 250)
+            .children()
+            .animate({ padding: 0 }, 250)
+            .wrapInner("<div />")
+            .children()
+            .slideUp(250, function() {
+              $(this).closest(".note").remove();
+            });
+          });
+        });
+        });
+    </script>
 </head>
 
 <body>
@@ -49,7 +67,38 @@
                     </div>
 
                 </form>
+
                 <?php
+                    if (isset($_SESSION['ERROR'])) {
+    
+
+                    unset($_SESSION['ERROR']); 
+                
+                    echo "<div class='flag note note--error'>
+                    <div class='flag__image note__icon'>
+                        <i class='fa fa-times'></i>
+                    </div> <div class='flag__body note__text'>
+                    Invalid NIC! 
+                    </div>
+                    <a href='#' class='note__close'>
+                        <i class='fa fa-times'></i>
+                    </a>
+                    </div>";
+                    }elseif (isset($_SESSION['MSG'])) {
+                        unset($_SESSION['MSG']); 
+                        echo "<div class='flag note note--success'
+                        <br>
+                        <br>
+                        
+                        <div class='flag__body note__text'>
+                        <strong style='color:green';
+                        >Previously Registerd User!</strong>
+                        <br>
+                        <br> 
+                        </div>
+                      
+                      </div>";
+                      }
                 if ($data["status"]) {
 
                 ?>
@@ -80,7 +129,7 @@
                                                 <label>Donating Centre</label>
                                                 <input name="d_centre" class="form-control">
                                             </div>
-                                            <input type="submit" class="btn btn-warning" value="Update" name="update_b">
+                                            <input type="submit" class="btn btn-primary" value="Update" name="update_b">
                                             </form>
                                         </div>
                                     </div>

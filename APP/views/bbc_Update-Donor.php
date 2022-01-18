@@ -32,12 +32,6 @@
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
-                    </li>
-                    <li>
-                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
-                    </li>
-                    <li>
                         <a class="active-menu" href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
                     <li>

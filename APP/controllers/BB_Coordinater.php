@@ -47,6 +47,29 @@ class BB_Coordinater extends Admin{
         $result_id=$this->model->getBoodId_type($_GET["id"]);
         $this->view->render("bbc_viewAddBloodDetails",$result_id);
     }
+    public function updateBloodDetails(){
+        if ($_SERVER["REQUEST_METHOD"]=="POST") {
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if (isset($_POST["add_blood_btn"])) {
+               $blood_dataArray=[
+                 "maximum_quantity"=>$this->testInput($_POST["m_quantity" ]),
+                 "available_quantity"=>$this->testInput($_POST["a_quantity" ]),
+                 "Distric"=>$this->testInput("Matara"),
+
+                ];
+               
+            if(strlen($blood_dataArray["maximum_quantity"]) !=0 && strlen($blood_dataArray["available_quantity"]) !=0 ){
+                
+            }
+                $registerResult1=$this->model->update_BloodDetails($blood_dataArray,$_GET["id"]);
+               
+               if (empty($registerResult1)) {
+                   $this->showBloodData();
+               } 
+               
+            }
+        }
+    }
     public function updateUserBloodRecord(){
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
@@ -78,27 +101,7 @@ class BB_Coordinater extends Admin{
 
     }}
 
-    public function updateBloodDetails(){
-        if ($_SERVER["REQUEST_METHOD"]=="POST") {
-            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-            if (isset($_POST["add_blood_btn"])) {
-               $blood_dataArray=[
-                 "maximum_quantity"=>$this->testInput($_POST["m_quantity" ]),
-                 "available_quantity"=>$this->testInput($_POST["a_quantity" ]),
-                 "Distric"=>$this->testInput("Matara"),
-
-                ];
-               
-               
-                $registerResult1=$this->model->update_BloodDetails($blood_dataArray,$_GET["id"]);
-               
-               if (empty($registerResult1)) {
-                   $this->showBloodData();
-               } 
-               
-            }
-        }
-    }
+    
     public function acceptBloodRequest()
     {
         

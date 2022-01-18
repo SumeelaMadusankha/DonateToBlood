@@ -45,15 +45,20 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
+                        
                         <h1 class="page-header">
-                            Register Donor
+                        <span class = "label label-danger"> Not a Registered NIC</span>
+                           <br>
+                           <br>
+                        <span class = "label label-success"> First Register the Donor!</span>
+                           
                         </h1>
                     </div>
                     <div class="row">
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Add a Donor
+                                    Add the Donor
                                 </div>
                                 <div class="panel-body">
                                     <div class="row">
