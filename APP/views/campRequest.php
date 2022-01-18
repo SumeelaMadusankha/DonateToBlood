@@ -144,7 +144,7 @@
 
 
     
-        <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form" enctype="multipart/form-data">
+        <form action="../CampRequest/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
 
 

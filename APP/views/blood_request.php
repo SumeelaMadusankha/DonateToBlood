@@ -141,7 +141,7 @@
 
 
     
-        <form action="../RegisteredUser/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
+        <form action="../BloodRequest/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
 
            <h1 class="topic" >Blood Request Form</h1>
