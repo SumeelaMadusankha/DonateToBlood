@@ -9,7 +9,6 @@ use PHPMailer\PHPMailer\Exception;
 
 class EmailClient
 {
-
       private $addMail;
       private $recieverAddress;
       private $subject;
