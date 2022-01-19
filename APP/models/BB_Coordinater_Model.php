@@ -71,18 +71,20 @@ public function getCampReqest($district)
         $firstName = $dataArray["firstName"];
         $lastName = $dataArray["lastName"];
         $nic = $dataArray["nic"];
+        $password=$dataArray["password"];
         $dob = $dataArray["dob"];
         $address = $dataArray["address"];
         $district = $dataArray["district"];
         $gender = $dataArray["gender"];
-        $bloodGroup = $dataArray["bloodGroup"];
         $email = $dataArray["email"];
         $mobileNo = $dataArray["mobileNo"];
         $jobType = $dataArray["jobType"];
         $city = $dataArray["city"];
 
-        $quary11 = "INSERT INTO user (nic, firstName, LastName, dob, address, district,gender,bloodGroup,email,mobileNo,jobType,city) VALUES (:nic,:firstName,:lastName,:dob,:address,:district,:gender,:bloodGroup, :email,:mobileNo,:jobType,:city)";
+        $quary11 = "INSERT INTO user (nic, firstName, LastName, dob, address, district,gender,email,mobileNo,jobType,city) VALUES (:nic,:firstName,:lastName,:dob,:address,:district,:gender,:email,:mobileNo,:jobType,:city)";
         $quary12="INSERT INTO bloodbankofficer (nic) VALUES (:nic)";
+        $quary13 = "INSERT INTO login (nic, password) VALUES (:nic,:password)";
+
         $arrayInject = [
             ':nic' => $nic,
             ':firstName' => $firstName,
@@ -91,15 +93,17 @@ public function getCampReqest($district)
             ':address' => $address,
             ':district' => $district,
             ':gender' => $gender,
-            ':bloodGroup' => $bloodGroup,
             ':email' => $email,
             ':mobileNo' => $mobileNo,
             ':jobType' => $jobType,
             ':city' => $city
         ];
+        $arrayInject2=[':nic' => $nic,
+            ':password' => $password];
         $results11 = $this->db->runQuery($quary11, $arrayInject);
         $resu = $this->db->runQuery($quary12, [":nic" => $nic]);
-        return ($results11 && $resu);
+        $res=$this->db->runquery($quary13,$arrayInject2);
+        return ($results11 && $resu && $res);
     }
 
 
@@ -108,6 +112,9 @@ public function getCampReqest($district)
         $query2 = "select * from user";
         $results2 = $this->db->selectData($query2);
         return $results2;
+    }
+    public function bbc_viewOfficer_Data(){
+
     }
 
     public function getR_Data()
@@ -137,6 +144,16 @@ public function getCampReqest($district)
     public function checkNICavailability($nic)
     {
         $query7 = 'SELECT * FROM user where nic=:nic';
+        $reslt = $this->db->runQuery($query7, [":nic" => $nic]);
+        if ($reslt) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    public function check_Officer_NICavailability($nic)
+    {
+        $query7 = 'SELECT * FROM bloodbankofficer where nic=:nic';
         $reslt = $this->db->runQuery($query7, [":nic" => $nic]);
         if ($reslt) {
             return true;

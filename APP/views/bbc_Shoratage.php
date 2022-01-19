@@ -51,7 +51,7 @@ if (isset($_SESSION['jobtype'])) {
                         <a class="active-menu" href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     <li>
-                        <a href="viewAddOfficerLayer"><i class="fa fa-desktop"></i> Add Officers</a>
+                        <a href="view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
                     </li>
                     <li>
                         <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
@@ -100,7 +100,9 @@ if (isset($_SESSION['jobtype'])) {
                                                 <td>" . $raw['MaximumQuantity'] . "</td>
                                                 <td>" . $raw['AvailableQuantity'] . "</td>
                                                 <td>
-                                                <a class='anc_button' href='viewAddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
+                                                
+       
+                                                <a class='anc_button' href='../BloodDetailsFly_w_Imp/view_AddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
                                                 </td>
                                                 </tr>";
                                                 }
