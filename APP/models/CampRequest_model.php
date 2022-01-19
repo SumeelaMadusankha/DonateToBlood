@@ -11,6 +11,7 @@ class CampRequest_model extends Model
         $name=$dataArray["name"];
         $email=$dataArray["email"];
         $campDate=$dataArray["campDate"];
+        $time=$dataArray["time"];
         $description=$dataArray["description"];
         $attachment=$dataArray["attachment"];
         $lat=$dataArray["lat"];
@@ -18,19 +19,19 @@ class CampRequest_model extends Model
         $district=$dataArray["district"];
         $address=$dataArray["address"];
         $conNumber=$dataArray["conNumber"];
-        $dateTime=$dataArray["dateTime"];
+        
         $status="pending";
         
         
        
        $queryAdd="INSERT INTO camprequest (name,email, campDate,description, 
-       attachment, lat,lng,district,address,conNumber,dateTime,status) VALUES 
-       (:name,:email,:campDate,:description,:attachment,:lat,:lng,:district,:address,:conNumber,:dateTime,:status)";
+       attachment, lat,lng,district,address,conNumber,status,stratingTime) VALUES 
+       (:name,:email,:date,:description,:attachment,:lat,:lng,:district,:address,:conNumber,:status,:time)";
 
        $arrayInject=[
         ":name"=>$name, ":email"=>$email, ":campDate"=>$campDate, ":attachment"=>$attachment, ":status"=>$status, 
         ":description"=>$description,":lat"=>$lat,":lng"=>$lng,":district"=>$district,":address"=>$address,
-        ":conNumber"=>$conNumber,":dateTime"=>$dateTime];
+        ":conNumber"=>$conNumber,':time'=>$time];
 
         $results1= $this->db->runQuery($queryAdd,$arrayInject);
      

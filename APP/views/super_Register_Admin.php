@@ -1,3 +1,19 @@
+<?php
+
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='superAdmin') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?>
+
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +24,28 @@
     </script>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="../Public/css/super_admin_style.css">
-
+    <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <script type="text/javascript">
+        $( document ).ready(function() {
+        $(".note__close").click(function() {
+          $(this).parent()
+          .animate({ opacity: 0 }, 250, function() {
+            $(this)
+            .animate({ marginBottom: 0 }, 250)
+            .children()
+            .animate({ padding: 0 }, 250)
+            .wrapInner("<div />")
+            .children()
+            .slideUp(250, function() {
+              $(this).closest(".note").remove();
+            });
+          });
+        });
+        });
+    </script>
 </head>
 <body>
     <div id="super_header">
@@ -75,6 +112,66 @@
     </div>
     </div>
     <div class="container">
+    <?php
+    
+      if (isset( $_SESSION['err_nic'])) {
+        
+    
+        unset( $_SESSION['err_nic']); 
+    
+        echo "<div class='flag note note--error'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-times'></i>
+        </div> <div class='flag__body note__text'>
+        This NIC is already registered!
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }elseif (isset($_SESSION['success'] ) ) {
+        unset($_SESSION['success']); 
+        echo "<div class='flag note note--success'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-check-circle'></i>
+        </div>
+        <div class='flag__body note__text'>
+        Blood Bank Cordinator successfully added!. 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }elseif ( isset($_SESSION['err_district'])) {
+        unset( $_SESSION['err_district']); 
+    
+        echo "<div class='flag note note--error'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-times'></i>
+        </div> <div class='flag__body note__text'>
+        This District already have a Blood Bank Cordinator!
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }elseif ( isset($_SESSION['err'])) {
+        unset( $_SESSION['err']); 
+    
+        echo "<div class='flag note note--error'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-times'></i>
+        </div> <div class='flag__body note__text'>
+        NIC or entered passwords are not in standard form!
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }
+      
+        
+         ?>
         <div class="title">Register Admin</div>
         <form role="form" method="POST" action="../superAdmin/addAdmin">
             <div class="user-details">
@@ -109,7 +206,7 @@
                     
 
 
-                    <select name="district" id="district">
+                    <select name="district" id="district" required>
                         <option value="Ampara">Ampara</option>
                         <option value="Anuradhapura">Anuradhapura</option>
                         <option value="Badulla">Badulla</option>
@@ -158,7 +255,7 @@
                 <div class="input-box">
 
                     <span class="details">Email Address</span>
-                    <input type="text" placeholder="Enter your email" name="email" id="email" required>
+                    <input type="email" placeholder="Enter your email" name="email" id="email" required>
                     
                 </div>
                 <div class="input-box">

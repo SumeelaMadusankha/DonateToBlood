@@ -2,7 +2,8 @@
 include_once('Request.php');
 class CampRequest extends Request 
 {
-    private $campDateTime;
+    private $campDate;
+    private $startinTime;
     private $longitude;
     private $lattidude;
     private $address;
@@ -18,11 +19,6 @@ class CampRequest extends Request
         return $this->campDateTime;
     }
 
-
-    public function setCampDateTime($campDateTime)
-    {
-        $this->campDateTime = $campDateTime;
-    }
 
     public function getLongitude()
     {
@@ -82,7 +78,8 @@ class CampRequest extends Request
              "district"=>$this->testInput($_POST["district"]),
              "address"=>$this->testInput($_POST["address"]),
              "conNumber"=>$this->testInput($_POST["num"]),
-             "dateTime"=>$this->testInput($_POST["duedate"]),
+             "date"=>$this->testInput($_POST["duedate"]),
+             "time"=>$this->testInput($_POST['time'])
     
            ];
            $fileTempName=$_FILES["att"]["tmp_name"];

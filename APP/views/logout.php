@@ -1,9 +1,8 @@
 <?php
 if (!isset($_SESSION['nic'])) {
-  die("This page cant be reached");
+  header("Location:../");
 }  
 ?>
-
 
 
 <!DOCTYPE html>

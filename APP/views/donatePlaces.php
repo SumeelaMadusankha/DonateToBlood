@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -453,8 +463,9 @@
            <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> {$row['name']}</p></div>
             <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['conNumber']}</p></p>
             <p class='outer-extra-class'> <b class= 'extra-class'>Email :</b>  <p class='inner-extra-class'> {$row['email']}</p></p>
-            <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['dateTime']}</p></p>
-            <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date and time :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date :</b>  <p class='inner-extra-class'> {$row['campDate']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Stating Time :</b>  <p class='inner-extra-class'> {$row['startingTime']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
             <div class='cls'>Location of the place:</div>
             <div id='mapin{$count}' class='map-class'></div>
            

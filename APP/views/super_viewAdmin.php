@@ -1,3 +1,17 @@
+<?php
+
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='superAdmin') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?>
+
+
 <html lang="en">
 <head>
     

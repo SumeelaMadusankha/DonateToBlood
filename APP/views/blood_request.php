@@ -3,6 +3,15 @@
    header("Location:../");
   }
 ?>
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
 
 <!DOCTYPE html>
 <html lang="en">

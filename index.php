@@ -9,7 +9,7 @@ require 'Core/Database.php';
  
  
 // create the object 
-$route=new Route();
+$route=Route :: getInstance();
 
 
 

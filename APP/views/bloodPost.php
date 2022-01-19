@@ -1,3 +1,14 @@
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -47,7 +58,14 @@
             <label class="logo">DonateToBlood</label>
             <ul>
            
-   
+            <?php
+             
+             if (isset($_SESSION['nic'])) {
+               echo " <li><a  href='../Index/index'>Home</a></li>";
+             }else {
+               echo " <li><a  href='../'>Home</a></li>" ;
+             }
+             ?>
            
                <?php
              
@@ -98,7 +116,7 @@
                  </div>
                  </div>";
                }else {
-                  echo "<li><a href='Login/index'>Login</a></li>";
+                  echo "<li><a href='../Login/index'>Login</a></li>";
                }
                ?>
 

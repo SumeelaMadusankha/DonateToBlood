@@ -181,11 +181,12 @@ public function resetPasswordmethod()
               $_SESSION["jobtype"] = $loginUser["jobtype"];
               $_SESSION["district"] = $loginUser["district"];
               $_SESSION["email"] = $loginUser["email"];
+              
               $_SESSION['msg'] = "success";
              
               switch ($loginUser['jobtype']) {
                 case 'registeredUser':
-                  header("Location:../Index/index");
+                  header("Location:../RegisteredUser/index");
                   exit();
                   break;
                 case 'bloodBankCordinator':
@@ -265,11 +266,11 @@ public function resetPasswordmethod()
   {session_start();
     switch ($_SESSION['jobtype']) {
       case 'registeredUser':
-        header("Location:../../DonateToBlood/Index/index");
+        header("Location:../../DonateToBlood/RegisteredUser/index");
         exit();
         break;
       case 'bloodBankCordinator':
-        header("Location:../../DonateToBlood/BB_Cordinater/index");
+        header("Location:../../DonateToBlood/BB_Coordinater/index");
         exit();
         break;
       case 'superAdmin':

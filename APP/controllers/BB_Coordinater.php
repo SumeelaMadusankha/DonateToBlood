@@ -1,14 +1,24 @@
 <?php
 include_once('Admin.php');
 include_once('EmailClient.php');
-session_start();
+include_once('BloodPost.php');
+include_once('CampPost.php');
 class BB_Coordinater extends Admin{
     private  $cordinatorId;
-
+    private  $post1;
+    private  $post2;
 
     function __construct()
     {
         parent:: __construct();
+        if (isset($_SESSION)) {
+            
+            $this->post1=new BloodPost();
+$this->post2=new CampPost();
+$this->post1->expiredPost($_SESSION['district']);
+$this->post2->expiredPost($_SESSION['district']);
+        }
+
     }
 
     public function getCordinatorId()
@@ -43,12 +53,12 @@ class BB_Coordinater extends Admin{
         $this->view->render("bbc_AddOfficers");
     }
     public function viewBloodRequests(){
-        $request=$this->model->getBloodReqest();
+        $request=$this->model->getBloodReqest($_SESSION['district']);
 
         $this->view->render("bbc_BloodRequests",$request);
     }
     public function viewCampRequests(){
-        $request=$this->model->getCampReqest();
+        $request=$this->model->getCampReqest($_SESSION['district']);
         $this->view->render("bbc_Donation-Camp-Requests",$request);
     }
     

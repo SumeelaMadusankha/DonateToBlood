@@ -19,17 +19,17 @@ class BB_Coordinater_Model extends Model
         $results4 = $this->db->runQuery($quary5, $array_Inject);
         return $results4;
     }
-public function getBloodReqest()
+public function getBloodReqest($district)
 {
-    $query2 = "select * from bloodrequest";
-    $results2 = $this->db->selectData($query2);
+    $query2 = "select * from bloodrequest WHERE district=:district";
+    $results2 = $this->db->runQuery($query2,[':district'=>$district]);
     return $results2;
 
 }
-public function getCampReqest()
+public function getCampReqest($district)
 {
-    $query2 = "select * from camprequest";
-    $results2 = $this->db->selectData($query2);
+    $query2 = "select * from camprequest WHERE district=:district";
+    $results2 = $this->db->runQuery($query2,[':district'=>$district]);
     return $results2;
 
 }

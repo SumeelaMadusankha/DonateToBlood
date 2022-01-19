@@ -3,7 +3,15 @@
    header("Location:../");
   }
 ?>
-
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
 
 
 <!DOCTYPE html>
@@ -246,9 +254,14 @@
 
             
             <div class="field dueDate">
-            <label for="duedate"><b>Date and starting time </b></label><br>
-            <input type="datetime-local" placeholder="Due Date" name="duedate" id="duedate" >
+            <label for="duedate"><b>Date  </b></label><br>
+            <input type="date" placeholder="Due Date" name="duedate" id="duedate" >
             <div class="error error-text"> Due Date can't be blank</div><br>
+            </div>
+            <div class="field time">
+            <label for="duedate"><b>starting time </b></label><br>
+            <input type="time" placeholder="Starting Time" name="time" id="time" >
+            <div class="error error-text"> Starting time can't be blank</div><br>
             </div>
             
 

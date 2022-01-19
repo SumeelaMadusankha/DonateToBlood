@@ -34,7 +34,7 @@ class SuperAdmin_model extends Model{
             ':email'=>$email, 
             ':mobileNo'=>$phoneNo, 
             ':gender'=>$gender,
-            ':jobType'=>'superAdmin'
+            ':jobType'=>'bloodBankCordinator'
        ];
 
        $arrayInjectAdmin=[
@@ -60,7 +60,7 @@ class SuperAdmin_model extends Model{
     public function get_AdminData()
     {
         $query2 = "select * from user WHERE jobType = :superAdmin ";
-        $results2 = $this->db->runQuery($query2,[':superAdmin'=>'superAdmin']);
+        $results2 = $this->db->runQuery($query2,[':superAdmin'=>'bloodBankCordinator']);
         return $results2;
     }
 
@@ -68,7 +68,7 @@ class SuperAdmin_model extends Model{
         $dataArray=[
             ':nic'=>$id,
         ];
-        $sql1 = "DELETE FROM admin WHERE nic=:nic";
+        $sql1 = "DELETE FROM bbcordinator WHERE nic=:nic";
         $sql2 = "DELETE FROM user WHERE nic=:nic";
         $sql3 = "DELETE FROM login WHERE nic=:nic";
         $adminresults1= $this->db->runQuery($sql1,$dataArray);
@@ -84,6 +84,29 @@ class SuperAdmin_model extends Model{
        
         return $results3;
     }
+    public function checkAvailabilityOfNIC($nic)
+    {
+        $query = 'SELECT * FROM user where nic = :nic';
+        $res= $this->db->runQuery($query,[":nic"=>$nic]);
 
+        if (empty($res)) {
+           return true;
+        }else {
+            return false;
+        }
+    }
+
+ public function checkAvailabilityOfBBC($district)
+    {
+       
+        $query= 'SELECT * FROM user where district = :district';
+        $res= $this->db->runQuery($query,[":district"=>$district]);
+
+        if (empty($res)) {
+           return true;
+        }else {
+            return false;
+        }
+    }
 }
 ?>

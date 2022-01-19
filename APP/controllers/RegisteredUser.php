@@ -15,6 +15,15 @@ private $dateOfBirth;
     
   }
 
+  public function index()
+  {
+    if (isset($_SESSION['nic'])) {
+      $this->view->render("index");
+    }else {
+      header("Location:../");
+    }
+     
+  }
     public function setBloodGroup($bloodGroup)
     {
         $this->bloodGroup = $bloodGroup;

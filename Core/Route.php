@@ -2,9 +2,9 @@
 
 class Route{
 
-	protected $_routes=null;  //associative array
-	protected $_params=null;
-    private $rout;
+	private $_routes=null;  //associative array
+	private $_params=null;
+    private static $rout;
     function __construct()
 	{
 		
@@ -22,7 +22,28 @@ class Route{
         }
 	}
 
-    //
+    public static function getInstance()
+    {
+		
+    
+        if (self::$rout == null) {
+		
+            self::$rout = new Route();
+        }
+
+        self::$rout->_getURL();
+		
+        if (file_exists(self::$rout->_routes[0])) {
+            self::$rout->_loadDefaultController();
+            return false;
+        }
+        if (self::$rout->_loadController()) {
+            self::$rout->_loadcontrollermethod();
+        }
+		
+        return self::$rout;
+    }
+
     protected function _getURL(){
 		
 		//get url path and assign into $url
@@ -51,7 +72,7 @@ class Route{
 			return true;
 		}
 		else{
-			//if not have controller load error 
+		
 			
 			return false;
 		}

@@ -6,6 +6,14 @@ if (isset($_SESSION) && empty($_SESSION)) {
  unset($_SESSION);
  session_destroy();
 }
+
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -119,10 +127,7 @@ if (isset($_SESSION) && empty($_SESSION)) {
    </head>
    <!-- body -->
    <body class="main-layout">
-     
-     
       <header>
-         
          <nav>
             <input type="checkbox" id="check-1">
             <label for="check-1" class="checkbtn">
@@ -216,7 +221,7 @@ if (isset($_SESSION) && empty($_SESSION)) {
                      <!-- first slide -->
                      <div class="carousel-item active">
                         <div class="carousel-caption cuplle">
-                           
+                          
                         
                            <div class="container">
                               <div class="row">
@@ -225,6 +230,8 @@ if (isset($_SESSION) && empty($_SESSION)) {
                                        <h1>DONATE TO<br>BLOOD</h1>
                                       
                                        
+
+
                                     </div>
                                    
                                  </div>
@@ -292,11 +299,10 @@ if (isset($_SESSION) && empty($_SESSION)) {
                               <div class="row">
                                  <div class="col-md-8">
                                    <div class="photog">
-<<<<<<< HEAD
+
                                        <h1>Find everything about<br>donating blood</h1>
-=======
-                                       <h1>Care early<br>Coronavirus</h1>
->>>>>>> master
+
+
                                     </div>
                                    
                                  </div>

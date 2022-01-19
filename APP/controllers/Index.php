@@ -16,7 +16,7 @@ class Index extends Controller{
        
     }
     function secondIndex(){
-        $this->view->render('reg_user_index');
+        $this->view->render('index');
     }
 }
 
