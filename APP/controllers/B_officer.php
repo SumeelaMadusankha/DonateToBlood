@@ -1,10 +1,28 @@
 <?php
 include_once('Admin.php');
+session_start();
 class B_officer extends Admin{
+    private $officerId;
+
+
     function __construct()
     {
         parent:: __construct();
     }
+
+    public function getOfficerId()
+    {
+        return $this->officerId;
+    }
+
+    public function setOfficerId($officerId)
+    {
+        $this->officerId = $officerId;
+    }
+
+
+
+
     public function index()
     {
        $this->view->render("bo_index");

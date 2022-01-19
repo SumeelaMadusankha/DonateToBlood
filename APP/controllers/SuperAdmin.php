@@ -1,5 +1,6 @@
 <?php
 include_once('Admin.php');
+session_start();
 class SuperAdmin extends Admin
 
 {
@@ -12,7 +13,9 @@ class SuperAdmin extends Admin
 
 public function index()
 {
-    $this->view->render("super_index");
+    
+    $blooddetails = $this->model-> get_Blooddetails('Matara');
+    $this->view->render("super_index",$blooddetails);
 }
 public function RegisterFormLoad()
 {
@@ -44,7 +47,10 @@ public function addAdmin(){
             
            ];
            
-
+if ($this->model->checkAvailabilityOfNIC($dataArray["nic"])) {
+   if ($this->model->checkAvailabilityOfBBC($dataArray["district"])) {
+       # code...
+   
            if ((strlen($dataArray["nic"])==10  || strlen($dataArray["nic"])==12) && (filter_var($dataArray["email"],FILTER_VALIDATE_EMAIL) && (($dataArray["password"])==$dataArray["confirm"]))) {
              $hashed_password = password_hash($dataArray["password"], PASSWORD_DEFAULT);
              
@@ -55,21 +61,26 @@ public function addAdmin(){
             
              
              if (empty($registerResult)) {
-                $this->view->render("super_Register_Admin");
+                $_SESSION['success']='success';
+                header("Location:http://localhost/DonateToBlood/SuperAdmin/RegisterFormLoad ");
               }
+
+           }else {
+            $_SESSION['err']='Already have cordinator';
+            header("Location:http://localhost/DonateToBlood/SuperAdmin/RegisterFormLoad ");
            }
           
+        }else {
+            $_SESSION['err_district']='Already have cordinator';
+            header("Location:http://localhost/DonateToBlood/SuperAdmin/RegisterFormLoad ");
         }
+    }else {
+        $_SESSION['err_nic']='Already registered';
+        header("Location:http://localhost/DonateToBlood/SuperAdmin/RegisterFormLoad ");
     }
-
-
-
 }
-
-        
-
-
-
+}
+}
 
 public function viewAdminData()
     {
@@ -78,6 +89,9 @@ public function viewAdminData()
         if(!empty($registerResult1)){
             $this->view->render("super_viewAdmin",$registerResult1);
         
+        }else{
+            $this->view->render("super_viewAdmin");
+
         }
     }
 
@@ -91,6 +105,17 @@ public function viewAdminData()
            
         $this->viewAdminData();
     }
+    }
+
+    public function displayBlood(){
+
+        if (isset($_POST["sbmt_btn"])){
+            
+            $district=$this->testInput($_POST["district"]);
+            $bloodquantity = $this->model->get_Blooddetails($district);
+            $this->view->render("super_index",$bloodquantity);
+        }
+
     }
 
 

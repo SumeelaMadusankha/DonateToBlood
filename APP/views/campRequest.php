@@ -1,3 +1,19 @@
+<?php
+  if (!isset($_SESSION['nic'])) {
+   header("Location:../");
+  }
+?>
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,6 +24,13 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>User_Reg</title>
     
+    <!-- <link rel="stylesheet" href="css/responsive.css">
+      fevicon
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      fonts-->
+      <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      Scrollbar Custom CSS -->
      
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
@@ -18,8 +41,8 @@
       <link rel="stylesheet" href="../Public/css/hd.css">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
-      <!-- <script src="../Public/js/user_reg.js"></script> -->
-    
+      <script src="../Public/js/user_reg.js"></script>
+
 
      
 
@@ -58,13 +81,13 @@
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToBlood</label>
+            <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a  href="../Login/index">Home</a></li>
+            <li><a  href="../Index/index">Home</a></li>
                <?php
-              
+             
                if (isset($_SESSION['nic'])) {
-                 echo "<li><a href='../RegisteredUser/loadCampRequestForm' class='active'>Request Camp</a></li>";
+                 echo "<li><a class='active' href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
                }else {
                   
                }
@@ -72,7 +95,7 @@
                <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
+                echo " <li><a  href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
               }else {
                  
               }
@@ -80,32 +103,42 @@
               <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                 echo " <li><a href=' UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
               }
               ?>
-               <?php
+
+<?php
               
               if (isset($_SESSION['nic'])) {
-                ?>
-                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
-
-
-              <?php }else {?>
-                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
-                 <?php
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }
               ?>
               
-               <?php
+
+                <?php
               
                if (isset($_SESSION['nic'])) {
-                 echo " <li><a href='../Login/logout'>Logout</a></li>";
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
                }else {
-                  echo " <li><a href='../Login/index'>Login</a></li>";
+                  echo "<li><a href='Login/index'>Login</a></li>";
                }
                ?>
+
+       
             </ul>
          </nav>
          
@@ -119,9 +152,13 @@
 
 
     
-        <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form">
+        <form action="../CampRequest/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
+
+
+           
            <h1 class="topic" style="font-weight: bolder;">Camp Request</h1>
+
            <?php
            
            
@@ -175,8 +212,8 @@
 
             <div class="field address"> 
             <label for="address"><b>Location Address</b></label><br>
-            <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea>
-            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <!-- <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea> -->
+            <input type="text" placeholder="Address" name="address" id="address" >
             <div class="error error-text"> Address can't be blank</div><br>
           
             </div>
@@ -189,7 +226,7 @@
                     <option value="colombo">Colombo</option>
                 </select><br>
             <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
-            <div class="error error-text"> Address can't be blank</div><br>
+            
           
             </div>
             <div class="field mobNum">
@@ -198,16 +235,12 @@
             <div class="error error-text"> Mobile Number can't be blank</div><br>
             </div>
 
-            <div class="field email">
-            <label for="num"><b>Email</b></label><br>
-            <input type="email" placeholder="Email" name="email" id="email" >
-            <div class="error error-text"> Email can't be blank</div><br>
-            </div>
+            
 
             <div class="field description"> 
             <label for="description"><b>Description</b></label><br>
-            <textarea name="description" id="description" cols="50" rows="3" placeholder="Description regarding the request"></textarea>
-            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <!-- <textarea name="description" id="description" cols="50" rows="3" placeholder="Description regarding the request"></textarea> -->
+            <input type="text" placeholder="Description" name="description" id="description" >
             <div class="error error-text"> Description can't be blank</div><br>
           
             </div>
@@ -221,9 +254,14 @@
 
             
             <div class="field dueDate">
-            <label for="duedate"><b>Date and starting time </b></label><br>
-            <input type="datetime-local" placeholder="Due Date" name="duedate" id="duedate" >
+            <label for="duedate"><b>Date  </b></label><br>
+            <input type="date" placeholder="Due Date" name="duedate" id="duedate" >
             <div class="error error-text"> Due Date can't be blank</div><br>
+            </div>
+            <div class="field time">
+            <label for="duedate"><b>starting time </b></label><br>
+            <input type="time" placeholder="Starting Time" name="time" id="time" >
+            <div class="error error-text"> Starting time can't be blank</div><br>
             </div>
             
 
@@ -283,27 +321,11 @@
 
 
 </div>
+    
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return    submitRequestForm() && dateVal() ">
+        <!-- &&  dateVal()  -->
+        <!-- ( submitRequestForm()) -->
 
-
-
-
-
-          
-         
-     
-
-
-         
-        
-
-
-
-
-
-
-       
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="true">
-        <!-- <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return submitRequestForm()"> -->
        
         
         
@@ -317,7 +339,7 @@
 
   </div>
   </div>
-  <script src="../Public/js/blood_request_val.js"></script>
+  <script src="../Public/js/camp_request_val.js"></script>
         <script src="../Public/js/jquery.min.js"></script>
         <script src="../Public/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>

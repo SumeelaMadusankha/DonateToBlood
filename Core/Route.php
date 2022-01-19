@@ -1,27 +1,37 @@
 <?php
+
 class Route{
 
-	protected $_routes=null;  //associative array
-	protected $_params=null;
-    
+	private $_routes=null;  //associative array
+	private $_params=null;
+    private static $rout;
     function __construct()
 	{
 		
-		//call the _getURL()  
-		$this->_getURL();
-		// if check router path only have  $_routes[0]
-		if(file_exists($this->_routes[0])){
-            //call _loadDefaultController()
-			$this->_loadDefaultController();
-            return exit;
-        }
-		
-		if($this->_loadController()){
-            $this->_loadcontrollermethod();
-        }
 	}
 
-    //
+    public static function getInstance()
+    {
+		
+    
+        if (self::$rout == null) {
+		
+            self::$rout = new Route();
+        }
+
+        self::$rout->_getURL();
+		
+        if (file_exists(self::$rout->_routes[0])) {
+            self::$rout->_loadDefaultController();
+            return false;
+        }
+        if (self::$rout->_loadController()) {
+            self::$rout->_loadcontrollermethod();
+        }
+		
+        return self::$rout;
+    }
+
     protected function _getURL(){
 		
 		//get url path and assign into $url
@@ -50,7 +60,7 @@ class Route{
 			return true;
 		}
 		else{
-			//if not have controller load error 
+		
 			
 			return false;
 		}
@@ -63,8 +73,14 @@ class Route{
 		// Create the object
 		$this->_params = new Index();
 		// Call thw function
-		
-        $this->_params->index();
+		if (!isset($_SESSION['nic'])) {
+			// unset($_SESSION);
+			$this->_params->index();
+		}else {
+			header("Location:../../DonateToBlood/Login/mustLogout");
+			
+		}
+        
 	}
     //Create the loadcontrllermethod function loading method one by one 
 	private function _loadcontrollermethod(){
@@ -96,7 +112,13 @@ class Route{
 			   break;
 			  default:
 			   //call index function in controller
-			   $this->_params->index();
+			   if (isset($_SESSION['nic'])) {
+				header("Location:../../DonateToBlood/Login/mustLogout");
+				
+			}else {
+				$this->_params->index();
+				
+			}
 			   break;
 		}
 	 }
