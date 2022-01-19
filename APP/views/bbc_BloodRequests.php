@@ -99,7 +99,7 @@ if (isset($_SESSION['jobtype'])) {
                                    $stat=" <a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
                                    <a href='declienBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
 
-                                   $btn="<a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   $btn="<a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}&district={$row['district']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
                                    <a href='declienBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
                                    
                                    

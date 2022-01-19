@@ -1,20 +1,45 @@
 <?php
 include_once('User.php');
 include_once('BloodPost.php');
-
+include_once('Observer.php');
 include_once('CampPost.php');
-
-class RegisteredUser extends User 
+include_once('EmailClient.php');
+class RegisteredUser extends User implements Observer
 {
 private $city;
 private $bloodGroup;
 private $dateOfBirth;
+private $subject;
+private $body;
+private $mailClient;
   function __construct()
   {
     parent::__construct(); 
-    
+    $this->mailClient=EmailClient::getInstance();
   }
 
+
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+    }
+
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+
+    public function setBody($body)
+    {
+        $this->body = $body;
+    }
   public function index()
   {
     if (isset($_SESSION['nic'])) {
@@ -162,9 +187,14 @@ public function donationHistoryLoad(){
     }
 
 
+    public function handle()
+    {
 
-
-
+      $this->mailClient->setRecieverAddress($this->getEmail());
+      $this->mailClient->setSubject($this->getSubject());
+      $this->mailClient->setMessageBody($this->getBody());
+      $this->mailClient->sendMail();
+    }
 }
 
 
