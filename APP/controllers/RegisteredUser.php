@@ -43,7 +43,7 @@ private $mailClient;
   public function index()
   {
     if (isset($_SESSION['nic'])) {
-      $this->view->render("index");
+      $this->view->render('index');
     }else {
       header("Location:../");
     }

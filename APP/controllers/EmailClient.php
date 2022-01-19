@@ -85,11 +85,13 @@ class EmailClient
     }
       public function sendMail()
       {
+         
             $this->addMail->addAddress($this->recieverAddress);
             $this->addMail->Subject=$this->subject;
             $this->addMail->Body = $this->messageBody;
+           
             if ($this->addMail->Send()) {
-                  
+              
             }else {
                    echo "Failed";
             }

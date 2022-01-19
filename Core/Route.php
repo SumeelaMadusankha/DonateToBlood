@@ -8,18 +8,6 @@ class Route{
     function __construct()
 	{
 		
-		//call the _getURL()  
-		$this->_getURL();
-		// if check router path only have  $_routes[0]
-		if(file_exists($this->_routes[0])){
-            //call _loadDefaultController()
-			$this->_loadDefaultController();
-            return exit;
-        }
-		
-		if($this->_loadController()){
-            $this->_loadcontrollermethod();
-        }
 	}
 
     public static function getInstance()

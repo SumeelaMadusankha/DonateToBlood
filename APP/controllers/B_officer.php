@@ -1,5 +1,6 @@
 <?php
 include_once('Admin.php');
+session_start();
 class B_officer extends Admin{
     private $officerId;
 
