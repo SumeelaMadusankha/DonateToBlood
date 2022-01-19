@@ -1,9 +1,26 @@
+<?php
+if (!isset($_SESSION['nic'])) {
+    header("Location:http://localhost/DonateToBlood/Login/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='superAdmin') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?>
+
+
+
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>Landing Page</title>
     
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    <!-- <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css"> -->
     <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
     <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">

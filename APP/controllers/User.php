@@ -1,7 +1,7 @@
 <?php
 include_once("Person.php");
 include_once("BloodPost.php");
-session_start();
+
 abstract class User extends Person{
 
 

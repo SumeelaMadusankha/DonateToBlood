@@ -1,6 +1,6 @@
 <?php
 session_start();
-class Request extends Controller 
+abstract class Request extends Controller 
 {
     private $requestId;
     private $requestedId;
@@ -104,6 +104,10 @@ class Request extends Controller
     {
         $this->acceptedNic = $acceptedNic;
     }
+
+
+    
+    abstract public function  addRequest();
 }
 
 ?>

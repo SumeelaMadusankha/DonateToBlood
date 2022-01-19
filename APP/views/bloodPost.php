@@ -1,3 +1,14 @@
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +21,7 @@
     <!-- Responsive-->
     <link rel="stylesheet" href="../Public/css/responsive.css">
     <!-- fevicon -->
-
+    
     <!-- fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -18,8 +29,13 @@
     
     <link rel="stylesheet" href="../Public/css/hd.css">
    
+    <link rel="stylesheet" href="../Public/css/places.css">
     <link rel="stylesheet" href="../Public/css/whereToDonate.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <!-- ---------------------------------------- -->
  
     
@@ -41,11 +57,20 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a  href="../Index/secondIndex">Home</a></li>
+           
+            <?php
+             
+             if (isset($_SESSION['nic'])) {
+               echo " <li><a  href='../Index/index'>Home</a></li>";
+             }else {
+               echo " <li><a  href='../'>Home</a></li>" ;
+             }
+             ?>
+           
                <?php
-              
+             
                if (isset($_SESSION['nic'])) {
-                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+                 echo "<li><a  href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
                }else {
                   
                }
@@ -53,7 +78,7 @@
                <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/loadBRForm'>Request Blood</a></li>";
+                echo " <li><a  href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
               }else {
                  
               }
@@ -63,46 +88,46 @@
               if (isset($_SESSION['nic'])) {
                 echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../ UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
+                 echo " <li><a href=' loadCampPost'>Where to Donate</a></li>";
               }
               ?>
-               <?php
+
+<?php
               
               if (isset($_SESSION['nic'])) {
-                ?>
-                <li><a href='../RegisteredUser/loadBloodPost' class="active">Blood adverticement</a></li>
-
-
-              <?php }else {?>
-                 <li><a href='../UnregisteredUser/loadBloodPost' class="active" >Blood adverticement</a></li>
-                 <?php
-              }
-              ?>
-              
-              <?php
-              
-              if (isset($_SESSION['nic'])) {
-                
-                echo " <div class='dropdown'>
-             
-                <i class='fas fa-bars' style='color:white;font-size:20px'></i>
-                <div class='dropdown-content'>
-                   <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
-                   <a href='../'><b> HISTORY</b> </a>
-                   <a href='logout'><b>LOGOUT</b> </a>
-                </div>
-                </div>";
+                echo " <li><a class='active' href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }else {
-                 echo "<li><a href='index'>Login</a></li>";
+                 echo " <li><a class='active' href=' loadBloodPost'>Blood adverticement</a></li>";
               }
               ?>
+
+                <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
+               }else {
+                  echo "<li><a href='../Login/index'>Login</a></li>";
+               }
+               ?>
+
+             
             </ul>
          </nav>
          
       </header>
       <div class="body">
   <div class="container outer-request" >
-    <div class="filter-mod1">
+    <div class="filter-mod">
       
       <form action="filterBloodPost" method="POST">
       <div class="row ">

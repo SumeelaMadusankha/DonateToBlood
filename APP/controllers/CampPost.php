@@ -55,6 +55,14 @@ class CampPost extends Post
         $resultarr=$this->model->filterCampPost($dataArray);
       
         $this->view->render("donatePlaces",$resultarr);
+        exit();
+    }
+    public function expiredPost($district){
+        $date=date("Y-m-d");
+        $this->loadModel('CampPost');
+        $resultarr=$this->model-> expieredCampPost($date,$district);
+
+        
     }
 }
 

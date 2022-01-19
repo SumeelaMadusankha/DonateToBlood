@@ -8,10 +8,15 @@ class Index extends Controller{
     }
 
     function index(){
-        $this->view->render('index');
+        if (isset($_SESSION['nic'])) {
+            $this->view->render('index');
+        }else {
+            $this->view->render('index');
+        }
+       
     }
     function secondIndex(){
-        $this->view->render('reg_user_index');
+        $this->view->render('index');
     }
 }
 

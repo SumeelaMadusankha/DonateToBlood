@@ -7,21 +7,17 @@ use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
 
-class EmailClient extends Controller 
+class EmailClient
 {
 
       private $addMail;
       private $recieverAddress;
       private $subject;
       private $messageBody;
-      
-      function __construct($recieverAddress,$subject,$messageBody)
+      private static $mailClient;
+      private function __construct()
       {
-          parent:: __construct();
-          $this->recieverAddress=$recieverAddress;
-          $this->subject=$subject;
-          $this->messageBody=$messageBody;
-          
+
           $this->addMail= new PHPMailer(true);
           $this->addMail->SMTPOptions = array(
             'ssl' => array(
@@ -44,7 +40,50 @@ class EmailClient extends Controller
             
 
       }
+    public static function getInstance()
+    {
+        if (self::$mailClient == null) {
+            self::$mailClient= new EmailClient();
+        }
+        return self::$mailClient;
 
+    }
+
+
+
+    public function getRecieverAddress()
+    {
+        return $this->recieverAddress;
+    }
+
+
+    public function setRecieverAddress($recieverAddress)
+    {
+        $this->recieverAddress = $recieverAddress;
+    }
+
+
+    public function getSubject()
+    {
+        return $this->subject;
+    }
+
+
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+    }
+
+    public function getMessageBody()
+    {
+        return $this->messageBody;
+    }
+
+
+    public function setMessageBody($messageBody)
+    {
+        $this->messageBody = $messageBody;
+    }
       public function sendMail()
       {
             $this->addMail->addAddress($this->recieverAddress);

@@ -1,14 +1,30 @@
 <?php
 include_once('Admin.php');
 include_once('EmailClient.php');
-session_start();
+include_once('BloodPost.php');
+include_once('CampPost.php');
+include_once('NotifyUsers.php');
+include_once('RegisteredUser.php');
+
 class BB_Coordinater extends Admin{
     private  $cordinatorId;
-
-
+    private  $post1;
+    private  $post2;
+    private $mail;
+    private $notifyUser;
     function __construct()
     {
         parent:: __construct();
+        $this->mail=EmailClient::getInstance();
+        $this->notifyUser=new NotifyUser();
+        if (isset($_SESSION)) {
+            
+            $this->post1=new BloodPost();
+$this->post2=new CampPost();
+$this->post1->expiredPost($_SESSION['district']);
+$this->post2->expiredPost($_SESSION['district']);
+        }
+
     }
 
     public function getCordinatorId()
@@ -43,12 +59,12 @@ class BB_Coordinater extends Admin{
         $this->view->render("bbc_AddOfficers");
     }
     public function viewBloodRequests(){
-        $request=$this->model->getBloodReqest();
+        $request=$this->model->getBloodReqest($_SESSION['district']);
 
         $this->view->render("bbc_BloodRequests",$request);
     }
     public function viewCampRequests(){
-        $request=$this->model->getCampReqest();
+        $request=$this->model->getCampReqest($_SESSION['district']);
         $this->view->render("bbc_Donation-Camp-Requests",$request);
     }
     
@@ -127,11 +143,13 @@ class BB_Coordinater extends Admin{
         $res=$this->model->acceptCampRequestModel($id);
         $subject="Your Blood request has been accepted";
         $body= "<p>Dear {$name['firstName']} {$name['lastName']},<br> Your request has been accepted and Posted on our site.You also can see it</p>";
-        $mail = new EmailClient($name['email'],$subject,$body);
-        $mail->sendMail();
         $res=$this->model->acceptBloodRequestModel($id);
         if (empty($res)) {
-            $this->viewBloodRequests();
+            $this->mail->setRecieverAddress($name['email']);
+            $this->mail->setSubject($subject);
+            $this->mail->setMessageBody($body);
+            $this->mail->sendMail();
+           header("Location:http:../BB_Coordinater/viewBloodRequests");
         }
 
     }
@@ -145,8 +163,11 @@ class BB_Coordinater extends Admin{
         
         $subject="Your Blood request has been declined";
         $body= "<p>Dear {$name['firstName']} {$name['lastName']},<br> Your Blood request has been declined Because of details you have submited not sufficient.Pleace fill and submit form again with the correct details</p>";
-        $mail = new EmailClient($name['email'],$subject,$body);
-        $mail->sendMail();
+        // $mail = new EmailClient($name['email'],$subject,$body);
+        $this->mail->setRecieverAddress($name['email']);
+        $this->mail->setSubject($subject);
+        $this->mail->setMessageBody($body);
+        $this->mail->sendMail();
         $res=$this->model->declienBloodRequestModel($id);
         if (empty($res)) {
             $_SESSION["decline"]="decline";
@@ -259,20 +280,34 @@ class BB_Coordinater extends Admin{
      
         $id=$this->testInput($_GET['id']);
         $nic=$this->testInput($_GET['nic']);
+        $district=$this->testInput($_GET['district']);
         $name=$this->model->getUserName($nic)[0];
         
         $res=$this->model->acceptCampRequestModel($id);
-       
+        $campdetails=$this->model->getcampDetails($id)[0];
         $body= "<p>Dear {$name['firstName']} {$name['lastName']},<br> Your request has been accepted and Posted on our site.You also can see it</p>";
         
        
         if (empty($res)) {
-            $mail = new EmailClient($name['email'],"Your camp request has been accepted",$body);
-            
-            $mail->sendMail();
-            $this->viewCampRequests();
+            $users=$this->model->getUsers($district);
+            foreach ($users as $user) {
+               $reguser= new RegisteredUser();
+               $reguser->setFirstName($user['firstName']);
+               $reguser->setLastName($user['lastName']);
+               $reguser->setEmail($user['email']);
+               $reguser->setSubject("Camp Acknowledgment");
+               $reguser->setBody("<p>Dear {$reguser->getLastName()} {$reguser->getLastName()},<br> There will be a blood donation camp on {$campdetails['campDate']} at the place that mentioned below . You can visit our site and get more details about it<br>ADDRESS:<br>          {$campdetails['address']}</p><br>Thank You");
+               $this->notifyUser->attach($reguser);
+            }
+           
+            $this->notifyUser->fire();
+            $subject="Your camp request has been accepted";
+            $this->mail->setRecieverAddress($name['email']);
+            $this->mail->setSubject($subject);
+            $this->mail->setMessageBody($body);
+            $this->mail->sendMail();
+            header("Location:http:../BB_Coordinater/viewCampRequests"); 
         }
-
     }
     public function declienCampRequest()
     {
@@ -283,9 +318,12 @@ class BB_Coordinater extends Admin{
         $body= "<p>Dear {$name['firstName']} {$name['lastName']},<br> Your camp request has been declined Because of details you have submited not sufficient.Pleace fill and submit form again with the correct details</p>";
         $res=$this->model->declienCampRequestModel($id);
         if (empty($res)) {
-            $mail = new EmailClient($name['email'],"Your camp request has been declined",$body);
+            $subject="Your camp request has been declined";
+            $this->mail->setRecieverAddress($name['email']);
+            $this->mail->setSubject($subject);
+            $this->mail->setMessageBody($body);
+            $this->mail->sendMail();
             
-            $mail->sendMail();
             $_SESSION["decline"]="decline";
            $this->viewCampRequests();
         }
@@ -294,8 +332,7 @@ class BB_Coordinater extends Admin{
     {
         $id=$this->testInput($_GET['id']);
         $res=$this->model->cancelCampRequestModel($id);
-        if (empty($res)) {
-            
+        if (empty($res)) { 
            $this->viewCampRequests();
         }
     }

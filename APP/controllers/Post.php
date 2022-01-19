@@ -53,7 +53,7 @@ private $acceptedNic;
     }
 abstract public function Loadpostpage();
 abstract public function filterPost($dataArray);
-
+abstract public function expiredPost($district);
 
 }
 

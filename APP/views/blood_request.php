@@ -1,3 +1,18 @@
+<?php
+  if (!isset($_SESSION['nic'])) {
+   header("Location:../");
+  }
+?>
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -67,11 +82,11 @@
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a  href="../Login/index">Home</a></li>
+            <li><a  href="../Index/index">Home</a></li>
                <?php
-              
+             
                if (isset($_SESSION['nic'])) {
-                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+                 echo "<li><a  href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
                }else {
                   
                }
@@ -79,7 +94,7 @@
                <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/loadBRForm' class='active'>Request Blood</a></li>";
+                echo " <li><a  class='active' href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
               }else {
                  
               }
@@ -87,41 +102,41 @@
               <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                 echo " <li><a href=' UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
               }
               ?>
-               <?php
+
+<?php
               
               if (isset($_SESSION['nic'])) {
-                ?>
-                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
-
-
-              <?php }else {?>
-                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
-                 <?php
-              }
-              ?>
-              
-              <?php
-              
-              if (isset($_SESSION['nic'])) {
-                
-                echo " <div class='dropdown'>
-             
-                <i class='fas fa-bars' style='color:white;font-size:20px'></i>
-                <div class='dropdown-content'>
-                   <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
-                   <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
-                   <a href='logout'><b>LOGOUT</b> </a>
-                </div>
-                </div>";
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }else {
-                 echo "<li><a href='index'>Login</a></li>";
+                 echo " <li><a href=' UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }
               ?>
+              
+
+                <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
+               }else {
+                  echo "<li><a href='Login/index'>Login</a></li>";
+               }
+               ?>
+
             </ul>
          </nav>
          
@@ -135,7 +150,7 @@
 
 
     
-        <form action="../RegisteredUser/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
+        <form action="../BloodRequest/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
 
            <h1 class="topic" >Blood Request Form</h1>

@@ -1,3 +1,18 @@
+<?php
+if (!isset($_SESSION['nic'])) {
+    header("Location:http://localhost/DonateToBlood/Login/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='bloodBankCordinator') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -17,7 +32,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
 
 
-    <link rel="stylesheet" href="../Public/css/whereToDonate.css">
+    <link rel="stylesheet" href="../Public/css/whereto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
 </head>
@@ -79,16 +94,16 @@
                              
                                 if ($row['status']=="pending") {
                                     $rs=" <td><span class='label label-primary' style='font-size: 18px;display:block'>Pending</span></td>";
-                                   $stat=" <a href='acceptCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Decline</a>";
+                                   $stat=" <a href='acceptCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}&district={$row['district']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}&district={$row['district']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
 
-                                   $btn="<a href='acceptCampRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'>Accept</a>
-                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Decline</a>";
+                                   $btn="<a href='acceptCampRequest?id={$row['requestId']}&nic={$row['nic']}&district={$row['district']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   <a href='declienCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
                                    
                                    
                                 }elseif($row['status']=="accepted"){
-                                    $stat="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Cancel</a>";
-                                    $btn="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}' id='modal-closed{$count}'>Cancel</a>
+                                    $stat="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}&district={$row['district']}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>CANCEL</button></a>";
+                                    $btn="<a href='cancelCampRequest?id={$row['requestId']}&nic={$_SESSION['nic']}&district={$row['district']}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>CANCEL</button></a>
                                     ";
                                     $rs=" <td><span class='label label-success' style='font-size: 18px;display:block'>Success</span></td>";
                                 }
@@ -125,7 +140,7 @@
                                 <td>{$row['campDate']}</td>
                                 <td>
                                 {$stat}
-                                <a href='#modal-opened{$count}' id='modal-closed{$count}'>view</a>
+                                <a href='#modal-opened{$count}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>VIEW</button></a>
                                 </td>                     
                                {$rs}
                              </tr>
@@ -152,7 +167,7 @@
                    <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> {$row['name']}</p></div>
                     <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['conNumber']}</p></p>
                     <p class='outer-extra-class'> <b class= 'extra-class'>Email :</b>  <p class='inner-extra-class'> {$row['email']}</p></p>
-                    <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['dateTime']}</p></p>
+                    <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['campDate']}</p></p>
                     <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date and time :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
                     <div class='cls'>Location of the place:</div>
                     <div id='map{$count}' class='map-class'></div>

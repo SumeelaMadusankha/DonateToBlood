@@ -19,17 +19,17 @@ class BB_Coordinater_Model extends Model
         $results4 = $this->db->runQuery($quary5, $array_Inject);
         return $results4;
     }
-public function getBloodReqest()
+public function getBloodReqest($district)
 {
-    $query2 = "select * from bloodrequest";
-    $results2 = $this->db->selectData($query2);
+    $query2 = "select * from bloodrequest WHERE district=:district AND expired=:expired ORDER BY duedate ASC";
+    $results2 = $this->db->runQuery($query2,[':district'=>$district,":expired"=>"NO"]);
     return $results2;
 
 }
-public function getCampReqest()
+public function getCampReqest($district)
 {
-    $query2 = "select * from camprequest";
-    $results2 = $this->db->selectData($query2);
+    $query2 = "select * from camprequest WHERE district=:district AND expired=:expired ORDER BY campDate ASC";
+    $results2 = $this->db->runQuery($query2,[':district'=>$district,":expired"=>"NO"]);
     return $results2;
 
 }
@@ -112,8 +112,8 @@ public function getCampReqest()
 
     public function getR_Data()
     {
-        $query3 = "select * from bloodrequest";
-        $results3 = $this->db->selectData($query3);
+        $query3 = "select * from bloodrequest WHERE expired=:expired ORDER BY duedate ASC";
+        $results3 = $this->db->runquery($query3,[":expired"=>"NO"]);
         return $results3;
     }
     public function getBloodData()
@@ -179,9 +179,9 @@ public function getCampReqest()
     public function acceptBloodRequestModel($id)
     {
         $dt = new DateTime();
-     
-        $query = "UPDATE bloodrequest SET status = :status, acceptednic = :nic,acceptedtime = :time  WHERE requestId = :id";
-        $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic'],":time"=>$dt->getTimestamp()]);
+    //  print_r($_SESSION['nic']);
+        $query = "UPDATE bloodrequest SET status = :status, acceptednic = :nic WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic']]);
         return $res;
     }
     
@@ -203,12 +203,22 @@ public function getCampReqest()
     {
         $dt = new DateTime();
        
-        $query = "UPDATE camprequest SET status = :status, acceptednic = :nic,acceptedtime = :time  WHERE requestId = :id";
-        $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic'],":time"=>$dt->getTimestamp()]);
+        $query = "UPDATE camprequest SET status = :status, acceptednic = :nic  WHERE requestId = :id";
+        $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic']]);
         return $res;
     }
     
+public function getUsers($district)
+{
+    $query = 'SELECT * FROM user where  district= :district AND jobType=:jobtype';
+    $res = $this->db->runQuery($query, [":district" => $district,":jobtype"=>"registeredUser"]);
+    return $res;
+}
 
-
-
+public function getcampDetails($id)
+{
+    $query = 'SELECT * FROM camprequest where  requestId= :id';
+    $res = $this->db->runQuery($query, [":id" => $id]);
+    return $res;
+}
 }

@@ -1,36 +1,35 @@
-
-  nav{
+nav {
     margin-top: 0%;
     padding-top: 10px;
     z-index: 999;
     position: fixed;
-    background:linear-gradient(#250104,#e20505) !important;
+    background: linear-gradient(#250104, #e20505) !important;
     height: 100px;
     width: 100%;
-  }
-  label.logo{
+}
+
+label.logo {
     color: white;
     font-size: 38px;
     line-height: 80px;
     padding: 0 50px;
     font-weight: bold;
     font-family: 'Kaushan Script', cursive;
-  }
-  nav .reg-user-drop{
+}
 
-  }
-  nav ul{
+nav ul {
     float: right;
     margin-right: 10px;
-  }
-  nav ul li{
+}
+
+nav ul li {
     display: inline-block;
     line-height: 80px;
     margin: 0 2px;
-    
     text-decoration: none;
-  }
-  nav ul li a{
+}
+
+nav ul li a {
     color: white;
     font-size: 20px;
     font-weight: bold;
@@ -38,17 +37,21 @@
     border-radius: 16px;
     text-decoration: none;
     text-transform: uppercase;
-  }
+}
 
-  nav ul li :last-child{
-    
-  }
-  a.active, a:hover{
+a.active,
+a:hover {}
+
+nav ul li :last-child {}
+
+a.active,
+a:hover {
     background: gray;
     transition: .5s;
     text-decoration: none;
-  }
-  .checkbtn{
+}
+
+.checkbtn {
     font-size: 30px;
     color: white;
     float: right;
@@ -56,77 +59,73 @@
     margin-right: 40px;
     cursor: pointer;
     display: none;
-  }
-  #check-1{
-    display: none;
-  }
-  #check-2{
-    display: none;
-  }
-  @media (max-width: 1052px){
+}
 
-   
-    label.logo{
-      font-size: 30px;
-      padding-left: 50px;
+#check-1 {
+    display: none;
+}
+
+#check-2 {
+    display: none;
+}
+
+@media (max-width: 1052px) {
+    label.logo {
+        font-size: 30px;
+        padding-left: 50px;
     }
-    nav ul li a{
-      font-size: 16px;
+    nav ul li a {
+        font-size: 16px;
     }
-  }
-  @media (max-width: 1400px){
+}
+
+@media (max-width: 1400px) {
     nav {
         transition: 2s;
     }
-    .checkbtn{
-      display: block;
+    .checkbtn {
+        display: block;
     }
-    ul{
-      position: fixed;
-      width: 100%;
-      height: 100vh;
-      background: #2c3e50;
-      top: 80px;
-      left: -100%;
-      text-align: center;
-      transition: all .5s;
-      
-    text-decoration: none;
+    ul {
+        position: fixed;
+        width: 100%;
+        height: 100vh;
+        background: #2c3e50;
+        top: 80px;
+        left: -100%;
+        text-align: center;
+        transition: all .5s;
+        text-decoration: none;
     }
-    nav ul li{
-      display: block;
-      margin: 50px 0;
-      line-height: 30px;
+    nav ul li {
+        display: block;
+        margin: 50px 0;
+        line-height: 30px;
     }
-    nav ul li a{
-      font-size: 20px;
+    nav ul li a {
+        font-size: 20px;
     }
-    a:hover,a.active{
-      
-      text-decoration: none;
-      background: none;
-      color: rgb(248, 240, 240);
+    a:hover,
+    a.active {
+        text-decoration: none;
+        background: none;
+        color: rgb(248, 240, 240);
     }
-    #check-1:checked ~ ul{
-        
-      left: 0;
+    #check-1:checked~ul {
+        left: 0;
     }
-   
-    
-  }
-  
-  @media (max-width: 1400px){
-    label.logo{
+}
+
+@media (max-width: 1400px) {
+    label.logo {
         font-size: 25px;
         padding-left: 30px;
-      }
-    
-  }
+    }
+}
 
 
+/* ++++++++++++++++++++++++++++++++++++++++++++++++++drop down menu++++++++++++++ */
 
-
-       /* ++++++++++++++++++++++++++++++++++++++++++++++++++drop down menu++++++++++++++ */
 
 /* .dropbtn img{
     padding: 16px;
@@ -135,46 +134,58 @@
     
     
   } */
-  
-  /* The container <div> - needed to position the dropdown content */
-  .dropdown {
+
+.dropdown-content {}
+
+
+/* The container <div> - needed to position the dropdown content */
+
+.dropdown {
     position: relative;
     display: inline-block;
     height: 80px;
     width: 80px;
-  }
+}
 
 
-  
-  /* Dropdown Content (Hidden by Default) */
-  .dropdown-content {
+/* Dropdown Content (Hidden by Default) */
+
+.dropdown-content {
     display: none;
     position: absolute;
     background-color: #ea9a9a;
     min-width: 160px;
-    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
-  }
-  
-  /* Links inside the dropdown */
-  .dropdown-content a {
+}
+
+
+/* Links inside the dropdown */
+
+.dropdown-content a {
     color: black;
     padding: 12px 16px;
     text-decoration: none;
     display: block;
-  }
-  
-  /* Change color of dropdown links on hover */
-  .dropdown-content a:hover {background-color: #ddd;}
-  
-  /* Show the dropdown menu on hover */
-  .dropdown:hover .dropdown-content {display: block;}
-  
-  /* Change the background color of the dropdown button when the dropdown content is shown */
-  .dropdown:hover .dropbtn {background-color: #f17c78;}
-
-  
+}
 
 
-  
+/* Change color of dropdown links on hover */
 
+.dropdown-content a:hover {
+    background-color: #ddd;
+}
+
+
+/* Show the dropdown menu on hover */
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+
+.dropdown:hover .dropbtn {
+    background-color: #f17c78;
+}

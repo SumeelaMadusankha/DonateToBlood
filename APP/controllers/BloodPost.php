@@ -1,6 +1,9 @@
 <?php
+declare(strict_types=1);
 
 include_once('Post.php');
+
+
 class BloodPost extends Post
 {
 
@@ -57,5 +60,10 @@ class BloodPost extends Post
       
         $this->view->render("bloodPost",$resultarr);
     }
+  public function expiredPost($district){
+    $date=date("Y-m-d");
+    $this->loadModel('BloodPost');
+    $resultarr=$this->model-> expieredBloodPost($date,$district);
+  }
 }
 ?>
