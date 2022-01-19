@@ -32,9 +32,8 @@ class Login extends Controller
 
       $jobType = $_SESSION["jobtype"];
       switch ($jobType) {
-
         case "registeredUser":
-          header("Location:../Index/index");
+          header("Location:../RegisteredUser/index");
           exit();
           break;
         case "admin":
@@ -59,7 +58,6 @@ class Login extends Controller
 
 public function resetPassword()
 {
-  
 
   if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (isset($_POST["sendEmail"])) {
@@ -159,7 +157,7 @@ public function resetPasswordmethod()
     public function login()
     {
 
-    if (!isset($_SESSION['nic'])) {
+    // if (!isset($_SESSION['nic'])) {
       if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -183,7 +181,7 @@ public function resetPasswordmethod()
               $_SESSION["email"] = $loginUser["email"];
               
               $_SESSION['msg'] = "success";
-             
+              
               switch ($loginUser['jobtype']) {
                 case 'registeredUser':
                   header("Location:../RegisteredUser/index");
@@ -197,9 +195,7 @@ public function resetPasswordmethod()
                   $this->loadModel('SuperAdmin');
                   $blooddetails = $this->model-> get_Blooddetails('Matara');
                   $this->view->render('super_index',$blooddetails);
-
                   break;
-
                 case "BloodBankOfficer":
                   header("Location:../../DonateToBlood/B_officer/index");
                   exit();
@@ -217,29 +213,29 @@ public function resetPasswordmethod()
           }
         }
       }
-    } else {
-      switch ($_SESSION['jobtype']) {
-        case 'registeredUser':
-          header("Location:../../DonateToBlood/Index/index");
-          exit();
-          break;
-        case 'bloodBankCordinator':
-          header("Location:../../DonateToBlood/BB_Cordinater/index");
-          exit();
-          break;
-        case 'superAdmin':
-          header("Location:../../DonateToBlood/SuperAdmin/index");
-          exit();
-          break;
+    // } else {
+      // switch ($_SESSION['jobtype']) {
+      //   case 'registeredUser':
+      //     header("Location:../../DonateToBlood/RegisteredUser/index");
+      //     exit();
+      //     break;
+      //   case 'bloodBankCordinator':
+      //     header("Location:../../DonateToBlood/BB_Cordinater/index");
+      //     exit();
+      //     break;
+      //   case 'superAdmin':
+      //     header("Location:../../DonateToBlood/SuperAdmin/index");
+      //     exit();
+      //     break;
 
-        case "BloodBankOfficer":
-          header("Location:../../DonateToBlood/B_officer/index");
-          exit();
-          break;
-        default:
-          break;
-      }
-    }
+      //   case "BloodBankOfficer":
+      //     header("Location:../../DonateToBlood/B_officer/index");
+      //     exit();
+      //     break;
+      //   default:
+      //     break;
+      // }
+    // }
   }
 
 

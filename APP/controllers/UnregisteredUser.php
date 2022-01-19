@@ -2,19 +2,27 @@
 include_once('User.php');
 include_once("BloodPost.php");
 include_once("CampPost.php");
+include_once("EmailClient.php");
 class UnregisteredUser extends User 
 {
+  
     function __construct()
     {
         parent::__construct();  
+        
     }
 
     public function signUpFormLoad()
     {
       $this->view->render('signUp');
     }
+    public function userregload()
+    {
+      $this->view->render('user_reg');
+    }
          public function register()
         {
+         
            if ($_SERVER["REQUEST_METHOD"]=="POST") {
                $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
                if (isset($_POST["register_btn"])) {
@@ -38,7 +46,7 @@ class UnregisteredUser extends User
                     $registerResult = $this->model->userRegister($dataArray);
                     if (empty($registerResult)) {
                       $_SESSION["msg"]="success";
-                      $this->view->render("login");
+                      header("Location:http:../Login/index");
                     }
                   }
                   
@@ -68,21 +76,21 @@ class UnregisteredUser extends User
                 $result = $this->model->checkNic($dataArray);
               
                 if (empty($result)){
-                  session_start();
+                
                  $hashPassword = $_SESSION["password"] = password_hash( $dataArray["password"], PASSWORD_DEFAULT);
-    
                  $this->view->data = $dataArray["nic"];
                  $_SESSION['error']="Fill this form to complete the registration";
-                $this->view->render("user_reg",$this->view->data); 
+                 $_SESSION['username']=$dataArray["nic"];
+                 header("Location:http:../UnregisteredUser/userregload");
                 }else {
                   $_SESSION['error']="The entered NIC is already registered";
-                  $this->view->render("signUp"); 
+                  header("Location:http:../UnregisteredUser/ signUpFormLoad");
                 }
                   
                }
                else{
                 $_SESSION['error']="Re-entered password is not matched";
-                $this->view->render("signUp"); 
+                header("Location:http:../UnregisteredUser/signUpFormLoad");
                }
           
         }
