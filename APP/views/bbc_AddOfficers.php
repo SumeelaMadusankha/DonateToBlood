@@ -71,7 +71,7 @@
                                             <form method="POST" action="addOfficer" id="reg_form">
                                                 <div class="form-group">
                                                     <label>NIC Number</label>
-                                                    <input class="form-control" type="text" placeholder="National Identity Card" name="nic" id="nic">
+                                                    <input class="form-control" type="text" placeholder="National Identity Card" name="nic" id="nic" <?php echo "value=" . $data?>>
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
                                                     <small>Error Message</small>
@@ -123,19 +123,18 @@
                                                     </label>
                                                 </div>
                                                 <div class="form-group">
-                                                    <label>Blood Group</label>
-                                                    <select class="form-control" name="blood" id="blood">
-                                                        <option>O-</option>
-                                                        <option>O+</option>
-                                                        <option>B-</option>
-                                                        <option>B+</option>
-                                                        <option>A-</option>
-                                                        <option>A+</option>
-                                                        <option>AB-</option>
-                                                        <option>AB+</option>
+                                                    <label> Enter Password</label>
+                                                    <input class="form-control" type="password" name="password" placeholder="Enter Password Here">
 
-                                                    </select>
                                                 </div>
+                                                <div class="form-group">
+                                                    <label>Re-Enter Password</label>
+                                                    <input class="form-control"  type="password" name="re-password" placeholder="Re-enter Password Here">
+
+
+                                                </div>
+
+
 
                                                 <div class="form-group">
                                                     <label>Email Address</label>
