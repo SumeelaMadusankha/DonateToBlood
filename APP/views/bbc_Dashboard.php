@@ -41,7 +41,7 @@
 
                     </li>
                     <li>
-                        <a href="viewAddOfficerLayer"><i class="fa fa-desktop"></i> Add Officers</a>
+                        <a href="view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
                     </li>
                     <li>
                         <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>

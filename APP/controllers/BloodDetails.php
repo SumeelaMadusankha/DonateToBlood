@@ -26,12 +26,18 @@ class BloodDetails extends  Controller{
                 $bloodID=$_GET["id"];
                 $registerResult1=$this->model->update_BloodDetails($blood_dataArray,$bloodID);
 
+                $result_id=$this->model->getBoodId_type($bloodID);
+                $BloodGroup=$result_id[0]['BloodGroup'];
+                $Av_Quantity=$result_id[0]['AvailableQuantity'];
+                $Max_Quantity=$result_id[0]['MaximumQuantity'];
+
+
                 if (empty($registerResult1)) {
 
                     
                     $this->bloodD_Fly_w_Imp=BloodDetailsFactory::getBloodDetailsImp();
 
-                    $this->bloodD_Fly_w_Imp->viewAddBloodDetails($bloodID);
+                    $this->bloodD_Fly_w_Imp->viewAddBloodDetails($BloodGroup,$Av_Quantity,$Max_Quantity);
 //                    $this->showBloodData();
                 }
 

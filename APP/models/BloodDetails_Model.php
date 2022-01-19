@@ -18,4 +18,10 @@ class BloodDetails_Model extends Model{
         $results4 = $this->db->runQuery($quary5, $array_Inject);
         return $results4;
     }
+    public function getBoodId_type($id)
+    {
+        $query5 = 'SELECT * FROM blooddetails where  BloodGroupID= :id';
+        $res = $this->db->runQuery($query5, [":id" => $id]);
+        return $res;
+    }
 }

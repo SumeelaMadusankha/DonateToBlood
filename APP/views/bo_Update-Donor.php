@@ -63,7 +63,7 @@
                 <form class="form-inline md-form mr-auto mb-4" action='updateUserBloodRecord' method='POST' id="form_nic">
                     <div class="row">
                         <input class="form-control mr-lg-2" type="text" placeholder="Enter NIC" aria-label="Search" id="inp_nic" name="inp_nic">
-                        <input type="submit" id="search_nic" class="btn btn-primary" value="Search" name="search_b">
+                        <input type="submit" id="search_nic" class="btn btn-primary" value="Add Officer" name="search_b">
                     </div>
 
                 </form>

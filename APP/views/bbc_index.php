@@ -39,6 +39,10 @@
                         <a href="../BB_Coordinater/viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     <li>
+                        <a href="../BB_Coordinater/view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
+                    </li>
+                    
+                    <li>
                         <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
 

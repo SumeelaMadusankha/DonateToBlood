@@ -9,6 +9,10 @@ class BB_Coordinater extends Admin{
     {
        $this->view->render("bbc_index");
     }
+    public function viewOfficer_Data(){
+        $officerData=$this->model->getOfficerData();
+        $this->view->render("bbc_viewOfficer_Data",$officerData);
+    }
     public function viewDashboard(){
         $reg_res = $this->model->getStaticticalbloodprogress();
         if(!empty($reg_res)){
@@ -42,6 +46,9 @@ class BB_Coordinater extends Admin{
     }
     public function viewUserData(){
         $this->view->render("bbc_viewUserData");
+    }
+    public function view_Add_ShowOfficer(){
+        $this->view->render("bbc_add_showOfficers");
     }
     public function viewAddBloodDetails(){
         $result_id=$this->model->getBoodId_type($_GET["id"]);
@@ -87,6 +94,32 @@ class BB_Coordinater extends Admin{
             }
 
         }
+    }
+    public function getOfficerNIC(){
+        if ($_SERVER["REQUEST_METHOD"]=="POST") {
+            $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+            if (isset($_POST["search_b"])) {
+                $nic_check=$this->testInput($_POST["inp_nic" ]);
+                if(strlen($nic_check)!=10){
+                    $_SESSION['ERROR'] = "Invalid NIC";
+                    print_r("Invalid NIC");
+
+                }
+                else{
+                    $result_check=$this->model->check_Officer_NICavailability($nic_check);
+                    if($result_check){
+                        print_r("Previously Added Officer");
+                        $_SESSION['MSG'] = "Previously Added Officer";
+
+                    }
+                    else{
+                        $this->view->render("bbc_AddOfficers",$nic_check);
+                    }
+                }
+            }
+
+        }
+
     }
     public function updateDonorRecord(){
         if ($_SERVER["REQUEST_METHOD"]=="POST") {
