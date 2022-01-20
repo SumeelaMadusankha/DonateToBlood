@@ -1,33 +1,24 @@
 const form = document.querySelector("form");
 fieldName = form.querySelector(".fullName"),
 inpName = fieldName.querySelector("input"),
+
 fieldAddress=form.querySelector(".address"),
 inpAddress=fieldAddress.querySelector("input"),
+
 fieldNumber=form.querySelector(".mobNum"),
 inpNumber=fieldNumber.querySelector("input");
+
 fieldDescription=form.querySelector(".description"),
 inpDescription=fieldDescription.querySelector("input");
+
 fieldarrachment=form.querySelector(".attachment"),
 inpAttachment=fieldarrachment.querySelector("input");
+
 fieldDueDate=form.querySelector(".dueDate"),
 inpDueDate=fieldDueDate.querySelector("input");
 
-
-function submitFormVirtual(){
-    if((!fieldName.classList.contains("error"))&&(!fieldAddress.classList.contains("error"))&& (!fieldNumber.classList.contains("error"))&& (!fieldDescription.classList.contains("error")) ){
-        
-        
-        if (inpName.value!="" && inpAddress.value!="" && inpDescription.value!="" && inpNumber.value!="") {
-            
-          post("../RegisteredUser/addCampRequest",{'nic':inpId.value,'flName':inpName.value,'blood':"A+",'address':inpAddress.value,'mobileNo':inpNumber.value,'description':inpDescription.value,'attachment':inpAttachment.value,'duedate':inpDueDate.value});
-        }else{
-            
-            // alert(inpName.value);
-        }
-       
-      }
-  }
-
+fieldTime=form.querySelector(".time"),
+inpTime=fieldTime.querySelector("input");
 
 
 function submitRequestForm(){
@@ -38,26 +29,28 @@ function submitRequestForm(){
   (inpAddress.value == "") ? fieldAddress.classList.add("shake", "error") : addressVal();
   (inpNumber.value == "")? fieldNumber.classList.add("shake","error") : mobileVal();
   (inpDescription.value == "")? fieldDescription.classList.add("shake","error") : descriptionVal();
+  // (inpEmail.value == "")? fieldEmail.classList.add("shake","error") : emailVal();
   setTimeout(()=>{ 
     fieldName.classList.remove("shake");
     fieldAddress.classList.remove("shake");
     fieldNumber.classList.remove("shake");
     fieldDescription.classList.remove("shake");
+    // fieldEmail.classList.remove("shake");
   }, 500);
 
   inpName.onkeyup = ()=>{nameVal();} 
   inpAddress.onkeyup = ()=>{addressVal();} 
   inpNumber.onkeyup = ()=>{mobileVal();}
   inpDescription.onkeyup = ()=>{descriptionVal();}
-//   inpDueDate.onsubmit = ()=>{descriptionVal();}
+  // inpEmail.onsubmit = ()=>{emailVal();}
 
-    if((!fieldName.classList.contains("error")) && (!fieldAddress.classList.contains("error")) && (!fieldNumber.classList.contains("error"))&&(!fieldDescription.classList.contains("error"))){
+    if((!fieldName.classList.contains("error")) && (!fieldAddress.classList.contains("error")) && (!fieldNumber.classList.contains("error"))&&(!fieldDescription.classList.contains("error")) ){
        
     
     return true;
     }
     else{
-        alert("--Please Check Your Details again--");
+        showNotification("Please check Your Details Again!")
      return false;
     }
 }
@@ -209,9 +202,9 @@ function descriptionVal(){
 }
 
 function dateVal(){
+  
 
-
-  let errorTxt = fieldNumber.querySelector(".error-text");
+  
   var today = new Date();
   var dd = String(today.getDate()).padStart(2, '0');
   var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
@@ -219,30 +212,43 @@ function dateVal(){
 
   date =  yyyy + '-' + mm + '-' + dd ; 
   
-
-  if (inpDueDate.value.substr(11,13) <= "12:00"  ){
-    if(inpDueDate.value.substr(11,13) <= "08:00"){
-        alert("Camp should be started after 8.00 a.m");
-        return false;
-    }
-    
-    if(date >inpDueDate.value.substr(0,10) ){
-        alert("Due date can't be a past date");
-        return false;
+  
+  
+  if(inpDueDate.value !=""){
+    if (inpDueDate.value <= date){
+      showNotification("Please select a day in future");
+      return false;
     }else{
-        return true;
+      return true;
     }
- 
-    
 
   }else{
-    alert("Start time should before than 12.00 p.m");
+    showNotification("Please selecet the camp Date");
     return false;
   }
-
-
 }
 
-function emailVal(){
+function timeVal(){
+  
+  if(inpTime.value != ""){
+    return true;
+  }else{
+    showNotification("Please selecet the camp starting Time");
+    return false;
+  }
+}
 
+
+
+function showNotification(msg){
+  var note = document.getElementById("note");
+  note.innerHTML = msg;
+  note.style.display = "block";
+ // setTimeout(hideNotification(),3000);
+  setTimeout(function(){
+  
+    document.getElementById("note").style.display = "none";
+  
+  }, 4000);
+  
 }

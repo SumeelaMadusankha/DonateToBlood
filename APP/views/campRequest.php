@@ -36,6 +36,7 @@ if (isset($_SESSION['jobtype'])) {
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
+      <link rel="stylesheet" href="../Public/css/notification.css">
 
       <link rel="stylesheet" href="../Public/css/user_reg.css">
       <link rel="stylesheet" href="../Public/css/hd.css">
@@ -152,12 +153,12 @@ if (isset($_SESSION['jobtype'])) {
 
 
     
-        <form action="../CampRequest/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
-
-
-           
-           <h1 class="topic" style="font-weight: bolder;">Camp Request</h1>
+        <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form">
+        <div id="note">
+      <b> Notification message </b>
+</div>
+           <h1 class="topic" >Camp Request Form</h1>
 
            <?php
            
@@ -254,14 +255,17 @@ if (isset($_SESSION['jobtype'])) {
 
             
             <div class="field dueDate">
-            <label for="duedate"><b>Date  </b></label><br>
+
+            <label for="duedate"><b>Date </b></label><br>
             <input type="date" placeholder="Due Date" name="duedate" id="duedate" >
             <div class="error error-text"> Due Date can't be blank</div><br>
             </div>
+
             <div class="field time">
-            <label for="duedate"><b>starting time </b></label><br>
-            <input type="time" placeholder="Starting Time" name="time" id="time" >
-            <div class="error error-text"> Starting time can't be blank</div><br>
+            <label for="time"><b>Starting time </b></label><br>
+            <input type="time" placeholder="Time" name="time" id="time" min="08:00" max="12:00">
+            <div class="error error-text"> Startingtime can't be blank</div><br>
+
             </div>
             
 
@@ -322,9 +326,8 @@ if (isset($_SESSION['jobtype'])) {
 
 </div>
     
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return    submitRequestForm() && dateVal() ">
-        <!-- &&  dateVal()  -->
-        <!-- ( submitRequestForm()) -->
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return    ( submitRequestForm() && dateVal() && timeVal())">
+        
 
        
         

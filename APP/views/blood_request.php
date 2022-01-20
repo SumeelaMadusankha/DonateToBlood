@@ -35,9 +35,10 @@ if (isset($_SESSION['jobtype'])) {
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-
       <link rel="stylesheet" href="../Public/css/user_reg.css">
       <link rel="stylesheet" href="../Public/css/hd.css">
+      <link rel="stylesheet" href="../Public/css/notification.css">
+      
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
       <script src="../Public/js/user_reg.js"></script>
@@ -150,7 +151,13 @@ if (isset($_SESSION['jobtype'])) {
 
 
     
-        <form action="../BloodRequest/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
+
+        <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
+        <div id="note">
+      <b> Notification message </b>
+</div>
+
+
 
 
            <h1 class="topic" >Blood Request Form</h1>
@@ -265,8 +272,8 @@ if (isset($_SESSION['jobtype'])) {
         </div>    
         
        
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal()  )">
         
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal()  )">
        
         
         <!-- dateVal() && -->
