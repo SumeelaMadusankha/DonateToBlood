@@ -53,6 +53,7 @@ class Login extends Controller
       }
     }
   }
+  
   public function test()
   {
     $this->view->render("requestToResetPassword");
@@ -68,7 +69,7 @@ public function resetPassword()
       $userName = trim($_POST["username"]);
       $selector = bin2hex(random_bytes(8));
       $token = random_bytes(32);
-      $url = "localhost/DonateToBlood/Login/resetPasswordmethod?selector=" . $selector . "&validator=" . bin2hex($token) . "&name=" . $userName;
+      $url = "localhost/DonateToBlood/Login/resetPasswordmethod?id='req'&selector=" . $selector . "&validator=" . bin2hex($token) . "&name=" . $userName;
       $expire = date("U") + 1800;
       $email = $this->model->resetPasswordStore($userName, $selector, $token, $url, $expire);
       if (!empty($email)) {
@@ -85,9 +86,9 @@ public function resetPassword()
    
         if ( $this->mail->sendMail()) {
          
-          header("Location:http://localhost/DonateToBlood/Login/test?msgsend=send");
-        }
           
+        }
+        header("Location:http://localhost/DonateToBlood/Login/test?msgsend=send");
 
         
         
@@ -118,7 +119,9 @@ public function resetPassword()
 
 public function resetPasswordmethod()
 {
-  $this->view->render("resetPassword");
+  if (isset($_GET['id'])) {
+   $this->view->render('resetPassword');
+  }
   $selector = $_GET["selector"];
   $validator = $_GET["validator"];
   $userName = $_GET["name"];
@@ -135,16 +138,19 @@ public function resetPasswordmethod()
       if ($_SERVER["REQUEST_METHOD"] == "POST") {
         
         if (isset($_POST["submit"])) {
+         
           $pwd = $_POST["newPassword"];
           $conPwd = $_POST["confirmPassword"];
           if ($pwd === $conPwd) {
             $data=$this->model->resetPassword($userName, $pwd, $selector, $validator);
             if ($data) {
+             
               $this->view->render("Login/index?resetSuc=success");
-              // header("Location:http://localhost/DonateToBlood/Login/index?resetSuc=success");
+              header("Location:http://localhost/DonateToBlood/Login/index?resetSuc=success");
              
             }else{
-              // header("Location: index?resetSuc=fail");
+           
+              header("Location:http://localhost/DonateToBlood/Login/index?resetFail=fail");
             }
            
                 

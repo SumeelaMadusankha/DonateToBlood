@@ -750,7 +750,7 @@ class PHPMailer
      *
      * @var string
      */
-    const VERSION = '6.5.3';
+    const VERSION = '6.5.1';
 
     /**
      * Error severity: message only, continue processing.
@@ -1185,7 +1185,6 @@ class PHPMailer
      *
      * @param string $addrstr The address list string
      * @param bool   $useimap Whether to use the IMAP extension to parse the list
-     * @param string $charset The charset to use when decoding the address list string.
      *
      * @return array
      */
@@ -1452,12 +1451,7 @@ class PHPMailer
                 $errorcode = 0;
                 if (defined('INTL_IDNA_VARIANT_UTS46')) {
                     //Use the current punycode standard (appeared in PHP 7.2)
-                    $punycode = idn_to_ascii(
-                        $domain,
-                        \IDNA_DEFAULT | \IDNA_USE_STD3_RULES | \IDNA_CHECK_BIDI |
-                            \IDNA_CHECK_CONTEXTJ | \IDNA_NONTRANSITIONAL_TO_ASCII,
-                        \INTL_IDNA_VARIANT_UTS46
-                    );
+                    $punycode = idn_to_ascii($domain, $errorcode, \INTL_IDNA_VARIANT_UTS46);
                 } elseif (defined('INTL_IDNA_VARIANT_2003')) {
                     //Fall back to this old, deprecated/removed encoding
                     $punycode = idn_to_ascii($domain, $errorcode, \INTL_IDNA_VARIANT_2003);
@@ -1703,10 +1697,7 @@ class PHPMailer
         //Sendmail docs: http://www.sendmail.org/~ca/email/man/sendmail.html
         //Qmail docs: http://www.qmail.org/man/man8/qmail-inject.html
         //Example problem: https://www.drupal.org/node/1057954
-
-        //PHP 5.6 workaround
-        $sendmail_from_value = ini_get('sendmail_from');
-        if (empty($this->Sender) && !empty($sendmail_from_value)) {
+        if (empty($this->Sender) && !empty(ini_get('sendmail_from'))) {
             //PHP config has a sender address we can use
             $this->Sender = ini_get('sendmail_from');
         }
@@ -1743,7 +1734,7 @@ class PHPMailer
                 fwrite($mail, $header);
                 fwrite($mail, $body);
                 $result = pclose($mail);
-                $addrinfo = static::parseAddresses($toAddr, true, $this->CharSet);
+                $addrinfo = static::parseAddresses($toAddr, true, $this->charSet);
                 $this->doCallback(
                     ($result === 0),
                     [[$addrinfo['address'], $addrinfo['name']]],
@@ -1888,10 +1879,7 @@ class PHPMailer
         //Qmail docs: http://www.qmail.org/man/man8/qmail-inject.html
         //Example problem: https://www.drupal.org/node/1057954
         //CVE-2016-10033, CVE-2016-10045: Don't pass -f if characters will be escaped.
-
-        //PHP 5.6 workaround
-        $sendmail_from_value = ini_get('sendmail_from');
-        if (empty($this->Sender) && !empty($sendmail_from_value)) {
+        if (empty($this->Sender) && !empty(ini_get('sendmail_from'))) {
             //PHP config has a sender address we can use
             $this->Sender = ini_get('sendmail_from');
         }
@@ -1906,7 +1894,7 @@ class PHPMailer
         if ($this->SingleTo && count($toArr) > 1) {
             foreach ($toArr as $toAddr) {
                 $result = $this->mailPassthru($toAddr, $this->Subject, $body, $header, $params);
-                $addrinfo = static::parseAddresses($toAddr, true, $this->CharSet);
+                $addrinfo = static::parseAddresses($toAddr, true, $this->charSet);
                 $this->doCallback(
                     $result,
                     [[$addrinfo['address'], $addrinfo['name']]],
