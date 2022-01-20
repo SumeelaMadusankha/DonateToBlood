@@ -1,13 +1,13 @@
 <?php
 include "BloodDetailsFly_w_Imp.php";
 class BloodDetailsFactory extends Controller{
-    private static $bloodDetailsImp;
-    function __construct()
+    private static  $bloodDetailsImp=null;
+    private function __construct()
     {
         parent:: __construct();
     }
 
-    public static function getBloodDetailsImp(): BloodDetailsFly_w_Imp
+    public static function getBloodDetailsImp():BloodDetailsFly_w_Imp
     {
         if (!self::$bloodDetailsImp){
             self::$bloodDetailsImp = new BloodDetailsFly_w_Imp();

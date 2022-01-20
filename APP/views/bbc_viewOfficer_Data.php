@@ -1,19 +1,3 @@
-
-<?php
-if (!isset($_SESSION['nic'])) {
-    header("Location:http://localhost/DonateToBlood/Login/index");
-}
-if (isset($_SESSION['jobtype'])) {
-    if ($_SESSION['jobtype']=='bloodBankCordinator') {
-       
-    }else {
-        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
-    }
-}else {
-    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
-}
-?>
-
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -48,16 +32,16 @@ if (isset($_SESSION['jobtype'])) {
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
+                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     <li>
                         <a href="view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
                     </li>
                     <li>
-                        <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
+                        <a class="active-menu"  href="viewOfficer_Data><i class="fa fa-desktop"></i>Show Officer Data</a>
                     </li>
                     <li>
-                        <a href="viewOfficer_Data"><i class="fa fa-desktop"></i> Show Officer Data</a>
+                        <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
 
 
@@ -72,7 +56,7 @@ if (isset($_SESSION['jobtype'])) {
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Shortage of Blood
+                            Officer Data
                         </h1>
                     </div>
 
@@ -81,39 +65,31 @@ if (isset($_SESSION['jobtype'])) {
                         <div class="col-lg-12">
                             <div class="panel panel-default">
                                 <div class="panel-heading">
-                                    Blood Type Details
-                                </div>
-                                <div class="panel-heading">
-                                    <?php
-                                    if ($data['updated_arr']){
-                                        echo "<p class='text-danger'>{$data['updated_arr']['BloodGroup']} is Updated to {$data['updated_arr']['Available']} Blood Pints</p>";
-                                    }
-
-                                    ?>
+                                    Blood Bank Officer Data
                                 </div>
                                 <div class="panel-body">
                                     <div class="table-responsive">
                                         <table class="table table-striped table-bordered table-hover">
                                             <thead>
                                                 <tr>
-                                                    <th>Blood Type</th>
-                                                    <th>Maximum</th>
-                                                    <th>Available Quantity</th>
+                                                    <th>NIC</th>
+                                                    <th>City</th>
+                                                    <th>Mobile No</th>
                                                     <th></th>
                                                 </tr>
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                foreach ($data['data'] as $raw) {
+                                                foreach ($data as $raw) {
                                                     echo "
                                                 <tr>
-                                                <td>" . $raw['BloodGroup'] . "</td>
-                                                <td>" . $raw['MaximumQuantity'] . "</td>
-                                                <td>" . $raw['AvailableQuantity'] . "</td>
+                                                <td>" . $raw['nic'] . "</td>
+                                                <td>" . $raw['city'] . "</td>
+                                                <td>" . $raw['mobileNo'] . "</td>
                                                 <td>
                                                 
        
-                                                <a class='anc_button' href='viewAddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
+                                                <a class='anc_button' href='../BB_Coordinater/view_Userprofile?id=" . $raw['nic'] . "'>View More</a>
                                                 </td>
                                                 </tr>";
                                                 }

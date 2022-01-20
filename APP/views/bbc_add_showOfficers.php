@@ -56,7 +56,10 @@
                 </li>
                 </li>
                 <li>
-                    <a class="active-menu" href="viewAddOfficerLayer"><i class="fa fa-desktop"></i> Add Officers</a>
+                    <a class="active-menu" href="view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
+                </li>
+                <li>
+                        <a href="viewOfficer_Data><i class="fa fa-desktop"></i>Show Officer Data</a>
                 </li>
                 <li>
                     <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>

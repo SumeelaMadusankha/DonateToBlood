@@ -58,6 +58,9 @@ if (isset($_SESSION['jobtype'])) {
                     <li>
                         <a class="active-menu" href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
                     </li>
+                    <li>
+                        <a href="viewOfficer_Data"><i class="fa fa-desktop"></i> Show Officer Data</a>
+                    </li>
 
 
 
@@ -85,14 +88,14 @@ if (isset($_SESSION['jobtype'])) {
                                         <div class="col-lg-12">
                                             <?php echo "<form role='form' method='POST' action='../BloodDetails /updateBloodDetails?id=" . $_GET['id'] . "'" . "  id='shortage_form'>" ?>
                                             <div class="form-group">
-                                                <h2><label><p class="text-danger"><?php echo $data['BloodGroup'] ?></p></label></h2>
+                                                <h2><label><p class="text-danger"><?php echo $data[0]['BloodGroup'] ?></p></label></h2>
                                             </div>
                                             <div class="form-group">
                                                 <label for="m_quantity">Maximum Quantity<span>(Enter in Blood Pints) </span></label>
-                                                <input class="form-control" type="number" placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data['Maximum'] ?> </div>
+                                                <input class="form-control" type="number" placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data[0]['MaximumQuantity'] ?> </div>
                                                 <div class="form-group">
                                                     <label for="a_quantity">Available Quantity <span>(Enter in Blood Pints) </span> </label>
-                                                    <input class="form-control" type="number" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data['Available'] ?>>
+                                                    <input class="form-control" type="number" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data[0]['AvailableQuantity'] ?>>
                                                 </div>
 
                                                 <input type="submit" value="Update Blood Data" class="btn btn-primary" name="add_blood_btn">

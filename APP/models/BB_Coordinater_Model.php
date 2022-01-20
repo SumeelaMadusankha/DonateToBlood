@@ -114,6 +114,9 @@ public function getCampReqest($district)
         return $results2;
     }
     public function bbc_viewOfficer_Data(){
+        $query2 = "select * from user where jobType=:jobType ";
+        $res = $this->db->runQuery($query2, [":jobType" => 'BloodBankOfficer']);
+        return $res;
 
     }
 
@@ -223,6 +226,11 @@ public function getCampReqest($district)
         $query = "UPDATE camprequest SET status = :status, acceptednic = :nic  WHERE requestId = :id";
         $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic']]);
         return $res;
+    }
+    public function Officer_Profile_Data($nic){
+        $query7 = 'SELECT * FROM user where nic=:nic';
+        $reslt = $this->db->runQuery($query7, [":nic" => $nic]);
+        return $reslt;
     }
     
 public function getUsers($district)

@@ -49,11 +49,14 @@ if (isset($_SESSION['jobtype'])) {
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     </li>
                     <li>
                         <a class="active-menu" href="view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
+                    </li>
+                    <li>
+                        <a href="viewOfficer_Data"><i class="fa fa-desktop"></i> Show Officer Data</a>
                     </li>
                     <li>
                         <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
