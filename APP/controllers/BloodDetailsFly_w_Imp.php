@@ -1,8 +1,8 @@
 <?php
+
+
 class BloodDetailsFly_w_Imp extends Controller
 {
-
-
 private float $A_p_MAX=0.0;
 private float $A_p_AV=0.0;
 private float $A_n_MAX=0.0;
@@ -92,7 +92,7 @@ public  function viewAddBloodDetails($BloodGroup,$Av_Quantity,$Max_Quantity){
     }
 
 }
-
+?>
 
 
 
