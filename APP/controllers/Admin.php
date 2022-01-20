@@ -8,11 +8,6 @@ abstract class Admin extends Person
     {
         parent:: __construct();
     }
-
-
-
-
-
 }
 
 

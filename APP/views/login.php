@@ -170,13 +170,25 @@
           <i class='fa fa-times'></i>
         </a>
       </div>";
-      }elseif ( isset($_GET['reset'])) {
+      }elseif ( isset($_GET['resetFail'])) {
+        echo "<div class='flag note note--error'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-times'></i>
+        </div> <div class='flag__body note__text'>
+        Password reseting process failed! Try Again! 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }elseif (isset($_GET['resetSuc'] ) ) {
+        unset($_SESSION['msg']); 
         echo "<div class='flag note note--success'>
         <div class='flag__image note__icon'>
           <i class='fa fa-check-circle'></i>
         </div>
         <div class='flag__body note__text'>
-          Your password is reset Successfully!. 
+          Password is reset successfully!. 
         </div>
         <a href='#' class='note__close'>
           <i class='fa fa-times'></i>

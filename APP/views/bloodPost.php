@@ -421,7 +421,16 @@ if (isset($_SESSION['jobtype'])) {
       $count=1;
       $d=1;
       
-      foreach ($data as $row) {
+
+while ($data->valid()) {
+  
+  $key = $data->key();
+  $row = $data->current();
+
+  // ...
+
+  $data->next();
+ 
         $post="<div class='col-xs-12 col-sm-6 col-md-3 col-lg-3 '>
         <a href='#modal-opened{$count}' id='modal-closed{$count}'>
           <div class='card-flyer'>

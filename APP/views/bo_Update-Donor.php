@@ -1,3 +1,17 @@
+<?php
+if (!isset($_SESSION['nic'])) {
+    header("Location:http://localhost/DonateToBlood/Login/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='BloodBankOfficer') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 

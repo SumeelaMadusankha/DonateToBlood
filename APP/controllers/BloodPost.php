@@ -2,7 +2,7 @@
 declare(strict_types=1);
 
 include_once('Post.php');
-
+include_once('PostCollection.php');
 
 class BloodPost extends Post
 {
@@ -25,19 +25,30 @@ class BloodPost extends Post
    
        $district=$_SESSION['district'];
     $res=$this->model->getBloodRequestDetails($district);
+    $postColection=new PostCollection();
+    foreach($res as $row){
+        $postColection->addPost($row);
+        
+    }
+
     if (!empty($res)) {
-        $this->view->render("bloodPost",$res);
+        $this->view->render("bloodPost",$postColection);
     }else {
-        $this->view->render("bloodPost",$res);
+        $this->view->render("bloodPost",$postColection);
     }
     
     }else {
      
         $res=$this->model->getBloodRequestDetails("all");
+        $postColection=new PostCollection();
+    foreach($res as $row){
+        $postColection->addPost($row);
+        
+    }
     if (!empty($res)) {
-        $this->view->render("bloodPost",$res);
+        $this->view->render("bloodPost",$postColection);
     }else {
-        $this->view->render("bloodPost",$res);
+        $this->view->render("bloodPost",$$postColection);
     }
     
     
@@ -57,8 +68,12 @@ class BloodPost extends Post
         $this->loadModel("BloodPost");
        
         $resultarr=$this->model->filterBloodPost($dataArray);
-      
-        $this->view->render("bloodPost",$resultarr);
+        $postColection=new PostCollection();
+        foreach( $resultarr as $row){
+            $postColection->addPost($row);
+            
+        }
+        $this->view->render("bloodPost",$postColection);
     }
   public function expiredPost($district){
     $date=date("Y-m-d");
