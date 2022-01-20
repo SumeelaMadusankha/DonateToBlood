@@ -1,4 +1,5 @@
 const form = document.querySelector("form");
+
 fieldName = form.querySelector(".fullName"),
 inpName = fieldName.querySelector("input"),
 fieldAddress=form.querySelector(".address"),
@@ -13,25 +14,8 @@ fieldDueDate=form.querySelector(".dueDate"),
 inpDueDate=fieldDueDate.querySelector("input");
 
 
-function submitFormVirtual(){
-    if((!fieldName.classList.contains("error"))&&(!fieldAddress.classList.contains("error"))&& (!fieldNumber.classList.contains("error"))&& (!fieldDescription.classList.contains("error")) ){
-     
-        
-        if (inpName.value!="" && inpAddress.value!="" && inpDescription.value!="" && inpNumber!="") {
-            
-          post("../RegisteredUser/addRequest",{'nic':inpId.value,'flName':inpName.value,'blood':"A+",'address':inpAddress.value,'mobileNo':inpNumber.value,'description':inpDescription.value,'attachment':inpAttachment.value,'duedate':inpDueDate.value});
-        }else{
-            
-            // alert(inpName.value);
-        }
-       
-      }
-  }
-
-
-
 function submitRequestForm(){
-  
+ 
     
     (inpName.value == "") ? fieldName.classList.add("shake", "error") : nameVal();
   (inpAddress.value == "") ? fieldAddress.classList.add("shake", "error") : addressVal();
@@ -55,34 +39,12 @@ function submitRequestForm(){
     return true;
     }
     else{
-        alert("--Please Check Your Details again--");
+      showNotification("Please Check Your Details again");
      return false;
     }
 }
 
-function post(path, params, method) {
-    method = method || "post"; // Set method to post by default if not specified.
-  
-    // The rest of this code assumes you are not using a library.
-    // It can be made less wordy if you use one.
-    var form = document.createElement("form");
-    form.setAttribute("method", method);
-    form.setAttribute("action", path);
-  
-    for(var key in params) {
-        if(params.hasOwnProperty(key)) {
-            var hiddenField = document.createElement("input");
-            hiddenField.setAttribute("type", "hidden");
-            hiddenField.setAttribute("name", key);
-            hiddenField.setAttribute("value", params[key]);
-            
-            form.appendChild(hiddenField);
-         }
-    }
-  
-    document.body.appendChild(form);
-    form.submit();
-  }
+
   
   
 // submitFormVirtual();
@@ -146,6 +108,9 @@ function mobileVal(){
   fieldNumber.classList.remove("valid");
   let errorTxt = fieldNumber.querySelector(".error-text");
   var regName = new RegExp("^[0]{1}[0-9]{9}$");
+  var regName1 = new RegExp("^[a-zA-Z]$");
+
+  
   if(inpNumber.value.match(regName)){
     
       fieldNumber.classList.remove("error");
@@ -157,6 +122,7 @@ function mobileVal(){
       
 
       if(inpNumber.value != ""){ 
+        
         
         if(((inpNumber.value).substr(0,1) != "0")){
           errorTxt.innerText = " first Number format should be 0";
@@ -223,4 +189,17 @@ function dateVal(){
   }
 
 
+}
+
+function showNotification(msg){
+  var note = document.getElementById("note");
+  note.innerHTML = msg;
+  note.style.display = "block";
+ // setTimeout(hideNotification(),3000);
+  setTimeout(function(){
+  
+    document.getElementById("note").style.display = "none";
+  
+  }, 4000);
+  
 }
