@@ -47,6 +47,9 @@
                     <li>
                         <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
+                    <li>
+                        <a href="viewOfficer_Data"><i class="fa fa-desktop"></i> Show Officer Data</a>
+                    </li>
 
 
 

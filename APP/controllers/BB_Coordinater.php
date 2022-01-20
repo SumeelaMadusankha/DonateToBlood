@@ -1,5 +1,6 @@
 <?php
 include_once('Admin.php');
+include "BloodDetailsFactory.php";
 class BB_Coordinater extends Admin{
     function __construct()
     {
@@ -8,10 +9,6 @@ class BB_Coordinater extends Admin{
     public function index()
     {
        $this->view->render("bbc_index");
-    }
-    public function viewOfficer_Data(){
-        $officerData=$this->model->getOfficerData();
-        $this->view->render("bbc_viewOfficer_Data",$officerData);
     }
     public function viewDashboard(){
         $reg_res = $this->model->getStaticticalbloodprogress();
@@ -219,9 +216,10 @@ class BB_Coordinater extends Admin{
         }
     }
     public function showBloodData(){
+
         $registerResult4 = $this->model->getBloodData();
         if(!empty($registerResult4)){
-            $this->view->render("bbc_Shoratage",$registerResult4);
+            $this->view->render("bbc_Shoratage", array("data"=>$registerResult4, "updated_arr"=>null));
         }
         
     }
@@ -257,4 +255,56 @@ class BB_Coordinater extends Admin{
            $this->viewCampRequests();
         }
     }
+
+//    public function view_AddBloodDetails(){
+//        $bloodID=$_GET["id"];
+//        $result_id=$this->model->getBoodId_type($bloodID);
+//        $BloodGroup=$result_id[0]['BloodGroup'];
+//        print_r($BloodGroup);
+//        $bloodD_Fly_w_Imp=BloodDetailsFactory::getBloodDetailsImp();
+//        print_r($bloodD_Fly_w_Imp);
+//        switch ($BloodGroup) {
+//            case "AB-":
+//
+//                $this->view->render("bbc_viewAddBloodDetails",$bloodD_Fly_w_Imp->previous_Blood_details_1);
+//                break;
+//            case "AB+":
+//                $this->view->render("bbc_viewAddBloodDetails",$bloodD_Fly_w_Imp->previous_Blood_details_2);
+//
+//
+//            case "B-":
+//                $this->view->render("bbc_viewAddBloodDetails",$bloodD_Fly_w_Imp->previous_Blood_details_3);
+//
+//
+//            case "B+":
+//                $this->view->render("bbc_viewAddBloodDetails",$bloodD_Fly_w_Imp->previous_Blood_details_4);
+//                break;
+//            case "A-":
+//                $this->view->render("bbc_viewAddBloodDetails",$bloodD_Fly_w_Imp->previous_Blood_details_5);
+//                break;
+//            case "A+":
+//
+//                $this->view->render("bbc_viewAddBloodDetails",$bloodD_Fly_w_Imp->previous_Blood_details_6);
+//                break;
+//            case "O-":
+//
+//                $this->view->render("bbc_viewAddBloodDetails",$bloodD_Fly_w_Imp->previous_Blood_details_7);
+//                break;
+//            case "O+":
+//
+//                $this->view->render("bbc_viewAddBloodDetails",$bloodD_Fly_w_Imp->previous_Blood_details_8);
+//                break;
+//        }
+//
+//    }
+
+    public function viewOfficer_Data(){
+        $officerData=$this->model->bbc_viewOfficer_Data();
+        $this->view->render("bbc_viewOfficer_Data",$officerData);
+    }
+    public function view_Userprofile(){
+        $officerProfileData=$this->model->Officer_Profile_Data($_GET["id"]);
+        $this->view->render("bbc_ViewOfficer_profile",$officerProfileData);
+    }
+
 }
