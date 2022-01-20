@@ -6,10 +6,12 @@
 class Login extends Controller
 {
   private $userObject;
+  private $mail;
 
   function __construct()
   {
     parent::__construct();
+    $this->mail=EmailClient::getInstance();
   }
   public function getUserObject()
   {
@@ -77,15 +79,17 @@ public function resetPassword()
         $message = "<p>We recieved a password reset request. The link to reset your password is here with. If you haven't requested please ignore this email</p>";
         $message .= "<p>Here is your password reset link: <br>";
         $message .= "<a href=\"" . $url . "\">" . $url . "</a></p>";
-        $mail=new EmailClient($email,$subject,$message);
+        $this->mail->setSubject($subject);
+        $this->mail->setRecieverAddress($email);
+        $this->mail->setMessageBody($message);
    
-
-          header("Location:http://localhost/DonateToBlood/Login/test?msgsend=send");
-
-        if ( $mail->sendMail()) {
+        if ( $this->mail->sendMail()) {
          
-          
+          header("Location:http://localhost/DonateToBlood/Login/test?msgsend=send");
         }
+          
+
+        
         
       } else {
       header("Location:http://localhost/DonateToBlood/Login/test?err='invalidNic'");
