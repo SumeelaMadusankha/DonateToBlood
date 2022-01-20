@@ -1,13 +1,25 @@
 <?php
 
+ ob_start();
+ include_once('EmailClient.php');
+
 class Login extends Controller
 {
-
+  private $userObject;
 
   function __construct()
   {
     parent::__construct();
   }
+  public function getUserObject()
+  {
+    return $this->userObject;
+  }
+  public function setUserObject($userObject)
+  {
+    $this->userObject = $userObject;
+  }
+
 
   public function index()
   {
@@ -20,10 +32,9 @@ class Login extends Controller
 
       $jobType = $_SESSION["jobtype"];
       switch ($jobType) {
-
         case "registeredUser":
-
-          $this->view->render('reg_user_index');
+          header("Location:../RegisteredUser/index");
+          exit();
           break;
         case "admin":
           $this->view->render('admin_page');
@@ -32,21 +43,121 @@ class Login extends Controller
           $this->view->render('bbc_index');
           break;
         case "superAdmin":
-          $this->view->render('super_index');
+          $this->loadModel('SuperAdmin');
+          $blooddetails = $this->model-> get_Blooddetails('Matara');
+          $this->view->render('super_index',$blooddetails);
         case "BloodBankOfficer":
           $this->view->render('bo_index');
       }
     }
   }
-
-
-
-
-  public function login()
+  public function test()
   {
+    $this->view->render("requestToResetPassword");
+  }  
+
+public function resetPassword()
+{
+
+  if ($_SERVER["REQUEST_METHOD"] == "POST") {
+    if (isset($_POST["sendEmail"])) {
+
+      $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
+      $userName = trim($_POST["username"]);
+      $selector = bin2hex(random_bytes(8));
+      $token = random_bytes(32);
+      $url = "localhost/DonateToBlood/Login/resetPasswordmethod?selector=" . $selector . "&validator=" . bin2hex($token) . "&name=" . $userName;
+      $expire = date("U") + 1800;
+      $email = $this->model->resetPasswordStore($userName, $selector, $token, $url, $expire);
+      if (!empty($email)) {
+
+      
+        $subject = "Reset Your Password for DonateToHeal";
+        
+        $message = "<p>We recieved a password reset request. The link to reset your password is here with. If you haven't requested please ignore this email</p>";
+        $message .= "<p>Here is your password reset link: <br>";
+        $message .= "<a href=\"" . $url . "\">" . $url . "</a></p>";
+        $mail=new EmailClient($email,$subject,$message);
+   
+
+          header("Location:http://localhost/DonateToBlood/Login/test?msgsend=send");
+
+        if ( $mail->sendMail()) {
+         
+          
+        }
+        
+      } else {
+      header("Location:http://localhost/DonateToBlood/Login/test?err='invalidNic'");
+        // header("Location: ../Login/index?reset=emailError");
+      }
+    } else {
+      header("Location:../Login/index");
+    }
+  } else {
+    header("Location:../Login/index");
+  }
+}
 
 
-    if (!isset($_SESSION['nic'])) {
+
+
+
+
+    
+              
+             
+
+
+
+
+
+public function resetPasswordmethod()
+{
+  $this->view->render("resetPassword");
+  $selector = $_GET["selector"];
+  $validator = $_GET["validator"];
+  $userName = $_GET["name"];
+
+
+
+  if (empty($selector) || empty($validator)) {
+    header("Location:../Login/index?resetSuc=error");
+  } else {
+    if (ctype_xdigit($selector) !== false && ctype_xdigit($validator) !== false) {
+
+
+
+      if ($_SERVER["REQUEST_METHOD"] == "POST") {
+        
+        if (isset($_POST["submit"])) {
+          $pwd = $_POST["newPassword"];
+          $conPwd = $_POST["confirmPassword"];
+          if ($pwd === $conPwd) {
+            $data=$this->model->resetPassword($userName, $pwd, $selector, $validator);
+            if ($data) {
+              $this->view->render("Login/index?resetSuc=success");
+              // header("Location:http://localhost/DonateToBlood/Login/index?resetSuc=success");
+             
+            }else{
+              // header("Location: index?resetSuc=fail");
+            }
+           
+                
+           } else {
+            header("Location:../Login/resetPasswordmethod?selector=" . $selector . "&validator=" . $validator . "&resetSuc=conpwd");
+          }
+        }
+      }
+    } else {
+      header("Location:http://localhost/DonateToBlood/Login/index?resetSuc=error");
+    }
+  }
+}
+    public function login()
+    {
+
+    // if (!isset($_SESSION['nic'])) {
       if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -67,23 +178,29 @@ class Login extends Controller
               $_SESSION["lastName"] = $loginUser["lastName"];
               $_SESSION["jobtype"] = $loginUser["jobtype"];
               $_SESSION["district"] = $loginUser["district"];
+              $_SESSION["email"] = $loginUser["email"];
+              
               $_SESSION['msg'] = "success";
+              
               switch ($loginUser['jobtype']) {
                 case 'registeredUser':
-                  $this->view->render('reg_user_index');
+                  header("Location:../RegisteredUser/index");
+                  exit();
                   break;
                 case 'bloodBankCordinator':
-                  $this->view->render('bbc_index');
+                  header("Location:../BB_Coordinater/index");
+                  exit();
                   break;
                 case 'superAdmin':
-                  $this->view->render('super_index');
+                  $this->loadModel('SuperAdmin');
+                  $blooddetails = $this->model-> get_Blooddetails('Matara');
+                  $this->view->render('super_index',$blooddetails);
                   break;
-
                 case "BloodBankOfficer":
-                  $this->view->render('bo_index');
+                  header("Location:../../DonateToBlood/B_officer/index");
+                  exit();
                   break;
                 default:
-                  # code...
                   break;
               }
             } else {
@@ -96,19 +213,29 @@ class Login extends Controller
           }
         }
       }
-    } else {
-      switch ($_SESSION['jobtype']) {
-        case 'registeredUser':
-          $this->view->render('reg_user_index');
-          break;
-        case 'bloodBankCordinator':
-          $this->view->render('bbc_index');
-          break;
-        default:
-          # code...
-          break;
-      }
-    }
+    // } else {
+      // switch ($_SESSION['jobtype']) {
+      //   case 'registeredUser':
+      //     header("Location:../../DonateToBlood/RegisteredUser/index");
+      //     exit();
+      //     break;
+      //   case 'bloodBankCordinator':
+      //     header("Location:../../DonateToBlood/BB_Cordinater/index");
+      //     exit();
+      //     break;
+      //   case 'superAdmin':
+      //     header("Location:../../DonateToBlood/SuperAdmin/index");
+      //     exit();
+      //     break;
+
+      //   case "BloodBankOfficer":
+      //     header("Location:../../DonateToBlood/B_officer/index");
+      //     exit();
+      //     break;
+      //   default:
+      //     break;
+      // }
+    // }
   }
 
 
@@ -121,6 +248,46 @@ class Login extends Controller
     unset($_SESSION["jobtype"]);
     unset($_SESSION["error"]);
     session_destroy();
-    $this->view->render('login');
+
+    header("Location:../../DonateToBlood/index");
+    }
+
+
+  public function mustLogout()
+  {
+    session_start();
+    $this->view->render('logout');
+  }
+  public function cancelLogout()
+  {session_start();
+    switch ($_SESSION['jobtype']) {
+      case 'registeredUser':
+        header("Location:../../DonateToBlood/RegisteredUser/index");
+        exit();
+        break;
+      case 'bloodBankCordinator':
+        header("Location:../../DonateToBlood/BB_Coordinater/index");
+        exit();
+        break;
+      case 'superAdmin':
+        header("Location:../../DonateToBlood/SuperAdmin/index");
+        exit();
+        break;
+
+      case "BloodBankOfficer":
+        header("Location:../../DonateToBlood/B_officer/index");
+        exit();
+        break;
+      default:
+        break;
+    }
   }
 }
+
+
+
+
+
+ob_end_flush();
+
+?>

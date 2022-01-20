@@ -1,3 +1,13 @@
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,7 +20,7 @@
     <!-- Responsive-->
     <link rel="stylesheet" href="../Public/css/responsive.css">
     <!-- fevicon -->
-    <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
+    
     <!-- fonts-->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -21,8 +31,12 @@
     <link rel="stylesheet" href="../Public/css/places.css">
     <link rel="stylesheet" href="../Public/css/whereToDonate.css">
     <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+    <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     <title>Document</title>
-
+    
 
 
 
@@ -37,11 +51,19 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a  href="../Login/index">Home</a></li>
+            <?php
+             
+             if (isset($_SESSION['nic'])) {
+               echo " <li><a  href='../Index/index'>Home</a></li>";
+             }else {
+               echo " <li><a  href='../'>Home</a></li>" ;
+             }
+             ?>
+   
                <?php
-              
+             
                if (isset($_SESSION['nic'])) {
-                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+                 echo "<li><a  href='loadCampRequestForm'>Request Camp</a></li>";
                }else {
                   
                }
@@ -49,7 +71,7 @@
                <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/loadBRForm'>Request Blood</a></li>";
+                echo " <li><a  href='loadBRForm' >Request Blood</a></li>";
               }else {
                  
               }
@@ -57,30 +79,39 @@
               <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationPlacesLoad' class='active'>Where to Donate</a></li>";
+                echo " <li><a class='active' href='loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad' class='active'>Where to Donate</a></li>";
+                 echo " <li><a class='active' href='loadCampPost'>Where to Donate</a></li>";
               }
               ?>
-               <?php
+
+<?php
               
               if (isset($_SESSION['nic'])) {
-                ?>
-                <li><a href='../RegisteredUser/bloodPostLoad' >Blood adverticement</a></li>
-
-
-              <?php }else {?>
-                 <li><a href='../UnregisteredUser/bloodPostLoad'  >Blood adverticement</a></li>
-                 <?php
+                echo " <li><a href='loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href='loadBloodPost'>Blood adverticement</a></li>";
               }
               ?>
               
-               <?php
+
+
+              <?php
               
                if (isset($_SESSION['nic'])) {
-                 echo " <li><a href='../Login/logout'>Logout</a></li>";
+                 
+                 echo " <div class='dropdown'>
+              
+                 <i class='fas fa-user' style='color:white'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
                }else {
-                  echo " <li><a href='../Login/index'>Login</a></li>";
+                echo "<li><a href='../Login/index'>Login</a></li>";
+
                }
                ?>
             </ul>
@@ -314,36 +345,64 @@
       $d=1;
       
 
-      $scrpt="<script>
-      function initMap() {";
+      $scrpt="";
       
       foreach ($data as $row) {
-        $scrpt=$scrpt." 
-        let marker{$count};
+       echo "
+        <script>
+      function initMap{$count}() { 
+        let marker;
         
-      const map{$count} = new google.maps.Map(document.getElementById('map{$count}'), {
+      const map = new google.maps.Map(document.getElementById('map{$count}'), {
         zoom: 10,
         center: { lat: {$row['lat']}, lng: {$row['lng']} },
       });
     
-      marker{$count} = new google.maps.Marker({
-        map{$count},
+      marker = new google.maps.Marker({
+        map,
         draggable: true,
         animation: google.maps.Animation.DROP,
         position: { lat: {$row['lat']}, lng: {$row['lng']} },
       });
-      marker{$count}.addListener('click', function(){
-        if (marker{$count}.getAnimation() !== null) {
-        marker{$count}.setAnimation(null);
+      marker.addListener('click', function(){
+        if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
       } else {
-        marker{$count}.setAnimation(google.maps.Animation.BOUNCE);
+        marker.setAnimation(google.maps.Animation.BOUNCE);
       }
       });
+    }
+      </script>";
+
+
+      echo "
+      <script>
+      function initMapInner{$count}() { 
+        let marker;
+        
+      const map = new google.maps.Map(document.getElementById('mapin{$count}'), {
+        zoom: 10,
+        center: { lat: {$row['lat']}, lng: {$row['lng']} },
+      });
     
-    ";
+      marker = new google.maps.Marker({
+        map,
+        draggable: true,
+        animation: google.maps.Animation.DROP,
+        position: { lat: {$row['lat']}, lng: {$row['lng']} },
+      });
+      marker.addListener('click', function(){
+        if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+      });
+    } 
+    </script> ";
 
 
-
+   
         $post="<div class='col-xs-12 col-sm-6 col-md-3 col-lg-3 '>
         <a href='#modal-opened{$count}' id='modal-closed{$count}'>
           <div class='card-flyer'>
@@ -396,35 +455,22 @@
         <div class='modal-demo' >
         
           <div class='modal__details'>
-          
-
-           
-
-            
-
-            
-          
             <h1 class='modal__title'><b>Request Details</b></h1>
             <p class='modal__description'>{$row['description']}
             </p>
           </div>
-      
           <div class='modal__text'>
-            
            <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> {$row['name']}</p></div>
             <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['conNumber']}</p></p>
             <p class='outer-extra-class'> <b class= 'extra-class'>Email :</b>  <p class='inner-extra-class'> {$row['email']}</p></p>
-            <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['dateTime']}</p></p>
-            <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date and time :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Date :</b>  <p class='inner-extra-class'> {$row['campDate']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Schedule Stating Time :</b>  <p class='inner-extra-class'> {$row['startingTime']}</p></p>
+            <p class='outer-extra-class'> <b class= 'extra-class'>Address :</b>  <p class='inner-extra-class'> {$row['address']}</p></p>
             <div class='cls'>Location of the place:</div>
             <div id='mapin{$count}' class='map-class'></div>
+           
 
-
-
-            
-            <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
-
-            <a href='{$row['attachment']}' download target='_blank'
+            <a href='downloadFile?file={$row['attachment']}' 
 
             
 
@@ -449,11 +495,22 @@
       }
      $count+=1;
       }
-
-      $scrpt=$scrpt."}
+$func="";
+      for ($i=1; $i < $count+1; $i++) { 
+        $func=$func.
+         "initMap{$i}();
+          initMapInner{$i}();";
+      }
+      $dataScr="
+      <script>
+      function init(){
+        {$func}
+      }
       </script>";
-      echo $fCode.$scrpt;
-     $scrpt;
+     
+      echo $fCode;
+      echo $dataScr;
+     
       ?>
 
 
@@ -466,11 +523,11 @@
   </div>
   </div>
   </div>
-  <script
-      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9QFyUSZ75iGCi9yhjubJM8H0yw2koqE&callback=initMap&v=weekly"
+ 
+  
+    <script
+      src='https://maps.googleapis.com/maps/api/js?key=AIzaSyDB9QFyUSZ75iGCi9yhjubJM8H0yw2koqE&callback=init&v=weekly'
       async
-    ></script> 
-    
-    
+    ></script>
 </body>
 </html>

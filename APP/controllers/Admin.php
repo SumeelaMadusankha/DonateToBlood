@@ -1,12 +1,8 @@
 <?php
 include_once('Person.php');
-class Admin extends Person
-{
 
-    private $nic;
-    private $firstName;
-    private $lastName;
-    private $adminType;
+abstract class Admin extends Person
+{
 
     function __construct()
     {

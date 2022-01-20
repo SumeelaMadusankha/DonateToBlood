@@ -1,3 +1,18 @@
+<?php
+  if (!isset($_SESSION['nic'])) {
+   header("Location:../");
+  }
+?>
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +22,7 @@
     <link rel="stylesheet" href="user_reg.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     <title>User_Reg</title>
-    <!-- --------------------------------------------------- -->
+    
     <!-- <link rel="stylesheet" href="css/responsive.css">
       fevicon
       <link rel="icon" href="images/fevicon.png" type="image/gif" />
@@ -65,13 +80,13 @@
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToBlood</label>
+            <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a class="active" href="../Login/index">Home</a></li>
+            <li><a  href="../Index/index">Home</a></li>
                <?php
-              
+             
                if (isset($_SESSION['nic'])) {
-                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+                 echo "<li><a  href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
                }else {
                   
                }
@@ -79,7 +94,7 @@
                <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/loadBRForm' class='active'>Request Blood</a></li>";
+                echo " <li><a  class='active' href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
               }else {
                  
               }
@@ -87,32 +102,41 @@
               <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                 echo " <li><a href=' UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
               }
               ?>
-               <?php
+
+<?php
               
               if (isset($_SESSION['nic'])) {
-                ?>
-                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
-
-
-              <?php }else {?>
-                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
-                 <?php
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }
               ?>
               
-               <?php
+
+                <?php
               
                if (isset($_SESSION['nic'])) {
-                 echo " <li><a href='../Login/logout'>Logout</a></li>";
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
                }else {
-                  echo " <li><a href='../Login/index'>Login</a></li>";
+                  echo "<li><a href='Login/index'>Login</a></li>";
                }
                ?>
+
             </ul>
          </nav>
          
@@ -126,10 +150,10 @@
 
 
     
-        <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
+        <form action="../BloodRequest/addRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
 
-           <h1 class="topic" >Blood Request</h1>
+           <h1 class="topic" >Blood Request Form</h1>
            <?php
            
            
@@ -140,7 +164,7 @@
                 <div class='flag__image note__icon'>
                   <i class='fa fa-check-circle'></i>
                 </div>
-                <div class='flag__body note__text'> Dear 
+                <div class='flag__body note__text'>  
                   Your request has been sent  Successfully! 
                 </div>
                 <a href='#' class='note__close'>
@@ -168,12 +192,7 @@
         <div class="container" >
             
             
-            <hr>
-            <div class="field nid">
-            <label for="nic"><b>Nic</b></label><br>
-            <input type="text" placeholder="Identity Card" name="nic" id="nic" >
-            <div class="error error-text"> NIC can't be blank</div><br>
-            </div>
+            
            
 
             <div class="field fullName">
@@ -211,8 +230,8 @@
 
             <div class="field address"> 
             <label for="address"><b>Address</b></label><br>
-            <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea>
-            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <!-- <textarea name="address" id="address" cols="50" rows="3" placeholder="Address"></textarea> -->
+            <input type="text" placeholder="Address" name="address" id="address" >
             <div class="error error-text"> Address can't be blank</div><br>
           
             </div>
@@ -246,11 +265,11 @@
         </div>    
         
        
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return submitRequestForm()">
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal()  )">
         
        
         
-        
+        <!-- dateVal() && -->
 
         </form>
           

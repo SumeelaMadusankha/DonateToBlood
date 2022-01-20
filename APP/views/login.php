@@ -11,7 +11,7 @@
       <!-- Responsive-->
       <link rel="stylesheet" href="../Public/css/responsive.css">
       <!-- fevicon -->
-      <link rel="icon" href="../Public/images/fevicon.png" type="image/gif" />
+
       <!-- fonts-->
      
       <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -28,7 +28,7 @@
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">  
 
 
-      <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" crossorigin="anonymous">
+     
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" crossorigin="anonymous"></script>
 
@@ -68,18 +68,69 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a  href="index">Home</a></li>
               
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
+            <?php
+             
+             if (isset($_SESSION['nic'])) {
+               echo " <li><a  href='../Index/index'>Home</a></li>";
+             }else {
+               echo " <li><a  href='../'>Home</a></li>" ;
+             }
+             ?>
+           
                <?php
-              
+             
                if (isset($_SESSION['nic'])) {
-                 echo " <li><a href='logout'>Logout</a></li>";
+                 echo "<li><a  href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
                }else {
-                  echo " <li><a class='active' href='index'>Login</a></li>";
+                  
                }
                ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a  href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }
+              ?>
+
+<?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a class='active' href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }
+              ?>
+
+                <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
+               }else {
+                  echo "<li><a href='../Login/index' class='active'>Login</a></li>";
+               }
+               ?>
+
             </ul>
          </nav>
          
@@ -87,9 +138,7 @@
 <div class="body">
      <div class="login">
       <div class="container">
-      
-      
-              
+        
         <div class="wrapper">
         <?php
       
@@ -108,7 +157,7 @@
           <i class='fa fa-times'></i>
         </a>
       </div>";
-      }elseif (isset($_SESSION['msg'])) {
+      }elseif (isset($_SESSION['msg'] ) ) {
         unset($_SESSION['msg']); 
         echo "<div class='flag note note--success'>
         <div class='flag__image note__icon'>
@@ -116,6 +165,18 @@
         </div>
         <div class='flag__body note__text'>
           You are registered Successfully!. 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }elseif ( isset($_GET['reset'])) {
+        echo "<div class='flag note note--success'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-check-circle'></i>
+        </div>
+        <div class='flag__body note__text'>
+          Your password is reset Successfully!. 
         </div>
         <a href='#' class='note__close'>
           <i class='fa fa-times'></i>
@@ -143,33 +204,13 @@
               </div>
               <div class="error error-txt">Password can't be blank</div>
             </div>
-            <div class="pass-txt"><a href="#">Forgot password?</a></div>
+            <div class="pass-txt"><a href="../Login/test">Forgot password?</a></div>
             <input type="submit" value="Login" name="login" data-toggle="modal" data-target="#Mysmallmodal">
           </form>
           <div class="sign-txt">Not a member? <a href="#">Register Here</a></div>
         </div>
         <div class="modal fade" id="Mysmallmodal">
-	<!-- <div class="ex modal-dialog modal-sm">
-		<div class="modal-content">
-			<div class="modal-header">
-				<button type="button" class="close" data-dismiss="modal">
-                	&times;
-                </button> 
-				                                                      
-			</div> 
-			<div class="modal-body">
-     
-			</div>   
-			<div class="modal-footer">
-				<button type="button" class="btn btn-default" data-dismiss="modal">
-                	Close
-                </button>
-				<button type="button" class="btn btn-warning">
-                	Ok
-                </button>                                 
-			</div>
-		</div>                                                                       
-	</div>                                       -->
+	                              -->
 </div>
         </div>
         <script src="../Public/js/login.js"></script>

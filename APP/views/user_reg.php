@@ -137,7 +137,7 @@
                 <input type="text" placeholder="National Identity Card" 
                 value="
                 <?php 
-                echo $data
+                echo $_SESSION['username'];
                 ?>"
                 name="nic" id="nic"  >
                  <br>
@@ -149,10 +149,10 @@
                 <div class="gender">
                     <label for="gender"><b>Gender</b></label><br>
 
-                    <input type="radio" id="male" name="gender" value="male">
+                    <input type="radio" id="male" name="gender" value="M">
                     <label for="male">Male</label>
 
-                    <input type="radio" id="female" name="gender" value="female">
+                    <input type="radio" id="female" name="gender" value="F">
                     <label for="female">Female</label>
         
                     <input type="radio" id="no" name="gender" value="no_gender">
