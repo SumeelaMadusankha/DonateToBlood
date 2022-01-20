@@ -169,29 +169,44 @@
                   <?php
                      echo "
                      <i class='fa fa-user' style='font-size:100px'></i>
-                     <h4>$data[firstName],$data[lastName]</h4>
+                     <h4>{$data[0]['firstName']} {$data[0]['lastName']}</h4>
                      <p>Registered User</p>";
                   ?>
             </div>
             <div class="right">
               <div class="info">
+
                   <h3>Information</h3>
                   <div class="info_data">
                        <div class="data">
-                          <h4>District</h4>
-                          <p>Matara</p>
+                          <?php
+                           echo"
+                          <h6>District: </h6>
+                          <p>{$data[0]['district']}</p>";
+                          ?>
                        </div>
                        <div class="data">
-                         <h4>Phone</h4>
-                          <p>077 242 6488</p>
+                           <?php
+                           echo"
+                          <h6>Contact No: </h6>
+                          <p>{$data[0]['mobileNo']}</p>";
+                          ?>
                         </div>
                         <div class="data">
-                           <h4>Blood Type</h4>
-                            <p>A+</p>
+                           <?php
+                           echo"
+                          <h6>Blood Type: </h6>
+                          <p>{$data[0]['bloodGroup']}</p>";
+                          ?>
                         </div>
                         <div class="data">
-                           <h4>Next eligile date</h4>
-                            <p>12th</p>
+                           <?php
+                           $count = count($data);
+                           $newdate = date('Y-m-d', strtotime($data[$count-1]['date'].'+ 3 months'));
+                           echo "
+                           <h6>Next eligile date</h6>
+                            <p>{$newdate}</p>";
+                            ?>
                         </div>
                   </div>
               </div>
@@ -200,7 +215,32 @@
                   <h3>Donation History</h3>
                   <div class="content-table">
                           <table>
-                           <thead>
+                          <thead>
+                              <tr>
+                                 <th>Date of Donation</th>
+                                 <th>Place of Donation</th>
+                                 <th>Quantity</th>
+                              </tr>
+                           </thead>
+                          <?php
+                              if(is_array($data)){
+                                 
+                                 foreach (array_slice($data,1) as $row){
+                                    echo "
+                                       <tr>
+                                          <td> <b> {$row['date']} </b></td>
+                                          <td> <b>{$row['venue']} </b></td>
+                                          <td> <b>{$row['quantity']} </b></td>
+
+                                       </tr>";
+                     
+                     
+                                 }
+
+                              }
+
+                              ?>
+                           <!-- <thead>
                               <tr>
                                  <th>Date of Donation</th>
                                  <th>Place of Donation</th>
@@ -209,7 +249,7 @@
                            <tbody>
                               <td>12</td>
                               <td>Matara</td> 
-                           </tbody>
+                           </tbody> -->
                           </table>
                   </div>
                </div>
