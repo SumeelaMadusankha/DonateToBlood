@@ -60,7 +60,7 @@
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a  href="../Login/index">Home</a></li>
+               <li><a  href="../">Home</a></li>
                <?php
               
                if (isset($_SESSION['nic'])) {
@@ -128,7 +128,7 @@
 
 
     
-        <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form">
+        <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form" enctype="multipart/form-data">
 
 
            <h1 class="topic" >Camp Request Form</h1>

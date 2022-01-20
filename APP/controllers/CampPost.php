@@ -2,9 +2,6 @@
 include_once('post.php');
 class CampPost extends Post
 {
-
-    
-
     function __construct()
     {
         parent:: __construct();
@@ -25,12 +22,16 @@ class CampPost extends Post
     $res=$this->model->getCampRequestDetails($district);
     if (!empty($res)) {
         $this->view->render("donatePlaces",$res);
+    }else {
+        $this->view->render("donatePlaces",$res);
     }
     
     }else {
      
         $res=$this->model->getcampRequestDetails("all");
     if (!empty($res)) {
+        $this->view->render("donatePlaces",$res);
+    }else {
         $this->view->render("donatePlaces",$res);
     }
     

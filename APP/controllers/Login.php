@@ -5,12 +5,21 @@
 
 class Login extends Controller
 {
-
+  private $userObject;
 
   function __construct()
   {
     parent::__construct();
   }
+  public function getUserObject()
+  {
+    return $this->userObject;
+  }
+  public function setUserObject($userObject)
+  {
+    $this->userObject = $userObject;
+  }
+
 
   public function index()
   {
@@ -25,8 +34,8 @@ class Login extends Controller
       switch ($jobType) {
 
         case "registeredUser":
-
-          $this->view->render('reg_user_index');
+          header("Location:../../DonateToBlood/Index/index");
+          exit();
           break;
         case "admin":
           $this->view->render('admin_page');
@@ -43,7 +52,6 @@ class Login extends Controller
       }
     }
   }
-
   public function test()
   {
     $this->view->render("requestToResetPassword");
@@ -96,9 +104,6 @@ public function resetPassword()
 
 
 
-
-
-
 public function resetPasswordmethod()
 {
   $this->view->render("resetPassword");
@@ -144,8 +149,6 @@ public function resetPasswordmethod()
     public function login()
     {
 
-
-
     if (!isset($_SESSION['nic'])) {
       if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
@@ -167,10 +170,13 @@ public function resetPasswordmethod()
               $_SESSION["lastName"] = $loginUser["lastName"];
               $_SESSION["jobtype"] = $loginUser["jobtype"];
               $_SESSION["district"] = $loginUser["district"];
+              $_SESSION["email"] = $loginUser["email"];
               $_SESSION['msg'] = "success";
+             
               switch ($loginUser['jobtype']) {
                 case 'registeredUser':
-                  $this->view->render('reg_user_index');
+                  header("Location:../../DonateToBlood/Index/index");
+                  exit();
                   break;
                 case 'bloodBankCordinator':
                   $this->view->render('bbc_index');
@@ -224,9 +230,21 @@ public function resetPasswordmethod()
     unset($_SESSION["error"]);
     session_destroy();
 
-    $this->view->render('reg_user_index');
+    header("Location:../../DonateToBlood/index");
     }
+
+
+  public function mustLogout()
+  {
+    session_start();
+    $this->view->render('logout');
+  }
 }
+
+
+
+
+
 ob_end_flush();
 
 ?>

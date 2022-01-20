@@ -128,9 +128,9 @@
                     <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['mobileNo']}</p></p>
                     <p class='outer-extra-class'> <b class= 'extra-class'>Due Date :</b>  <p class='inner-extra-class'> {$row['duedate']}</p></p>
                     
-                    <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
+                   
 
-                    <a href='{$row['attachment']}' download target='_blank'
+                    <a href='downloadFile?file={$row['attachment']}' 
 
                     
 
