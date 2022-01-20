@@ -20,28 +20,31 @@ class CampPost extends Post
    
        $district=$_SESSION['district'];
     $res=$this->model->getCampRequestDetails($district);
+    $postColection=new PostCollection();
+    foreach($res as $row){
+        $postColection->addPost($row);
+        
+    }
+
     if (!empty($res)) {
-        $this->view->render("donatePlaces",$res);
+        $this->view->render("donatePlaces", $postColection);
     }else {
-        $this->view->render("donatePlaces",$res);
+        $this->view->render("donatePlaces", $postColection);
     }
     
     }else {
      
         $res=$this->model->getcampRequestDetails("all");
+        $postColection=new PostCollection();
+        foreach($res as $row){
+            $postColection->addPost($row);
+            
+        }
     if (!empty($res)) {
-        $this->view->render("donatePlaces",$res);
+        $this->view->render("donatePlaces", $postColection);
     }else {
-        $this->view->render("donatePlaces",$res);
+        $this->view->render("donatePlaces", $postColection);
     }
-    
-    
-
-
-
-
-
-
 
 }
 
@@ -52,9 +55,13 @@ class CampPost extends Post
         $this->loadModel("CampPost");
         
        
-        $resultarr=$this->model->filterCampPost($dataArray);
-      
-        $this->view->render("donatePlaces",$resultarr);
+        $res=$this->model->filterCampPost($dataArray);
+        $postColection=new PostCollection();
+        foreach($res as $row){
+            $postColection->addPost($row);
+            
+        }
+        $this->view->render("donatePlaces", $postColection);
         exit();
     }
     public function expiredPost($district){

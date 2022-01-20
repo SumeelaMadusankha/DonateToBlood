@@ -1,5 +1,5 @@
 <?php
-interface Iterator{
+interface IteratorSystem{
     public function current();
     public function key();
     public function next();

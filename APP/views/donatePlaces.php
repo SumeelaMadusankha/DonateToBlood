@@ -347,7 +347,13 @@ if (isset($_SESSION['jobtype'])) {
 
       $scrpt="";
       
-      foreach ($data as $row) {
+{
+   
+}
+while ($data->valid()) {
+  $key = $data->key();
+  $row = $data->current();
+  $data->next();
        echo "
         <script>
       function initMap{$count}() { 
