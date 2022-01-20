@@ -1,3 +1,18 @@
+<?php
+  if (!isset($_SESSION['nic'])) {
+   header("Location:../");
+  }
+?>
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -68,13 +83,61 @@
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a class="active" href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               <li><a href='../Login/logout'>Logout</a></li>
+            <li><a  href="../Index/index">Home</a></li>
+               <?php
+             
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a  href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
               
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a  class='active' href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }
+              ?>
+
+<?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }
+              ?>
+              
+
+                <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
+               }else {
+                  echo "<li><a href='Login/index'>Login</a></li>";
+               }
+               ?>
+
             </ul>
          </nav>
          
@@ -88,10 +151,14 @@
 
 
     
+
         <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
         <div id="note">
       <b> Notification message </b>
 </div>
+
+
+
 
            <h1 class="topic" >Blood Request Form</h1>
            <?php
@@ -155,7 +222,18 @@
             <div class="error error-text"> Blood Type can't be blank</div><br>
             
             </div>
-
+            <div class="field district"> 
+            <label for="district"><b>District</b></label><br>
+                <select name="district" id="district">
+                    <option value="matara">Matara</option>
+                    <option value="galle">Galle</option>
+                    <option value="jaffna">Jaffna</option>
+                    <option value="colombo">Colombo</option>
+                </select><br>
+            <!-- <input type="text" placeholder="Address" name="address" id="address" > -->
+            <div class="error error-text"> Address can't be blank</div><br>
+          
+            </div>
 
             <div class="field address"> 
             <label for="address"><b>Address</b></label><br>

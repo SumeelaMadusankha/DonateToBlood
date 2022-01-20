@@ -1,3 +1,19 @@
+<?php
+  if (!isset($_SESSION['nic'])) {
+   header("Location:../");
+  }
+?>
+<?php
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,8 +22,15 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="user_reg.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>Camp_Reg</title>
+    <title>User_Reg</title>
     
+    <!-- <link rel="stylesheet" href="css/responsive.css">
+      fevicon
+      <link rel="icon" href="images/fevicon.png" type="image/gif" />
+      fonts-->
+      <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+      <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+      Scrollbar Custom CSS -->
      
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
@@ -20,7 +43,7 @@
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.0/jquery.validate.min.js"></script>
       <script src="../Public/js/user_reg.js"></script>
-    
+
 
      
 
@@ -61,13 +84,62 @@
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-               <li><a class="active" href="index">Home</a></li>
-               <li><a href="#">Request Camp</a></li>
-               <li><a href="User/loadBRForm">Request Blood</a></li>
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
-               <li><a href='../Login/logout'>Logout</a></li>
+            <li><a  href="../Index/index">Home</a></li>
+               <?php
+             
+               if (isset($_SESSION['nic'])) {
+                 echo "<li><a class='active' href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
+               }else {
+                  
+               }
+               ?>
+               <?php
               
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a  href='../RegisteredUser/loadBRForm' >Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }
+              ?>
+
+<?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }
+              ?>
+              
+
+                <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
+               }else {
+                  echo "<li><a href='Login/index'>Login</a></li>";
+               }
+               ?>
+
+       
             </ul>
          </nav>
          
@@ -81,11 +153,13 @@
 
 
     
+
         <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form">
         <div id="note">
       <b> Notification message </b>
 </div>
            <h1 class="topic" >Camp Request Form</h1>
+
            <?php
            
            
@@ -181,6 +255,7 @@
 
             
             <div class="field dueDate">
+
             <label for="duedate"><b>Date </b></label><br>
             <input type="date" placeholder="Due Date" name="duedate" id="duedate" >
             <div class="error error-text"> Due Date can't be blank</div><br>
@@ -190,6 +265,7 @@
             <label for="time"><b>Starting time </b></label><br>
             <input type="time" placeholder="Time" name="time" id="time" min="08:00" max="12:00">
             <div class="error error-text"> Startingtime can't be blank</div><br>
+
             </div>
             
 

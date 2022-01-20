@@ -1,31 +1,81 @@
 <?php
 include_once('User.php');
 include_once('BloodPost.php');
-session_start();
-class RegisteredUser extends User 
+include_once('Observer.php');
+include_once('CampPost.php');
+include_once('EmailClient.php');
+class RegisteredUser extends User implements Observer
 {
+private $city;
+private $bloodGroup;
+private $dateOfBirth;
+private $subject;
+private $body;
+private $mailClient;
   function __construct()
   {
     parent::__construct(); 
-    
-  } 
- 
+    $this->mailClient=EmailClient::getInstance();
+  }
 
-  public function setDetails($nic)
+
+    public function getSubject()
     {
-      $this->loadModel('RegisteredUser');
-      $details=$this->model->getRegisteredUserData($nic)[0];
-     $this->firstName=$details['firstName'];
-     $this->lastName=$details['lastName'];
-     $this->bloodGroup=$details['bloodGroup;'];
-     $this->District=$details['district'];
-     $this->MobileNo=$details['MobileNo'];
-     $this->email=$details['email'];
-     $this->nic=$details['nic'];
-     $this->address=$details['address'];
-     $this->dateOfBirth=$details['dob'];
-     $this->gender=$details['gender'];
+        return $this->subject;
+    }
+
+
+    public function setSubject($subject)
+    {
+        $this->subject = $subject;
+    }
+
+    public function getBody()
+    {
+        return $this->body;
+    }
+
+
+    public function setBody($body)
+    {
+        $this->body = $body;
+    }
+  public function index()
+  {
+    if (isset($_SESSION['nic'])) {
+      $this->view->render('index');
+    }else {
+      header("Location:../");
+    }
      
+  }
+    public function setBloodGroup($bloodGroup)
+    {
+        $this->bloodGroup = $bloodGroup;
+    }
+
+    public function setDateOfBirth($dateOfBirth)
+    {
+        $this->dateOfBirth = $dateOfBirth;
+    }
+    public function getCity()
+    {
+        return $this->city;
+    }
+
+    public function setCity($city)
+    {
+        $this->city = $city;
+    }
+
+    public function getBloodGroup()
+    {
+        return $this->bloodGroup;
+    }
+
+    public function getDateOfBirth()
+    {
+        return $this->dateOfBirth;
     }
 public function loadCampRequestForm()
 {
@@ -36,90 +86,47 @@ public function loadCampRequestForm()
    
       $this->view->render("blood_request");
     }
-    public function addRequest()
+    
+  
+
+    public function loadBloodPost()
     {
-      
+      $post=new BloodPost();
       if ($_SERVER["REQUEST_METHOD"]=="POST") {
         $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
         if (isset($_POST["sbmt_btn"])) {
-           $dataArray=[
-             "flname"=>$this->testInput($_POST["flname"]),
-             
-             "nic"=>$_SESSION['nic'],
-             "blood"=>$this->testInput($_POST["blood"]),
-             "address"=>$this->testInput($_POST["address"]),
-            
-             
-             "mobileNo"=>$this->testInput($_POST["num"]),
-             "description"=>$this->testInput($_POST["description"]),
-             "attachment"=>$this->testInput($_POST["att"]),
-             "duedate"=>$this->testInput($_POST["duedate"]),
-
-           ];
-             $registerResult = $this->model->addbloodRequest($dataArray);
-             if (empty($registerResult)) {
-             
-               $_SESSION['msg']="success";
-               header("Location: http://localhost/DonateToBlood/RegisteredUser/loadBRForm");
-           }else {
-            
-            $_SESSION['error']="failed";
-           
-            $this->view->render("blood_request");
-           }
-           
+          $post->filterPost($_POST);
+        }}else {
+          $post->Loadpostpage();
         }
-    }
-    }
-
-    public function bloodPostLoad()
-    {
-       $post=new BloodPost();
-       $post->Loadpostpage();
-
-    }
-    public function donationPlacesLoad()
-    {
-        $this->view->render('donatePlaces');
-}
-
-public function addCampRequest(){
-  if ($_SERVER["REQUEST_METHOD"]=="POST") {
-    $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
-    if (isset($_POST["sbmt_btn"])) {
-       $dataArray=[
-         "name"=>$this->testInput($_POST["flname"]),
-         
-         "email"=>$_SESSION['email'],
-         "campDate"=>$this->testInput($_POST["duedate"]),
-         "description"=>$this->testInput($_POST["description"]),
-        
-         
-         "attachment"=>$this->testInput($_POST["att"]),
-         "lat"=>$this->testInput($_POST["lat"]),
-         "lng"=>$this->testInput($_POST["lng"]),
-         
-         "district"=>$this->testInput($_POST["district"]),
-         "address"=>$this->testInput($_POST["address"]),
-         "conNumber"=>$this->testInput($_POST["num"]),
-         "dateTime"=>$this->testInput($_POST["duedate"]),
-
-       ];
-         $registerResult = $this->model->addCampRequest($dataArray);
-         if (empty($registerResult)) {
-         
-           $_SESSION['msg']="success";
-            header("Location: http://localhost/DonateToBlood/RegisteredUser/loadCampRequestForm");
-       }else {
-        
-        $_SESSION['error']="failed";
        
-        $this->view->render("campRequest");
-       }
-       
+      
+
     }
+    public function loadCampPost()
+    {
+      $post=new CampPost();
+      if ($_SERVER["REQUEST_METHOD"]=="POST") {
+        $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
+        if (isset($_POST["sbmt_btn"])) {
+          $post->filterPost($_POST);
+        }}else {
+          $post->Loadpostpage();
+        }
+       
+      
+      
 }
+
+
+
+public function donationHistoryLoad(){
+  $nic=$_SESSION['nic'];
+  $user_details = $this->model->viewDonorHistory($nic);
+  $this->view->render("reg_user_viewHistory");
+
 }
+
 
     public function viewUserProfile(){
       
@@ -180,7 +187,14 @@ public function addCampRequest(){
     }
 
 
+    public function handle()
+    {
 
+      $this->mailClient->setRecieverAddress($this->getEmail());
+      $this->mailClient->setSubject($this->getSubject());
+      $this->mailClient->setMessageBody($this->getBody());
+      $this->mailClient->sendMail();
+    }
 }
 
 

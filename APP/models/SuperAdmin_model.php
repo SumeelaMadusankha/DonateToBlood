@@ -19,9 +19,9 @@ class SuperAdmin_model extends Model{
         $gender=$dataArray["gender"];
        
        $quaryAddUser="INSERT INTO user (firstname,lastname,city, nic, district, address,
-        email, mobileNo, gender) VALUES (:firstname,:lastname,:city,:nic, 
-        :district,:address,:email, :mobileNo,:gender)";
-        $quaryAddAdmin="INSERT INTO admin(nic,district,email,phonenumber) VALUES (:nic,:district,:email,:phonenumber)";
+        email, mobileNo, gender, jobType) VALUES (:firstname,:lastname,:city,:nic, 
+        :district,:address,:email, :mobileNo,:gender,:jobType)";
+        $quaryAddAdmin="INSERT INTO bbcordinator(nic) VALUES (:nic)";
         $quaryAddLog="INSERT INTO login (nic,password) VALUES (:nic,:password)";
 
        $arrayInjectUser=[
@@ -34,13 +34,11 @@ class SuperAdmin_model extends Model{
             ':email'=>$email, 
             ':mobileNo'=>$phoneNo, 
             ':gender'=>$gender,
+            ':jobType'=>'bloodBankCordinator'
        ];
 
        $arrayInjectAdmin=[
-         ':nic'=>$nic,
-         ':district'=>$district, 
-         ':email'=>$email, 
-         ':phonenumber'=>$phoneNo, 
+         ':nic'=>$nic
         ];
 
         $arrayInjectLog=[
@@ -61,8 +59,8 @@ class SuperAdmin_model extends Model{
 
     public function get_AdminData()
     {
-        $query2 = "select * from user ";
-        $results2 = $this->db->selectData($query2);
+        $query2 = "select * from user WHERE jobType = :superAdmin ";
+        $results2 = $this->db->runQuery($query2,[':superAdmin'=>'bloodBankCordinator']);
         return $results2;
     }
 
@@ -70,7 +68,7 @@ class SuperAdmin_model extends Model{
         $dataArray=[
             ':nic'=>$id,
         ];
-        $sql1 = "DELETE FROM admin WHERE nic=:nic";
+        $sql1 = "DELETE FROM bbcordinator WHERE nic=:nic";
         $sql2 = "DELETE FROM user WHERE nic=:nic";
         $sql3 = "DELETE FROM login WHERE nic=:nic";
         $adminresults1= $this->db->runQuery($sql1,$dataArray);
@@ -79,5 +77,36 @@ class SuperAdmin_model extends Model{
         return $adminresults1&&$adminresults2&&$adminresults3;
     }
 
+    public function get_Blooddetails($district){
+
+        $query3 = "SELECT * FROM blooddetails WHERE Distric =:district ";
+        $results3 = $this->db->runQuery($query3,[":district"=>$district]);
+       
+        return $results3;
+    }
+    public function checkAvailabilityOfNIC($nic)
+    {
+        $query = 'SELECT * FROM user where nic = :nic';
+        $res= $this->db->runQuery($query,[":nic"=>$nic]);
+
+        if (empty($res)) {
+           return true;
+        }else {
+            return false;
+        }
+    }
+
+ public function checkAvailabilityOfBBC($district)
+    {
+       
+        $query= 'SELECT * FROM user where district = :district';
+        $res= $this->db->runQuery($query,[":district"=>$district]);
+
+        if (empty($res)) {
+           return true;
+        }else {
+            return false;
+        }
+    }
 }
 ?>

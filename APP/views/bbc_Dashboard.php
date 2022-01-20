@@ -1,3 +1,17 @@
+<?php
+if (!isset($_SESSION['nic'])) {
+    header("Location:http://localhost/DonateToBlood/Login/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='bloodBankCordinator') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -30,22 +44,21 @@
                         <a class="active-menu" href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="../viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
+                        <a href="viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
                     </li>
                     <li>
-                        <a href="../viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                        <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a  href="../showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+
+                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
+
                     </li>
                     <li>
-                        <a href="../viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a href="view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
                     </li>
                     <li>
-                        <a href="../viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
-                    </li>
-                    <li>
-                        <a href="../viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
+                        <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
 
 
@@ -63,63 +76,90 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h1 class="page-header">
-                            Blood Bank <small>Updates</small>
+                            Distric Blood Bank Division <small>Updates</small>
                         </h1>
                     </div>
                 </div>
-                <!-- /. ROW  -->
+                <div class='row'>
+                <?php
+                    
+                    foreach ($data as $raw) {
 
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-green">
-                            <div class="panel-body">
-                                <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>8,457</h3>
+                        $percentage=round(($raw['AvailableQuantity']/ $raw['MaximumQuantity'])*100);
+                        if ( $percentage<10) {
+                        echo" 
+                        <div class='col-md-4 col-sm-12 col-xs-12'>
+                                <div class='panel panel-primary text-center no-boder bg-color-red'>
+                                    <div class='panel-body'>
+                                        <i class='fa fa-medkit fa-5x'></i>
+                                        <h3>{$raw['BloodGroup']}</h3>
+                                    </div>
+                                    <div class='panel-footer back-footer-red'>
+                                    <strong>{$raw['AvailableQuantity']} Blood Pints</strong>
+        
+                                    </div>
+                                </div>
                             </div>
-                            <div class="panel-footer back-footer-green">
-                                Total Visits
+                        ";}
+                        else{
+                            echo" 
+                            <div class='col-md-4 col-sm-12 col-xs-12'>
+                                    <div class='panel panel-primary text-center no-boder bg-color-blue'>
+                                        <div class='panel-body'>
+                                            <i class='fa fa-medkit fa-5x'></i>
+                                            <h3>{$raw['BloodGroup']}</h3>
+                                        </div>
+                                        <div class='panel-footer back-footer-blue'>
+                                        <strong>{$raw['AvailableQuantity']} Blood Pints</strong>
+            
+                                        </div>
+                                    </div>
+                                </div>
+                            ";
+                        }
+                    
+                    };
 
-                            </div>
-                        </div>
+                    ?>
                     </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-blue">
-                            <div class="panel-body">
-                                <i class="fa fa-book fa-5x"></i>
-                                <h3>52,160 </h3>
+                    <?php
+                        foreach ($data as $raw) {
+                            $percentage=round(($raw['AvailableQuantity']/ $raw['MaximumQuantity'])*100);
+                        echo 
+                        "<div class='panel-body'><!-- /. PAnel body  -->
+                        <div>
+                            <h3><strong>{$raw['BloodGroup']}</strong></h3>
+                            <h3><strong>{$percentage}%</strong></h3>
+                        </div><br>";
+                            
+                        if ( $percentage>10) {
+                            echo " 
+                            <div class='progress progress-striped active'>
+                            <div class='progress-bar progress-bar-primary' role='progressbar' aria-valuenow='{$percentage}' aria-valuemin='0' aria-valuemax='100' style='width: {$percentage}%'>
                             </div>
-                            <div class="panel-footer back-footer-blue">
-                                Camp Requests
-
+                            </div>";
+                        }
+                        else {
+                            echo " 
+                            <div class='progress progress-striped active'>
+                            <div class='progress-bar progress-bar-danger' role='progressbar' aria-valuenow='{$percentage}' aria-valuemin='0' aria-valuemax='100' style='width: {$percentage}%'>
                             </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-red">
-                            <div class="panel-body">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                                <h3>15,823 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-red">
-                                Blood Requests
-
-                            </div>
-                        </div>
-                    </div>
+                            </div>";
+                        }
+                           echo "       
                 </div>
+                ";}
 
-                <div class="alert alert-primary" role="alert">
-                <a href="showUserData" class="link-info" style="font-size: 30px;">View User Details</a>
-                </div>
-                <div class="alert alert-secondary" role="alert">
-                <a href="showRequestData" class="link-success" style="font-size: 30px;">View All Blood Requests Details</a>
-                </div>
+                ?>
                 
 
-                <?php include "bbc_footer.php"; ?>
+           
+                
+
+                
             </div>
             <!-- /. PAGE INNER  -->
-        </div>
+        </div><!-- /. PAGE INNER  -------------------->
         <!-- /. PAGE WRAPPER  -->
     </div>
     <!-- /. WRAPPER  -->

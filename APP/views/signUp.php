@@ -130,8 +130,7 @@
             </div>
             <div class="field rpassword">
                 <div class="input-area">
-                  <input type="password" name="re-password" placeholder="Re-enter Password Here">
-                  <i class="icon fas fa-lock"></i>
+                <input type="password" name="re-password" placeholder="Enter Password Here">                  <i class="icon fas fa-lock"></i>
                   <i class="error error-icon fas fa-exclamation-circle"></i>
                 </div>
                 <div class="error error-txt">Password can't be blank</div>

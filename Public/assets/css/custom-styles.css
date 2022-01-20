@@ -10,7 +10,7 @@ http://creativecommons.org/licenses/by/3.0/
 ------------------------------------------------*/
 
 body {
-    font-family: 'Open Sans', sans-serif;
+    font-family: "Open Sans", sans-serif;
 }
 
 .ex1 {
@@ -18,15 +18,54 @@ body {
     z-index: 100;
 }
 
+#inp_nic {
+    float: left;
+    width: 30%;
+    margin-left: 50px;
+    height: 110%;
+    border-radius: 10px;
+    border-color: #12b90c;
+}
+
+#search_nic {
+    margin-right: 10%;
+    padding: 10px 50px;
+    width: 30%;
+    background: #39ce1b;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    display: inline-block;
+    float: right;
+    clear: right;
+}
+
+#form_nic {
+    margin: 10% auto 0 auto;
+    padding: 30px;
+    height: auto;
+    overflow: hidden;
+    background: white;
+    border-radius: 10px;
+}
+
 #wrapper {
     width: 100%;
-    background: #09192A;
+    background: #09192a;
+}
+
+.anc_button {
+    border-radius: 5px;
+    background: #39ce1b;
+    color: #fff;
+    padding: 8px 8px;
+    text-decoration: solid;
 }
 
 #page-wrapper {
     padding: 15px 15px;
     min-height: 600px;
-    background: #E5EBF2;
+    background: #e5ebf2;
 }
 
 #page-inner {
@@ -52,7 +91,7 @@ h2,
 .h2,
 h3,
 .h3 {
-    margin-top: 7px;
+    margin-top: 17px;
     margin-bottom: -5px;
 }
 
@@ -71,12 +110,6 @@ h4 {
     border-radius: 0px;
 }
 
-p {
-    font-size: 16px;
-    line-height: 25px;
-    padding-top: 20px;
-}
-
 
 /*----------------------------------------------
    DASHBOARD STYLES    
@@ -84,8 +117,9 @@ p {
 
 .page-header {
     padding-bottom: 9px;
+    padding-top: 10px;
     margin: 10px 0 45px;
-    border-bottom: 1px solid #C7D1DD;
+    border-bottom: 1px solid #c7d1dd;
 }
 
 .panel-back {
@@ -94,7 +128,7 @@ p {
 
 .panel-default>.panel-heading {
     color: #000;
-    background-color: #FFFFFF;
+    background-color: #ffffff;
     border-color: #ddd;
     font-weight: bold;
 }
@@ -143,12 +177,12 @@ p {
 
 .bg-color-blue {
     background-color: #fff;
-    color: #4CB1CF
+    color: #4cb1cf;
 }
 
 .bg-color-red {
     background-color: #fff;
-    color: #F0433D;
+    color: #f0433d;
 }
 
 .bg-color-brown {
@@ -163,13 +197,13 @@ p {
 }
 
 .back-footer-red {
-    background-color: #F0433D;
+    background-color: #f0433d;
     color: #fff;
     border-top: 0px solid #fff;
 }
 
 .back-footer-blue {
-    background-color: #4CB1CF;
+    background-color: #4cb1cf;
     color: #fff;
     border-top: 0px solid #fff;
 }
@@ -193,8 +227,8 @@ p {
 }
 
 .main-temp-back {
-    background: #8702A8;
-    color: #FFFFFF;
+    background: #8702a8;
+    color: #ffffff;
     font-size: 16px;
     font-weight: 300;
     text-align: center;
@@ -211,7 +245,7 @@ p {
     -webkit-border-radius: 0px;
     -moz-border-radius: 0px;
     border-radius: 0px;
-    background-color: #2EA7EB;
+    background-color: #2ea7eb;
     color: #fff;
 }
 
@@ -305,7 +339,7 @@ footer p {
     position: relative;
     display: block;
     padding: 19px 15px;
-    color: #77C0FD;
+    color: #77c0fd;
 }
 
 .top-navbar .nav>li>a:hover,
@@ -349,7 +383,7 @@ footer p {
 }
 
 .active-menu {
-    background-color: #225081!important;
+    background-color: #225081 !important;
 }
 
 .arrow {
@@ -379,7 +413,7 @@ footer p {
 
 .sidebar-collapse,
 .sidebar-collapse .nav {
-    margin-top: 30px;
+    margin-top: 40px;
     position: fixed;
     background: none;
 }
@@ -403,7 +437,7 @@ footer p {
 }
 
 ul.nav.nav-second-level.collapse.in {
-    background: #172D44;
+    background: #172d44;
 }
 
 .sidebar-collapse .nav>li>a:hover,
@@ -420,7 +454,7 @@ ul.nav.nav-second-level.collapse.in {
 .top-navbar {
     width: 100%;
     position: fixed;
-    background: #09192A;
+    background: #09192a;
     border-bottom: none;
 }
 
@@ -441,12 +475,12 @@ ul.nav.nav-second-level.collapse.in {
 }
 
 .navbar-header {
-    background: #09192A;
+    background: #09192a;
 }
 
 .navbar-default .navbar-toggle:hover,
 .navbar-default .navbar-toggle:focus {
-    background-color: #B40101;
+    background-color: #b40101;
 }
 
 .navbar-default .navbar-toggle {
@@ -454,7 +488,7 @@ ul.nav.nav-second-level.collapse.in {
 }
 
 .navbar-default .navbar-toggle .icon-bar {
-    background-color: #FFF;
+    background-color: #fff;
 }
 
 .nav>li>a>i {
@@ -483,7 +517,7 @@ ul.nav.nav-second-level.collapse.in {
     MEDIA QUERIES     
 ------------------------------------------------*/
 
-@media(min-width:768px) {
+@media (min-width: 768px) {
     #page-wrapper {
         margin: 0 0 0 260px;
         padding: 15px 30px;
@@ -499,7 +533,7 @@ ul.nav.nav-second-level.collapse.in {
     }
 }
 
-@media(max-width:480px) {
+@media (max-width: 480px) {
     .page-header small {
         display: block;
         padding-top: 14px;

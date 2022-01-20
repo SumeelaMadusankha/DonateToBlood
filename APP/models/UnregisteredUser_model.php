@@ -22,7 +22,7 @@ class UnregisteredUser_Model extends User_Model
         $mobileNo=$dataArray["mobileNo"];
         $jobType=$dataArray["jobType"];
         $city=$dataArray["city"];
-        print_r($gender);
+       
        
        $quary1="INSERT INTO user (nic, firstName, LastName, dob, address, district,gender,bloodGroup,email,mobileNo,jobType,city) VALUES (:nic,:firstName,:lastName,:dob,:address,:district,:gender,:bloodGroup, :email,:mobileNo,:jobType,:city)";
        $quary2="INSERT INTO login (nic,password) VALUES (:nic,:password)";
@@ -39,7 +39,7 @@ class UnregisteredUser_Model extends User_Model
             ':mobileNo'=>$mobileNo, 
             ':jobType'=>$jobType, 
             ':city'=>$city];
-            session_start();
+           
        $results1= $this->db->runQuery($quary1,$arrayInject);
        $results2 =$this->db->runQuery($quary2,[':nic'=> $nic, ':password'=> $_SESSION['password']]);
        return $results1;

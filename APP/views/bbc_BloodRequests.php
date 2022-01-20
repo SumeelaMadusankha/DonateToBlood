@@ -1,3 +1,18 @@
+<?php
+if (!isset($_SESSION['nic'])) {
+    header("Location:http://localhost/DonateToBlood/Login/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='bloodBankCordinator') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?>
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -19,7 +34,7 @@
 
 
 
-    <link rel="stylesheet" href="../Public/css/whereToDonate.css">
+    <link rel="stylesheet" href="../Public/css/whereto.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 
@@ -40,16 +55,13 @@
                         <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Shortage of Blood</a>
+                        <a href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     <li>
-                        <a href="viewRegisterDonor"><i class="fa fa-dashboard"></i> Register Donor</a>
+                        <a href="view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
                     </li>
                     <li>
-                        <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
-                    </li>
-                    <li>
-                        <a href="viewAddBloodDetails"><i class="fa fa-desktop"></i> Add Blood Details</a>
+                        <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
 
 
@@ -76,61 +88,73 @@
                             <?php
                            
                             $count=1;
+                            $stat="";
+                            $btn="";
+                            $rs="";
                             foreach ($data as $row) {
-                                
-                                echo "                  <tr>
+                               
+                                if ($row['status']=="pending") {
+                                    $rs=" <td><span class='label label-primary' style='font-size: 18px;display:block'>Pending</span></td>";
+                                    
+                                   $stat=" <a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   <a href='declienBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
+
+                                   $btn="<a href='acceptBloodRequest?id={$row['requestId']}&nic={$row['nic']}&district={$row['district']}' id='modal-closed{$count}'><button type='button' class='btn btn-success'>ACCEPT</button></a>
+                                   <a href='declienBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-danger'>DECLINE</button></a>";
+                                   
+                                   
+                                }elseif($row['status']=="accepted"){
+                                    $stat="<a href='cancelBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>CANCEL</button></a>";
+                                    $btn="<a href='cancelBloodRequest?id={$row['requestId']}&nic={$row['nic']}' id='modal-closed{$count}'><button type='button' class='btn btn-info'>CANCEL</button></a>
+                                    ";
+                                    $rs=" <td><span class='label label-success' style='font-size: 18px;display:block'>Success</span></td>";
+                                }
+
+                                echo "<tr>
                                 <td>{$count}</td>
                                 <td>{$row['bloodType']}</td>
                                 <td>{$row['duedate']}</td>
                                 <td>
-                                <button class='btn-b' type='button' class='btn btn-success'>Accept</button>
-                                <button class='btn-b' type='button' class='btn btn-danger'>Decline</button>
-                                <a href='#modal-opened' id='modal-closed'>view</a>
+                                {$stat}
+                                <a href='#modal-opened{$count}' id='modal-closed{$count}'><button type='button' class='btn btn-primary'>VIEW</button></a>
                                 </td>                     
-                                <td><span class='label label-danger' style='font-size: 18px;display:block'>declined</span></td>
+                               {$rs}
                              </tr>
 
-                             <div class='modal-container body' id='modal-opened'>
+                             <div class='modal-container body' id='modal-opened{$count}'>
                 <div class='modal-demo' >
                   
                   <div class='modal__details'>
                     
 
-                    <img src='../Public/images/blood-types/blood-B+.png'  class='post-image-class' alt=''>
+                    <img src='../Public/images/blood-types/blood-{$row['bloodType']}.png'  class='post-image-class' alt=''>
 
                     
 
                     
                   
                     <h1 class='modal__title'><b>Blood Type : B+</b></h1>
-                    <p class='modal__description'>Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                      Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-                      took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                       but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s 
-                       with the release of Letraset sheets containing Lorem
+                    <p class='modal__description'>{$row['description']}
                     </p>
                   </div>
               
                   <div class='modal__text'>
                     
-                   <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> Nuwan Jayasanka</p></div>
-                    <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> 0769152313</p></p>
-                    <p class='outer-extra-class'> <b class= 'extra-class'>Due Date :</b>  <p class='inner-extra-class'> 2022-03-28</p></p>
+                   <div class='outer-extra-class' > <b class= 'extra-class'>Contact Person :</b>  <p class='inner-extra-class'> {$row['fullName']}</p></div>
+                    <p class='outer-extra-class'> <b class= 'extra-class'>Contact Number :</b>  <p class='inner-extra-class'> {$row['mobileNo']}</p></p>
+                    <p class='outer-extra-class'> <b class= 'extra-class'>Due Date :</b>  <p class='inner-extra-class'> {$row['duedate']}</p></p>
                     
-                    <!-- <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button> -->
+                   
 
-                    <a href='../Public/images/blood-types/blood-A+.png' 
+                    <a href='downloadFile?file={$row['attachment']}' 
 
                     
 
                     <button class='btn'><i class='fa fa-download' ></i> Download Attachment</button>
                     </a>
-                    
+                    <div class='cls-btn'> {$btn}</div>
+                   
                   </div>
-
-              
-                 
-              
                   <a href='#modal-closed' class='link-2'></a>
               
                 </div>
@@ -139,68 +163,8 @@
             $count += 1;
                             }
                             ?>
-
-
-
-
-
-
-
-
-
-
-
-
-
-                                
-
-                               <div class="modal-container body" id="modal-opened">
-                  <div class="modal-demo" >
-                    
-                    <div class="modal__details">
-                      
-
-                      <img src="../Public/images/blood-types/blood-B+.png"  class="post-image-class" alt="">
-
-                      
-
-                      
-                    
-                      <h1 class="modal__title"><b>Blood Type : B+</b></h1>
-                      <p class="modal__description">Lorem Ipsum is simply dummy text of the printing and typesetting industry. 
-                        Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer 
-                        took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries,
-                         but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s 
-                         with the release of Letraset sheets containing Lorem
-                      </p>
-                    </div>
-                
-                    <div class="modal__text">
-                      
-                     <div class="outer-extra-class" > <b class= "extra-class">Contact Person :</b>  <p class="inner-extra-class"> Nuwan Jayasanka</p></div>
-                      <p class="outer-extra-class"> <b class= "extra-class">Contact Number :</b>  <p class="inner-extra-class"> 0769152313</p></p>
-                      <p class="outer-extra-class"> <b class= "extra-class">Due Date :</b>  <p class="inner-extra-class"> 2022-03-28</p></p>
-                      
-                      <!-- <button class="btn"><i class="fa fa-download" ></i> Download Attachment</button> -->
-
-                      <a href="../Public/images/blood-types/blood-A+.png" 
-
-                      
-
-                      <button class="btn"><i class="fa fa-download" ></i> Download Attachment</button>
-                      </a>
-                      
-                    </div>
-
-                
-                   
-                
-                    <a href="#modal-closed" class="link-2"></a>
-                
-                  </div>
-                </div>     
-              </div>
-
+     
+                               
 
 
 
