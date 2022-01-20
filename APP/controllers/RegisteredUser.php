@@ -146,7 +146,7 @@ public function addCampRequest(){
 public function donationHistoryLoad(){
   $nic=$_SESSION['nic'];
   $user_details = $this->model->viewDonorHistory($nic);
-  $this->view->render("reg_user_viewHistory");
+  $this->view->render("reg_user_viewHistory",$user_details);
 
 }
 

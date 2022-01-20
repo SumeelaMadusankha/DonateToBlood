@@ -89,6 +89,11 @@ body::-webkit-scrollbar {
   border-bottom-right-radius: 5px;
 }
 
+.wrapper .right .info .info_data .data{
+  margin-bottom: 10px;
+
+}
+
 .wrapper .right .info,
 .wrapper .right .History{
   margin-bottom: 25px;
