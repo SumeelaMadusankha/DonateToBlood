@@ -199,7 +199,7 @@ public function getCampReqest($district)
     public function acceptBloodRequestModel($id)
     {
         $dt = new DateTime();
-    //  print_r($_SESSION['nic']);
+   
         $query = "UPDATE bloodrequest SET status = :status, acceptednic = :nic WHERE requestId = :id";
         $res = $this->db->runQuery($query, [":id" => $id,":status" =>"accepted",":nic"=>$_SESSION['nic']]);
         return $res;

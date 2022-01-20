@@ -3,23 +3,23 @@
 
 class BloodDetailsFly_w_Imp extends Controller
 {
-private float $A_p_MAX=0.0;
-private float $A_p_AV=0.0;
-private float $A_n_MAX=0.0;
-private float $A_n_AV=0.0;
-private float $O_p_MAX=0.0;
-private float $O_p_AV=0.0;
-private float $O_n_MAX=0.0;
-private float $O_n_AV=0.0;
-private float $B_p_MAX=0.0;
-private float $B_p_AV=0.0;
-private float $B_n_MAX=0.0;
-private float $B_n_AV=0.0;
-private float $AB_p_AV=0.0;
-private float $AB_p_MAX=0.0;
-private float $AB_n_AV=0.0;
-private float $AB_n_MAX=0.0;
-public array $previous_Blood_details=array("BloodGroup"=>'AB-', "Maximum"=>0.0,"Available"=>0.0);
+private  $A_p_MAX=0.0;
+private  $A_p_AV=0.0;
+private  $A_n_MAX=0.0;
+private  $A_n_AV=0.0;
+private  $O_p_MAX=0.0;
+private  $O_p_AV=0.0;
+private  $O_n_MAX=0.0;
+private  $O_n_AV=0.0;
+private  $B_p_MAX=0.0;
+private  $B_p_AV=0.0;
+private  $B_n_MAX=0.0;
+private  $B_n_AV=0.0;
+private  $AB_p_AV=0.0;
+private  $AB_p_MAX=0.0;
+private  $AB_n_AV=0.0;
+private  $AB_n_MAX=0.0;
+public  $previous_Blood_details=array("BloodGroup"=>'AB-', "Maximum"=>0.0,"Available"=>0.0);
 
 function __construct()
 {

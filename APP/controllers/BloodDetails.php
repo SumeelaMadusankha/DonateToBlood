@@ -1,5 +1,6 @@
 <?php
 include "BloodDetailsFactory.php";
+session_start();
 class BloodDetails extends  Controller{
     private $bloodD_Fly_w_Imp;
     function __construct()
