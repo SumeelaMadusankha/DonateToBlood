@@ -143,8 +143,8 @@ $this->post2->expiredPost($_SESSION['district']);
                 else{
                     $result_check=$this->model->check_Officer_NICavailability($nic_check);
                     if($result_check){
-                        print_r("Previously Added Officer");
                         $_SESSION['MSG'] = "Previously Added Officer";
+                        header("Location:../BB_Coordinater/view_Add_ShowOfficer");
 
                     }
                     else{

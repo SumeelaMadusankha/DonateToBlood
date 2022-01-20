@@ -153,7 +153,7 @@ public function getCampReqest($district)
     }
     public function check_Officer_NICavailability($nic)
     {
-        $query7 = 'SELECT * FROM bloodbankofficer where nic=:nic';
+        $query7 = 'SELECT * FROM user where nic=:nic';
         $reslt = $this->db->runQuery($query7, [":nic" => $nic]);
         if ($reslt) {
             return true;
