@@ -51,7 +51,7 @@
                <i class="fas fa-bars"></i>
             </label>
             <label class="logo">DonateToHeal</label>
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
             <ul>
                <li><a class="active" href="index">Home</a></li>
                <?php
@@ -128,7 +128,7 @@
 
 
 
-=======
+
             
             <ul>
                <li><a class="active" href="index">Home</a></li>
@@ -136,7 +136,7 @@
                <li><a href=" UnregisteredUser/loadCampPost">Where to Donate</a></li>
                <li><a href=" UnregisteredUser/loadBloodPost">Blood adverticement</a></li>
                <li><a href="Login/index">Login</a></li>
->>>>>>> master:APP/views/indexSec.php
+
             </ul>
          </nav>
          
@@ -160,12 +160,10 @@
                               <div class="row">
                                  <div class="col-md-8">
                                     <div class="photog">
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
                                        <h1>DONATE TO<br>HEAL</h1>
                                       
-=======
-                                       <h1>Donate To<br>Heal</h1>
->>>>>>> master:APP/views/indexSec.php
+
                                        
 
                                     </div>
@@ -200,11 +198,9 @@
                               <div class="row">
                                  <div class="col-md-8">
                                    <div class="photog">
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
                                        <h1>Find everything about<br>donating blood</h1>
-=======
-                                       <h1>Stay Safe</h1>
->>>>>>> master:APP/views/indexSec.php
+
                                     </div>
                                    
                                  </div>
@@ -332,24 +328,19 @@
                <div class="row">
                   <div class="col-md-12">
                      <div class="titlepage text_align_center ">
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
                         <h2>Having doubts about donating blood?</h2>
                         <p>We are there to clear your each and every doubt regarding blood donating</p>
-=======
-                        <h2>About Us</h2>
-                        <p>making this the first true generator on the Internet. It uses a dictionary of over 200 Latin words, combined with a handful</p>
->>>>>>> master:APP/views/indexSec.php
+
                      </div>
                   </div>
                </div>
                <div class="row d_flex">
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
                         <figure><img src="../Public/images/whyDonate.png" alt="#"/></figure>
-=======
-                        <figure><img src="././Public/images/whyDonate.png" alt="#" class="center"></figure>
->>>>>>> master:APP/views/indexSec.php
+
                         
                         <div class="nostrud">
                            <h3>Why Donate Blood?</h3>
@@ -359,11 +350,9 @@
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
                         <figure><img src="../Public/images/whoCan.png" alt="#"/></figure>
-=======
-                        <figure><img src="././Public/images/whoCan.png" alt="#" class="center"></figure>
->>>>>>> master:APP/views/indexSec.php
+
                         
                         <div class="nostrud">
                         <h3>Who can give Blood?</h3>
@@ -377,11 +366,9 @@
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
                         <figure><img src="../Public/images/howOften.png" alt="#"/></figure>
-=======
-                        <figure><img src="././Public/images/howOften.png" alt="#" class="center"></figure>
->>>>>>> master:APP/views/indexSec.php
+
                         
                         <div class="nostrud">
                            <h3>How often can you give Blood?</h3>
@@ -406,32 +393,22 @@
                <div class="row d_flex">
                   <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
                            <i><img src="../Public/images/Vision.png" alt="#"/></i>
                            <h3>Our Vision</h3>
                            <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
                            <span><img src="../Public/images/do.png" alt="#" style="size: 30px;"></span>
-=======
-                           <i><img src="././Public/images/Vision.png" alt="#"></i>
-                           <h3>Our Vision</h3>
-                           <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
-                           <span><img src="././Public/images/do.png" alt="#"/ style="size: 30px;"></span>
->>>>>>> master:APP/views/indexSec.php
+
                         </div>
                      </div>
                              <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
-<<<<<<< HEAD:APP/views/reg_user_index.php
+
                            <i><img src="../Public/images/Mission3.png " alt="#"/></i>
                            <h3>Our Mission</h3>
                            <p>Our mision is to decrease the blood scarcity prevailing around the country by 50% by the year 2025 through connecting the willing dodnors and the required parties while getting 2000+ registered users by year 2025 </p>
                            <span><img src="../Public/images/do.png" alt="#"/></span>
-=======
-                           <i><img src="Public/images/Mission3.png " alt="#"/></i>
-                           <h3>Our Mission</h3>
-                           <p>Our mission is to decrease the blood scarcity prevailing around the country by 50% by the year 2025 through connecting the willing dodnors and the required parties while getting 2000+ registered users by year 2025 </p>
-                           <span><img src="././Public/images/do.png" alt="#"/></span>
->>>>>>> master:APP/views/indexSec.php
+
                         </div>
                      </div>
                   </div>
