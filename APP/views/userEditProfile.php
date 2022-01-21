@@ -22,6 +22,7 @@
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="../Public/css/hd.css">
     <link rel="stylesheet" href="../Public/css/userEditProfile.css">
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>User Profile</title>
 </head>
@@ -107,12 +108,17 @@
   </div>
 </div>
 <form method="POST" action="userProfileUpdate">
-
+<div id="note">
+      <b> Notification message </b>
+</div>
   
+<div class="field firstName">
   <div class="row">
     <div class="col_1">First Name</div>
     <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["firstName"] ?>" /><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></div>
   </div>
+  </div>
+
   <div class="row">
     <div class="col_1">Last Name</div>
     <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["firstName"] ?>" /><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></div>
@@ -173,7 +179,7 @@
 
     <div class="save_button">
 
-      <input name="save" type="submit" onclick="true" value="save" />
+      <input name="save" type="submit" onclick="return nameVal()" value="save">
     </div>
 
   </div>
@@ -197,7 +203,11 @@
 
 
 
-
+<script src="../Public/js/updateProfile_val.js"></script>
+        <script src="../Public/js/jquery.min.js"></script>
+        <script src="../Public/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+        <script src="../Public/js/owl.carousel.min.js"></script>
 
   </body>
 </html>

@@ -172,17 +172,16 @@ if (isset($_SESSION['jobtype'])) {
       
         
          ?>
+        
         <div class="title">Register Admin</div>
         <form role="form" method="POST" action="../superAdmin/addAdmin">
-            <div class="user-details">
+                
+                <div class="user-details">
                 <div class="input-box">
-
-
-
-                    <span class="details">First Name</span>
+                     <span class="details">First Name</span>
                     <input type="text" placeholder="Enter your first name" name="fname" id="fname" required>
                 </div>
-
+                 
 
                 <div class="input-box">
 
