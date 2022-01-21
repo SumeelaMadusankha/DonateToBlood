@@ -61,7 +61,7 @@ if (isset($_SESSION['jobtype'])) {
             <?php
              
              if (isset($_SESSION['nic'])) {
-               echo " <li><a  href='../Index/index'>Home</a></li>";
+               echo " <li><a  href='../RegisteredUser/index'>Home</a></li>";
              }else {
                echo " <li><a  href='../'>Home</a></li>" ;
              }
@@ -110,10 +110,10 @@ if (isset($_SESSION['jobtype'])) {
                
                  <i class='fa fa-user-circle' style='font-size:60px;'></i>
                  <div class='dropdown-content'>
-                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
-                    <a href='#'><b> HISTORY</b> </a>
-                    <a href='../Login/logout'><b>LOGOUT</b> </a>
-                 </div>
+                 <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                 <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
+                 <a href='../Login/logout'><b>LOGOUT</b> </a>
+              </div>
                  </div>";
                }else {
                   echo "<li><a href='../Login/index'>Login</a></li>";

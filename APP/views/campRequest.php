@@ -34,7 +34,7 @@ if (isset($_SESSION['jobtype'])) {
      
       <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
        <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
+      <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen"> -->
       <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
       <link rel="stylesheet" href="../Public/css/notification.css">
 
@@ -84,7 +84,7 @@ if (isset($_SESSION['jobtype'])) {
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-            <li><a  href="../Index/index">Home</a></li>
+            <li><a  href="../RegisteredUser/index">Home</a></li>
                <?php
              
                if (isset($_SESSION['nic'])) {
@@ -130,7 +130,7 @@ if (isset($_SESSION['jobtype'])) {
                  <i class='fa fa-user-circle' style='font-size:60px;'></i>
                  <div class='dropdown-content'>
                     <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
-                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
                     <a href='../Login/logout'><b>LOGOUT</b> </a>
                  </div>
                  </div>";

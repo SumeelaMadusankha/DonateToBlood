@@ -201,11 +201,15 @@
                         </div>
                         <div class="data">
                            <?php
+                           
                            $count = count($data);
-                           $newdate = date('Y-m-d', strtotime($data[$count-1]['date'].'+ 3 months'));
+                           if (isset($data[$count-1]['date'])) {
+                              $newdate = date('Y-m-d', strtotime($data[$count-1]['date'].'+ 3 months'));
                            echo "
                            <h6>Next eligile date</h6>
                             <p>{$newdate}</p>";
+                           }
+                           
                             ?>
                         </div>
                   </div>
@@ -226,13 +230,16 @@
                               if(is_array($data)){
                                  
                                  foreach (array_slice($data,1) as $row){
-                                    echo "
+                                    if (isset($row['date'])) {
+                                       echo "
                                        <tr>
                                           <td> <b> {$row['date']} </b></td>
                                           <td> <b>{$row['venue']} </b></td>
                                           <td> <b>{$row['quantity']} </b></td>
 
                                        </tr>";
+                                    }
+                                    
                      
                      
                                  }
