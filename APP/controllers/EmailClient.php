@@ -32,9 +32,9 @@ class EmailClient
             $this->addMail->SMTPAuth = "true";
             $this->addMail->SMTPSecure = "tls";
             $this->addMail->Port = "25";
-            $this->addMail->Username = "donatetoheal18@gmail.com";
+            $this->addMail->Username = "donatetoheal19@gmail.com";
             $this->addMail->Password = "@Donate123";
-            $this->addMail->setFrom("donatetoheal18@gmail.com");
+            $this->addMail->setFrom("donatetoheal19@gmail.com");
             $this->addMail->Timeout=20;
             
          

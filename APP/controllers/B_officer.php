@@ -48,12 +48,8 @@ class B_officer extends Admin{
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             if (isset($_POST["search_b"])) {
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
-                if(strlen($nic_check)==10 || strlen($nic_check)==12){
-                    $_SESSION['ERROR'] = "Invalid NIC";
-                 
-                    
-                }
-                else{
+                
+               
                     $result_check=$this->model->checkNICavailability($nic_check);
                     if($result_check){
                     $_SESSION['MSG'] = "Previously Registered User";   
@@ -62,7 +58,7 @@ class B_officer extends Admin{
                     else{
                         $this->view->render("bo_Register_Donor",$nic_check);
                     }
-                }
+             
             }
 
         }

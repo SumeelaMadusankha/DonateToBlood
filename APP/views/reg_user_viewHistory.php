@@ -130,7 +130,7 @@ if (isset($_SESSION['jobtype'])) {
                  <div class='dropdown-content'>
                     <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
                     <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
-                    <a href='logout'><b>LOGOUT</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
                  </div>
                  </div>";
                }else {
