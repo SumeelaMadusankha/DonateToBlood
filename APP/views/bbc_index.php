@@ -20,7 +20,6 @@ if (isset($_SESSION['jobtype'])) {
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>DonateToHeal</title>
-    <!-- Bootstrap Styles-->
     <link href="/DonateToBlood/Public/assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FontAwesome Styles-->
     <link href="/DonateToBlood/Public/assets/css/font-awesome.css" rel="stylesheet" />
@@ -35,8 +34,8 @@ if (isset($_SESSION['jobtype'])) {
 
 <body>
     <div id="wrapper">
-        <?php include "bbc_header.php"; ?>
-        <!--/. NAV TOP  -->
+        <?php include "bbc_header.php" ?>
+      
         <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">

@@ -7,7 +7,7 @@ class BloodDetailsFactory extends Controller{
         parent:: __construct();
     }
 
-    public static function getBloodDetailsImp():BloodDetailsFly_w_Imp
+    public static function getBloodDetailsImp()
     {
         if (!self::$bloodDetailsImp){
             self::$bloodDetailsImp = new BloodDetailsFly_w_Imp();

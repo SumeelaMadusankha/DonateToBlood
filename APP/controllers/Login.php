@@ -167,7 +167,7 @@ public function resetPasswordmethod()
     public function login()
     {
 
-    // if (!isset($_SESSION['nic'])) {
+   
       if ($_SERVER['REQUEST_METHOD'] === "POST") {
         $_POST = filter_input_array(INPUT_POST, FILTER_SANITIZE_STRING);
 
@@ -222,7 +222,7 @@ public function resetPasswordmethod()
             $this->view->render('login');
           }
         }
-      }
+    
     // } else {
       // switch ($_SESSION['jobtype']) {
       //   case 'registeredUser':
@@ -247,7 +247,7 @@ public function resetPasswordmethod()
       // }
     // }
   }
-
+    }
 
   public function logout()
   {

@@ -117,6 +117,9 @@ if (isset($_SESSION['jobtype'])) {
         </header>
     </div>
     </div>
+    <div id="note">
+      <b> Notification message </b>
+    </div>
     <div class="container">
     <?php
     
@@ -182,14 +185,13 @@ if (isset($_SESSION['jobtype'])) {
         <div class="title">Register Admin</div>
         <form role="form" method="POST" action="../superAdmin/addAdmin">
 
-        <!-- <div class="firstNamereg"> -->
-            <div class="user-details firstnamereg">
+                
+                <div class="user-details firstName">
                 <div class="input-box">
-                    <span class="details">First Name</span>
+                     <span class="details">First Name</span>
                     <input type="text" placeholder="Enter your first name" name="fname" id="fname" required>
                 </div>
-        <!-- </div> -->
-
+                 
 
                 <div class="input-box">
 
@@ -315,12 +317,11 @@ if (isset($_SESSION['jobtype'])) {
 
     </div>
 
-    <script src="../Public/js/admin_register_val.js"></script>
+    <script src="../Public/js/super_reg_val.js"></script>
         <script src="../Public/js/jquery.min.js"></script>
         <script src="../Public/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
         <script src="../Public/js/owl.carousel.min.js"></script>
-        <!-- <script src="../Public/js/custom.js"></script> -->
 
 </body>
 </html>
