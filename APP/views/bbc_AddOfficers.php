@@ -29,7 +29,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="../Public/assets/css/bbc_user_reg.css">
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
-
+    <link rel="stylesheet" href="../Public/css/notification.css">
 </head>
 
 <body>
@@ -87,95 +87,91 @@ if (isset($_SESSION['jobtype'])) {
                                     <div class="row">
                                         <div class="col-lg-12">
                                             <form method="POST" action="addOfficer" id="reg_form">
+                                            <div id="note">
+                                                 <b> Notification message </b>
+                                             </div>
                                                 <div class="form-group">
                                                     <label>NIC Number</label>
                                                     <input class="form-control" type="text" placeholder="National Identity Card" name="nic" id="nic" <?php echo "value=" . $data?>>
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
+                                                    
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group firstName">
                                                     <label>First Name</label>
                                                     <input class="form-control" type="text" placeholder="First Name" name="fname" id="fname">
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
+                                                    
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group lastName">
                                                     <label>Last Name</label>
                                                     <input class="form-control" type="text" placeholder="Last Name" name="lname" id="lname">
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
+                                                    
                                                 </div>
 
 
-                                                <div class="form-group">
+                                                <div class="form-group birth">
                                                     <label>Date of Birth</label>
                                                     <input class="form-control" type="date" placeholder="Birth Day" name="bday" id="bday">
                                                 </div>
                                                 <div class="form-group">
                                                     <label>Address</label>
-                                                    <input class="form-control" type="text" name="address" id="address" placeholder="Address">
+                                                    <input class="form-control" type="text" name="address" id="address" placeholder="Address" required>
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
+                                                    
                                                 </div>
-                                                <!-- <div class="form-group">
-                                                    <label>District</label>
-                                                    <select class="form-control" name="districts" id="districts">
-                                                        <option>Matara</option>
-                                                        <option>Galle</option>
-                                                        <option>Colombo</option>
-                                                        <option>Kandy</option>
-                                                        <option>Jaffna</option>
-                                                    </select>
-                                                </div> -->
+                                                
                                                 <div class="form-group">
                                                     <label>Gender</label><br>
                                                     <label class="radio-inline">
-                                                        <input type="radio" id="male" name="gender" value="male" checked="">Male
+                                                        <input type="radio" id="male" name="gender" value="Male" >Male
                                                     </label>
                                                     <label class="radio-inline">
-                                                        <input type="radio" id="female" name="gender" value="female" checked="">Female
+                                                        <input type="radio" id="female" name="gender" value="Female" checked>Female
                                                     </label>
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group password">
                                                     <label> Enter Password</label>
-                                                    <input class="form-control" type="password" name="password" placeholder="Enter Password Here">
+                                                    <input class="form-control" type="password" name="password" placeholder="Enter Password Here" required>
 
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group rpassword">
                                                     <label>Re-Enter Password</label>
-                                                    <input class="form-control"  type="password" name="re-password" placeholder="Re-enter Password Here">
+                                                    <input class="form-control"  type="password" name="re-password" placeholder="Re-enter Password Here" required>
 
 
                                                 </div>
 
 
 
-                                                <div class="form-group">
+                                                <div class="form-group email">
                                                     <label>Email Address</label>
-                                                    <input class="form-control" type="text" placeholder="Email" name="email" id="email">
+                                                    <input class="form-control" type="text" placeholder="Email" name="email" id="email" required>
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
+                                                    
                                                 </div>
-                                                <div class="form-group">
+                                                <div class="form-group mobNo">
                                                     <label>Mobile No</label>
-                                                    <input class="form-control" type="text" placeholder="Mobile Number" name="mobnum" id="mobnum">
+                                                    <input class="form-control" type="text" placeholder="Mobile Number" name="mobnum" id="mobnum" required>
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
+                                                    
                                                 </div>
                                                 <div class="form-group">
                                                     <label>City</label>
-                                                    <input class="form-control" type="text" placeholder="City" name="city" id="city">
+                                                    <input class="form-control" type="text" placeholder="City" name="city" id="city" required>
                                                     <i class='fa fa-check-circle'></i>
                                                     <i class='fa fa-exclamation-circle'></i>
-                                                    <small>Error Message</small>
+                                                    
                                                 </div>
-                                                <input type="submit" value="Add Officer" class="btn btn-primary" name="register_btn">
+                                                <input type="submit" value="Add Officer" class="btn btn-primary" 
+                                                name="register_btn" onclick="return (nameValL() && nameValF() && doCalculate() && emailVal() && checkPass() &&  mobileVal())">
+                                                
                                             </form>
                                         </div>
 
@@ -206,6 +202,12 @@ if (isset($_SESSION['jobtype'])) {
         <!-- Custom Js -->
         <script src="../Public/assets/js/custom-scripts.js"></script>
         <script src="../Public/assets/js/bbc_user_reg.js"></script>
+
+        <script src="../Public/js/add_officer_val.js"></script>
+        <script src="../Public/js/jquery.min.js"></script>
+        <script src="../Public/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+        <script src="../Public/js/owl.carousel.min.js"></script>
 
 
 </body>

@@ -155,7 +155,7 @@ if (isset($_SESSION['jobtype'])) {
         <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
         <div id="note">
       <b> Notification message </b>
-</div>
+  </div>
 
 
 
@@ -275,7 +275,7 @@ if (isset($_SESSION['jobtype'])) {
         
        
         
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal()  )">
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal())">
        
         
         <!-- dateVal() && -->
