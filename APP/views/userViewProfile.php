@@ -58,9 +58,17 @@
               <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                 echo " <li><a href=' ../UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href=' ../UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }
               ?>
               <?php
@@ -69,12 +77,10 @@
                 echo " <div class='dropdown'>
                 <i class='fa fa-user-circle' style='font-size:50px; padding-top:20px'></i>
                 <div class='dropdown-content'>
-                   <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
-                   <a href='#'><b> HISTORY</b> </a>
-                   <a href='../Login/logout'><b>LOGOUT</b> </a>
-                   
-                   
-                </div>
+                <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
+                <a href='../Login/logout'><b>LOGOUT</b> </a>
+             </div>
                 </div>'";
                 
               }else {

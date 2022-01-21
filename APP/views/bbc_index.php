@@ -50,8 +50,9 @@ if (isset($_SESSION['jobtype'])) {
                         <a href="../BB_Coordinater/viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a href="../BB_Coordinater/viewShortageBloodTypes"><i class="fa fa-qrcode"></i> Blood Levels</a>
+                        <a href="../BB_Coordinater/showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
+                       
                     <li>
                         <a href="../BB_Coordinater/view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
                     </li>

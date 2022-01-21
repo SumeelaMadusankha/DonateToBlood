@@ -72,7 +72,7 @@
             <?php
              
              if (isset($_SESSION['nic'])) {
-               echo " <li><a  href='../Index/index'>Home</a></li>";
+               echo " <li><a  href='../RegisteredUser/index'>Home</a></li>";
              }else {
                echo " <li><a  href='../'>Home</a></li>" ;
              }
@@ -219,7 +219,7 @@
             <div class="pass-txt"><a href="../Login/test">Forgot password?</a></div>
             <input type="submit" value="Login" name="login" data-toggle="modal" data-target="#Mysmallmodal">
           </form>
-          <div class="sign-txt">Not a member? <a href="#">Register Here</a></div>
+          <div class="sign-txt">Not a member? <a href="../UnregisteredUser/signUpFormLoad">Register Here</a></div>
         </div>
         <div class="modal fade" id="Mysmallmodal">
 	                              -->
