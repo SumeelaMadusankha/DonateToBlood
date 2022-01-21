@@ -100,10 +100,11 @@ public function getCampReqest($district)
         ];
         $arrayInject2=[':nic' => $nic,
             ':password' => $password];
+           
         $results11 = $this->db->runQuery($quary11, $arrayInject);
         $resu = $this->db->runQuery($quary12, [":nic" => $nic]);
         $res=$this->db->runquery($quary13,$arrayInject2);
-        return ($results11 && $resu && $res);
+        return ($results11);
     }
 
 

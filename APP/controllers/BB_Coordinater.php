@@ -245,6 +245,7 @@ $this->post2->expiredPost($_SESSION['district']);
               if ((strlen($dataArray["nic"])==10  || strlen($dataArray["nic"])==12) && (filter_var($dataArray["email"],FILTER_VALIDATE_EMAIL))) {
                   $hashed_password = password_hash($dataArray["password"], PASSWORD_DEFAULT);
                   $dataArray["password"] = $hashed_password;
+                  
                   $registerResult = $this->model->OfficerRegister($dataArray);
               }
               if (empty($registerResult)) {
