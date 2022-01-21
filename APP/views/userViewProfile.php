@@ -37,7 +37,7 @@ if (isset($_SESSION['jobtype'])) {
      <link rel="stylesheet" href="../Public/css/owl.carousel.min.css"> 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/2.1.5/jquery.fancybox.min.css" media="screen">
     <link rel="stylesheet" href="https://rawgit.com/LeshikJanz/libraries/master/Bootstrap/baguetteBox.min.css">
-    <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
+    
     <link rel="stylesheet" href="../Public/css/hd.css">
     <link rel="stylesheet" href="../Public/css/userViewProfile.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
@@ -93,7 +93,7 @@ if (isset($_SESSION['jobtype'])) {
               
               if (isset($_SESSION['nic'])) {
                 echo " <div class='dropdown'>
-                <i class='fa fa-user-circle' style='font-size:50px; padding-top:20px'></i>
+                <i class='fas fa-user' style='color:white;font-size:20px'></i>
                 <div class='dropdown-content'>
                 <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
                 <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>

@@ -27,6 +27,11 @@ if (isset($_SESSION['jobtype'])) {
     <link href="../Public/assets/css/custom-styles.css" rel="stylesheet" />
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	
     <script type="text/javascript">
         $( document ).ready(function() {
         $(".note__close").click(function() {
@@ -71,7 +76,39 @@ if (isset($_SESSION['jobtype'])) {
         </nav>
         <div id="page-wrapper">
             <div id="page-inner">
+<div style="margin-top: 40px;">
+<?php
+if (isset($_SESSION['succes'] ) ) {
+    unset($_SESSION['succes']); 
+    echo "<div class='flag note note--success'>
+    <div class='flag__image note__icon'>
+      <i class='fa fa-check-circle'></i>
+    </div>
+    <div class='flag__body note__text'>
+     User Donar record updated successfully!. 
+    </div>
+    <a href='#' class='note__close'>
+      <i class='fa fa-times'></i>
+    </a>
+  </div>";}
+  if (isset($_SESSION['err'])) {
+    
 
+    unset($_SESSION['err']); 
+
+    echo "<div class='flag note note--error'>
+    <div class='flag__image note__icon'>
+        <i class='fa fa-times'></i>
+    </div> <div class='flag__body note__text'>
+    User Donar record updated failed!.
+    </div>
+    <a href='#' class='note__close'>
+        <i class='fa fa-times'></i>
+    </a>
+    </div>";
+    }
+            ?>
+</div>
                 <form class="form-inline md-form mr-auto mb-4" action='updateUserBloodRecord' method='POST' id="form_nic">
                     <div class="row">
                         <input class="form-control mr-lg-2" type="text" placeholder="Enter NIC" aria-label="Search" id="inp_nic" name="inp_nic">

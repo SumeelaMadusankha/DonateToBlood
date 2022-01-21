@@ -30,6 +30,29 @@ if (isset($_SESSION['jobtype'])) {
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    
+<link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <script type="text/javascript">
+        $( document ).ready(function() {
+        $(".note__close").click(function() {
+          $(this).parent()
+          .animate({ opacity: 0 }, 250, function() {
+            $(this)
+            .animate({ marginBottom: 0 }, 250)
+            .children()
+            .animate({ padding: 0 }, 250)
+            .wrapInner("<div />")
+            .children()
+            .slideUp(250, function() {
+              $(this).closest(".note").remove();
+            });
+          });
+        });
+        });
+    </script>
 </head>
 
 <body>
@@ -58,6 +81,38 @@ if (isset($_SESSION['jobtype'])) {
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
+                <div style="margin-top: 40px;">
+                <?php
+                 
+      if (isset($_SESSION['error'])) {
+        
+    
+        unset($_SESSION['error']); 
+    
+        echo "<div class='flag note note--error'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-times'></i>
+        </div> <div class='flag__body note__text'>
+        User ragistraion failed! 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }elseif (isset($_SESSION['success'] ) ) {
+        unset($_SESSION['success']); 
+        echo "<div class='flag note note--success'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-check-circle'></i>
+        </div>
+        <div class='flag__body note__text'>
+         User registration is successfull. 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";}
+                ?></div>
             <img src="../Public/assets/images/hellok.jpg" alt="Flowers in Chania" width="1200" height="600">
 
 

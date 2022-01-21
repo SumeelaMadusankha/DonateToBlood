@@ -50,7 +50,7 @@ class B_officer extends Admin{
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
                 if(strlen($nic_check)!=10){
                     $_SESSION['ERROR'] = "Invalid NIC";
-                    print_r("Invalid NIC");
+                 
                     
                 }
                 else{
@@ -76,6 +76,13 @@ class B_officer extends Admin{
                     "donate_centre"=>$this->testInput($_POST["d_centre" ]),
                 ];
                 $record = $this->model->addDonatingRecord($dataArray,$_GET["nic"]);
+               if (empty($record)) {
+                   $_SESSION['succes']='suces';
+                  header("Location:../B_officer/viewUpdateDonorDetails");
+               }else {
+                $_SESSION['err']='err';
+                header("Location:../B_officer/viewUpdateDonorDetails");
+               }
             }
 
 
@@ -119,7 +126,12 @@ class B_officer extends Admin{
 
               }
               if (empty($registerResult)) {
-                $this->view->render("bo_index");
+                  $_SESSION['success']="sucess";
+                header("Location:../B_officer/index");
+              
+              }else {
+                $_SESSION['error']="error";
+                header("Location:../B_officer/index");
               }
               
            }
