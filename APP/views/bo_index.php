@@ -30,6 +30,33 @@ if (isset($_SESSION['jobtype'])) {
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+
+    
+<link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <script type="text/javascript">
+        $( document ).ready(function() {
+        $(".note__close").click(function() {
+          $(this).parent()
+          .animate({ opacity: 0 }, 250, function() {
+            $(this)
+            .animate({ marginBottom: 0 }, 250)
+            .children()
+            .animate({ padding: 0 }, 250)
+            .wrapInner("<div />")
+            .children()
+            .slideUp(250, function() {
+              $(this).closest(".note").remove();
+            });
+          });
+        });
+        });
+    </script>
+
+    <link rel="stylesheet" href="../Public/assets/css/bo_index.css">
+
 </head>
 
 <body>
@@ -40,9 +67,7 @@ if (isset($_SESSION['jobtype'])) {
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
-                    <li>
-                        <a  href="../B_officer/viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
+                 
                     <li>
                         <a href="../B_officer/viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
@@ -61,55 +86,67 @@ if (isset($_SESSION['jobtype'])) {
         <div id="page-wrapper">
             <div id="page-inner">
 
+                <div style="margin-top: 40px;">
+                <?php
+                 
+      if (isset($_SESSION['error'])) {
+        
+    
+        unset($_SESSION['error']); 
+    
+        echo "<div class='flag note note--error'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-times'></i>
+        </div> <div class='flag__body note__text'>
+        User ragistraion failed! 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";
+      }elseif (isset($_SESSION['success'] ) ) {
+        unset($_SESSION['success']); 
+        echo "<div class='flag note note--success'>
+        <div class='flag__image note__icon'>
+          <i class='fa fa-check-circle'></i>
+        </div>
+        <div class='flag__body note__text'>
+         User registration is successfull. 
+        </div>
+        <a href='#' class='note__close'>
+          <i class='fa fa-times'></i>
+        </a>
+      </div>";}
+                ?></div>
+            <img src="../Public/assets/images/hellok.jpg" alt="Flowers in Chania" width="1200" height="600">
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                            Blood Bank <small>Updates</small>
-                        </h1>
-                    </div>
-                </div>
+
+                <header>
+                        <div class="title">
+                            <h1><?php echo $data[0]['firstName']." ".$data[0]['lastName']; ?></h1>                            
+                            <h2>Blood Bank Officer</h2>
+                            <h4><?php echo $data[0]['city']; ?></h3>
+
+                        </div>
+                </header>
+
+                        <main>
+                       
+                        </main>
+
+            <!-- <div style="margin-top: 100px;">
+
+            </div>
+                
+            <img src="../Public/assets/images/hellok.jpg" alt="Flowers in Chania" width="1200" height="700">  -->
+
+
+
+                
                 <!-- /. ROW  -->
 
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-green">
-                            <div class="panel-body">
-                                <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>8,457</h3>
-                            </div>
-                            <div class="panel-footer back-footer-green">
-                                Total Visits
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-blue">
-                            <div class="panel-body">
-                                <i class="fa fa-book fa-5x"></i>
-                                <h3>52,160 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-blue">
-                                Camp Requests
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-red">
-                            <div class="panel-body">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                                <h3>15,823 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-red">
-                                Blood Requests
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php include "bbc_footer.php"; ?>
+                
+                
             </div>
             <!-- /. PAGE INNER  -->
         </div>

@@ -24,8 +24,10 @@ class B_officer extends Admin{
 
 
     public function index()
+
     {
-       $this->view->render("bo_index");
+        $result_id=$this->model->getLoggedData($_SESSION["nic"]);
+       $this->view->render("bo_index",$result_id);
     }
     public function viewDashboard(){
         $this->view->render("bo_Dashboard");
@@ -48,12 +50,7 @@ class B_officer extends Admin{
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             if (isset($_POST["search_b"])) {
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
-                if(strlen($nic_check)!=10){
-                    $_SESSION['ERROR'] = "Invalid NIC";
-                    print_r("Invalid NIC");
-                    
-                }
-                else{
+
                     $result_check=$this->model->checkNICavailability($nic_check);
                     if($result_check){
                     $_SESSION['MSG'] = "Previously Registered User";   
@@ -62,7 +59,7 @@ class B_officer extends Admin{
                     else{
                         $this->view->render("bo_Register_Donor",$nic_check);
                     }
-                }
+             
             }
 
         }
@@ -76,6 +73,13 @@ class B_officer extends Admin{
                     "donate_centre"=>$this->testInput($_POST["d_centre" ]),
                 ];
                 $record = $this->model->addDonatingRecord($dataArray,$_GET["nic"]);
+               if (empty($record)) {
+                   $_SESSION['succes']='suces';
+                  header("Location:../B_officer/viewUpdateDonorDetails");
+               }else {
+                $_SESSION['err']='err';
+                header("Location:../B_officer/viewUpdateDonorDetails");
+               }
             }
 
 
@@ -119,7 +123,12 @@ class B_officer extends Admin{
 
               }
               if (empty($registerResult)) {
-                $this->view->render("bo_index");
+                  $_SESSION['success']="sucess";
+                header("Location:../B_officer/index");
+              
+              }else {
+                $_SESSION['error']="error";
+                header("Location:../B_officer/index");
               }
               
            }
@@ -132,5 +141,8 @@ class B_officer extends Admin{
             $this->view->render("bo_viewUserData",$registerResult2);
         
         }
+    }
+    public function findLoggedDistric(){
+
     }
 }

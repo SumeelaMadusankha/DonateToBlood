@@ -1,0 +1,45 @@
+Result Skip Results Iframe
+EDIT ON
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,900);
+
+body {
+  font-family: 'Source Sans Pro', sans-serif;
+}
+
+header {
+  background: 
+    linear-gradient(
+      rgba(0, 0, 0, 0.5),
+      rgba(0, 0, 0, 0.5)
+    ),
+    url(https://www.nicepng.com/png/full/101-1012256_blood-donation-transparent-background-blood-donation-background.png);
+  background-size: cover;
+  height: 100vh;
+}
+
+.title {
+  position: absolute;
+  top: 30%;
+  left: 45%;
+  transform: translate(-50%, -50%);
+  color: white;
+  text-align: center;
+}
+h1 {
+  text-transform: uppercase;
+  margin: 0;
+  font-size: 3rem;
+  white-space: nowrap;
+}
+h2 {
+  font-size: 2rem;
+}
+p {
+  margin: 0;
+  font-size: 1.3rem;
+}
+
+main {
+  max-width: 500px;
+  margin: 20px auto;
+}

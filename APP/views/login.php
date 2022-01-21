@@ -1,3 +1,9 @@
+
+
+<?php
+if (isset($_SESSION['nic']) ) {
+  header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -66,7 +72,7 @@
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToBlood</label>
+            <label class="logo">DonateToHeal</label>
             <ul>
               
             <?php

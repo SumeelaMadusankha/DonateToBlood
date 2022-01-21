@@ -94,7 +94,7 @@ body {
     display: flex;
     /* position: inherit; */
     width: 100%;
-    color: rgb(14, 73, 7);
+    color: rgb(18, 27, 17);
     background: none;
     height: auto;
     border-radius: 7px;
@@ -133,7 +133,7 @@ body {
 }
 
 .links_to_pages li:hover {
-    color: rgb(16, 165, 41);
+    color: rgb(137, 206, 149);
 }
 
 

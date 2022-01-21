@@ -1,5 +1,18 @@
 
-
+<?php
+if (!isset($_SESSION['nic'])) {
+    header("Location:http://localhost/DonateToBlood/Login/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='bloodBankCordinator') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
@@ -45,12 +58,8 @@
                         <i class="fa fa-user fa-fw"></i> <i class="fa fa-caret-down"></i>
                     </a>
                     <ul class="dropdown-menu dropdown-user">
-                        <li><a href="#"><i class="fa fa-user fa-fw"></i> User Profile</a>
-                        </li>
-                        <li><a href="#"><i class="fa fa-gear fa-fw"></i> Settings</a>
-                        </li>
-                        <li class="divider"></li>
-                        <li><a href="#"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
+                        
+                        <li><a href="../Login/logout"><i class="fa fa-sign-out fa-fw"></i> Logout</a>
                         </li>
                     </ul>
                     <!-- /.dropdown-user -->

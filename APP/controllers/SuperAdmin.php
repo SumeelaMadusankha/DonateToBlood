@@ -113,6 +113,7 @@ public function viewAdminData()
             
             $district=$this->testInput($_POST["district"]);
             $bloodquantity = $this->model->get_Blooddetails($district);
+            // $bloodquantity["district"]=$district;
             $this->view->render("super_index",$bloodquantity);
         }
 

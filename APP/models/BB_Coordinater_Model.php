@@ -135,7 +135,7 @@ public function getCampReqest($district)
     }
     public function getBoodId_type($id)
     {
-        $query5 = 'SELECT * FROM blooddetails where  BloodGroupID= :id';
+        $query5 = 'SELECT * FROM blooddetails where  BloodGroupID= :id'  ;
         $res = $this->db->runQuery($query5, [":id" => $id]);
         return $res;
     }
@@ -246,5 +246,11 @@ public function getcampDetails($id)
     $query = 'SELECT * FROM camprequest where  requestId= :id';
     $res = $this->db->runQuery($query, [":id" => $id]);
     return $res;
+}
+
+public function getBBLoggedData($nic){
+    $query2 = 'select * from user where nic=:nic';
+    $results2 = $this->db->runQuery($query2,[":nic" => $nic]);
+    return $results2;
 }
 }

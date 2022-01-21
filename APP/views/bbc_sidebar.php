@@ -1,4 +1,17 @@
- <!--/. NAV TOP  -->
+<?php
+if (!isset($_SESSION['nic'])) {
+    header("Location:http://localhost/DonateToBlood/Login/index");
+}
+if (isset($_SESSION['jobtype'])) {
+    if ($_SESSION['jobtype']=='bloodBankCordinator') {
+       
+    }else {
+        header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+    }
+}else {
+    header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}
+?><!--/. NAV TOP  -->
  <nav class="navbar-default navbar-side" role="navigation">
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">

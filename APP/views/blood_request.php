@@ -152,10 +152,10 @@ if (isset($_SESSION['jobtype'])) {
 
     
 
-        <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
+        <form action="../BloodRequest/addRequest" method="POST" id="req_form">
         <div id="note">
       <b> Notification message </b>
-</div>
+  </div>
 
 
 
@@ -203,8 +203,10 @@ if (isset($_SESSION['jobtype'])) {
            
 
             <div class="field fullName">
+
             <label for="flname"><b>Full Name</b></label><br>
             <input type="text" placeholder="Full Name" name="flname" id="flname" >
+            
             <div class="error error-text"> Name can't be blank</div><br>
             </div>
             
@@ -273,7 +275,7 @@ if (isset($_SESSION['jobtype'])) {
         
        
         
-        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal()  )">
+        <input type="submit" value="Submit" class="registerbtn" name="sbmt_btn"  onclick="return ( submitRequestForm() &&  dateVal())">
        
         
         <!-- dateVal() && -->
@@ -287,7 +289,7 @@ if (isset($_SESSION['jobtype'])) {
 
   </div>
   </div>
-  <script src="../Public/js/blood_request_val.js"></script>
+        <script src="../Public/js/blood_request_val.js"></script>
         <script src="../Public/js/jquery.min.js"></script>
         <script src="../Public/js/bootstrap.bundle.min.js"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>

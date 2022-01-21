@@ -1,3 +1,20 @@
+<?php
+
+  
+
+if (isset($_SESSION) && empty($_SESSION)) {
+ unset($_SESSION);
+ session_destroy();
+}
+
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -80,38 +97,26 @@
               <?php
               
               if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' ../UnregisteredUser/donationPlacesLoad'>Where to Donate</a></li>";
+                 echo " <li><a href=' ../UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
               }
 
       
               ?>
 
-               <?php
-
+<?php
               
               if (isset($_SESSION['nic'])) {
-                ?>
-                <li><a href='../RegisteredUser/bloodPostLoad'>Blood adverticement</a></li>
-
-
-              <?php }else {?>
-                 <li><a href='../UnregisteredUser/bloodPostLoad'>Blood adverticement</a></li>
-                 <?php
-              }
-              ?>
-
-               <!-- <?php
-              
-              if (isset($_SESSION['nic'])) {
-                echo " <li><a href='../RegisteredUser/donationHistoryLoad'>Donation History</a></li>";
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }else {
-                 
+                 echo " <li><a href=' ../UnregisteredUser/loadBloodPost'>>Blood adverticement</a></li>";
               }
 
       
-              ?> -->
+              ?>
+
+              
 
                <?php
               
@@ -121,11 +126,11 @@
               
                  <i class='fas fa-user' style='color:white;font-size:20px'></i>
                
-                 <i class='fa fa-user-circle' style='font-size:50px'></i>
+                
                  <div class='dropdown-content'>
                     <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
                     <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
-                    <a href='logout'><b>LOGOUT</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
                  </div>
                  </div>";
                }else {

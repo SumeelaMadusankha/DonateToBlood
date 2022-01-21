@@ -84,7 +84,7 @@ public  function viewAddBloodDetails($BloodGroup,$Av_Quantity,$Max_Quantity){
 }
     public function showBloodData(){
         $this->loadModel("BloodDetailsFly_w_Imp");
-        $registerResult4 = $this->model->getBloodData();
+        $registerResult4 = $this->model->getBloodData($_SESSION['district']);
         if(!empty($registerResult4)){
             $this->view->render("bbc_Shoratage", array("data"=>$registerResult4, "updated_arr"=>$this->previous_Blood_details));
         }

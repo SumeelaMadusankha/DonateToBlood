@@ -41,12 +41,18 @@ $this->post2->expiredPost($_SESSION['district']);
 
 
 
+    // public function index()
 
+    // {
+    //     $result_id=$this->model->getLoggedData($_SESSION["nic"]);
+    //    $this->view->render("bo_index",$result_id);
+    // }
 
 
     public function index()
     {
-       $this->view->render("bbc_index");
+        $result_id=$this->model->getBBLoggedData($_SESSION["nic"]);
+       $this->view->render("bbc_index",$result_id);
     }
     public function viewDashboard(){
         $reg_res = $this->model->getStaticticalbloodprogress();
@@ -134,7 +140,7 @@ $this->post2->expiredPost($_SESSION['district']);
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             if (isset($_POST["search_b"])) {
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
-                if(strlen($nic_check)!=10){
+                if((strlen($nic_check)!=(10||12))  ){
                     $_SESSION['ERROR'] = "Invalid NIC";
                     print_r("Invalid NIC");
 
@@ -249,7 +255,9 @@ $this->post2->expiredPost($_SESSION['district']);
                   $registerResult = $this->model->OfficerRegister($dataArray);
               }
               if (empty($registerResult)) {
-                $this->view->render("bbc_index");
+                  $_SESSION['success']='success';
+                header("Location:http:../BB_Coordinater/index"); 
+               
               }
               
            }

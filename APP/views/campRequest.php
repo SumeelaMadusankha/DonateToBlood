@@ -154,7 +154,7 @@ if (isset($_SESSION['jobtype'])) {
 
     
 
-        <form action="../RegisteredUser/addCampRequest" method="POST" id="req_form">
+        <form action="../CampRequest/addRequest" method="POST" id="req_form">
         <div id="note">
       <b> Notification message </b>
 </div>
@@ -246,7 +246,7 @@ if (isset($_SESSION['jobtype'])) {
           
             </div>
             
-            
+          
             <div class="field attachment">
             <label for="att"><b>Attachment</b></label><br>
             <input type="file" placeholder="attachment" name="att" id="att" ><br>
