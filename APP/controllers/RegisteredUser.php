@@ -170,7 +170,7 @@ public function donationHistoryLoad(){
         "lastName"=>$this->testInput($_POST["lname"]),
         
         "email"=>$this->testInput($_POST["email"]),
-        "dob"=>$this->testInput($_POST["dob"]),
+        
         "address"=>$this->testInput($_POST["address"]),
         "mobileNo"=>$this->testInput($_POST["mobileNo"]),
         "nic" =>  $_SESSION['nic'],
