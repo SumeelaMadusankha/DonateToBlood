@@ -48,7 +48,7 @@ class B_officer extends Admin{
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             if (isset($_POST["search_b"])) {
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
-                if(strlen($nic_check)!=10){
+                if(strlen($nic_check)==10 || strlen($nic_check)==12){
                     $_SESSION['ERROR'] = "Invalid NIC";
                  
                     

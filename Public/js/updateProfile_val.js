@@ -11,27 +11,39 @@ inpMob = fieldMob.querySelector("input");
 fieldEmail = form.querySelector(".email"),
 inpEmail = fieldEmail.querySelector("input");
 
-  function nameValF(){
+function nameValF(){
       
-    var regName = new RegExp('^[-a-zA-Z ]+$');
+  var regName = new RegExp('^[-a-zA-Z ]+$');
+  if(inpfName.value !=""){
     if (!inpfName.value.match(regName) ){
-        showNotification("First name can only contain English letters");
-        return false;
-    }else{
-        return true;
-    }
+      showNotification("First name can only contain English letters");
+      return false;
+  }else{
+      return true;
   }
+  }else{
+    showNotification("First Name can't be blank");
+      return false;
+  }
+  
+}
 
-  function nameValL(){
-      
-    var regName = new RegExp('^[-a-zA-Z ]+$');
+function nameValL(){
+    
+  var regName = new RegExp('^[-a-zA-Z ]+$');
+  if(inplName.value !=""){
     if (!inplName.value.match(regName) ){
-        showNotification("Last name can only contain English letters");
-        return false;
-    }else{
-        return true;
-    }
+      showNotification("Last name can only contain English letters");
+      return false;
+  }else{
+      return true;
   }
+  }else{
+    showNotification("Last Name can't be blank");
+      return false;
+  }
+  
+}
 
   function mobileVal(){
     var regName = new RegExp("^[0]{1}[0-9]{9}$");

@@ -134,7 +134,7 @@ $this->post2->expiredPost($_SESSION['district']);
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             if (isset($_POST["search_b"])) {
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
-                if(strlen($nic_check)!=10){
+                if((strlen($nic_check)!=(10||12))  ){
                     $_SESSION['ERROR'] = "Invalid NIC";
                     print_r("Invalid NIC");
 
