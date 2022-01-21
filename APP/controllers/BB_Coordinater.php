@@ -231,7 +231,7 @@ $this->post2->expiredPost($_SESSION['district']);
                 "dob"=>$this->testInput($_POST["bday"]),
                 "address"=>$this->testInput($_POST["address"]),
                 "password"=>$this->testInput($_POST["password"]),
-                "district"=>$this->testInput($_POST["districts"]),
+                "district"=>$this->testInput($_SESSION['district']),
                 "gender"=>$this->testInput($_POST["gender"]),
                 "email"=>$this->testInput($_POST["email"]),
                 "mobileNo"=>$this->testInput($_POST["mobnum"]),
@@ -273,7 +273,7 @@ $this->post2->expiredPost($_SESSION['district']);
     }
     public function showBloodData(){
 
-        $registerResult4 = $this->model->getBloodData();
+        $registerResult4 = $this->model->getBloodData($_SESSION['district']);
         if(!empty($registerResult4)){
             $this->view->render("bbc_Shoratage", array("data"=>$registerResult4, "updated_arr"=>null));
         }
@@ -387,7 +387,7 @@ $this->post2->expiredPost($_SESSION['district']);
 //    }
 
     public function viewOfficer_Data(){
-        $officerData=$this->model->bbc_viewOfficer_Data();
+        $officerData=$this->model->bbc_viewOfficer_Data($_SESSION['district']);
         $this->view->render("bbc_viewOfficer_Data",$officerData);
     }
     public function view_Userprofile(){

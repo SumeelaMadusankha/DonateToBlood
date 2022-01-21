@@ -17,7 +17,7 @@ class BloodDetails extends  Controller{
                 $blood_dataArray=[
                     "maximum_quantity"=>$this->testInput($_POST["m_quantity" ]),
                     "available_quantity"=>$this->testInput($_POST["a_quantity" ]),
-                    "Distric"=>$this->testInput("Matara"),
+
 
                 ];
 

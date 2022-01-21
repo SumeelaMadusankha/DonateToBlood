@@ -39,27 +39,28 @@ if (isset($_SESSION['jobtype'])) {
                 <ul class="nav" id="main-menu">
 
                     <li>
-                        <a href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
+                        
+                        <a href="../BB_Coordinater/viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
                     </li>
                     <li>
-                        <a href="viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
+                        <a href="../BB_Coordinater/viewBloodRequests"><i class="fa fa-desktop"></i> Blood Requests</a>
                     </li>
                     <li>
-                        <a href="viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
+                        <a href="../BB_Coordinater/viewCampRequests"><i class="fa fa-bar-chart-o"></i> Donation Camp Requests</a>
                     </li>
                     <li>
-                        <a class="active-menu" href="showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
+                        <a class="active-menu" href="../BB_Coordinater/showBloodData"><i class="fa fa-qrcode"></i> Blood Levels</a>
                     </li>
                     <li>
-                        <a href="view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
+                        <a href="../BB_Coordinater/view_Add_ShowOfficer"><i class="fa fa-desktop"></i> Add Officers</a>
+                    </li>
+                  
+                    <li>
+                        <a href="../BB_Coordinater/viewOfficer_Data"><i class="fa fa-desktop"></i> Show Officer Data</a>
                     </li>
                     <li>
                         <a href="../Login/logout"><i class="fa fa-desktop"></i>logout</a>
                     </li>
-                    <li>
-                        <a href="viewOfficer_Data"><i class="fa fa-desktop"></i> Show Officer Data</a>
-                    </li>
-
 
 
                 </ul>
@@ -86,7 +87,8 @@ if (isset($_SESSION['jobtype'])) {
                                 <div class="panel-heading">
                                     <?php
                                     if ($data['updated_arr']){
-                                        echo "<p class='text-danger'>{$data['updated_arr']['BloodGroup']} is Updated to {$data['updated_arr']['Available']} Blood Pints</p>";
+                                        $percentage=round(($data['updated_arr']['Available']/$data['updated_arr']['Maximum'])*100);
+                                        echo "<p class='text-danger'>{$data['updated_arr']['BloodGroup']} is Now have  {$percentage}% Blood Quantity </p>";
                                     }
 
                                     ?>
@@ -113,7 +115,7 @@ if (isset($_SESSION['jobtype'])) {
                                                 <td>
                                                 
        
-                                                <a class='anc_button' href='viewAddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
+                                                <a class='anc_button' href='../BB_Coordinater/viewAddBloodDetails?id=" . $raw['BloodGroupID'] . "'>Edit</a>
                                                 </td>
                                                 </tr>";
                                                 }
