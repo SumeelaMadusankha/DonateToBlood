@@ -87,8 +87,13 @@ if (isset($_SESSION['jobtype'])) {
                                 <div class="panel-heading">
                                     <?php
                                     if ($data['updated_arr']){
-                                        $percentage=round(($data['updated_arr']['Available']/$data['updated_arr']['Maximum'])*100);
-                                        echo "<p class='text-danger'>{$data['updated_arr']['BloodGroup']} is Now have  {$percentage}% Blood Quantity </p>";
+                                        if ($data['updated_arr']['Maximum']!=0) {
+                                            $percentage=round(($data['updated_arr']['Available']/$data['updated_arr']['Maximum'])*100);
+                                            echo "<p class='text-danger'>{$data['updated_arr']['BloodGroup']} is Now have  {$percentage}% Blood Quantity </p>";
+                                        }else {
+                                            echo "<p class='text-danger'>Maximum quenty is now zero!</p>";
+                                        }
+                                       
                                     }
 
                                     ?>

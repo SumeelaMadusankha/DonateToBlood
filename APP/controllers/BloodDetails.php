@@ -20,20 +20,16 @@ class BloodDetails extends  Controller{
 
 
                 ];
-
-                if(strlen($blood_dataArray["maximum_quantity"]) !=0 && strlen($blood_dataArray["available_quantity"]) !=0 ){
-
-                }
                 $bloodID=$_GET["id"];
-                $registerResult1=$this->model->update_BloodDetails($blood_dataArray,$bloodID);
-
-                $result_id=$this->model->getBoodId_type($bloodID);
-                $BloodGroup=$result_id[0]['BloodGroup'];
-                $Av_Quantity=$result_id[0]['AvailableQuantity'];
-                $Max_Quantity=$result_id[0]['MaximumQuantity'];
-
-
-                if (empty($registerResult1)) {
+                if(strlen($blood_dataArray["maximum_quantity"]) !=0 && strlen($blood_dataArray["available_quantity"]) !=0 && ($blood_dataArray["maximum_quantity"]) >= $blood_dataArray["available_quantity"]){
+                   
+                    $registerResult1=$this->model->update_BloodDetails($blood_dataArray,$bloodID);
+    
+                    $result_id=$this->model->getBoodId_type($bloodID);
+                    $BloodGroup=$result_id[0]['BloodGroup'];
+                    $Av_Quantity=$result_id[0]['AvailableQuantity'];
+                    $Max_Quantity=$result_id[0]['MaximumQuantity'];
+                     if (empty($registerResult1)) {
 
                     
                     $this->bloodD_Fly_w_Imp=BloodDetailsFactory::getBloodDetailsImp();
@@ -41,6 +37,14 @@ class BloodDetails extends  Controller{
                     $this->bloodD_Fly_w_Imp->viewAddBloodDetails($BloodGroup,$Av_Quantity,$Max_Quantity);
 //                    $this->showBloodData();
                 }
+                }else {
+                    $_SESSION['error']="error";
+                    header("Location:http:../BB_Coordinater/viewAddBloodDetails?id={$bloodID}"); 
+                }
+               
+
+
+               
 
             }
         }

@@ -34,6 +34,28 @@ if (isset($_SESSION['jobtype'])) {
     <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
     
 
+    <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
+	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	 <script type="text/javascript">
+        $( document ).ready(function() {
+        $(".note__close").click(function() {
+          $(this).parent()
+          .animate({ opacity: 0 }, 250, function() {
+            $(this)
+            .animate({ marginBottom: 0 }, 250)
+            .children()
+            .animate({ padding: 0 }, 250)
+            .wrapInner("<div />")
+            .children()
+            .slideUp(250, function() {
+              $(this).closest(".note").remove();
+            });
+          });
+        });
+        });
+    </script>
 </head>
 
 <body>
@@ -83,6 +105,26 @@ if (isset($_SESSION['jobtype'])) {
                                 <div class="panel-heading">
                                     Update Blood Details
                                 </div>
+
+                               <div>
+                               <?php
+                                 if (isset($_SESSION['error'])) {
+        
+    
+                                    unset($_SESSION['error']); 
+                                
+                                    echo "<div class='flag note note--error'>
+                                    <div class='flag__image note__icon'>
+                                      <i class='fa fa-times'></i>
+                                    </div> <div class='flag__body note__text'>
+                                    Available quentity cannot be exceeded the maximum quentity! 
+                                    </div>
+                                    <a href='#' class='note__close'>
+                                      <i class='fa fa-times'></i>
+                                    </a>
+                                  </div>";}
+                                ?>
+                               </div>
                                 <div class="panel-body">
                                     <div class="row">
                                         <div class="col-lg-12">
@@ -92,11 +134,11 @@ if (isset($_SESSION['jobtype'])) {
                                             </div>
                                             <div class="form-group">
                                                 <label for="m_quantity">Maximum Quantity<span>(Enter in Blood Pints) </span></label>
-                                                <input class="form-control"  placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data[0]['MaximumQuantity'] ?> 
+                                                <input type="number" step="any" class="form-control"  placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data[0]['MaximumQuantity'] ?> 
                                             </div>
                                             <div class="form-group">
                                                 <label for="a_quantity">Available Quantity <span>(Enter in Blood Pints) </span> </label>
-                                                <input class="form-control" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data[0]['AvailableQuantity'] ?>>
+                                                <input type="number" step="any" class="form-control" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data[0]['AvailableQuantity'] ?>>
                                             </div>
 
                                                 <input type="submit" value="Update Blood Data" class="btn btn-primary" name="add_blood_btn">

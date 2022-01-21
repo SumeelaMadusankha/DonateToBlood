@@ -249,7 +249,9 @@ $this->post2->expiredPost($_SESSION['district']);
                   $registerResult = $this->model->OfficerRegister($dataArray);
               }
               if (empty($registerResult)) {
-                $this->view->render("bbc_index");
+                  $_SESSION['success']='success';
+                header("Location:http:../BB_Coordinater/index"); 
+               
               }
               
            }

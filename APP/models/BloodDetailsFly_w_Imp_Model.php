@@ -10,11 +10,11 @@ class  BloodDetailsFly_w_Imp_Model extends Model{
         $res = $this->db->runQuery($query5, [":id" => $id]);
         return $res;
     }
-    public function getBloodData()
+    public function getBloodData($district)
     {
-        $query4 = "select * from blooddetails";
+        $query4 = "select * from blooddetails where Distric=:district";
 
-        $results4 = $this->db->selectData($query4);
+        $results4 = $this->db->runQuery($query4,[':district'=>$district]);
         return $results4;
     }
 }
