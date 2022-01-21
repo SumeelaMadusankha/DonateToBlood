@@ -83,7 +83,7 @@ if (isset($_SESSION['jobtype'])) {
             </label>
             <label class="logo">DonateToHeal</label>
             <ul>
-            <li><a  href="../Index/index">Home</a></li>
+            <li><a  href="../RegisteredUser/index">Home</a></li>
                <?php
              
                if (isset($_SESSION['nic'])) {

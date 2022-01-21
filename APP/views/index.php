@@ -180,7 +180,7 @@ if (isset($_SESSION['jobtype'])) {
                  <i class='fa fa-user-circle' style='font-size:60px;'></i>
                  <div class='dropdown-content'>
                     <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
-                    <a href='#'><b> HISTORY</b> </a>
+                    <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
                     <a href='../Login/logout'><b>LOGOUT</b> </a>
                  </div>
                  </div>";
@@ -346,7 +346,15 @@ if (isset($_SESSION['jobtype'])) {
                   </div>
                   <div class="col-md-5">
                      <div class="about_img text_align_center">
-                        <figure><img src="././Public/images/about.png" alt="#"/></figure>
+                        <figure>
+                        <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "<img src='../Public/images/donation.png' alt='#'/>";
+             }else {
+                echo "<img src='././Public/images/donation.png' alt='#'/>";
+             }
+             ?>
+                           </figure>
                      </div>
                   </div>
                  
@@ -360,7 +368,15 @@ if (isset($_SESSION['jobtype'])) {
                <div class="row d_flex grid">
                   <div class="col-md-7">
                      <div class="coronata_img text_align_center">
-                        <figure><img src="././Public/images/donation.png" alt="#"/></figure>
+                        <figure>
+                        <?php
+                        if (isset($_SESSION['nic'])) {
+               echo " <img src='../Public/images/donation.png' alt='#'/>";
+             }else {
+                echo " <img src='././Public/images/donation.png' alt='#'/>";
+             }
+             ?>
+                       </figure>
                      </div>
                   </div>
                   <div class="col-md-5 oder1">
@@ -396,7 +412,15 @@ if (isset($_SESSION['jobtype'])) {
                         <div class="item">
                            <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="././Public/images/part1.jpg" alt="#"/></i>
+                                <i>
+                                <?php
+                        if (isset($_SESSION['nic'])) {
+               echo " <img src='../Public/images/part1.jpg' alt='#'/>";
+             }else {
+                echo " <img src='././Public/images/part1.jpg' alt='#'/>";
+             }
+             ?>
+                                  </i>
                               <h3> Donate Blood</h3>
                               <span> Volunteers who are willing to donate whole blood can find the requests for the required blood type and connect with the parties in need</span>
                              </div>
@@ -406,7 +430,15 @@ if (isset($_SESSION['jobtype'])) {
                         <div class="item">
                              <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="././Public/images/part2.png" alt="#"/></i>
+                                <i>
+                                <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "<img src='../Public/images/part2.png' alt='#'/>";
+             }else {
+                echo "<img src='././Public/images/part2.png' alt='#'/>";
+             }
+             ?>
+                                   </i>
                               <h3>Request Blood</h3>
                               <span> If you are in need of blood of a certain type, we provide you the opportunity to advertise the necessary details and connect with blood donors or the blood bank</span>
                              </div>
@@ -416,7 +448,14 @@ if (isset($_SESSION['jobtype'])) {
                         <div class="item">
                             <div class="protect_box text_align_center">
                              <div class="desktop">
-                                <i><img src="././Public/images/notify.jpg" alt="#"/></i>
+                                <i><?php
+                        if (isset($_SESSION['nic'])) {
+               echo " <img src='../Public/images/notify.jpg' alt='#'/>";
+             }else {
+                echo " <img src='././Public/images/notify.jpg' alt='#'/>";
+             }
+             ?>
+                                  </i>
                               <h3> Get Notifications</h3>
                               <span> The registered users get the opportunity to get notifications regarding the blood donations camps happening around you, or blood requests of their blood type</span>
                              </div>
@@ -445,7 +484,15 @@ if (isset($_SESSION['jobtype'])) {
                <div class="row d_flex">
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-                        <figure><img src="././Public/images/whyDonate.png" alt="#" class="center"></figure>
+                        <figure>
+                        <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "  <img src='../Public/images/whyDonate.png' alt='#' class='center'>";
+             }else {
+                echo " <img src='././Public/images/whyDonate.png' alt='#' class='center'>";
+             }
+             ?>
+                          </figure>
                         
                         <div class="nostrud">
                            <h3>Why Donate Blood?</h3>
@@ -455,7 +502,15 @@ if (isset($_SESSION['jobtype'])) {
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-                        <figure><img src="././Public/images/whoCan.png" alt="#" class="center"></figure>
+                        <figure>
+                        <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "  <img src='../Public/images/whoCan.png' alt='#' class='center'>";
+             }else {
+                echo "  <img src='././Public/images/whoCan.png' alt='#' class='center'>";
+             }
+             ?>
+                          </figure>
                         
                         <div class="nostrud">
                         <h3>Who can give Blood?</h3>
@@ -470,7 +525,15 @@ if (isset($_SESSION['jobtype'])) {
                   </div>
                   <div class=" col-md-4">
                      <div class="latest text_align_center">
-                        <figure><img src="././Public/images/howOften.png" alt="#" class="center"></figure>
+                        <figure>
+                        <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "<img src='../Public/images/howOften.png' alt='#' class='center'>";
+             }else {
+                echo "<img src='././Public/images/howOften.png' alt='#' class='center'>";
+             }
+             ?>
+                           </figure>
                         
                         <div class="nostrud">
                         <h3>How often can you give Blood?</h3>
@@ -496,18 +559,50 @@ if (isset($_SESSION['jobtype'])) {
                <div class="row d_flex">
                   <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
-                           <i><img src="././Public/images/Vision.png" alt="#"></i>
+                           <i>
+                           <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "  <img src='../Public/images/Vision.png' alt='#'>";
+             }else {
+                echo "  <img src='././Public/images/Vision.png' alt='#'>";
+             }
+             ?>
+                             </i>
                            <h3>Our Vision</h3>
                            <p>Our vision is to provide quality and safe blood to each and every person in need and be solution providers to the scarcity of blood in Blood Banks</p>
-                           <span><img src="././Public/images/do.png" alt="#" style="size: 30px;"></span>
+                           <span>
+                           <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "   <img src='../Public/images/do.png' alt='#' style='size: 30px;'>";
+             }else {
+                echo " <img src='././Public/images/do.png' alt='#' style='size: 30px;'>";
+             }
+             ?>
+                          </span>
                         </div>
                      </div>
                              <div class=" col-md-6">
                         <div id="ho_efcet" class="reader text_align_center">
-                           <i><img src="Public/images/Mission3.png " alt="#"/></i>
+                           <i>
+                           <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "   <img src='../Public/images/Mission3.png ' alt='#'/>";
+             }else {
+                echo "  <img src='Public/images/Mission3.png ' alt='#'/>";
+             }
+             ?> 
+                          </i>
                            <h3>Our Mission</h3>
                            <p>Our mission is to decrease the blood scarcity prevailing around the country by 50% by the year 2025 through connecting the willing dodnors and the required parties while getting 2000+ registered users by year 2025 </p>
-                           <span><img src="././Public/images/do.png" alt="#"/></span>
+                           <span>
+                           <?php
+                        if (isset($_SESSION['nic'])) {
+               echo "  <img src='..//Public/images/do.png' alt='#'/>";
+             }else {
+                echo "  <img src='././Public/images/do.png' alt='#'/>";
+             }
+             ?>
+                          </span>
                         </div>
                      </div>
                   </div>

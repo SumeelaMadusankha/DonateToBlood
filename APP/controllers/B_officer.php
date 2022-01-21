@@ -127,7 +127,7 @@ class B_officer extends Admin{
     }
     public function showUserData(){
         $registerResult2 = $this->model->getData();
-        // print_r($registerResult2);
+       
         if(!empty($registerResult2)){
             $this->view->render("bo_viewUserData",$registerResult2);
         
