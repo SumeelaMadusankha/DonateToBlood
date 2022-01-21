@@ -24,6 +24,7 @@ if (isset($_SESSION['jobtype'])) {
     </script>
     <link rel="stylesheet" href="https://maxst.icons8.com/vue-static/landings/line-awesome/line-awesome/1.3.0/css/line-awesome.min.css">
     <link rel="stylesheet" href="../Public/css/super_admin_style.css">
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
 	<link rel="stylesheet" type="text/css" href="../Public/css/alert.css" />
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
@@ -111,6 +112,9 @@ if (isset($_SESSION['jobtype'])) {
         </header>
     </div>
     </div>
+    <div id="note">
+      <b> Notification message </b>
+    </div>
     <div class="container">
     <?php
     
@@ -176,7 +180,7 @@ if (isset($_SESSION['jobtype'])) {
         <div class="title">Register Admin</div>
         <form role="form" method="POST" action="../superAdmin/addAdmin">
                 
-                <div class="user-details">
+                <div class="user-details firstName">
                 <div class="input-box">
                      <span class="details">First Name</span>
                     <input type="text" placeholder="Enter your first name" name="fname" id="fname" required>
@@ -300,13 +304,17 @@ if (isset($_SESSION['jobtype'])) {
                     </label>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Register" onclick="true" name="register_btn">
+                    <input type="submit" value="Register" onclick="return nameVal()" name="register_btn">
                 </div>
             </div>
         </form> 
 
     </div>
-
+    <script src="../Public/js/super_reg_val.js"></script>
+        <script src="../Public/js/jquery.min.js"></script>
+        <script src="../Public/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+        <script src="../Public/js/owl.carousel.min.js"></script>
 
 </body>
 </html>
