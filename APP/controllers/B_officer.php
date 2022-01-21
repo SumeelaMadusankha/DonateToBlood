@@ -24,8 +24,10 @@ class B_officer extends Admin{
 
 
     public function index()
+
     {
-       $this->view->render("bo_index");
+        $result_id=$this->model->getLoggedData($_SESSION["nic"]);
+       $this->view->render("bo_index",$result_id);
     }
     public function viewDashboard(){
         $this->view->render("bo_Dashboard");
@@ -139,5 +141,8 @@ class B_officer extends Admin{
             $this->view->render("bo_viewUserData",$registerResult2);
         
         }
+    }
+    public function findLoggedDistric(){
+
     }
 }
