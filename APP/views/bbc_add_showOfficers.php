@@ -12,6 +12,7 @@
     <!-- Custom Styles-->
     <link href="../Public/assets/css/custom-styles.css" rel="stylesheet" />
     <link rel="stylesheet" href="../Public/assets/css/bbc_user_reg.css">
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <script type="text/javascript">
@@ -37,6 +38,9 @@
 
 <body>
 <div id="wrapper">
+<div id="note">
+      <b> Notification message </b>
+  </div>
     <?php include "bbc_header.php"; ?>
     <nav class="navbar-default navbar-side" role="navigation">
         <div class="sidebar-collapse">
@@ -76,8 +80,11 @@
         <div id="page-inner">
             <form class="form-inline md-form mr-auto mb-4" action='getOfficerNIC' method='POST' id="form_nic">
                 <div class="row">
-                    <input class="form-control mr-lg-2" type="text" placeholder="Enter Officer NIC" aria-label="Search" id="inp_nic" name="inp_nic">
-                    <input type="submit" id="search_nic" class="btn btn-primary" value="Search" name="search_b">
+                    <div class="id_field">
+                    <input class="form-control mr-lg-2" type="text" placeholder="Enter Officer NIC" aria-label="Search" id="inp_nic" name="inp_nic">        
+                    </div>
+                    
+                    <input type="submit" id="search_nic" class="btn btn-primary" value="Search" name="search_b" onclick="return check()">
                 </div>
 
             </form>
@@ -144,6 +151,11 @@
     <script src="../Public/assets/js/custom-scripts.js"></script>
     <script src="../Public/assets/js/bbc_user_reg.js"></script>
 
+    <script src="../Public/js/bo_Update.js"></script>
+        <script src="../Public/js/jquery.min.js"></script>
+        <script src="../Public/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+        <script src="../Public/js/owl.carousel.min.js"></script>
 
 </body>
 
