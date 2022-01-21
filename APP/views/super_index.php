@@ -245,13 +245,20 @@ if (isset($_SESSION['jobtype'])) {
                                             <div class="bar">
                                                 <?php
                                                         $total=0;
+                                                        $max=0;
                                                         foreach ($data as $row){
                                                             if ($row['BloodGroup'] == 'A-'){
                                                                 $total += $row['AvailableQuantity'];  
                                                             }   
                                                         }
-                                                        
-                                                        $final = round(($total/120)*100);
+                                                        if ($data[0]['MaximumQuantity']>0){
+                                                            $max=$data[0]['MaximumQuantity'];
+                                                            $final = round(($total/$max)*100);
+                                                        }
+                                                        else{
+                                                            $final = 0;
+                                                        }
+                                                       
                                                         
                                                         echo"
                                                         <span class='percent'> $final% </span>

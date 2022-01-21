@@ -79,7 +79,7 @@ if (isset($_SESSION['nic']) ) {
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-            <li><a href="index">Home</a></li>
+            <li><a href="../">Home</a></li>
                <?php
              
                if (isset($_SESSION['nic'])) {
@@ -101,7 +101,7 @@ if (isset($_SESSION['nic']) ) {
               if (isset($_SESSION['nic'])) {
                 echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
               }else {
-                 echo " <li><a href=' UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
+                 echo " <li><a href=' ../UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
               }
               ?>
 
@@ -110,7 +110,7 @@ if (isset($_SESSION['nic']) ) {
               if (isset($_SESSION['nic'])) {
                 echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }else {
-                 echo " <li><a href=' UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+                 echo " <li><a href=' ../UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
               }
               ?>
               
@@ -129,7 +129,7 @@ if (isset($_SESSION['nic']) ) {
                  </div>
                  </div>";
                }else {
-                  echo "<li><a href='Login/index'>Login</a></li>";
+                  echo "<li><a href='../Login/index'>Login</a></li>";
                }
                ?>
 
