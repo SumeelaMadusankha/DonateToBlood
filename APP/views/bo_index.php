@@ -40,9 +40,7 @@ if (isset($_SESSION['jobtype'])) {
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
-                    <li>
-                        <a  href="../B_officer/viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
+                 
                     <li>
                         <a href="../B_officer/viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
@@ -60,56 +58,14 @@ if (isset($_SESSION['jobtype'])) {
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
+            <img src="../Public/assets/images/hellok.jpg" alt="Flowers in Chania" width="1200" height="600">
 
 
-                <div class="row">
-                    <div class="col-md-12">
-                        <h1 class="page-header">
-                            Blood Bank <small>Updates</small>
-                        </h1>
-                    </div>
-                </div>
+                
                 <!-- /. ROW  -->
 
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-green">
-                            <div class="panel-body">
-                                <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>8,457</h3>
-                            </div>
-                            <div class="panel-footer back-footer-green">
-                                Total Visits
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-blue">
-                            <div class="panel-body">
-                                <i class="fa fa-book fa-5x"></i>
-                                <h3>52,160 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-blue">
-                                Camp Requests
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-red">
-                            <div class="panel-body">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                                <h3>15,823 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-red">
-                                Blood Requests
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <?php include "bbc_footer.php"; ?>
+                
+                
             </div>
             <!-- /. PAGE INNER  -->
         </div>

@@ -38,9 +38,7 @@ if (isset($_SESSION['jobtype'])) {
             <div class="sidebar-collapse">
                 <ul class="nav" id="main-menu">
 
-                    <li>
-                        <a href="viewDashboard"><i class="fa fa-dashboard"></i> Dashboard</a>
-                    </li>
+                    
                     <li>
                         <a href="viewUpdateDonorDetails"><i class="fa fa-desktop"></i> Update Donate Details</a>
                     </li>
