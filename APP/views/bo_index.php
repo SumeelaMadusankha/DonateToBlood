@@ -30,6 +30,7 @@ if (isset($_SESSION['jobtype'])) {
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Public/assets/css/bo_index.css">
 </head>
 
 <body>
@@ -58,7 +59,25 @@ if (isset($_SESSION['jobtype'])) {
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
-            <img src="../Public/assets/images/hellok.jpg" alt="Flowers in Chania" width="1200" height="600">
+
+                <header>
+                        <div class="title">
+                            <h1><?php echo $data[0]['firstName']." ".$data[0]['lastName']; ?></h1>                            
+                            <h2>Blood Bank Officer</h2>
+                            <h4><?php echo $data[0]['city']; ?></h3>
+
+                        </div>
+                </header>
+
+                        <main>
+                       
+                        </main>
+
+            <!-- <div style="margin-top: 100px;">
+
+            </div>
+                
+            <img src="../Public/assets/images/hellok.jpg" alt="Flowers in Chania" width="1200" height="700">  -->
 
 
                 

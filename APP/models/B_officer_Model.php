@@ -52,6 +52,12 @@ class B_officer_Model extends Model
         $results2 = $this->db->selectData($query2);
         return $results2;
     }
+    public function getLoggedData($nic)
+    {
+        $query2 = 'select * from user where nic=:nic';
+        $results2 = $this->db->runQuery($query2,[":nic" => $nic]);
+        return $results2;
+    }
 
     public function checkNICavailability($nic)
     {

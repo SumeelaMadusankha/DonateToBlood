@@ -247,4 +247,10 @@ public function getcampDetails($id)
     $res = $this->db->runQuery($query, [":id" => $id]);
     return $res;
 }
+
+public function getBBLoggedData($nic){
+    $query2 = 'select * from user where nic=:nic';
+    $results2 = $this->db->runQuery($query2,[":nic" => $nic]);
+    return $results2;
+}
 }

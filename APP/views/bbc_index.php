@@ -30,6 +30,7 @@ if (isset($_SESSION['jobtype'])) {
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../Public/assets/css/bbc_index.css">
 </head>
 
 <body>
@@ -73,59 +74,33 @@ if (isset($_SESSION['jobtype'])) {
         </nav>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
-            <div id="page-inner" >
+            <div id="page-inner">
+
+                <header>
+                        <div class="title">
+                            <h1><?php echo $data[0]['firstName']." ".$data[0]['lastName']; ?></h1>                            
+                            <h2>Blood Bank Coordinater</h2>
+                            <h4><?php echo $data[0]['district']; ?></h3>
+
+                        </div>
+                </header>
+
+                        <main>
+                       
+                        </main>
+
+            <!-- <div style="margin-top: 100px;">
+
+            </div>
+                
+            <img src="../Public/assets/images/hellok.jpg" alt="Flowers in Chania" width="1200" height="700">  -->
 
 
-              <div class="ex1">
-              <div class="row" >
-                    <div class="col-md-12 ">
-                        <h1 class="page-header ">
-                            Blood Bank <small>Updates</small>
-                        </h1>
-                    </div>
-                </div>
+                
                 <!-- /. ROW  -->
 
-                <div class="row">
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-green">
-                            <div class="panel-body">
-                                <i class="fa fa-bar-chart-o fa-5x"></i>
-                                <h3>8,457</h3>
-                            </div>
-                            <div class="panel-footer back-footer-green">
-                                Total Visits
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-blue">
-                            <div class="panel-body">
-                                <i class="fa fa-book fa-5x"></i>
-                                <h3>52,160 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-blue">
-                                Camp Requests
-
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4 col-sm-12 col-xs-12">
-                        <div class="panel panel-primary text-center no-boder bg-color-red">
-                            <div class="panel-body">
-                                <i class="fa fa fa-comments fa-5x"></i>
-                                <h3>15,823 </h3>
-                            </div>
-                            <div class="panel-footer back-footer-red">
-                                Blood Requests
-
-                            </div>
-                        </div>
-                    </div>
-                </div>
-              </div>
-                <?php include "bbc_footer.php"; ?>
+                
+                
             </div>
             <!-- /. PAGE INNER  -->
         </div>

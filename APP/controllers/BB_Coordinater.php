@@ -41,12 +41,18 @@ $this->post2->expiredPost($_SESSION['district']);
 
 
 
+    // public function index()
 
+    // {
+    //     $result_id=$this->model->getLoggedData($_SESSION["nic"]);
+    //    $this->view->render("bo_index",$result_id);
+    // }
 
 
     public function index()
     {
-       $this->view->render("bbc_index");
+        $result_id=$this->model->getBBLoggedData($_SESSION["nic"]);
+       $this->view->render("bbc_index",$result_id);
     }
     public function viewDashboard(){
         $reg_res = $this->model->getStaticticalbloodprogress();
