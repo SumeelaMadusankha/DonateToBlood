@@ -1,3 +1,21 @@
+<?php
+
+  
+
+if (isset($_SESSION) && empty($_SESSION)) {
+ unset($_SESSION);
+ session_destroy();
+}
+
+if (isset($_SESSION['jobtype'])) {
+  if ($_SESSION['jobtype']=='registeredUser') {
+     # code...
+  }else {
+   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+  }
+}
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>

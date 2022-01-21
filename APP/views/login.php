@@ -1,3 +1,9 @@
+
+
+<?php
+if (isset($_SESSION['nic']) ) {
+  header("Location:http://localhost/DonateToBlood/Login/mustLogout");
+}?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
