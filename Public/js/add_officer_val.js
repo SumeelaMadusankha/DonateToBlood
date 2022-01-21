@@ -172,7 +172,7 @@ function doCalculate(elm)
 
     function checkPass() {
       // var regName = new RegExp("^(?=.\d)(?=.[a-z])(?=.[A-Z])(?=.[a-zA-Z]).{8,}$");
-      let pattern = /^(?=.\d)(?=.[a-z])(?=.*[A-Z]).{8,}$/;
+      let pattern = /^(?=.*\d)(?=.*[a-z])(?=.*[A-Z]).{8,}$/;
       if (!inpPassword.value.match(pattern)) {
           showNotification("Password must contain 8 characters, atleast one number, one uppercase letter and one lowercase letter");
           return false;
