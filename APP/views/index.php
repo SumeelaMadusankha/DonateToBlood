@@ -133,7 +133,7 @@ if (isset($_SESSION['jobtype'])) {
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToBlood</label>
+            <label class="logo">DonateToHeal</label>
             <ul>
                <li><a class="active" href="index">Home</a></li>
                <?php
@@ -227,7 +227,7 @@ if (isset($_SESSION['jobtype'])) {
                               <div class="row">
                                  <div class="col-md-8">
                                     <div class="photog">
-                                       <h1>DONATE TO<br>BLOOD</h1>
+                                       <h1>DONATE TO<br>HEAL</h1>
                                       
                                        
 
