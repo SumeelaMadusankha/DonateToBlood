@@ -99,8 +99,8 @@ class SuperAdmin_model extends Model{
  public function checkAvailabilityOfBBC($district)
     {
        
-        $query= 'SELECT * FROM user where district = :district';
-        $res= $this->db->runQuery($query,[":district"=>$district]);
+        $query= 'SELECT * FROM user where district = :district AND jobType=:jobtype';
+        $res= $this->db->runQuery($query,[":district"=>$district,":jobtype"=>'bloodBankCordinator']);
 
         if (empty($res)) {
            return true;
