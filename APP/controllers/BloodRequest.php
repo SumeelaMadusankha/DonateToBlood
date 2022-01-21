@@ -47,7 +47,7 @@ class BloodRequest extends Request
              
              "mobileNo"=>$this->testInput($_POST["num"]),
              "description"=>$this->testInput($_POST["description"]),
-             "attachment"=>$this->testInput($_FILES["att"]["name"]),
+             "attachment"=>"OS short note.pdf",
              "duedate"=>$this->testInput($_POST["duedate"]),
            
 

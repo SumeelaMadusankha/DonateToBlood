@@ -1,5 +1,5 @@
 <?php
-if (isset($_SESSION) ) {
+if (isset($_SESSION['nic']) ) {
   header("Location:http://localhost/DonateToBlood/Login/mustLogout");
 }?>
 <!DOCTYPE html>

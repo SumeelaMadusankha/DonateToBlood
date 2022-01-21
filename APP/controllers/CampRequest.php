@@ -69,19 +69,18 @@ class CampRequest extends Request
              "email"=>$_SESSION['email'],
              "campDate"=>$this->testInput($_POST["duedate"]),
              "description"=>$this->testInput($_POST["description"]),
-            
-             
-             "attachment"=>$this->testInput($_FILES["att"]["name"]),
+             "attachment"=>"EN2022.pdf",
              "lat"=>$this->testInput($_POST["lat"]),
              "lng"=>$this->testInput($_POST["lng"]),
-             
              "district"=>$this->testInput($_POST["district"]),
              "address"=>$this->testInput($_POST["address"]),
              "conNumber"=>$this->testInput($_POST["num"]),
              "date"=>$this->testInput($_POST["duedate"]),
-             "time"=>$this->testInput($_POST['time'])
+             "time"=>$this->testInput($_POST['time']),
     
            ];
+          
+        
            $fileTempName=$_FILES["att"]["tmp_name"];
            $path="Files/".$dataArray['attachment'];
              $registerResult = $this->model->addCampRequest($dataArray);
