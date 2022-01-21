@@ -67,18 +67,60 @@
             </label>
             <label class="logo">DonateToBlood</label>
             <ul>
-               <li><a  href="index">Home</a></li>
-              
-               <li><a href="#">Where to Donate</a></li>
-               <li><a href="#">Blood adverticement</a></li>
+            <li><a  href="index">Home</a></li>
                <?php
-              
+             
                if (isset($_SESSION['nic'])) {
-                 echo " <li><a href='logout'>Logout</a></li>";
+                 echo "<li><a href='../RegisteredUser/loadCampRequestForm'>Request Camp</a></li>";
                }else {
-                  echo " <li><a class='active' href='index'>Login</a></li>";
+                  
                }
                ?>
+               <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBRForm'>Request Blood</a></li>";
+              }else {
+                 
+              }
+              ?>
+              <?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadCampPost'>Where to Donate</a></li>";
+              }
+              ?>
+
+<?php
+              
+              if (isset($_SESSION['nic'])) {
+                echo " <li><a href='../RegisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }else {
+                 echo " <li><a href=' UnregisteredUser/loadBloodPost'>Blood adverticement</a></li>";
+              }
+              ?>
+              
+                <?php
+              
+               if (isset($_SESSION['nic'])) {
+                 echo " <div class='dropdown'>
+              
+               
+               
+                 <i class='fa fa-user-circle' style='font-size:60px;'></i>
+                 <div class='dropdown-content'>
+                    <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                    <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
+                    <a href='../Login/logout'><b>LOGOUT</b> </a>
+                 </div>
+                 </div>";
+               }else {
+                  echo "<li><a href='Login/index'>Login</a></li>";
+               }
+               ?>
+
             </ul>
          </nav>
          

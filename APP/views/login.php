@@ -72,7 +72,7 @@
             <?php
              
              if (isset($_SESSION['nic'])) {
-               echo " <li><a  href='../Index/index'>Home</a></li>";
+               echo " <li><a  href='../RegisteredUser/index'>Home</a></li>";
              }else {
                echo " <li><a  href='../'>Home</a></li>" ;
              }

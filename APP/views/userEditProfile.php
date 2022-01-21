@@ -69,12 +69,10 @@
                 echo " <div class='dropdown'>
                 <i class='fa fa-user-circle' style='font-size:50px; padding-top:20px'></i>
                 <div class='dropdown-content'>
-                   <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
-                   <a href='#'><b> HISTORY</b> </a>
-                   <a href='../Login/logout'><b>LOGOUT</b> </a>
-                   
-                   
-                </div>
+                <a href='../RegisteredUser/viewUserProfile'> <b> PROFILE</b></a>
+                <a href='../RegisteredUser/donationHistoryLoad'><b> HISTORY</b> </a>
+                <a href='../Login/logout'><b>LOGOUT</b> </a>
+             </div>
                 </div>'";
                 
               }else {
