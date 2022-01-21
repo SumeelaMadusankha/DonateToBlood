@@ -90,6 +90,11 @@ if (isset($_SESSION['jobtype'])) {
             </ul>
         </div>
     </div>
+
+    <!-- <div id = "note">
+            <b>Notification message</b>
+        </div> -->
+      
     <div class="header-content">
         <header>
             <h2>
@@ -98,10 +103,6 @@ if (isset($_SESSION['jobtype'])) {
                 </label>
                 Register District Admins
             </h2>
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here">
-            </div>
             <div class="user-wrapper">
                 <!-- <img src="../Public/images/img2.jpg" width="40px" height="40px" alt=""> -->
                 <div>
@@ -179,22 +180,23 @@ if (isset($_SESSION['jobtype'])) {
         
         <div class="title">Register Admin</div>
         <form role="form" method="POST" action="../superAdmin/addAdmin">
+
                 
-                <div class="user-details firstName">
-                <div class="input-box">
+                <div class="user-details">
+                <div class="input-box firstName">
                      <span class="details">First Name</span>
                     <input type="text" placeholder="Enter your first name" name="fname" id="fname" required>
                 </div>
                  
 
-                <div class="input-box">
+                <div class="input-box lastName">
 
                     <span class="details">Last Name</span>
                     <input type="text" placeholder="Enter your last name" name="lname" id="lname" required>
                 </div>
 
                 
-                <div class="input-box">
+                <div class="input-box nic">
 
                     <span class="details">NIC</span>
                     <input type="text" placeholder="Enter your NIC number" name="nic" id="nic" required>
@@ -255,23 +257,23 @@ if (isset($_SESSION['jobtype'])) {
                 </div>
                 
                 
-                <div class="input-box">
+                <div class="input-box email">
 
                     <span class="details">Email Address</span>
                     <input type="email" placeholder="Enter your email" name="email" id="email" required>
                     
                 </div>
-                <div class="input-box">
+                <div class="input-box mobileNo">
                     <span class="details">Contact Number</span>
                     <input type="text" placeholder="Enter your number" name="phone" id="phone" required>
                     
                 </div>
-                <div class="input-box">
+                <div class="input-box password">
                     <span class="details">Password</span>
                     <input type="password" placeholder="Enter your password" name="pword" id="pword" required>
                     
                 </div>
-                <div class="input-box">
+                <div class="input-box rpassword">
                     <span class="details">Confirm Password</span>
                     <input type="password" placeholder="Re-Enter the password" name="confirm" id="confirm" required>
 
@@ -304,12 +306,13 @@ if (isset($_SESSION['jobtype'])) {
                     </label>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Register" onclick="return nameVal()" name="register_btn">
+                    <input type="submit" value="Register" onclick="return (nameValfirst() && nameVallast() && mobileVal() && emailVal() && nicVal() && checkPass() )" name="register_btn">
                 </div>
             </div>
         </form> 
 
     </div>
+
     <script src="../Public/js/super_reg_val.js"></script>
         <script src="../Public/js/jquery.min.js"></script>
         <script src="../Public/js/bootstrap.bundle.min.js"></script>

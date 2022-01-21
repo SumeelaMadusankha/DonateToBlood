@@ -116,11 +116,13 @@ if (isset($_SESSION['succes'] ) ) {
                 <form class="form-inline md-form mr-auto mb-4" action='updateUserBloodRecord' method='POST' id="form_nic">
                     <div class="row">
 
+
                         <div class="id_field">
                         <input class="form-control mr-lg-2" type="text" placeholder="Enter NIC" aria-label="Search" id="inp_nic" name="inp_nic" required>
                         </div>
                         
                         <input type="submit" id="search_nic" class="btn btn-primary" value="Add Officer" name="search_b"  onclick="return check()">
+
 
                     </div>
 

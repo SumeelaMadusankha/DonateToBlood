@@ -65,10 +65,6 @@ if (isset($_SESSION['jobtype'])) {
                 </label>
                 Admin Dashboard
             </h1>
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here">
-            </div>
             <div class="user-wrapper">
                 <!-- <img src="../Public/images/img2.jpg" width="40px" height="40px" alt=""> -->
                 <div>

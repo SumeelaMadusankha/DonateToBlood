@@ -72,7 +72,7 @@ if (isset($_SESSION['nic']) ) {
             <label for="check-1" class="checkbtn">
                <i class="fas fa-bars"></i>
             </label>
-            <label class="logo">DonateToBlood</label>
+            <label class="logo">DonateToHeal</label>
             <ul>
               
             <?php
