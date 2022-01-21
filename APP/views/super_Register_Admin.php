@@ -186,21 +186,21 @@ if (isset($_SESSION['jobtype'])) {
         <form role="form" method="POST" action="../superAdmin/addAdmin">
 
                 
-                <div class="user-details firstName">
-                <div class="input-box">
+                <div class="user-details">
+                <div class="input-box firstName">
                      <span class="details">First Name</span>
                     <input type="text" placeholder="Enter your first name" name="fname" id="fname" required>
                 </div>
                  
 
-                <div class="input-box">
+                <div class="input-box lastName">
 
                     <span class="details">Last Name</span>
                     <input type="text" placeholder="Enter your last name" name="lname" id="lname" required>
                 </div>
 
                 
-                <div class="input-box">
+                <div class="input-box nic">
 
                     <span class="details">NIC</span>
                     <input type="text" placeholder="Enter your NIC number" name="nic" id="nic" required>
@@ -261,23 +261,23 @@ if (isset($_SESSION['jobtype'])) {
                 </div>
                 
                 
-                <div class="input-box">
+                <div class="input-box email">
 
                     <span class="details">Email Address</span>
                     <input type="email" placeholder="Enter your email" name="email" id="email" required>
                     
                 </div>
-                <div class="input-box">
+                <div class="input-box mobileNo">
                     <span class="details">Contact Number</span>
                     <input type="text" placeholder="Enter your number" name="phone" id="phone" required>
                     
                 </div>
-                <div class="input-box">
+                <div class="input-box password">
                     <span class="details">Password</span>
                     <input type="password" placeholder="Enter your password" name="pword" id="pword" required>
                     
                 </div>
-                <div class="input-box">
+                <div class="input-box rpassword">
                     <span class="details">Confirm Password</span>
                     <input type="password" placeholder="Re-Enter the password" name="confirm" id="confirm" required>
 
@@ -310,7 +310,7 @@ if (isset($_SESSION['jobtype'])) {
                     </label>
                 </div>
                 <div class="button">
-                    <input type="submit" value="Register" onclick="return nameVal()" name="register_btn">
+                    <input type="submit" value="Register" onclick="return (nameValfirst() && nameVallast() && mobileVal() && emailVal() && nicVal() && checkPass() )" name="register_btn">
                 </div>
             </div>
         </form> 
