@@ -40,6 +40,7 @@ if (isset($_SESSION['jobtype'])) {
     <link rel="stylesheet" href="https://netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css">
     <link rel="stylesheet" href="../Public/css/hd.css">
     <link rel="stylesheet" href="../Public/css/userEditProfile.css">
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <title>User Profile</title>
 </head>
@@ -123,15 +124,20 @@ if (isset($_SESSION['jobtype'])) {
   </div>
 </div>
 <form method="POST" action="userProfileUpdate">
-
+<div id="note">
+      <b> Notification message </b>
+</div>
   
-  <div class="row">
+<div class="field ">
+  <div class="row firstName">
     <div class="col_1">First Name</div>
     <div class="col_2"><input type="text" class="text" id="fname" name="fname" required value="<?php echo $data[0]["firstName"] ?>" /><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></div>
   </div>
-  <div class="row">
+  </div>
+
+  <div class="row lastName">
     <div class="col_1">Last Name</div>
-    <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["firstName"] ?>" /><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></div>
+    <div class="col_2"><input type="text" class="text" id="lname" name="lname" required value="<?php echo $data[0]["lastName"] ?>" /><i class="fa fa-user" aria-hidden="true" style="font-size: 20px;"></i></div>
   </div>
   <!-- <div class="row">
   <div class="col_1">NIC</div>
@@ -154,26 +160,20 @@ if (isset($_SESSION['jobtype'])) {
        />
       <label for="female">Female</label></div>
 </div> -->
-  <div class="row">
-    <div class="col_1">Date of Birth</div>
-    <div class="col_2">
-      <input class="text" type="date" id="dob" name="dob" required value="<?php echo $data[0]['dob'] ?>" />
-      <i class="fa fa-calendar" aria-hidden="true"></i>
-    </div>
-  </div>
+  
   <div class="row">
     <div class="col_1">Home Address</div>
     <div class="col_2"><textarea class="text" id="address" name="address" rows="2" required><?php echo $data[0]["address"]  ?>
   </textarea><i class="fa fa-address-card" aria-hidden="true" style="font-size: 17px;"></i></div>
   </div>
-  <div class="row">
+  <div class="row mobile">
     <div class="col_1">Telephone Number</div>
     <div class="col_2">
       <input class="text" type="text" id="mobileNo" name="mobileNo" value="<?php echo $data[0]["mobileNo"] ?>" required />
       <i class="fa fa-phone" aria-hidden="true" style="font-size: 20px;"></i>
     </div>
   </div>
-  <div class="row">
+  <div class="row email">
     <div class="col_1">Email</div>
     <div class="col_2">
       <input class="text" type="email" id="email" name="email" value="<?php echo $data[0]['email'] ?>" />
@@ -189,7 +189,7 @@ if (isset($_SESSION['jobtype'])) {
 
     <div class="save_button">
 
-      <input name="save" type="submit" onclick="true" value="save" />
+      <input name="save" type="submit" onclick="return (nameValF() && nameValL() && mobileVal() && emailVal())" value="save">
     </div>
 
   </div>
@@ -213,7 +213,11 @@ if (isset($_SESSION['jobtype'])) {
 
 
 
-
+<script src="../Public/js/updateProfile_val.js"></script>
+        <script src="../Public/js/jquery.min.js"></script>
+        <script src="../Public/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+        <script src="../Public/js/owl.carousel.min.js"></script>
 
   </body>
 </html>

@@ -2,14 +2,19 @@ const form = document.querySelector("form");
 
 fieldName = form.querySelector(".fullName"),
 inpName = fieldName.querySelector("input"),
+
 fieldAddress=form.querySelector(".address"),
 inpAddress=fieldAddress.querySelector("input"),
+
 fieldNumber=form.querySelector(".mobNum"),
 inpNumber=fieldNumber.querySelector("input");
+
 fieldDescription=form.querySelector(".description"),
 inpDescription=fieldDescription.querySelector("input");
+
 fieldarrachment=form.querySelector(".attachment"),
 inpAttachment=fieldarrachment.querySelector("input");
+
 fieldDueDate=form.querySelector(".dueDate"),
 inpDueDate=fieldDueDate.querySelector("input");
 
