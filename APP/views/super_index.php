@@ -92,10 +92,6 @@ if (isset($_SESSION['jobtype'])) {
                 </label>
                 Homepage
             </h2>
-            <div class="search-wrapper">
-                <span class="las la-search"></span>
-                <input type="search" placeholder="Search here">
-            </div>
             <div class="user-wrapper">
                 <!-- <img src="../Public/images/img2.jpg" width="40px" height="40px" alt=""> -->
                 <div>
@@ -137,7 +133,7 @@ if (isset($_SESSION['jobtype'])) {
                             <form method="POST" action="../SuperAdmin/displayBlood">
                                 <div class="search-wrapper-2">
                                     <span class="las la-search"></span>
-                                    <select name="district" id="district">
+                                    <select name="district" id="district" >
                                         <option value="Ampara">Ampara</option>
                                         <option value="Anuradhapura">Anuradhapura</option>
                                         <option value="Badulla">Badulla</option>
@@ -175,11 +171,15 @@ if (isset($_SESSION['jobtype'])) {
                             
                         </div>
                     </div>
+                   
                     <div class="container-2">
                         <div class="row">
                             <div class="col-md-12">
                                 <div class="text-center text-uppercase">
-                                    <h2>Blood Availability</h2>
+                                    
+                                    <h2>Blood Availability <?php if (isset($data[0]['Distric'])) {
+                                        echo " of"." ".$data[0]['Distric'];
+                                    } ?></h2>
                                 </div>
                                 <!-- //.text-center -->
                                 
