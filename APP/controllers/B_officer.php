@@ -48,8 +48,7 @@ class B_officer extends Admin{
             $_POST=filter_input_array(INPUT_POST,FILTER_SANITIZE_STRING);
             if (isset($_POST["search_b"])) {
                 $nic_check=$this->testInput($_POST["inp_nic" ]);
-                
-               
+
                     $result_check=$this->model->checkNICavailability($nic_check);
                     if($result_check){
                     $_SESSION['MSG'] = "Previously Registered User";   

@@ -25,6 +25,7 @@ if (isset($_SESSION['jobtype'])) {
     <link href="../Public/assets/css/font-awesome.css" rel="stylesheet" />
     <!-- Custom Styles-->
     <link href="../Public/assets/css/custom-styles.css" rel="stylesheet" />
+    <link rel="stylesheet" href="../Public/css/notification.css">
     <!-- Google Fonts-->
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <link rel="stylesheet" type="text/css" href="../Public/css/demo.css" />
@@ -53,6 +54,9 @@ if (isset($_SESSION['jobtype'])) {
 </head>
 
 <body>
+<div id="note">
+      <b> Notification message </b>
+  </div>
     <div id="wrapper">
         <?php include "bo_header.php";; ?>
         <nav class="navbar-default navbar-side" role="navigation">
@@ -111,8 +115,13 @@ if (isset($_SESSION['succes'] ) ) {
 </div>
                 <form class="form-inline md-form mr-auto mb-4" action='updateUserBloodRecord' method='POST' id="form_nic">
                     <div class="row">
-                        <input class="form-control mr-lg-2" type="text" placeholder="Enter NIC" aria-label="Search" id="inp_nic" name="inp_nic">
-                        <input type="submit" id="search_nic" class="btn btn-primary" value="Update Donar" name="search_b">
+
+                        <div class="id_field">
+                        <input class="form-control mr-lg-2" type="text" placeholder="Enter NIC" aria-label="Search" id="inp_nic" name="inp_nic" required>
+                        </div>
+                        
+                        <input type="submit" id="search_nic" class="btn btn-primary" value="Add Officer" name="search_b"  onclick="return check()">
+
                     </div>
 
                 </form>
@@ -208,7 +217,11 @@ if (isset($_SESSION['succes'] ) ) {
         <!-- Custom Js -->
         <script src="assets/js/custom-scripts.js"></script>
 
-
+        <script src="../Public/js/bo_Update.js"></script>
+        <script src="../Public/js/jquery.min.js"></script>
+        <script src="../Public/js/bootstrap.bundle.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/baguettebox.js/1.8.1/baguetteBox.min.js"></script>
+        <script src="../Public/js/owl.carousel.min.js"></script>
 </body>
 
 </html>
