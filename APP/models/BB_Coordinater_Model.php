@@ -113,9 +113,9 @@ public function getCampReqest($district)
         $results2 = $this->db->selectData($query2);
         return $results2;
     }
-    public function bbc_viewOfficer_Data(){
-        $query2 = "select * from user where jobType=:jobType ";
-        $res = $this->db->runQuery($query2, [":jobType" => 'BloodBankOfficer']);
+    public function bbc_viewOfficer_Data($district){
+        $query2 = "select * from user where jobType=:jobType AND district=:district";
+        $res = $this->db->runQuery($query2, [":jobType" => 'BloodBankOfficer',":district"=>$district]);
         return $res;
 
     }
@@ -126,10 +126,10 @@ public function getCampReqest($district)
         $results3 = $this->db->runquery($query3,[":expired"=>"NO"]);
         return $results3;
     }
-    public function getBloodData()
+    public function getBloodData($district)
     {
-        $query4 = "select * from blooddetails";
-        $results4 = $this->db->selectData($query4);
+        $query4 = "select * from blooddetails WHERE Distric=:Distric";
+        $results4 = $this->db->runquery($query4,[":Distric"=>$district]);
         return $results4;
     }
     public function getBoodId_type($id)

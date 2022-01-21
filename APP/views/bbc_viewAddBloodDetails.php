@@ -92,11 +92,12 @@ if (isset($_SESSION['jobtype'])) {
                                             </div>
                                             <div class="form-group">
                                                 <label for="m_quantity">Maximum Quantity<span>(Enter in Blood Pints) </span></label>
-                                                <input class="form-control" type="number" placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data[0]['MaximumQuantity'] ?> </div>
-                                                <div class="form-group">
-                                                    <label for="a_quantity">Available Quantity <span>(Enter in Blood Pints) </span> </label>
-                                                    <input class="form-control" type="number" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data[0]['AvailableQuantity'] ?>>
-                                                </div>
+                                                <input class="form-control"  placeholder="Maximum Quantity for given Blood Type" name="m_quantity" id="m_quantity" <?php echo "value=" . $data[0]['MaximumQuantity'] ?> 
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="a_quantity">Available Quantity <span>(Enter in Blood Pints) </span> </label>
+                                                <input class="form-control" placeholder="Available Quantity for given Blood Type" name="a_quantity" id="a_quantity" <?php echo "value=" . $data[0]['AvailableQuantity'] ?>>
+                                            </div>
 
                                                 <input type="submit" value="Update Blood Data" class="btn btn-primary" name="add_blood_btn">
                                                 </form>

@@ -121,7 +121,7 @@ if (isset($_SESSION['jobtype'])) {
                                                     <i class='fa fa-exclamation-circle'></i>
                                                     <small>Error Message</small>
                                                 </div>
-                                                <div class="form-group">
+                                                <!-- <div class="form-group">
                                                     <label>District</label>
                                                     <select class="form-control" name="districts" id="districts">
                                                         <option>Matara</option>
@@ -130,7 +130,7 @@ if (isset($_SESSION['jobtype'])) {
                                                         <option>Kandy</option>
                                                         <option>Jaffna</option>
                                                     </select>
-                                                </div>
+                                                </div> -->
                                                 <div class="form-group">
                                                     <label>Gender</label><br>
                                                     <label class="radio-inline">

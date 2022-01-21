@@ -1,5 +1,6 @@
 <?php
 include "BloodDetailsFactory.php";
+session_start();
 class BloodDetails extends  Controller{
     private $bloodD_Fly_w_Imp;
     function __construct()
@@ -16,7 +17,7 @@ class BloodDetails extends  Controller{
                 $blood_dataArray=[
                     "maximum_quantity"=>$this->testInput($_POST["m_quantity" ]),
                     "available_quantity"=>$this->testInput($_POST["a_quantity" ]),
-                    "Distric"=>$this->testInput("Matara"),
+
 
                 ];
 
