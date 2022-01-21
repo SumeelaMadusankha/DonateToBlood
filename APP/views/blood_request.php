@@ -152,7 +152,7 @@ if (isset($_SESSION['jobtype'])) {
 
     
 
-        <form action="../RegisteredUser/addRequest" method="POST" id="req_form">
+        <form action="../BloodRequest/addRequest" method="POST" id="req_form">
         <div id="note">
       <b> Notification message </b>
   </div>
